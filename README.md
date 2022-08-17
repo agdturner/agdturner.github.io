@@ -1,5 +1,5 @@
 # agdturner.github.io
-GitHub Pages Website
-The website is hosted on GitHub using GitHub Pages and is avaialble via the following URL:
+A repository for a GitHub Pages Website hosted on GitHub using GitHub Pages and available via the following URL:
 https://agdturner.github.io
-Although GitHub Pages support Jekyll, the website is currently simply built using HTML and is currently for teaching/demonstration purposes.
+The website is very basic and was generated using Java code in the following repository:
+https://github.com/agdturner/agdturner.github.io.generator
