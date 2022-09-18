@@ -21,8 +21,8 @@
  */
 function initStyleSheet() {
     console.log('initStyleSheet()');
-	var dark_theme = "../../../../tools/highlight/styles/github-dark.min.css";
-	var light_theme = "../../../../tools/highlight/styles/github.min.css";
+	var dark_theme = "/tools/highlight/styles/github-dark.min.css";
+	var light_theme = "/tools/highlight/styles/github.min.css";
 	var theme = localStorage.getItem("theme");
 	console.log('theme=' + theme);
 	if (theme == null) {
