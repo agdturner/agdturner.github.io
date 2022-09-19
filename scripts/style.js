@@ -82,7 +82,7 @@ function swapStyle(){
 }
 
 addEventListener('DOMContentLoaded', (event) => {
-	initStyleSheet();
+	initStyle();
 	console.log('The DOM is fully loaded.');
 });
 
