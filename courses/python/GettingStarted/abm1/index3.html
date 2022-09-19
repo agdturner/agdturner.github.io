@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang=en-GB>
+<head>
+<title>ABM 1 Page</title>
+<!-- Styling. -->
+<link id="code_theme" rel="stylesheet" type="text/css" href="">
+<script src="../../../../scripts/style.js"></script>
+<script src="../../../../tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link rel="stylesheet" href="../../../../css/style.css">
+</head>
+<body>
+
+<h2>Javascript Change StyleSheet Without Page Reload</h2>
+<button onclick="swapStyleSheet()" id="style_button"></button>
+<p id="demo"></p>
+
+<div>
+<h1>abm1</h1>
+<p>ABM</p>
+
+
+<pre><code class="language-python">for j in range(num_of_iterations):
+    for i in range(num_of_agents):
+        if random.random() < 0.5:
+            agents[i][0] = (agents[i][0] + 1) % 100
+        else:
+            agents[i][0] = (agents[i][0] - 1) % 100
+        if random.random() < 0.5:
+            agents[i][1] = (agents[i][1] + 1) % 100
+        else:
+            agents[i][1] = (agents[i][1] - 1) % 100</code></pre>
+</div>
+
+    
+<div>
+<nav>
+<a href="index3.html">next</a>
+</nav>
+</div>
+
+</body>
+</html>

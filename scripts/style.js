@@ -35,11 +35,13 @@ function initStyleSheet() {
 	} else {
 		var element = document.body;
 		element.classList.add("dark-mode");
+		element.classList.add("button2");
 		if (theme === dark_theme) {
 			console.log('theme === dark_theme');
 		} else {
 			console.log('theme === light_theme');
 			element.classList.toggle("dark-mode");
+			element.classList.toggle("button2");
 		}
 	}
 	console.log('theme=' + theme);

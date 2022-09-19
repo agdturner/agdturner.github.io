@@ -7,5 +7,15 @@ body {
 .dark-mode {
   background-color: black;
   color: white;
-  border-color: white;
+  border-color: white; 
+}
+
+button {
+	background-color: Gray;
+	color: black;
+}
+
+.button2 {
+	background-color: DimGray;
+	color: white;
 }
