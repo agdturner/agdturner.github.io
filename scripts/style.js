@@ -19,11 +19,12 @@
  /**
  * Function to initialise the style sheet for code.
  */
-function initStyleSheet() {
-    console.log('initStyleSheet()');
+function initStyle() {
+    console.log('initStyle()');
 	var dark_theme = "/tools/highlight/styles/github-dark.min.css";
 	var light_theme = "/tools/highlight/styles/github.min.css";
 	var theme = localStorage.getItem("theme");
+	var css = localStorage.getItem("css");
 	console.log('theme=' + theme);
 	if (theme == null) {
 		console.log('theme == null');
@@ -32,31 +33,35 @@ function initStyleSheet() {
 		localStorage.setItem("antitheme", dark_theme);
 		localStorage.setItem("theme_name", "Light Mode");
 		localStorage.setItem("antitheme_name", "Dark Mode");
+		css = "/css/style_light.css";
+		localStorage.setItem("css", "/css/style_light.css");
+		localStorage.setItem("anticss", "/css/style_dark.css");
 	} else {
-		var element = document.body;
-		element.classList.add("dark-mode");
-		element.classList.add("button2");
+		//var element = document.body;
+		//element.classList.add("dark-mode");
+		//element.classList.add("button2");
 		if (theme === dark_theme) {
 			console.log('theme === dark_theme');
 		} else {
 			console.log('theme === light_theme');
-			element.classList.toggle("dark-mode");
-			element.classList.toggle("button2");
+			//element.classList.toggle("dark-mode");
+			//element.classList.toggle("button2");
 		}
 	}
 	console.log('theme=' + theme);
 	console.log('antitheme=' + localStorage.getItem("antitheme"));
 	document.getElementById('code_theme').setAttribute('href', theme);
 	document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
+	document.getElementById('css').setAttribute('href', css);
 }
 
 /**
  * Function to change from light mode to dark mode and vice versa.
  */
-function swapStyleSheet(){
-	console.log('swapStyleSheet');
-	var element = document.body;
-	element.classList.toggle("dark-mode");
+function swapStyle(){
+	console.log('swapStyle');
+	//var element = document.body;
+	//element.classList.toggle("dark-mode");
 	var theme = localStorage.getItem("antitheme");
 	var antitheme = localStorage.getItem("theme");
 	var theme_name = localStorage.getItem("antitheme_name");
@@ -66,9 +71,14 @@ function swapStyleSheet(){
 	localStorage.setItem("theme_name", theme_name);
 	localStorage.setItem("antitheme_name", antitheme_name);
 	document.getElementById('code_theme').setAttribute('href', theme);
+	document.getElementById("style_button").innerHTML = antitheme_name;
 	console.log('theme=' + theme);
 	console.log('antitheme=' + antitheme);
-	document.getElementById("style_button").innerHTML = antitheme_name;
+	var css = localStorage.getItem("anticss");
+	var anticss = localStorage.getItem("css");
+	localStorage.setItem("css", css);
+	localStorage.setItem("anticss", anticss);
+    document.getElementById("css").setAttribute("href", css);  
 }
 
 addEventListener('DOMContentLoaded', (event) => {

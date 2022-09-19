@@ -1,0 +1,10 @@
+body {
+  background-color: black;
+  color: white;
+  border-color: white; 
+}
+
+button {
+	background-color: DimGray;
+	color: white;
+}
