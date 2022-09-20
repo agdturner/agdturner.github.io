@@ -53,18 +53,18 @@ function initStyle() {
 	document.getElementById('code_theme').setAttribute('href', theme);
 	document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
 	document.getElementById('css').setAttribute('href', css);
-	setButtonStyles();
+	setButtons();
 }
 
 /**
  * Function to set the button styles.
  */
-function setButtonStyles(){
+function setButtons() {
 	var path = window.location.pathname;
 	var id = path.split("/").pop();
 	console.log(id);
 	var element = document.getElementById(id);
-    element.style.background-color = blue
+    element.style.background-color = blue;
 }
 
 /**
