@@ -53,6 +53,7 @@ function initStyle() {
 	document.getElementById('code_theme').setAttribute('href', theme);
 	document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
 	document.getElementById('css').setAttribute('href', css);
+	setButtonStyles();
 }
 
 /**
