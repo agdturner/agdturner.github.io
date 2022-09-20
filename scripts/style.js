@@ -15,6 +15,7 @@
  *
  * @author Andy Turner
  */
+ import path from 'path';
  
  /**
  * Function to initialise the style sheet for code.
