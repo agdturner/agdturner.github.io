@@ -6,12 +6,6 @@ body {
 
 button {
   background-color: Gray;
-  color: blue;
-  border: blue;
-}
-
-.button2 {
-  background-color: blue;
-  color: gray;
-  border: gray;
+  color: white;
+  border: black;
 }

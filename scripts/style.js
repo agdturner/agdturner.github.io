@@ -64,7 +64,7 @@ function setButtonStyles(){
 	var id = path.split("/").pop();
 	console.log(id);
 	var element = document.getElementById(id);
-    element.style.background-color = pink
+    element.style.background-color = blue
 }
 
 /**
