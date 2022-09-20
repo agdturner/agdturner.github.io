@@ -60,8 +60,7 @@ function initStyle() {
  * Function to set the button styles.
  */
 function setButtons() {
-	var path = window.location.pathname;
-	var id = path.split("/").pop();
+	var id = path.basename(path.dirname(window.location.pathname));
 	console.log(id);
 	var element = document.getElementById(id);
 	element.style.backgroundColor = "red";
