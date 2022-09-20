@@ -64,7 +64,7 @@ function setButtons() {
 	var id = path.split("/").pop();
 	console.log(id);
 	var element = document.getElementById(id);
-    element.style.background-color = blue;
+	element.style.backgroundColor = "red";
 }
 
 /**
