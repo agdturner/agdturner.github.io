@@ -5,13 +5,13 @@ body {
 }
 
 button {
-  background-color: Gray;
+  background-color: white;
   color: black;
-  border: none;
+  border: black;
 }
 
 .button2 {
-  background-color: DimGray;
+  background-color: black;
   color: white;
-  border: none;
+  border: white;
 }

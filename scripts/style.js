@@ -56,6 +56,17 @@ function initStyle() {
 }
 
 /**
+ * Function to set the button styles.
+ */
+function setButtonStyles(){
+	var path = window.location.pathname;
+	var id = path.split("/").pop();
+	console.log(id);
+	var element = document.getElementById(id);
+    element.style.background-color = pink
+}
+
+/**
  * Function to change from light mode to dark mode and vice versa.
  */
 function swapStyle(){
