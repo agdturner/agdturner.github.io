@@ -18,10 +18,10 @@
  //import path from 'path'; // import does not seem to work even when script type set to module using 
  
 /**
- * For jquery test.
+ * Use jquery to listen to style_button click.
  */
 $(document).on('click', '#style_button', function(){ 
-    alert("button is clicked");
+    //alert("button is clicked");
 	swapStyle();
 });
 
