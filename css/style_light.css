@@ -18,13 +18,12 @@ button {
   margin-bottom: 2px;
   margin-right: 2px;
   margin-left: 2px;
-  transition-duration: 0.4s;
   cursor: pointer;
 }
 
 button:hover {
+  transition-duration: 0.4s;
   background-color: DimGray;
   /*background-color: gray;*/
-  color: gray;
   /*color: black;*/
 }
