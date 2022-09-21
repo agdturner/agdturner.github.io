@@ -5,8 +5,10 @@ body {
 }
 
 button {
-  background-color: white;
-  color: black;
+  /*background-color: white;*/
+  background-color: gray;
+  /*color: black;*/
+  color: white;
   border: black;
   padding-top: 2px;
   padding-right: 2px;
@@ -21,6 +23,8 @@ button {
 }
 
 .button:hover {
-  background-color: gray;
-  color: black;
+  background-color: DimGray;
+  /*background-color: gray;*/
+  color: gray;
+  /*color: black;*/
 }
