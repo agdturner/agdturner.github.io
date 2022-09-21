@@ -15,7 +15,7 @@
  *
  * @author Andy Turner
  */
- import path from 'path';
+ //import path from 'path'; // import does not seem to work even when script type set to module using 
  
  /**
  * Function to initialise the style sheet for code.
@@ -61,7 +61,10 @@ function initStyle() {
  * Function to set the button styles.
  */
 function setButtons() {
-	var id = path.dirname(window.location.pathname).split(path.sep).pop();
+	// The following fails currently, but might be a better way:
+	// var id = path.dirname(window.location.pathname).split(path.sep).pop();
+	var dirs = window.location.pathname.split("/");
+	var id = dirs[dirs.length() - 2];
 	console.log(id);
 	var element = document.getElementById(id);
 	element.style.backgroundColor = "red";
