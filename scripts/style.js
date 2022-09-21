@@ -73,7 +73,7 @@ function setButtons() {
 /**
  * Function to change from light mode to dark mode and vice versa.
  */
-function swapStyle(){
+function swapStyle() {
 	console.log('swapStyle');
 	//var element = document.body;
 	//element.classList.toggle("dark-mode");
