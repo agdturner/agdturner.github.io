@@ -17,7 +17,15 @@
  */
  //import path from 'path'; // import does not seem to work even when script type set to module using 
  
- /**
+/**
+ * For jquery test.
+ */
+$(document).on('click', '#style_button', function(){ 
+    alert("button is clicked");
+	swapStyle();
+});
+
+/**
  * Function to initialise the style sheet for code.
  */
 function initStyle() {
@@ -61,13 +69,13 @@ function initStyle() {
  * Function to set the button styles.
  */
 function setButtons() {
-	// The following fails currently, but might be a better way:
+	// The following commented out line fails currently, but might be a better way:
 	// var id = path.dirname(window.location.pathname).split(path.sep).pop();
 	var dirs = window.location.pathname.split("/");
 	var id = dirs[dirs.length - 2];
 	console.log(id);
 	var element = document.getElementById(id);
-	element.style.backgroundColor = "red";
+	element.style.backgroundColor = "green";
 }
 
 /**
