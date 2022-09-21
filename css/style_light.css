@@ -22,7 +22,6 @@ button {
 }
 
 button:hover {
-  transition-duration: 0.4s;
   background-color: DimGray;
   /*background-color: gray;*/
   /*color: black;*/
