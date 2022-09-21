@@ -16,4 +16,11 @@ button {
   margin-bottom: 2px;
   margin-right: 2px;
   margin-left: 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: gray;
+  color: black;
 }

@@ -5,7 +5,7 @@ body {
 }
 
 button {
-  background-color: Gray;
+  background-color: gray;
   color: white;
   border: black;
   padding-top: 2px;
@@ -16,4 +16,11 @@ button {
   margin-bottom: 2px;
   margin-right: 2px;
   margin-left: 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: DimGray;
+  color: gray;
 }
