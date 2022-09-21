@@ -17,13 +17,13 @@
  */
  //import path from 'path'; // import does not seem to work even when script type set to module using 
  
-/**
- * Use jquery to listen to style_button click.
- */
-$(document).on('click', '#style_button', function(){ 
-    //alert("button is clicked");
-	swapStyle();
-});
+///**
+// * Use jquery to listen to style_button click.
+// */
+//$(document).on('click', '#style_button', function(){ 
+//    //alert("button is clicked");
+//	swapStyle();
+//});
 
 /**
  * Function to initialise the style sheet for code.
