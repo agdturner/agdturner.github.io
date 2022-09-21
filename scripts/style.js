@@ -64,7 +64,7 @@ function setButtons() {
 	// The following fails currently, but might be a better way:
 	// var id = path.dirname(window.location.pathname).split(path.sep).pop();
 	var dirs = window.location.pathname.split("/");
-	var id = dirs[dirs.length() - 2];
+	var id = dirs[dirs.length - 2];
 	console.log(id);
 	var element = document.getElementById(id);
 	element.style.backgroundColor = "red";
