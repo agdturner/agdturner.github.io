@@ -4,7 +4,7 @@ body {
   border-color: white; 
 }
 
-button {
+a {
   background-color: gray;
   color: white;
   border: black;
@@ -19,6 +19,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+a:hover {
   background-color: DimGray;
 }
