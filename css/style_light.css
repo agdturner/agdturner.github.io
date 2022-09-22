@@ -12,9 +12,6 @@ a {
 /* hovered over link */
 a:hover {
   color: green;
-  background-color: DimGray;
-  /*background-color: gray;*/
-  /*color: black;*/
 }
 
 /* selected link */

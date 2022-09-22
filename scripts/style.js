@@ -75,7 +75,7 @@ function setButtons() {
 	var id = dirs[dirs.length - 2];
 	console.log(id);
 	var element = document.getElementById(id);
-	element.style.backgroundColor = "green";
+	element.style.outline = "thick solid green";
 }
 
 /**
