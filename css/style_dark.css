@@ -4,9 +4,10 @@ body {
   border-color: white; 
 }
 
+/* link */
 a {
   background-color: gray;
-  color: white;
+  /*color: white;*/
   border: black;
   padding-top: 2px;
   padding-right: 2px;
@@ -19,6 +20,12 @@ a {
   cursor: pointer;
 }
 
+/* hovered over link */
 a:hover {
   background-color: DimGray;
+}
+
+/* selected link */
+a:active {
+  color: blue;
 }

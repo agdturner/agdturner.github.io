@@ -4,11 +4,12 @@ body {
   border-color: black;
 }
 
+/* link */
 a {
   /*background-color: white;*/
   background-color: gray;
   /*color: black;*/
-  color: white;
+  /*color: white;*/
   border: black;
   padding-top: 2px;
   padding-right: 2px;
@@ -21,8 +22,15 @@ a {
   cursor: pointer;
 }
 
+/* hovered over link */
 a:hover {
+  color: green;
   background-color: DimGray;
   /*background-color: gray;*/
   /*color: black;*/
+}
+
+/* selected link */
+a:active {
+  color: blue;
 }
