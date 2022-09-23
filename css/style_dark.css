@@ -1,6 +1,17 @@
 body {
   background-color: black;
-  color: white;
+  color: gray;
+}
+
+/* button */
+button {
+  background-color: black;
+  color: gray;
+}
+
+/* hovered over button */
+button:hover{
+	colour: green;
 }
 
 /* link */

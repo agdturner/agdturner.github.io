@@ -62,13 +62,6 @@ function initStyle() {
 	document.getElementById('code_theme').setAttribute('href', theme);
 	document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
 	document.getElementById('css').setAttribute('href', css);
-	setButtons();
-}
-
-/**
- * Function to set the button styles.
- */
-function setButtons() {
 	// The following commented out line fails currently, but might be a better way:
 	// var id = path.dirname(window.location.pathname).split(path.sep).pop();
 	var dirs = window.location.pathname.split("/");

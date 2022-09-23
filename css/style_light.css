@@ -3,6 +3,17 @@ body {
   color: black;
 }
 
+/* button */
+button {
+  background-color: white;
+  color: black;
+}
+
+/* hovered over button */
+button:hover{
+	colour: green;
+}
+
 /* link */
 a {
   cursor: pointer;
