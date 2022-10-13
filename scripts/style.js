@@ -48,24 +48,21 @@ function initStyle() {
 			setDarkMode()
 		}
 	}
-	document.getElementById('css1').setAttribute('href', localStorage.getItem("css1"));
-	document.getElementById('css2').setAttribute('href', localStorage.getItem("css2"));
-	document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
 	setOutline();
 }
 
 function setDarkMode() {
 	localStorage.setItem("theme_name", "Dark Mode");
-	localStorage.setItem("antitheme_name", "Light Mode");
 	localStorage.setItem("css1", dark_theme);
 	localStorage.setItem("css2", "/css/style_dark.css");
+	document.getElementById("style_button").innerHTML = "Light Mode";
 }
 
 function setLightMode() {
 	localStorage.setItem("theme_name", "Light Mode");
-	localStorage.setItem("antitheme_name", "Dark Mode");
 	localStorage.setItem("css1", light_theme);
 	localStorage.setItem("css2", "/css/style_light.css");
+	document.getElementById("style_button").innerHTML = "Dark Mode";
 }
 
 
@@ -82,11 +79,6 @@ function swapStyle() {
 	} else {
 		setLightMode()
 	}
-	var theme_name = localStorage.getItem("antitheme_name");
-	var antitheme_name = localStorage.getItem("theme_name");
-	document.getElementById('css1').setAttribute('href', localStorage.getItem("css1"));
-	document.getElementById('css2').setAttribute('href', localStorage.getItem("css2"));
-	document.getElementById("style_button").innerHTML = antitheme_name;
 	setOutline();
 }
 
