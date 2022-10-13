@@ -7,36 +7,36 @@
 <!-- The following are used for stying code. -->
 <script src="/tools/highlight/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
-<script>
- // Check if the browser setting prefers dark.
- var dark_theme = "/tools/highlight/styles/github-dark.min.css";
- var light_theme = "/tools/highlight/styles/github.min.css";
- const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
- console.log('prefersDarkMode ' + prefersDarkMode);
- if (prefersDarkMode) {
-  theme = dark_theme;
-  antitheme = light_theme;
-  localStorage.setItem("theme_name", "Dark Mode");
-  localStorage.setItem("antitheme_name", "Light Mode");
-  localStorage.setItem("css1", dark_theme);
-  localStorage.setItem("css2", "/css/style_dark.css");
- } else {
-  theme = light_theme;
-  antitheme = dark_theme;
-  localStorage.setItem("theme_name", "Light Mode");
-  localStorage.setItem("antitheme_name", "Dark Mode");
-  localStorage.setItem("css1", light_theme);
-  localStorage.setItem("css2", "/css/style_light.css");
- }
- localStorage.setItem("theme", theme);
- localStorage.setItem("antitheme", antitheme);
- document.getElementById('css1').setAttribute('href', localStorage.getItem("css1"));
- document.getElementById('css2').setAttribute('href', localStorage.getItem("css2"));
- document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
-</script>
 <!-- The following href should be set in the script. -->
 <link id="css1" rel="stylesheet" type="text/css" href="">
 <link id="css2" rel="stylesheet" type="text/css" href="">
+<script>
+    // Check if the browser setting prefers dark.
+    var dark_theme = "/tools/highlight/styles/github-dark.min.css";
+    var light_theme = "/tools/highlight/styles/github.min.css";
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    console.log('prefersDarkMode ' + prefersDarkMode);
+    if (prefersDarkMode) {
+        theme = dark_theme;
+        antitheme = light_theme;
+        localStorage.setItem("theme_name", "Dark Mode");
+        localStorage.setItem("antitheme_name", "Light Mode");
+        localStorage.setItem("css1", dark_theme);
+        localStorage.setItem("css2", "/css/style_dark.css");
+    } else {
+        theme = light_theme;
+        antitheme = dark_theme;
+        localStorage.setItem("theme_name", "Light Mode");
+        localStorage.setItem("antitheme_name", "Dark Mode");
+        localStorage.setItem("css1", light_theme);
+        localStorage.setItem("css2", "/css/style_light.css");
+    }
+    localStorage.setItem("theme", theme);
+    localStorage.setItem("antitheme", antitheme);
+    document.getElementById('css1').setAttribute('href', localStorage.getItem("css1"));
+    document.getElementById('css2').setAttribute('href', localStorage.getItem("css2"));
+    document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
+</script>
 </head>
 <body>
 <header>
