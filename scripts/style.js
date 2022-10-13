@@ -35,36 +35,39 @@ function initStyle() {
 	// Check if the browser setting prefers dark.
 	const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
 	console.log('prefersDarkMode ' + prefersDarkMode);
-	if (prefersDarkMode) {
-		theme = dark_theme;
-		antitheme = light_theme;
-		localStorage.setItem("theme_name", "Dark Mode");
-		localStorage.setItem("antitheme_name", "Light Mode");
-		localStorage.setItem("css1", dark_theme);
-		localStorage.setItem("css2", "/css/style_dark.css");
+	if (localStorage.getItem("theme_name") == null) {
+		if (prefersDarkMode) {
+			setDarkMode();
+		} else {
+			setLightMode();
+		}
 	} else {
-		theme = light_theme;
-		antitheme = dark_theme;
-		localStorage.setItem("theme_name", "Light Mode");
-		localStorage.setItem("antitheme_name", "Dark Mode");
-		localStorage.setItem("css1", light_theme);
-		localStorage.setItem("css2", "/css/style_light.css");
+		if (localStorage.getItem("theme_name") === "Light Mode") {
+			setLightMode();
+		else {
+			setDarkMode()
+		}
 	}
-	localStorage.setItem("theme", theme);
-	localStorage.setItem("antitheme", antitheme);
-	console.log('theme=' + theme);
-	console.log('antitheme=' + localStorage.getItem("antitheme"));
 	document.getElementById('css1').setAttribute('href', localStorage.getItem("css1"));
 	document.getElementById('css2').setAttribute('href', localStorage.getItem("css2"));
 	document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
-	// The following commented out line fails currently, but might be a better way:
-	// var id = path.dirname(window.location.pathname).split(path.sep).pop();
-	var dirs = window.location.pathname.split("/");
-	var id = dirs[dirs.length - 2];
-	console.log(id);
-	var element = document.getElementById(id);
-	element.style.outline = "thin solid green";
+	setOutline();
 }
+
+function setDarkMode() {
+	localStorage.setItem("theme_name", "Dark Mode");
+	localStorage.setItem("antitheme_name", "Light Mode");
+	localStorage.setItem("css1", dark_theme);
+	localStorage.setItem("css2", "/css/style_dark.css");
+}
+
+function setLightMode() {
+	localStorage.setItem("theme_name", "Light Mode");
+	localStorage.setItem("antitheme_name", "Dark Mode");
+	localStorage.setItem("css1", light_theme);
+	localStorage.setItem("css2", "/css/style_light.css");
+}
+
 
 /**
  * Function to change from light mode to dark mode and vice versa.
@@ -75,27 +78,19 @@ function swapStyle() {
 	//element.classList.toggle("dark-mode");
 	var theme_name = localStorage.getItem("theme_name");
 	if (theme_name === "Light Mode") {
-		localStorage.setItem("theme_name", "Dark Mode");
-		localStorage.setItem("antitheme_name", "Light Mode");
-		localStorage.setItem("css1", dark_theme);
-		localStorage.setItem("css2", "/css/style_dark.css");
+		setDarkMode()
 	} else {
-		localStorage.setItem("theme_name", "Light Mode");
-		localStorage.setItem("antitheme_name", "Dark Mode");
-		localStorage.setItem("css1", light_theme);
-		localStorage.setItem("css2", "/css/style_light.css");
+		setLightMode()
 	}
-	var theme = localStorage.getItem("antitheme");
-	var antitheme = localStorage.getItem("theme");
 	var theme_name = localStorage.getItem("antitheme_name");
 	var antitheme_name = localStorage.getItem("theme_name");
-	localStorage.setItem("theme", theme);
-	localStorage.setItem("antitheme", antitheme);
-	localStorage.setItem("theme_name", theme_name);
-	localStorage.setItem("antitheme_name", antitheme_name);
 	document.getElementById('css1').setAttribute('href', localStorage.getItem("css1"));
 	document.getElementById('css2').setAttribute('href', localStorage.getItem("css2"));
 	document.getElementById("style_button").innerHTML = antitheme_name;
+	setOutline();
+}
+
+function setOutline() {
 	var dirs = window.location.pathname.split("/");
 	var id = dirs[dirs.length - 2];
 	console.log(id);
