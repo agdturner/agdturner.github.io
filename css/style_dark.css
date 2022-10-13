@@ -21,6 +21,17 @@ a {
   cursor: pointer;
 }
 
+/* unvisited link */
+a:link {
+  color: LightBlue;
+}
+
+/* visited link */
+a:visited {
+  color: SkyBlue;
+}
+
+
 /* hovered over link */
 a:hover {
   color: green;
