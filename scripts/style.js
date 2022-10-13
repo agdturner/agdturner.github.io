@@ -94,7 +94,12 @@ function swapStyle() {
 	localStorage.setItem("antitheme_name", antitheme_name);
 	document.getElementById('css1').setAttribute('href', localStorage.getItem("css1"));
 	document.getElementById('css2').setAttribute('href', localStorage.getItem("css2"));
-	document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
+	document.getElementById("style_button").innerHTML = antitheme_name;
+	var dirs = window.location.pathname.split("/");
+	var id = dirs[dirs.length - 2];
+	console.log(id);
+	var element = document.getElementById(id);
+	element.style.outline = "thin solid green";
 }
 
 addEventListener('DOMContentLoaded', (event) => {
