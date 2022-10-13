@@ -25,12 +25,13 @@
 // swapStyle();
 //});
 
+var dark_theme = "/tools/highlight/styles/github-dark.min.css";
+var light_theme = "/tools/highlight/styles/github.min.css";
+	
 /**
  * Function to initialise the style sheet for code.
  */
 function initStyle() {
-	var dark_theme = "/tools/highlight/styles/github-dark.min.css";
-	var light_theme = "/tools/highlight/styles/github.min.css";
 	// Check if the browser setting prefers dark.
 	const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
 	console.log('prefersDarkMode ' + prefersDarkMode);
