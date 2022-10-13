@@ -34,6 +34,26 @@ function initStyle() {
 	var light_theme = "/tools/highlight/styles/github.min.css";
 	var theme = localStorage.getItem("theme");
 	var css = localStorage.getItem("css");
+	// Check if the browser setting prefers dark.
+	const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+	console.log('prefersDarkMode ' + prefersDarkMode);
+	if (prefersDarkMode) {
+		theme = dark_theme;
+		antitheme = light_theme;
+		localStorage.setItem("theme_name", "Dark Mode");
+		localStorage.setItem("antitheme_name", "Light Mode");
+		localStorage.setItem("css", "/css/style_dark.css");
+		localStorage.setItem("anticss", "/css/style_light.css");
+	} else {
+		theme = light_theme;
+		antitheme = dark_theme;
+		localStorage.setItem("theme_name", "Light Mode");
+		localStorage.setItem("antitheme_name", "Dark Mode");
+		localStorage.setItem("css", "/css/style_light.css");
+		localStorage.setItem("anticss", "/css/style_dark.css");
+	}
+	localStorage.setItem("theme", theme);
+	localStorage.setItem("antitheme", antitheme);	
 	console.log('theme=' + theme);
 	console.log('antitheme=' + localStorage.getItem("antitheme"));
 	document.getElementById('code_theme').setAttribute('href', theme);
