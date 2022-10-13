@@ -53,8 +53,8 @@ function initStyle() {
 	localStorage.setItem("antitheme", antitheme);
 	console.log('theme=' + theme);
 	console.log('antitheme=' + localStorage.getItem("antitheme"));
-	document.getElementById('css1').setAttribute('href', localStorage.setItem("css1"));
-	document.getElementById('css2').setAttribute('href', localStorage.setItem("css2"));
+	document.getElementById('css1').setAttribute('href', localStorage.getItem("css1"));
+	document.getElementById('css2').setAttribute('href', localStorage.getItem("css2"));
 	document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
 	// The following commented out line fails currently, but might be a better way:
 	// var id = path.dirname(window.location.pathname).split(path.sep).pop();
