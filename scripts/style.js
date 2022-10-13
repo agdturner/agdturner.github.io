@@ -33,18 +33,27 @@ function initStyle() {
 	var dark_theme = "/tools/highlight/styles/github-dark.min.css";
 	var light_theme = "/tools/highlight/styles/github.min.css";
 	var theme = localStorage.getItem("theme");
-	var css = localStorage.getItem("css");
-	console.log('theme=' + theme);
 	if (theme == null) {
 		console.log('theme == null');
-		theme = light_theme;
-		localStorage.setItem("theme", light_theme);
-		localStorage.setItem("antitheme", dark_theme);
-		localStorage.setItem("theme_name", "Light Mode");
-		localStorage.setItem("antitheme_name", "Dark Mode");
-		css = "/css/style_light.css";
-		localStorage.setItem("css", "/css/style_light.css");
-		localStorage.setItem("anticss", "/css/style_dark.css");
+		const prefersDarkMode = window.matchMedia("(prefers-color-scheme:dark)").matches; // true
+		console.log('prefersDarkMode ' + prefersDarkMode);
+		if (prefersDarkMode) {
+			theme = dark_theme;
+			antitheme = light_theme;
+			localStorage.setItem("theme_name", "Dark Mode");
+			localStorage.setItem("antitheme_name", "Light Mode");
+			localStorage.setItem("css", "/css/style_dark.css");
+			localStorage.setItem("anticss", "/css/style_light.css");
+		} else {
+			theme = light_theme;
+			antitheme = dark_theme;
+			localStorage.setItem("theme_name", "Light Mode");
+			localStorage.setItem("antitheme_name", "Dark Mode");
+			localStorage.setItem("css", "/css/style_light.css");
+			localStorage.setItem("anticss", "/css/style_dark.css");
+		}
+		localStorage.setItem("theme", theme);
+		localStorage.setItem("antitheme", antitheme);
 	} else {
 		//var element = document.body;
 		//element.classList.add("dark-mode");
@@ -57,6 +66,7 @@ function initStyle() {
 			//element.classList.toggle("button2");
 		}
 	}
+	var css = localStorage.getItem("css");
 	console.log('theme=' + theme);
 	console.log('antitheme=' + localStorage.getItem("antitheme"));
 	document.getElementById('code_theme').setAttribute('href', theme);
