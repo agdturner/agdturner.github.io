@@ -53,7 +53,7 @@ function setDarkMode() {
 	localStorage.setItem("css1", "/tools/highlight/styles/github-dark.min.css");
 	localStorage.setItem("css2", "/css/style_dark.css");
 	document.getElementById("style_button").innerHTML = "Light Mode";
-	reloadCss();
+	location.reload();
 }
 
 function setLightMode() {
@@ -61,7 +61,7 @@ function setLightMode() {
 	localStorage.setItem("css1", "/tools/highlight/styles/github.min.css");
 	localStorage.setItem("css2", "/css/style_light.css");
 	document.getElementById("style_button").innerHTML = "Dark Mode";
-	reloadCss();
+	location.reload();
 }
 
 /**
@@ -86,16 +86,6 @@ function setOutline() {
 	console.log(id);
 	var element = document.getElementById(id);
 	element.style.outline = "thin solid green";
-}
-
-function reloadCss() {
-    var links = document.getElementsByTagName("link");
-    for (var l in links) {
-        var link = links[l];
-        if (link.rel === "stylesheet") {
-            link.href += "";
-		}
-    }
 }
 
 addEventListener('DOMContentLoaded', (event) => {
