@@ -44,7 +44,7 @@ function initStyle() {
 	} else {
 		if (localStorage.getItem("theme_name") === "Light Mode") {
 			setLightMode();
-		else {
+		} else {
 			setDarkMode()
 		}
 	}
