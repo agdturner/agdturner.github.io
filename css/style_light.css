@@ -15,9 +15,9 @@ button:hover{
 }
 
 /* External Link */
-a[href*='//'] {
-	background-color: Pink;
-}
+//a[href*='//'] {
+//	background-color: Pink;
+//}
 
 /* link */
 a {
