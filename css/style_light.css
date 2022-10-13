@@ -14,6 +14,11 @@ button:hover{
 	colour: green;
 }
 
+/* External Link */
+a[href*='//'] {
+	background-color: LightRed;
+}
+
 /* link */
 a {
   cursor: pointer;

@@ -21,14 +21,19 @@ a {
   cursor: pointer;
 }
 
+/* External Link */
+a[href*='//'] {
+	background-color: DarkRed;
+}
+
 /* unvisited link */
 a:link {
-  color: LightBlue;
+  color: SkyBlue;
 }
 
 /* visited link */
 a:visited {
-  color: SkyBlue;
+  color: LightBlue;
 }
 
 
