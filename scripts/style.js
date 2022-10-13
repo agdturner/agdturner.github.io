@@ -30,15 +30,15 @@
  */
 function initStyle() {
     console.log('initStyle()');
-	//var dark_theme = "/tools/highlight/styles/github-dark.min.css";
-	//var light_theme = "/tools/highlight/styles/github.min.css";
-	//var theme = localStorage.getItem("theme");
-	//var css = localStorage.getItem("css");
+	var dark_theme = "/tools/highlight/styles/github-dark.min.css";
+	var light_theme = "/tools/highlight/styles/github.min.css";
+	var theme = localStorage.getItem("theme");
+	var css = localStorage.getItem("css");
 	console.log('theme=' + theme);
 	console.log('antitheme=' + localStorage.getItem("antitheme"));
 	document.getElementById('code_theme').setAttribute('href', theme);
 	document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
-	//document.getElementById('css').setAttribute('href', css);
+	document.getElementById('css').setAttribute('href', css);
 	// The following commented out line fails currently, but might be a better way:
 	// var id = path.dirname(window.location.pathname).split(path.sep).pop();
 	var dirs = window.location.pathname.split("/");
