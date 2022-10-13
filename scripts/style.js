@@ -30,49 +30,15 @@
  */
 function initStyle() {
     console.log('initStyle()');
-	var dark_theme = "/tools/highlight/styles/github-dark.min.css";
-	var light_theme = "/tools/highlight/styles/github.min.css";
-	var theme = localStorage.getItem("theme");
-	if (theme == null) {
-		console.log('theme == null');
-		// Check if the browser setting prefers dark.
-		const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-		console.log('prefersDarkMode ' + prefersDarkMode);
-		if (prefersDarkMode) {
-			theme = dark_theme;
-			antitheme = light_theme;
-			localStorage.setItem("theme_name", "Dark Mode");
-			localStorage.setItem("antitheme_name", "Light Mode");
-			localStorage.setItem("css", "/css/style_dark.css");
-			localStorage.setItem("anticss", "/css/style_light.css");
-		} else {
-			theme = light_theme;
-			antitheme = dark_theme;
-			localStorage.setItem("theme_name", "Light Mode");
-			localStorage.setItem("antitheme_name", "Dark Mode");
-			localStorage.setItem("css", "/css/style_light.css");
-			localStorage.setItem("anticss", "/css/style_dark.css");
-		}
-		localStorage.setItem("theme", theme);
-		localStorage.setItem("antitheme", antitheme);
-	} else {
-		//var element = document.body;
-		//element.classList.add("dark-mode");
-		//element.classList.add("button2");
-		if (theme === dark_theme) {
-			console.log('theme === dark_theme');
-		} else {
-			console.log('theme === light_theme');
-			//element.classList.toggle("dark-mode");
-			//element.classList.toggle("button2");
-		}
-	}
-	var css = localStorage.getItem("css");
+	//var dark_theme = "/tools/highlight/styles/github-dark.min.css";
+	//var light_theme = "/tools/highlight/styles/github.min.css";
+	//var theme = localStorage.getItem("theme");
+	//var css = localStorage.getItem("css");
 	console.log('theme=' + theme);
 	console.log('antitheme=' + localStorage.getItem("antitheme"));
 	document.getElementById('code_theme').setAttribute('href', theme);
 	document.getElementById("style_button").innerHTML = localStorage.getItem("antitheme_name");
-	document.getElementById('css').setAttribute('href', css);
+	//document.getElementById('css').setAttribute('href', css);
 	// The following commented out line fails currently, but might be a better way:
 	// var id = path.dirname(window.location.pathname).split(path.sep).pop();
 	var dirs = window.location.pathname.split("/");
@@ -115,10 +81,6 @@ addEventListener('DOMContentLoaded', (event) => {
 
 addEventListener('load', (event) => {
 	console.log('The page is fully loaded.');
-});
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    const newColorScheme = event.matches ? "dark" : "light";
 });
 
 //addEventListener('beforeunload', (event) => {
