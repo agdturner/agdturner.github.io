@@ -73,7 +73,7 @@ function swapStyle() {
 	//var element = document.body;
 	//element.classList.toggle("dark-mode");
 	var theme_name = localStorage.getItem("theme_name");
-	if (theme_name === "Light_Mode") {
+	if (theme_name === "Light Mode") {
 		localStorage.setItem("theme_name", "Dark Mode");
 		localStorage.setItem("antitheme_name", "Light Mode");
 		localStorage.setItem("css1", dark_theme);
