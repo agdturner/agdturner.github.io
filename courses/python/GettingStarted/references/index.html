@@ -9,7 +9,16 @@ DOM is fully loaded. -->
 <!-- The following are used for stying code. -->
 <script src="/tools/highlight/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
-<link id="code_theme" rel="stylesheet" type="text/css" href="">
+<script>
+// Check if the browser setting prefers dark.
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // dark mode
+    <link id="code_theme" rel="stylesheet" type="text/css" href="/css/style_dark.css">
+} else {
+    // light mode
+    <link id="code_theme" rel="stylesheet" type="text/css" href="/css/style_light.css">
+}
+</script>
 </head>
 <body>
 <header>
@@ -52,7 +61,7 @@ DOM is fully loaded. -->
 <div>
 <p><a id="previous" class="nav" href="../index/index.html">Prev: Index</a></p>
 </div>
-<p>Date last modified: 2022-09-24.</p>
+<p>Date last modified: 2022-10-13.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

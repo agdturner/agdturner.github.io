@@ -35,7 +35,8 @@ function initStyle() {
 	var theme = localStorage.getItem("theme");
 	if (theme == null) {
 		console.log('theme == null');
-		const prefersDarkMode = window.matchMedia("(prefers-color-scheme:dark)").matches; // true
+		// Check if the browser setting prefers dark.
+		const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
 		console.log('prefersDarkMode ' + prefersDarkMode);
 		if (prefersDarkMode) {
 			theme = dark_theme;
@@ -114,6 +115,10 @@ addEventListener('DOMContentLoaded', (event) => {
 
 addEventListener('load', (event) => {
 	console.log('The page is fully loaded.');
+});
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    const newColorScheme = event.matches ? "dark" : "light";
 });
 
 //addEventListener('beforeunload', (event) => {
