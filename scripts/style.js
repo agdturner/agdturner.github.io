@@ -24,9 +24,6 @@
 // //alert("button is clicked");
 // swapStyle();
 //});
-
-var dark_theme = "/tools/highlight/styles/github-dark.min.css";
-var light_theme = "/tools/highlight/styles/github.min.css";
 	
 /**
  * Function to initialise the style sheet for code.
@@ -53,14 +50,14 @@ function initStyle() {
 
 function setDarkMode() {
 	localStorage.setItem("theme_name", "Dark Mode");
-	localStorage.setItem("css1", dark_theme);
+	localStorage.setItem("css1", "/tools/highlight/styles/github-dark.min.css");
 	localStorage.setItem("css2", "/css/style_dark.css");
 	document.getElementById("style_button").innerHTML = "Light Mode";
 }
 
 function setLightMode() {
 	localStorage.setItem("theme_name", "Light Mode");
-	localStorage.setItem("css1", light_theme);
+	localStorage.setItem("css1", "/tools/highlight/styles/github.min.css");
 	localStorage.setItem("css2", "/css/style_light.css");
 	document.getElementById("style_button").innerHTML = "Dark Mode";
 }
