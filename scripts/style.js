@@ -50,18 +50,16 @@ function initStyle() {
 
 function setDarkMode() {
 	localStorage.setItem("theme_name", "Dark Mode");
-	localStorage.setItem("css1", "/tools/highlight/styles/github-dark.min.css");
-	localStorage.setItem("css2", "/css/style_dark.css");
+	document.getElementById("css1").href = "/tools/highlight/styles/github-dark.min.css");
+	document.getElementById("css2").href = "/css/style_dark.css");
 	document.getElementById("style_button").innerHTML = "Light Mode";
-	location.reload();
 }
 
 function setLightMode() {
 	localStorage.setItem("theme_name", "Light Mode");
-	localStorage.setItem("css1", "/tools/highlight/styles/github.min.css");
-	localStorage.setItem("css2", "/css/style_light.css");
+	document.getElementById("css1").href = "/tools/highlight/styles/github.min.css");
+	document.getElementById("css2").href = "/css/style_light.css");
 	document.getElementById("style_button").innerHTML = "Dark Mode";
-	location.reload();
 }
 
 /**
