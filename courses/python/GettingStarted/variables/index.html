@@ -37,20 +37,31 @@ DOM is fully loaded. -->
 <p>Python does not have a special symbol to end a statement like many languages do.</p>
 <p>The following is a Python statement that sets the variable a equal to the number 1:</p>
 <pre><code class="language-python">
-<p>a = 1</p>
-<p></code></pre></p>
+a = 1
+</code></pre></p>
 <p>The # symbol is the start of a comment.</p>
 <pre><code class="language-python">
-<p># This entire line is a comment</p>
-<p>a = 1 # This part of the line is a comment</p>
-<p></code></pre></p>
-<p>Between triple quotes of the same type everything is a comment. """ is often used for documentation. ''' is often used to comment out sections of code which is common in testing or when refactoring - changing code</p>
+# This entire line is a comment
+a = 1 # This part of the line is a comment
+</code></pre>
+<p>Between triple quotes everything is a comment. There are two types of triple quote, those using single quotation marks, and those using double quotation marks. Triple double quotes (""") are typically used for documentation. Triple single quotes (''') are often used to comment out sections of code when trouble shooting/debugging (debugging is a coding term for resolving issues to do with code not resulting in what is wanted).</p>
 <pre><code class="language-python">
 """);
 This is a between triple quotes and is a comment.
 """);
-<p></code></pre></p>
-<p>Blank lines are allowed and these can be used to help structure code into blocks. It is good practice to start each code block with a comment that outlines what the code block is for.</p>
+</code></pre>
+<p>Blank lines are allowed and indeed help structure code into blocks. It is good practice to start each code block with a comment that outlines what the code block is for. For example:</p>
+<pre><code class="language-python">
+# Initialise a and b
+a = 2
+b = 4
+print(a)
+print(b)
+
+# Calculate a to the power of b
+c = a ** b
+print(c)
+</code></pre>
 <ul>
 <li>delimiters (indents, semicolons, commas, ...)</li>
 <li>keywords (e.g. if, for, import)</li>
