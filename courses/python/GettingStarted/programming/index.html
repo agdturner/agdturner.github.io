@@ -3,14 +3,13 @@
 <head>
 <title>Programming Page</title>
 <!-- Styling. -->
-<script src="/scripts/style.js"></script>
+<!-- The following href is blank, but will be populated once the
+DOM is fully loaded. -->
+<link id="css" rel="stylesheet" type="text/css" href=""><script src="/scripts/style.js"></script>
 <!-- The following are used for stying code. -->
 <script src="/tools/highlight/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
-<!-- The following href should be set when the DOM is loaded. -->
-<link id="css1" rel="stylesheet" type="text/css" href="">
-<link id="css2" rel="stylesheet" type="text/css" href="">
-
+<link id="code_theme" rel="stylesheet" type="text/css" href="">
 </head>
 <body>
 <header>
@@ -25,7 +24,7 @@
 <h1>Programming</h1>
 <h2>Introduction</h2>
 <p><a href="https://en.wikipedia.org/wiki/Computer_programming">Computer programming</a> (coding) is about instructing a computer to carry out a set of tasks. Data can be input, processed and output. Outputs may also be visual displays and sounds, and a computer can be used to control other things like motors and sensors.</p>
-<p>Current desktop or laptop machines typically have a keyboard and a mouse for user input and a visual display screen. They have smaller amounts of faster more volitile data storage (memory), and larger amounts of more persistent data storage (disk) that store files in a <a href="https://en.wikipedia.org/wiki/File_system">file system</a>. The machines may have microphones and cameras, and the screen may be a touch screen. The machines are typically networked and can communicate with other machines on the <a href="https://en.wikipedia.org/wiki/Internet">Internet</a>. The basic functioning of the machine is done by an <a href="https://en.wikipedia.org/wiki/Operating_system">operating system</a> that is loaded onto the machine and configured to run when it is <a href="https://en.wikipedia.org/wiki/Booting">booted</a>. Additional <a href="https://en.wikipedia.org/wiki/Software">software</a> can be added and run on the operating system to extend the machines capability. This includes things like interpretters or virtual machines which allow users to run programs written in specific <a href="https://en.wikipedia.org/wiki/Programming_language">computer programming language</a>s.</p>
+<p>Current desktop or laptop machines typically have a keyboard and a mouse for user input and a visual display screen. They have smaller amounts of faster more volitile data storage (memory), and larger amounts of more persistent data storage (disk) that store files in a <a href="https://en.wikipedia.org/wiki/File_system">file system</a>. The machines may have microphones and cameras, and the screen may be a touch screen. The machines are typically networked and can communicate with other machines on the <a href="https://en.wikipedia.org/wiki/Internet">Internet</a>. The basic functioning of the machine is done by an <a href="https://en.wikipedia.org/wiki/Operating_system">operating system</a> that is loaded onto the machine and configured to run when it is <a href="https://en.wikipedia.org/wiki/Booting">booted</a>. Additional <a href="https://en.wikipedia.org/wiki/Software">software</a> can be added and run on the operating system to extend the machines capability. This includes things like interpretters or virtual machines which allow users to run programs written in specific<a href="https://en.wikipedia.org/wiki/Programming_language">computer programming language</a>s.</p>
 <p>Programming can be done visually by arranging pre-built components that fit or connect together to form workflows that can be run. However, this course is not about visual programming, it is about programming using text based command instructions written in <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>.</p>
 <p>There are a wide variety of computer programming languages each defined by a specific syntax (rules). Like natural languages, computer languages can look similar and very different. Whilst these learning resources focus on Python, occasionally similarities and differences between Python and other languages are explained.</p>
 <h2>Data</h2>
@@ -36,15 +35,12 @@
 <p>If you are new to computer programming, then you will be learning lots of new terms and concepts as well as learning the syntax of Python in this course. There is a lot to take on board and you will be most ready to learn these new things when you are well rested and able to concentrate. You are strongly encouraged to take breaks when you are learning and allow time for the concepts and new terminology to sink in. Taking breaks will almost certainly help you to learn faster on the whole as you tap your subconscious. Learning should be a joy, but it is not so much fun if you are not making progress which can happen if you try to work when you are tired. When you are not tired, sometimes you might struggle to understand something. This is perfectly normal, sometimes things take a bit of time to understand.</p>
 <p>Learning to program requires practice and will inevitably involve making lots of mistakes - not bad mistakes, good mistakes - ones which you can learn from. In some ways learning to program is a bit like learning to write, or learning to play a musical instrument. Most learning computer programming learn best by doing practical exercises, and to an extent, reusing the code they have written.</p>
 <p>There is typically more to learn with the first computer programming language you learn. Once you can program well in one language, it is generally much easier to learn another language. Once you know two languages well, you might turn to one to do some things and another to do other things. Or, you might prefer a particular language for a time. High level languages are typically evolving - they evolve or die. As they evolve, there are typically better ways of doing things. So code written in a langauge to do something might look different in the future than it does now, and likewise, old code can sometimes look different to how things are done now according to the documentation. In general though, there are often several ways and perhaps even several good ways to achieve the same thing with a program. Different ways can be compared, but in general we should aim for easy to understand, easy to maintain, efficient, reliable, well tested and well documented code that helps make the world a better place.</p>
-<h2>Scripting and Software Development</h2>
-<p>A programming script is a single file of commands. A lot can be achieved with a single script. To accomplish some things it is much easier and better to have the program organised into different parts typically with code written in different files. If you are writing code to provide a way for others to do things, really, you are developing software and there becomes a need to think about supporting users that may be able to use your software without them knowing much about the underlying programming language of the software.</p>
-<p>If you complete this course, you will have produced some software, and you will have the skills and knowledge to be able to develop more software on your own. Collaborating with others to develop software is not something this course goes into. Yet, in industry software development is typically done in teams. Code is reviewed and team members specialise. Not everyone learning to program is going to develop software for others to use. Some learners may stop learning and practising the art, but they should still have an appreciation of what is involved and be more able to work with others that may produce the tools that they want to use for geography or somethign else.</p>
 </div>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../python/index.html">Next: Python</a></p>
 </div>
-<p>Date last modified: 2022-10-13.</p>
+<p>Date last modified: 2022-11-22.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

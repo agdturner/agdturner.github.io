@@ -3,14 +3,13 @@
 <head>
 <title>Variables Page</title>
 <!-- Styling. -->
-<script src="/scripts/style.js"></script>
+<!-- The following href is blank, but will be populated once the
+DOM is fully loaded. -->
+<link id="css" rel="stylesheet" type="text/css" href=""><script src="/scripts/style.js"></script>
 <!-- The following are used for stying code. -->
 <script src="/tools/highlight/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
-<!-- The following href should be set when the DOM is loaded. -->
-<link id="css1" rel="stylesheet" type="text/css" href="">
-<link id="css2" rel="stylesheet" type="text/css" href="">
-
+<link id="code_theme" rel="stylesheet" type="text/css" href="">
 </head>
 <body>
 <header>
@@ -23,13 +22,42 @@
 </header>
 <div>
 <h1>Variables</h1>
-<p>ABM</p>
-</div>
+<h2>Introduction</h2>
+<p>After considering basic syntax, this section focuses on variables</p>
+<h3>Basic Python Syntax</h3>
+<p>A Python statement is often a single line. Multiple statements on a single line are separated with semicolons. It is unusual though to have lines with multiple statements.</p>
+<p>Python does not have a special symbol to end a statement like many languages do.</p>
+<p>The following is a Python statement that sets the variable a equal to the number 1:</p>
+<pre><code class="language-python">
+<p>a = 1</p>
+<p></code></pre></p>
+<p>The # symbol is the start of a comment.</p>
+<pre><code class="language-python">
+<p># This entire line is a comment</p>
+<p>a = 1 # This part of the line is a comment</p>
+<p></code></pre></p>
+<p>Between triple quotes of the same type everything is a comment. """ is often used for documentation. ''' is often used to comment out sections of code which is common in testing or when refactoring - changing code</p>
+<pre><code class="language-python">
+""");
+This is a between triple quotes and is a comment.
+""");
+<p></code></pre></p>
+<p>Blank lines are allowed and these can be used to help structure code into blocks. It is good practice to start each code block with a comment that outlines what the code block is for.</p>
+<ul>
+<li>delimiters (indents, semicolons, commas, ...)</li>
+<li>keywords (e.g. if, for, import)</li>
+<li>identifiers (mostly, names of variables)</li>
+<li>literals (values like: 2 or "Hello")</li>
+<li>operators(mathematical symbols e.g. +, -, *, /, %)</li>
+</ul>
+<p></p>
+<p></p>
+<p></p>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../github/index.html">Next: GitHub</a></p>
 </div>
-<p>Date last modified: 2022-10-13.</p>
+<p>Date last modified: 2022-11-22.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
