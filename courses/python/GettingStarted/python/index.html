@@ -48,58 +48,136 @@ DOM is fully loaded. -->
 <p>On whatsnew Web pages, changes are marked against Python Enhancement Proposals (PEPs). These are community proposed and allow us to look ahead and see what might change in subsequent versions of Python. PEPs have their own Web site: <a href="https://peps.python.org/">https://peps.python.org/</a></p>
 <p>It is important to know exactly which version of Python you are using and what versions of any third party modules you are using. This helps with reproducing results and diagnosing issues.</p>
 <p>Programming and programming language development are community activities. It is normal to ask others for help and to provide others with help and work collaboratively to develop things. There are different types of forums for asking and anwering questions and different types of project that you might want to get involved with once you have gained some experience. In this course, you are discouraged from asking questions on any forums other than our own. But, you are encouraged to search for and use the posts others have made on forums you can access. These may help you complete tasks and understand better, but be sure to keep a track of what you use as it is expected that you refer to these in your academic work. You might want to create forum accounts so that you can up or down vote posts, but until you complete this course please do not make original posts asking for help or reply to posts to help others without first liaising with your tutor. Please ask your tutor for help if you get stuck. If you ask for help by email, it is often a good idea to attach your code, explain what you think should happen and describe what happens instead.</p>
-<p>The <a href="https://docs.python.org/3/tutorial/">getting started tutorial</a> linked from the <a href="https://www.python.org/">https://www.python.org/</a> is a good place to start learning Python. We will be covering a lot of the same things in this course, but we will be going about it in a more geographical way.</p>
-<p>In Python instructions or commands are entered at a prompt or passed in files to be interpretted. Commands entered at a prompt are run one at a time. When program files are run, typically multiple instructions are run. There is an order in which instructions run. In some cases the program files that are run contains new types of instructions. Sometimes programming is also called coding. Let us get going now with a bit of Python coding.</p>
+<p>The
+<a href="https://docs.python.org/3/tutorial/">getting started tutorial</a>
+linked from the
+<a href="https://www.python.org/">https://www.python.org/</a>
+is a good place to start learning Python. We will be covering a
+lot of the same things in this course, but we will be going about
+it in a more geographical way.</p>
+<p>In Python instructions or commands are entered at a prompt or
+passed in files to be interpretted. Commands entered at a prompt
+are run one at a time. When program files are run, typically
+multiple instructions are run. There is an order in which
+instructions run. In some cases the program files that are run
+contain new types of instructions.</p>
 </div>
 <div>
-<p>To follow the instructions below, you need to have Python installed on your system. These instructions also assume that you are using a Windows Operating System.</p>
-<p>Open up a command window and enter: "python --version"</p>
-<p>This should output the version of Python your system is set up to use. If Python is not on your Path, then you will get an error message.</p>
-<p>Enter the command: "python"</p>
-<p>The prompt should change to look more like: ">>> "</p>
-<p>This is the Read-Eval-Print Loop (REPL) environment for Python where user inputs are read and evaluated, and then the results are returned to the user. We call this "the Python prompt".
-<p>Enter: "2 + 3"</p>
-<p>You should see the result "5" printed.</p>
-<p>You can use this Python REPL environment to do some mathematical calculations.</p>
-<p>The symbol "*" is the symbol for multiplication.</p>
-<p>Try multiplying two numbers.</p>
-<p>"/" is the division operator. "**" is a power operator. Have a little play.</p>
-<p>Each of these operators can also be accessed via a function in the "operator" module.</p>
-<p>Enter: "operator.add(2, 3)"</p>
-<p>You should get a "NameError" informing you that the interpretter does not know about the module named "operator"</p>
-<p>We have to "import" it if we want to use it. Before we do that, check what your Python environment does know about.</p>
-<p>Enter: "dir()"</p>
-<p>This runs (or calls) the "dir" function. You can tell it is a function as after the name there is a start parenthesis "(". The function call is completed by the end parenthesis ")". This function has no arguments - things that are passed to the function - as there is nothing between the start and end parentheses.</p>
-<p>You should get a list printed out that looks like: "['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__']"</p>
-<p>You can tell this is a list as it starts with "[" and ends with "]" and the elements are separated with commas (",").</p>
-<p>Enter: "import operator"</p>
+<p>To follow the instructions, you should have Python
+installed.</p>
+<p>Open up a command window and enter:</p>
+<pre>python --version</pre>
+<p>This should output the version of Python your system is set up
+to use. If Python is not on your Path, then you should get an
+error message.</p>
+<p>Enter the following command:</p>
+<pre>python</pre>
+<p>The prompt should change to look more like:</p>
+<pre>>>></pre>
+<p>This is the Read-Eval-Print Loop (REPL) environment for Python
+where user inputs are read and evaluated, and then the results
+are returned to the user. We call this "the Python prompt".</p>
+<p>Enter:</p>
+<pre>2 + 3</pre>
+<p>You should see the result of adding the number 2 to the number
+3:</p>
+<pre>5</pre>
+<p>The Python REPL environment can act as a basic calculator.</p>
+<p>Using the operator symbol for multiplication (*), try
+multiplying two numbers.</p>
+<p>Have a little play perhaps also trying the operator symbol for
+division (/)...</p>
+<p>Mathematical operators can also be accessed via functions that
+reside in the "operator" module.</p>
+<p>Enter:</p>
+<pre>operator.add(2, 3)</pre>
+<p>You should see the following error message:</p>
+<pre>Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'operator' is not defined</pre>
+<p>The error is that the interpretter does not know about the
+module named "operator"</p>
+<p>Enter:</p>
+<pre>dir()</pre>
+<p>This runs (or calls) the "dir" function. You can tell it is
+a function as after the name there are start and end parentheses
+(()). In this case, the function is passed no arguments as there
+is nothing between the start and end parentheses.</p>
+<p>You should get a list printed out that looks like:</p>
+<pre>['__annotations__', '__builtins__', '__doc__', '__loader__',
+'__name__', '__package__', '__spec__']</pre>
+<p>You can tell this is a list as it starts with an open square
+bracket ([) and ends with a closing square bracket (]), and each
+element is separated with a comma (,).</p>
+<p>Enter:</p
+<pre>import operator</pre>
 <p>This imports the "operator" module.</p>
-<p>Enter: "dir()"</p>
-<p>You should see the "operator" module in the list.</p>
-<p>Enter: "operator.add(2, 3)"</p>
-<p>You should see the result "5" printed.</p>
-<p>Enter: "dir(operator)"</p>
-<p>This lists all the functions in the "operator" module. It is quite a long list and contains "add", the function that we called to add the numbers 2 and 3. There are numerous functions that have a name starting and ending with "__". These are not supposed to be called directly, but they can be called.</p>
-<p>Enter: "operator.__add__(2, 3)"</p>
-<p>Python does not have a way of exerting access control on variables or functions, so it uses a naming convention to indicate to users that the variable or function should not be accessed from outside the module. Variables with names that start with a single underscore ("_") or double underscore "__" you generally should not be accessing or using directly.</p>
-<p>Enter: "help(operator.add)"</p>
-<p>This prints out some information about how to use the "operator" module "add" function.</p>
-<p>Enter: "help()"</p>
-<p>This enters the help system and the prompt changes to look like "help> ".</p>
+<p>Enter:</p>
+<pre>dir()</pre>
+<p>This time, you should see the "operator" module in the list.
+</p>
+<p>Enter:</p>
+<pre>operator.add(2, 3)</pre>
+<p>This time, you should see the result:</p>
+<pre>5</pre>
+<p>Enter:</p>
+<pre>dir(operator)</pre>
+<p>This lists all the functions in the "operator" module. It is
+quite a long list that contains the "add" function that was
+called to add the numbers 2 and 3.</p>
+<p>Notice that there are numerous functions that have a name
+starting and ending with "__". These are not supposed to be
+called directly, but they can be.</p>
+<p>Enter:</p>
+<pre>operator.__add__(2, 3)</pre>
+<p>Python does not have a way of exerting access control on
+variables or functions, so it uses a naming convention to
+indicate to users that the variable or function should not be
+accessed from outside the module. Variables with names that start
+with a single underscore ("_") or double underscore "__"
+should not be accessed or used directly.</p>
+<p>Enter:</p>
+<pre>help(operator.add)</p>
+<p>This prints out some information about how to use the"
+  + " "operator" module "add" function.</p>
+<p>Enter:</p>
+<pre>help()</pre>
+<p>This enters the help system and the prompt changes to look
+like:</p>
+<pre>help> </pre>
 <p>Read what is printed.</p>
-<p>Enter: "modules"</p>
-<p>Enter: "operator"</p>
-<p>This is the help documentation for the operator module. It is many lines long. Press and hold the <enter> key to get the next lines of the help documentation and let go after a few lines. Try pressing your <space bar> key to get the next page of the help documentation. Usually you can keep pressing your <space bar> key to scan through this help documentation until you exit. You can also press your <q> key to quit and return to the help system.</p>
-<p>Enter: "q"</p>
-<p>This should exit the help system and return you to the Python prompt.</p>
-<p>Call the "quit" function to quit the Python REPL i.e. Enter: "quit()"</p>
-<p>This should return you to the normal command prompt.</p>
+<p>Enter:</p>
+<pre>modules</pre>
+<p>This may take a while to build a list of available modules.
+It takes longer the first time you run it.</p>
+<p>Within a few minutes, a list of modules should be returned.
+If you don't want to wait for this to be returned, then open
+another command prompt and do something else while you are
+waiting.</p>
+<p>At the help prompt enter:</p>
+<pre>operator</pre>
+<p>This is the help documentation for the operator module. It is
+many lines long. Press and hold the <enter> key to get the next
+lines of the help documentation and let go after a few lines have
+appeared. Then try pressing the <space bar> key to get the next
+page of the help documentation. Usually you can keep pressing the
+<space bar> key to scan through the help documentation until you
+exit. You could also press your <q> key to quit and return to the
+help system.</p>
+<p>Enter:</p>
+<pre>q</pre>
+<p>This should exit the help system and return you to the Python
+prompt.</p>
+<p>Enter:</p>
+<pre>quit()</pre>
+<p>This should quit the Python REPL environment and return you
+to the normal command prompt.</p>
 </div>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../variables/index.html">Next: Variables</a></p>
 </div>
-<p>Date last modified: 2022-11-23.</p>
+<p>Date last modified: 2022-11-24.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

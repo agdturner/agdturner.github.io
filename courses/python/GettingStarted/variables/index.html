@@ -30,72 +30,124 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Variables</h1>
-<h2>Introduction</h2>
-<p>After considering basic syntax, this section focuses on variables</p>
-<h3>Basic Python Syntax</h3>
-<h4>Statements</h4>
-<p>Multiple statements on a single line are separated with semicolons. Yet, it is unusual though to have lines with multiple statements.</p>
-<p>Python does not have a special symbol to end a statement like many languages do.</p>
-<p>The following is a Python statement that sets the variable a equal to the number 1:</p>
+<h2>1. Introduction</h2>
+<p>Variables can be thought of as labels that are assigned values which may change. The following code is comprised of two statements. The first initialises a variable which is given the label x and assigned the value 0. The second calls the print function with x passed in as a parameter.</p>
 <pre><code class="language-python">
-a = 1
-</code></pre></p>
-<h4>Comments</h4>
+x = 0
+print(x)
+</code></pre>
+<p>The output from running this code is:</p>
+<pre><code>
+0
+</code></pre>
+<p>Let's come back to variables shortly...</p>
+<h2>2. Basic Python Syntax</h3>
+<h3>2.1. Statements</h3>
+<p>Multiple statements on a single line are separated with semicolons (;).</p>
+<p>Python does not have a special symbol to end a statement like many languages do.</p>
+<h3>2.2. Comments</h3>
 <p>The # symbol is the start of a comment.</p>
 <pre><code class="language-python">
 # This entire line is a comment
-a = 1 # This part of the line is a comment
+x = 0 # This part of the line is a comment
+print(x) # Print out the value of x
+# Comments should be informative.
+# x = 1 # Commented code is not run.
+# x = 2 # Coders commonly comment out options.
+#print(x) # And sections of testing code.
 </code></pre>
-<p>Between triple quotes everything is a comment. There are two types of triple quote, those using single quotation marks, and those using double quotation marks. Triple double quotes (""") are typically used for documentation. Triple single quotes (''') are often used to comment out sections of code when debugging (debugging is a coding term for the activity of resolving issues to do with code not doing what is wanted).</p>
+<p>Between triple quotes everything is a comment. There are two types of triple quote, those using single quotation marks, and those using double quotation marks. Triple double quotes (""") are typically used for documentation sections. Triple single quotes (''') are often used to comment out sections of code when <a href="https://en.wikipedia.org/wiki/Debugging">debugging</a>.</p>
 <pre><code class="language-python">
 """
 This is between triple quotes and is a comment.
 """
 </code></pre>
-<h4>Code layout: code blocks</h4>
-<p>Blank lines are allowed and indeed help structure code into blocks. It is good practice to start each code block with a comment that outlines what the code block is for. For example:</p>
+<p>It is good practise to leave a comment to indicate why a section of code has been commented out. Comments help make code more readable and understandable. It is not uncommon in good code for more than a third of it to be comments.</p>
+<h3>2.3. Code layout: code blocks</h4>
+<p>Blank lines are allowed and can help structure code into blocks. It is good practice to start each code block with a comment that outlines what the code block is for. For example:</p>
 <pre><code class="language-python">
-# Initialise a and b
-a = 2
-b = 4
-print(a)
-print(b)
+# Initialise x and y
+x = 2
+y = 4
+print(x)
+print(y)
 
-# Calculate a to the power of b
-c = a ** b
-print(c)
+# Calculate x to the power of y
+x ** y
 </code></pre>
-Indentation is syntax in Python. Indentation refers to the blank space (sometimes called white space - as code backgrounds were normally white in colour). It is what precedes text on a line. It is good to be consistent with indentation and to an extent, Python forces this. It is important to know that indentation can effect what code does. Also, care must be taken with spaces and tabs as these are different and can appear identical. With Python it is recommended not to use tabs at all in source code and to use multiple spaces instead. It is easier to see differences if the indents and dedents (where the indent is less than on the preceeding statement. For example, here is a code block with a compund statement that is an if statement</p>
+<p>Indentation is syntax in Python. Indentation refers to the blank space that precedes text on a line. (It is sometimes called white space - as code backgrounds were normally white in colour). It is good to be consistent with indentation and to be aware that indentation can effect what code does. Also, care must be taken with spaces and tabs as these are different, yet can appear identical. With Python it is recommended not to use tabs at all in source code and to use multiple spaces instead to indent. The following is a code block with an example <em>if</em> statement.</p>
 <pre><code class="language-python">
-# if a is greater than b, then print a
-if a > b: # This line has the same indent as the comment above.
-    print a # This line is indented one standard step further.
+# if x is greater than y, then print a
+if x > y: # This line has the same indent as the comment above.
+    print(x) # This line is indented one standard step further.
 print("done") # This line is dedented to the previous level.
 </code></pre>
-Let us give names to some other language features:
-<ul>
-<li>delimiters - are things that separate and include indents, semicolons and commas</li>
-<li>keywords - are reserved terms that can't be used for anything else like variable names (e.g. if, for, import)</li>
-<li>identifiers - for the most part, these are names of variables</li>
-<li>literals - these are specific numerical or text values.</li>
-<li>operators - these are mathematical symbols (e.g. +, -, *, /, %)</li>
-</ul>
+<p>What this code does is test if the variable x is greater than the variable y and if so, then the value of x is printed. Without the variables x and y being set, then this this code will return an error indicating that. The function called print is a built in function. We will return to functions ad what is built in later...</p>
+<h3>2.4. Delimiters, Literals and operators</h3>
+<p>Delimiters separate bits of code like blank lines and the colon (:) in the if statement above. Some delimeters also act as operators. Here are some to look at:</p>
+<pre>(       )       [       ]       {       }
+,       :       .       ;       @       =       ->
++=      -=      *=      /=      //=     %=      @=
+&=      |=      ^=      >>=     <<=     **=</pre>
+<p>The various types of bracket ((), [], {}) are parentheses (()),
+square brackets ([]) and curly brackets ({}) also known as braces.
+A lot of code uses brackets. Each open bracket ((, [, {) must be
+matched with a closing bracket (), ], }). Commas (,), colons (:),
+dots (.) and semicolons (;) are also common in code. Let's learn
+more about these later... </p>
+<h3>2.5. Identifiers and Keywords</h3>
+<p>Keywords are reserved terms that can't be used for other
+things like variable names (e.g. else, for, if, import).</p>
+<p>Attempting to use them as variable names results in syntax
+errors as in the following where commands were entered at the
+python prompt:</p>
+<pre>
+>>> if = 2
+  File "<stdin>", line 1
+    if = 2
+       ^
+SyntaxError: invalid syntax
+</pre>
+<p>Notice that the syntax error is pointing at the equals sign
+(=). This is because the python interpreter is expecting a
+conditional expression after the keyword (if). The actual issue
+is that there was an attempt to use a keyword as a variable name.
+</p>
+<p>Identifiers are (for the most part) names of variables</p>
+<p>Literals are specific numerical or text values.</p>
+<p>Operators are mathematical symbols (e.g. +, -, *, /, %)</p>
+<p>For more details of Python language lexicon, see the
+<a href="https://docs.python.org/3/reference/lexical_analysis.html">Python 3 Lexical Analysis Documentation</a>
+</p>
+<h4>2.7. Examples</h4>
+<p>The following code block is an if statement which has an else condition. The way this works is that the expression is  evaluated and if True, then x is printed otherwise y is printed.</p>
 <pre><code class="language-python">
-# if a is greater than b, then print a
-if a > b: # This line has the same indent as the comment above.
-    print a # This line is indented one standard step further.
-print("done") # This line is dedented to the previous level.
+x = 0
+y = 1
+# if x is greater than y, then print x
+if x > y:
+    print("x", x)
+else:
+    print("y", y)
+print("done")
 </code></pre>
+<p>In this code, the print function takes in two arguments. There are variables, comments, indentation and keywords.</p>
+<h2>2. Variables types</h2>
+<p>In Python, there are primitive and non-primitive variable types. The four primitive variable types are: Integers,  Floats, Strings, and Booleans. Everyhing else is a non-primitive type. Variable declaration and assignment in Python are done in a single step where the type of a variable is not explicitly set, it is inferred by what is set. Variable labels can be reused and set to different values changing the type. This is known as dynamic typing. So, it is possible to set a variable as an Integer and then set it again to be a String or a List. The built in function caled type alows us to test the type of a variable.</p>
 <pre><code class="language-python">
-if a > b :
-    print (a)
-print ("done")
+# Set x = 1 and print the type of x")
+x = 1
+print(type(x))
+x = "1"
+print(type(x))
 </code></pre>
-<pre><code class="language-python">
-if a > b :
-    print (a)
-    print ("done")
-</code></pre>
+<p>The output from running the above is:</p>
+<pre>
+<class 'int'>
+<class 'str'>
+</pre>
+<p></p>
+<p></p>
 <pre><code class="language-python">
 for a in range(0, 10) :
     print (a)
@@ -104,11 +156,12 @@ for a in range(0, 10) :
 <p></p>
 <p></p>
 <p></p>
+<p></p>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../github/index.html">Next: GitHub</a></p>
 </div>
-<p>Date last modified: 2022-11-23.</p>
+<p>Date last modified: 2022-11-24.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
