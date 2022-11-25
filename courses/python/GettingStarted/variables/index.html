@@ -31,109 +31,32 @@ DOM is fully loaded. -->
 <div>
 <h1>Variables</h1>
 <h2>1. Introduction</h2>
-<p>Variables can be thought of as labels that are assigned values which may change. The following code is comprised of two statements. The first initialises a variable which is given the label x and assigned the value 0. The second calls the print function with x passed in as a parameter.</p>
+<p>Variables can be thought of as labels that are assigned values
+which may change. The following code is comprised of three
+statements. The first initialises a variable x and assigned it the
+value 0. The second initialises a variable y and assigns it the
+value of the x variable. The third statement prints out the value
+of y.</p>
 <pre><code class="language-python">
 x = 0
-print(x)
+y = x
+print(y)
 </code></pre>
 <p>The output from running this code is:</p>
-<pre><code>
-0
-</code></pre>
-<p>Let's come back to variables shortly...</p>
-<h2>2. Basic Python Syntax</h3>
-<h3>2.1. Statements</h3>
-<p>Multiple statements on a single line are separated with semicolons (;).</p>
-<p>Python does not have a special symbol to end a statement like many languages do.</p>
-<h3>2.2. Comments</h3>
-<p>The # symbol is the start of a comment.</p>
-<pre><code class="language-python">
-# This entire line is a comment
-x = 0 # This part of the line is a comment
-print(x) # Print out the value of x
-# Comments should be informative.
-# x = 1 # Commented code is not run.
-# x = 2 # Coders commonly comment out options.
-#print(x) # And sections of testing code.
-</code></pre>
-<p>Between triple quotes everything is a comment. There are two types of triple quote, those using single quotation marks, and those using double quotation marks. Triple double quotes (""") are typically used for documentation sections. Triple single quotes (''') are often used to comment out sections of code when <a href="https://en.wikipedia.org/wiki/Debugging">debugging</a>.</p>
-<pre><code class="language-python">
-"""
-This is between triple quotes and is a comment.
-"""
-</code></pre>
-<p>It is good practise to leave a comment to indicate why a section of code has been commented out. Comments help make code more readable and understandable. It is not uncommon in good code for more than a third of it to be comments.</p>
-<h3>2.3. Code layout: code blocks</h4>
-<p>Blank lines are allowed and can help structure code into blocks. It is good practice to start each code block with a comment that outlines what the code block is for. For example:</p>
-<pre><code class="language-python">
-# Initialise x and y
-x = 2
-y = 4
-print(x)
-print(y)
-
-# Calculate x to the power of y
-x ** y
-</code></pre>
-<p>Indentation is syntax in Python. Indentation refers to the blank space that precedes text on a line. (It is sometimes called white space - as code backgrounds were normally white in colour). It is good to be consistent with indentation and to be aware that indentation can effect what code does. Also, care must be taken with spaces and tabs as these are different, yet can appear identical. With Python it is recommended not to use tabs at all in source code and to use multiple spaces instead to indent. The following is a code block with an example <em>if</em> statement.</p>
-<pre><code class="language-python">
-# if x is greater than y, then print a
-if x > y: # This line has the same indent as the comment above.
-    print(x) # This line is indented one standard step further.
-print("done") # This line is dedented to the previous level.
-</code></pre>
-<p>What this code does is test if the variable x is greater than the variable y and if so, then the value of x is printed. Without the variables x and y being set, then this this code will return an error indicating that. The function called print is a built in function. We will return to functions ad what is built in later...</p>
-<h3>2.4. Delimiters, Literals and operators</h3>
-<p>Delimiters separate bits of code like blank lines and the colon (:) in the if statement above. Some delimeters also act as operators. Here are some to look at:</p>
-<pre>(       )       [       ]       {       }
-,       :       .       ;       @       =       ->
-+=      -=      *=      /=      //=     %=      @=
-&=      |=      ^=      >>=     <<=     **=</pre>
-<p>The various types of bracket ((), [], {}) are parentheses (()),
-square brackets ([]) and curly brackets ({}) also known as braces.
-A lot of code uses brackets. Each open bracket ((, [, {) must be
-matched with a closing bracket (), ], }). Commas (,), colons (:),
-dots (.) and semicolons (;) are also common in code. Let's learn
-more about these later... </p>
-<h3>2.5. Identifiers and Keywords</h3>
-<p>Keywords are reserved terms that can't be used for other
-things like variable names (e.g. else, for, if, import).</p>
-<p>Attempting to use them as variable names results in syntax
-errors as in the following where commands were entered at the
-python prompt:</p>
-<pre>
->>> if = 2
-  File "<stdin>", line 1
-    if = 2
-       ^
-SyntaxError: invalid syntax
-</pre>
-<p>Notice that the syntax error is pointing at the equals sign
-(=). This is because the python interpreter is expecting a
-conditional expression after the keyword (if). The actual issue
-is that there was an attempt to use a keyword as a variable name.
-</p>
-<p>Identifiers are (for the most part) names of variables</p>
-<p>Literals are specific numerical or text values.</p>
-<p>Operators are mathematical symbols (e.g. +, -, *, /, %)</p>
-<p>For more details of Python language lexicon, see the
-<a href="https://docs.python.org/3/reference/lexical_analysis.html">Python 3 Lexical Analysis Documentation</a>
-</p>
-<h4>2.7. Examples</h4>
-<p>The following code block is an if statement which has an else condition. The way this works is that the expression is  evaluated and if True, then x is printed otherwise y is printed.</p>
-<pre><code class="language-python">
-x = 0
-y = 1
-# if x is greater than y, then print x
-if x > y:
-    print("x", x)
-else:
-    print("y", y)
-print("done")
-</code></pre>
-<p>In this code, the print function takes in two arguments. There are variables, comments, indentation and keywords.</p>
+<pre>0</pre>
 <h2>2. Variables types</h2>
-<p>In Python, there are primitive and non-primitive variable types. The four primitive variable types are: Integers,  Floats, Strings, and Booleans. Everyhing else is a non-primitive type. Variable declaration and assignment in Python are done in a single step where the type of a variable is not explicitly set, it is inferred by what is set. Variable labels can be reused and set to different values changing the type. This is known as dynamic typing. So, it is possible to set a variable as an Integer and then set it again to be a String or a List. The built in function caled type alows us to test the type of a variable.</p>
+<p>In Python, there are primitive and non-primitive variable
+types. The four primitive variable types are: Integers, Floats,
+Strings, and Booleans. Everyhing else is a non-primitive type.
+Variable declaration and assignment in Python are done in a single
+step where the type of a variable is not explicitly set, it is
+inferred by what is set. Variable labels can be reused and set to
+different values changing the type. This is known as dynamic
+typing. It allows us to set a variable as an Integer and then set
+it again to be a String or a List or anything. The built in
+function type allows us to test the type of a variable. The
+following code sets a variable called x to have the Integer value
+1, then sets it again to have the String value "1".</p>
 <pre><code class="language-python">
 # Set x = 1 and print the type of x")
 x = 1
@@ -141,12 +64,34 @@ print(type(x))
 x = "1"
 print(type(x))
 </code></pre>
-<p>The output from running the above is:</p>
+<p>The output from running this code is:</p>
 <pre>
-<class 'int'>
-<class 'str'>
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;
 </pre>
-<p></p>
+<p>The following code sets the variable x to be 1 and y to equal
+x, it then adds 1 to the value of x and prints out y.</p>
+<pre><code class="language-python">
+x = 1
+y = x
+x += 1
+print(y)
+</code></pre>
+<p>The output from running this code is:</p>
+<pre>1</pre>
+<p>So, y is only the value of x until x is given a new value.</p>
+<p>The following code: creates a list variable called a, sets
+b to be a new label for a, appends the Integer 1 to the list a,
+and then prints out b.</p>
+<pre><code class="language-python">
+a = []
+b = a
+a.append(1)
+print(b)
+</code></pre>
+<p>The output from running this code is:</p>
+<pre>[1]</pre>
+<p>So, a and b are still referring to the same thing.</p>
 <p></p>
 <pre><code class="language-python">
 for a in range(0, 10) :
@@ -161,7 +106,7 @@ for a in range(0, 10) :
 <div>
 <p><a id="next" class="nav" href="../github/index.html">Next: GitHub</a></p>
 </div>
-<p>Date last modified: 2022-11-24.</p>
+<p>Date last modified: 2022-11-25.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

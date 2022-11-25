@@ -30,9 +30,31 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Python</h1>
-<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> is a popular and powerful interpretted programming language. The Python interpreter and the extensive standard library are freely available in source and binary form for all major platforms from the <a href="https://www.python.org/">Python Website</a>, and may be freely distributed. The <a href="https://www.python.org/">Python Website</a> contains distributions of and pointers to many free third party Python modules, programs and tools, and additional documentation.</p>
-<p>Python underwent a major revision from Python 2 to Python 3 in around 2008. There were changes that were not backwards compatible. As a result a lot of Python 2 code needed changing/fixing (refactoring) in order to work in Python 3 environments. This somewhat divided the community. Python 2 is no longer supported in that the Python developers are no longer responding to issues reported against Python 2. On the 22nd of August 2022 Python 3.10.6 was released. With each main release of Python 3 there is a "whatsnew" Web page:</p>
+<h2>1. Introduction</h2>
+<p>
+<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>
+is a popular and powerful interpretted programming language. The
+Python interpreter and the extensive standard library are freely
+available in source and binary form for all major platforms from
+the
+<a href="https://www.python.org/">Python Website</a>
+, and may be freely distributed. The 
+<a href="https://www.python.org/">Python Website</a>
+contains distributions of and pointers to many free third party
+Python modules, programs and tools, and additional documentation.
+</p>
+<p>Python underwent a major revision from Python 2 to Python 3 in
+around 2008. There were changes that were not all backward
+compatible. As a result a lot of Python 2 code needed
+changing/fixing (refactoring) in order to work in Python 3
+environments. This somewhat divided the community. Python 2 is no
+longer supported in that the Python developers are no longer
+responding to issues reported against Python 2.</p>
+<p>On October 4, 2021 Python 3.10 was released. On November 24th,
+2022 Python 3.11 was released. For each of these incremental
+releases there are "whatsnew" Web pages:</p>
 <ul>
+<a href="https://docs.python.org/3/whatsnew"></a>
 <li><a href="https://docs.python.org/3/whatsnew/3.0.html">Whatsnew Python 3.0</a></li>
 <li><a href="https://docs.python.org/3/whatsnew/3.1.html">Whatsnew Python 3.1</a></li>
 <li><a href="https://docs.python.org/3/whatsnew/3.2.html">Whatsnew Python 3.2</a></li>
@@ -44,28 +66,47 @@ DOM is fully loaded. -->
 <li><a href="https://docs.python.org/3/whatsnew/3.8.html">Whatsnew Python 3.8</a></li>
 <li><a href="https://docs.python.org/3/whatsnew/3.9.html">Whatsnew Python 3.9</a></li>
 <li><a href="https://docs.python.org/3/whatsnew/3.10.html">Whatsnew Python 3.10</a></li>
+<li><a href="https://docs.python.org/3/whatsnew/3.11.html">Whatsnew Python 3.11</a></li>
 </ul>
-<p>On whatsnew Web pages, changes are marked against Python Enhancement Proposals (PEPs). These are community proposed and allow us to look ahead and see what might change in subsequent versions of Python. PEPs have their own Web site: <a href="https://peps.python.org/">https://peps.python.org/</a></p>
-<p>It is important to know exactly which version of Python you are using and what versions of any third party modules you are using. This helps with reproducing results and diagnosing issues.</p>
-<p>Programming and programming language development are community activities. It is normal to ask others for help and to provide others with help and work collaboratively to develop things. There are different types of forums for asking and anwering questions and different types of project that you might want to get involved with once you have gained some experience. In this course, you are discouraged from asking questions on any forums other than our own. But, you are encouraged to search for and use the posts others have made on forums you can access. These may help you complete tasks and understand better, but be sure to keep a track of what you use as it is expected that you refer to these in your academic work. You might want to create forum accounts so that you can up or down vote posts, but until you complete this course please do not make original posts asking for help or reply to posts to help others without first liaising with your tutor. Please ask your tutor for help if you get stuck. If you ask for help by email, it is often a good idea to attach your code, explain what you think should happen and describe what happens instead.</p>
+<p>On "whatsnew" Web pages, changes are marked against Python
+Enhancement Proposals (PEPs). These are community proposed and
+allow us to look ahead and see what might change. PEPs have their
+own Web site:
+<a href="https://peps.python.org/">https://peps.python.org/</a>
+</p>
+<p>It is important to know exactly which version of Python you are
+using and what versions of any third party modules you are using.
+This helps with reproducing results and diagnosing issues.</p>
+<p>Programming and programming language development are
+community activities. It is normal to ask others for help and to
+provide others with help and work collaboratively to develop
+things. There are different types of forums for asking and
+answering questions and different types of project that you might
+want to get involved with once you have gained some experience.
+Please refrain from asking questions on any forums unless you are
+encouraged to do so by your tutor. Please ask your tutor for help
+if you want it. If asking for help by email, it is often a good
+idea to attach your code, explain what you think should happen and
+describe what happens instead.</p>
 <p>The
 <a href="https://docs.python.org/3/tutorial/">getting started tutorial</a>
 linked from the
 <a href="https://www.python.org/">https://www.python.org/</a>
-is a good place to start learning Python. We will be covering a
-lot of the same things in this course, but we will be going about
-it in a more geographical way.</p>
-<p>In Python instructions or commands are entered at a prompt or
-passed in files to be interpretted. Commands entered at a prompt
-are run one at a time. When program files are run, typically
-multiple instructions are run. There is an order in which
-instructions run. In some cases the program files that are run
-contain new types of instructions.</p>
-</div>
-<div>
-<p>To follow the instructions, you should have Python
-installed.</p>
-<p>Open up a command window and enter:</p>
+is a good place to start learning Python. This course covers
+much of that but in a slightly different geographically focussed
+way.</p>
+<h2>2. Running Python</h2>
+<p>Python instructions or commands are entered at a prompt or
+passed in files to be interpretted. There is an order in which
+instructions run. Program files may contain new types of
+instructions called functions that can be accessed and run from
+other files of a program.</p>
+<p>These instructions assume that you have
+<a href="https://www.anaconda.com/">Anaconda</a>
+installed. When installing Anoconda, please choose
+the option to add to your Path (which is not the default option).
+</p>
+<p>Open up a terminal or command window and enter:</p>
 <pre>python --version</pre>
 <p>This should output the version of Python your system is set up
 to use. If Python is not on your Path, then you should get an
@@ -172,12 +213,162 @@ prompt.</p>
 <pre>quit()</pre>
 <p>This should quit the Python REPL environment and return you
 to the normal command prompt.</p>
-</div>
+<p>Before learning how to run a file of Python commands, let us
+go through some basics of Python syntax.
+<h2>3. Basic Python Syntax</h3>
+<h3>3.1. Statements</h3>
+<p>Multiple statements on a single line are separated with"
+  + " semicolons (;).</p>
+<p>Python does not have a special symbol to end a statement"
+  + " like many languages do.</p>
+<h3>3.2. Comments</h3>
+<p>The # symbol is the start of a comment.</p>
+<pre><code class="language-python">
+# This entire line is a comment
+x = 0 # This part of the line is a comment
+print(x) # Print out the value of x
+# Comments should be informative.
+# x = 1 # Commented code is not run.
+</code></pre>
+<p>Between triple quotes everything is a comment. There are two
+types of triple quote, those using single quotation marks, and
+those using double quotation marks. Triple double quotes (""")
+are typically used for documentation. Triple single quotes (''')
+are often used to comment out sections of code when
+<a href="https://en.wikipedia.org/wiki/Debugging">debugging</a>.</p>
+<pre><code class="language-python">
+"""
+This is between triple quotes and is a comment.
+"""
+</code></pre>
+<p>It is good practise to leave a comment to indicate why a
+section of code has been commented out. Comments aim to help make
+code easier to read and understand. What is an appropriate amount
+of comment depends. Sometimes it is good to refer to other
+information sources in comments.</p>
+<h3>3.3. Code layout: code blocks</h3>
+<p>Blank lines are allowed and can help structure code into
+blocks. It is good practice to start each code block with a
+comment that outlines what the code block is for. For example:
+</p>
+<pre><code class="language-python">
+# Initialise x and y"
+x = 2
+y = 4
+print(x)
+print(y)
+# Calculate x to the power of y
+x ** y
+</code></pre>
+<p>Indentation is syntax in Python. Indentation refers to the
+blank space that precedes text on a line. (It is sometimes called
+white space - as code backgrounds were normally white in colour).
+It is good to be consistent with indentation and to be aware that
+indentation can effect what code does. Also, care must be taken
+with spaces and tabs as these are different, but spaces can appear
+the same as a tab in many editors. With Python it is recommended
+not to use tabs at all in source code and to use multiple spaces
+instead to indent. The following is a code block with an example
+"if" statement:</p>
+<pre><code class="language-python">
+# if x is greater than y, then print a
+if x > y: # This line has the same indent as the comment above.
+    print(x) # This line is indented one standard step further.
+print("done") # This line is dedented to the previous level.
+</code></pre>
+<p>In the code above, if the variable x is greater than the
+variable y, then the value of x is printed. If the variable x has
+not been initialised, then there will be an error:</p>
+<pre>Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'x' is not defined</pre>
+<p>The print function is a built in function that is located in
+the __builtins__ module. Have a look at the help for the function
+by entering:</p>
+<pre><code class="language-python">
+help(print)
+</code></pre>
+<h3>3.4. Delimiters, Literals and operators</h3>
+<p>Delimiters separate bits of code like blank lines and the
+colon (:) in the if statement above. Some delimeters also act as
+operators. Here are some to look at:</p>
+<pre>(       )       [       ]       {       }
+"
+  + ",       :       .       ;       @       =       ->
+"
+  + "+=      -=      *=      /=      //=     %=      @=
+"
+  + "&=      |=      ^=      >>=     <<=     **=</pre>
+<p>The various types of bracket ((), [], {}) are parentheses (()),
+square brackets ([]) and curly brackets ({}) also known as braces.
+A lot of code uses brackets. Each open bracket ((, [, {) must be
+matched with a closing bracket (), ], }). Commas (,), colons (:),
+dots (.) and semicolons (;) are also common in code. A common
+issue with code can be because of brackets not being closed, so
+this is always something worth checking.
+</p>
+<p>Literals are specific numerical or text values.</p>
+<p>Operators are sequences of mathematical symbols that are a
+shorthand for functions (e.g. +, -, *, /, %)</p>
+<h3>3.5. Identifiers and Keywords</h3>
+<p>Identifiers are (for the most part) names of variables. They
+are also used for function names, class names and module names.
+</p>
+<p>Keywords are reserved terms that can't be used for other
+things like variable names (e.g. else, for, if, import).</p>
+<p>Attempting to use them as variable names results in syntax
+errors as in the following where commands were entered at the
+python prompt:</p>
+<pre>
+>>> if = 2
+  File "<stdin>", line 1
+    if = 2
+       ^
+SyntaxError: invalid syntax
+</pre>
+<p>Notice that the syntax error is pointing at the equals sign
+(=). This is because the python interpreter is expecting a
+conditional expression after the keyword (if). The actual issue
+is that there was an attempt to use a keyword as a variable name.
+</p>
+<p>For more details of Python language lexicon, see the
+<a href="https://docs.python.org/3/reference/lexical_analysis.html">Python 3 Lexical Analysis Documentation</a>
+</p>
+<h4>2.7. Examples</h4>
+<p>The following code block is an if statement which has an else"
+  + " condition. The way this works is that the expression is "
+  + " evaluated and if True, then x is printed otherwise y is"
+  + " printed.</p>
+<pre><code class="language-python">
+x = 0
+y = 1
+# if x is greater than y, then print x
+if x > y:
+    print("x", x)
+else:
+    print("y", y)
+print("done")
+</code></pre>
+<p>In this code, the print function is called with both one and
+two arguments. There are variables, comments, indentation,
+operators and keywords.</p>
+<p>Copy the code above, paste it into a text document and save
+it with the filename "test.py". Open a terminal or command prompt
+change to the directory where you saved the file
+(path_to_directory) using:</p>
+<pre>cd path_to_directory<pre>
+<p>Run the file of python commands using:</p>
+<pre>python test.py<pre>
+<p>There should be two lines of output printed to the console:
+<pre>
+y 1
+done
+</pre>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../variables/index.html">Next: Variables</a></p>
 </div>
-<p>Date last modified: 2022-11-24.</p>
+<p>Date last modified: 2022-11-25.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
