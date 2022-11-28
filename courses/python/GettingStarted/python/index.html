@@ -455,6 +455,7 @@ Hello World
 </pre>
 <p>Try creating another file adding some python commands and
 running it.</p>
+
 <h2>5. Jupyter Notebook</h2>
 <p>Jupyter Notebook, is a REPL based system that embeds code into
 a Web based document containing other information: text, images,
@@ -484,7 +485,7 @@ image of the interface:</p>
 tab like shown in the following image:</p>
 <img src="jupyter2.png" alt="Python REPL environment" />
 <p>Try typing the following at the prompt and actioning run:</p>
-<pre>print("Hello World")</pre>w
+<pre>print("Hello World")</pre>
 <p>The following is an image of the one this "Hello World"
 program has been run:</p>
 <img src="jupyter3.png" alt="Python REPL environment" />
@@ -492,12 +493,11 @@ program has been run:</p>
 code. Entire programs can be entered into cells as can
 <a href="https://www.markdownguide.org/basic-syntax/">markdown</a>
 . Have a play...</p>
-<p>Try downloading, opening and running the following example:
+<p>Download, read, open and run the following:
 <a href="https://www.geog.leeds.ac.uk/courses/computing/practicals/python/running-python/examples/Example_Notebook.ipynb">
 Example_Notebook.ipynb</a></p>
-<p>You're not expected to understand the code at this stage, but
-have a look and if you get an inkling of how it works, all the
-better.</p>
+<p>You are not expected to fully understand the code at this
+stage, but hopfully you get an inkling of how it works.</p>
 
 <h2>6. Integrated Development Environments</h2>
 
@@ -565,34 +565,77 @@ Spyder Documentation</a></p>
 <p>Python environments are provided as part of some Geographical
 Information System (GIS) software including
 <a href="https://www.qgis.org/">QGIS</a> which is also Free and
-Open Source Software. Most of QGIS is written in
+Open Source Software and
+<a href="https://www.esri.com/">ESRI Products</a>.</p>
+<p>Most of QGIS is written in
 <a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> and
-Python. There is a Plug In Architecture allowing others to write
-plugins which typically ad something to the interface and provide
-new functionality or scripted more automated ways to do things.
-</p>
+Python.</p>
+<p>Try following these instructions:</p>
+<ol>
+<li>Open GIS Desktop Software</li>
+<li>From the Menu select:
+<pre>Plugins > Python Console</pre> and you should see something
+like:
+<img src="qgis1.png" alt="QGIS Python Console basic interface" />
+There are 5 buttons, a display area and a Python Prompt (>>>).
+</li>
+<li>At the Python Prompt type:
+<pre>dir</pre>
+Then:
+<pre>dir()</pre>
+A considerable amount of functionality should be listed.
+Type:
+<pre>dir(iface)</pre>
+This lists the functionality of the QGIS interface. With it we can
+programatically access functionality and any data loaded.
+<li>Action the Python Console Show Editor Button. The interface
+should change so that there is an additional pane in the Python
+Console</li>
+</ol>
 <p>Download <a href="./QGISExample.py">QGISExample.py</a>, read
-the code and try to run it in QGIS following the instructions in
-the comments at the top of the file which are also reproduced
-below:</p>
-<p>This course does not cover plugin development for QGIS. For
-more details about QGIS development see:
-<a href="https://www.qgis.org/en/site/getinvolved/development/development.html">
-https://www.qgis.org/en/site/getinvolved/development/development.html</a>
+the code and try to run it. Again, you are not expected to fully
+understand the code at this stage. (Further instructions and an
+outline of what to expect are provided in the comment at the top
+of source code.</p>
+<p>Notice that after the comments at the top of the file, there
+are a couple of import statements, some iface functionality is
+used and the code is organised into code blocks with comments that
+outline what each code block does. The import statements are a bit
+more involved that what you have seen so far. In the code there is
+a For Loop which is used to iterate over the features in a layer.
+From the layer both attribute and geometry is used.</p>
+<p>Once the program has run the QGIS interface should look
+something like:
+<img src="qgis2.png" alt="QGIS Python Console after having run QGISExample.py" />
 </p>
+<p>QGIS has a Plug In Architecture allowing others to write
+plugins in both C++ and Python. Plugins typically add something to
+the interface and provide new functionality or scripted more
+automated ways to do things. This course does not cover plugin
+development for QGIS in detail, but here are some links:
+</p>
+<ul>
+<li><a href="https://www.qgis.org/en/site/getinvolved/development/development.html">
+QGIS Development Web Page</a></li>
+<li><a href="https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/plugins/index.html#developing-python-plugins"
+QGIS Development Cookbook Plugins Web Page Section on Developing Python Plugins</a></li>
+</ul>
 
 <p><a href="https://qgis.org/pyqgis/"></a></p>
-<h2>7. Recap</h2>
+<h2>7. Recap and Expectations</h2>
 <p>This section of the course introduced some basic Python syntax
 and considered the evolution of the language. It explored running
 Python code in files, using the REPL environment and help system,
 Jupyter Notebooks, the IDLE and Spyder IDEs, and the Python
 environment in QGIS.</p>
 <p>It introduced loading modules using an import statement, and
-accessing functionality via a dot operator. It introduced
-a conditional IF statement and a For Loop. (Conditional statements
-and loops will be gone through in more detail subsequently in the
-course.)</p>
+accessing functionality via a dot operator. It introduced examples
+of conditional IF statements and For Loops. (There will be more
+detail on conditional statements subsequently.)</p>
+<p>This has been a broad brush overview which you might like to
+revisit once you are a bit more familiar with developing Python
+code and as you think about doing projects.</p>
+
 <footer>
 <div>
 <p><a id="next" class="nav" href="../variables/index.html">Next: Variables</a></p>
