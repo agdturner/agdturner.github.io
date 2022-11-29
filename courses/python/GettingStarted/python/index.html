@@ -31,16 +31,11 @@ DOM is fully loaded. -->
 <div>
 <h1>Python</h1>
 <h2>1. Introduction</h2>
-<p>
-<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>
-is a popular and powerful interpretted programming language. The
-Python interpreter and the extensive standard library are freely
-available in source and binary form for all major platforms from
-the
-<a href="https://www.python.org/">Python Website</a>, and may be freely distributed. The <a href="https://www.python.org/">Python Website</a> contains distributions of and pointers to many free third party Python modules, programs and tools, and additional documentation.</p>
+<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> is a popular and powerful interpretted programming language. The language is supported and developed by the <a href="https://www.python.org/psf/">Python Software Foundation</a> with a mission to promote, protect, and advance the language, and to support and facilitate the growth of a diverse and international community of Python programmers.</p>
+<p>The core standard library and interpretters are freely available in source and binary forms for all major platforms from the <a href="https://www.python.org/">Python Website</a>, and may be freely distributed. There are various Python interpretter that read source code written in Python and translates this into machine instructions. We won't concern ourselves with the differences here.</p><p>The Python Website contains distributions of and pointers to many Free and Open Source third party Python modules, programs, tools, and additional documentation.</p><p>A particularly useful documentation page for beginners is the <a href="https://docs.python.org/3/reference/">Python 3 Language Reference</a>.</p>
 <p>On October 4, 2021 Python 3.10 was released. On November 24th,
-2022 Python 3.11 was released. For each of these incremental
-releases there are Whatsnew Web Pages:</p>
+2022 Python 3.11 was released. For each incremental releases there
+are Whatsnew Web Pages:</p>
 <ul>
 <a href="https://docs.python.org/3/whatsnew"></a>
 <li><a href="https://docs.python.org/3/whatsnew/3.0.html">Whatsnew Python 3.0</a></li>
@@ -59,43 +54,60 @@ releases there are Whatsnew Web Pages:</p>
 <p>On Whatsnew Web Pages, changes are marked against Python
 Enhancement Proposals (PEPs). Each PEP is numbered and
 collectively they allow us to look ahead to see what might change
-and get involved in language development which is a somewhat open
-and well organised process. PEPs have their own Web site:
+and get involved in language development. PEPs have their own
+Web site:
 <a href="https://peps.python.org/">https://peps.python.org/</a>
 </p>
-<p>It is important to know exactly which version of Python you are
-using and what versions of any third party modules you are using.
-This helps with reproducing results and diagnosing issues.</p>
+<p>For reproducing results and diagnosing issues. It is important
+to know exactly which version of Python you are using and what
+versions of any third party modules you are using.</p>
 <p>Python underwent a major revision from Python 2 to Python 3 in
 around 2008. There were changes that were not all backward
-compatible. As a result a lot of Python 2 code needed
-changing/fixing (refactoring) in order to work as intended or at
-all in Python 3 environments. This somewhat divided the community.
-Python 2 is no longer supported in that Python developers are no
-longer responding to issues reported against Python 2. Python 2
-code may still be being maintained, and there might still be
-useful code written in Python 2 that could be translated to
-Python 3, but we will not look at the differences in this course.
+compatible. As a result a lot of Python 2 code needed modifying
+(refactoring) in order to work as intended or at all in Python 3
+environments. Tools were written to help refactor code. Python 2
+is no longer supported in that Python Software Foundation Python
+language developers and supporters are no longer responding to
+issues reported against Python 2. Python 2 code may still be in
+use. We will not look at the differences in this course.
 </p>
-<p>As high level computer programming languages like Python
-evolve, some ways of doing things are retired (deprecated).
-Deprecation gives advanced notice of retiring features allowing
-programmers that look after code to plan for succession.</p>
+<p>As Python evolves, some ways of doing things are retired
+(deprecated). Deprecation gives advanced notice of retiring
+features allowing code developers and maintainers to plan ahead.
+</p>
 <p>It is important to be aware of the evolving nature of high
 level computer programming languages. New features of Python 3.11
 will not work in Python 3.10. It is more likely that code written
-in Python 3.10 syntax will work in Python 3.11, but that is not
-always the case.</p>
+in Python 3.10 syntax will work in Python 3.11 environments, but
+that is not always the case.</p>
+<p>As well as the core of the Python language - the language
+specification and a reference implementation of an interpretter,
+there is a vast ecosystem of third party libraries written in
+Python. Many of these are useful and most that are well used find
+their way into <a href="https://pypi.org/">PyPI</a> - a Python
+Package Index - a repository of third party Python packages.
+Installing Python packages from PyPI is relatively
+straightforward and we will learn about this in due course, but we
+won't learn about packaging and depositing code on PyPI. Most of
+the things additional to the core langauge that we will be using
+are part of Anaconda which we will learn more about and start
+using shortly...</p>
+<p>The quality of third party code and indeed core Python code
+varies. You should always be a bit careful about running code
+written by others as it is quite easy to write malicious software
+or bad code that can damage computer systems, result in data
+breaches, and leave you and others vulnerable.
+
 <p>The
-<a href="https://docs.python.org/3/tutorial/">getting started tutorial</a>
-linked from the
-<a href="https://www.python.org/">https://www.python.org/</a>
+<a href="https://docs.python.org/3/tutorial/">Getting Started Tutorial</a>
+linked from the <a href="https://www.python.org/">Python Website</a>
 is a good place to start learning Python. This course covers
-many of the same things albeit in a more geographically focused
-way.</p>
-<p>The remainder of this page is a practical exercise which
-introduces running Python code in different ways which can be
-useful to know as not all options might be available to you.</p>
+some of the same things but in a way that is more geographically
+focused.</p>
+<p>The following sections of this Web page comprise practical
+exercises to get you running Python code in different ways. All
+these ways are useful to know about in general and for this
+course.</p>
 
 <h2>2. Running Python from the Command Prompt</h2>
 <p>Python instructions also known as commands or statements, can
@@ -109,24 +121,23 @@ functions later in the course, but we will start accessing
 functions almost straight away...</p>
 <p>These instructions assume that you have
 <a href="https://www.anaconda.com/">Anaconda</a>
-installed or available for use. When installing Anoconda, choose
+installed or available for use. When installing Anaconda, choose
 the option to add to your Path (which is not the default
 option).</p>
 
 <h3>2.1. Hello World</h3>
-<p>Open up a Terminal or Command Window (which we will call
-Command Window) and enter:</p>
+<p>Open up a Terminal (Command Window) and enter:</p>
 <pre>python --version</pre>
 <p>This should output the version of Python your system is set up
 to use. If Python is not on your Path, then you should get an
 error message.</p>
-<p>Enter the following command:</p>
+<p>Enter the following command to arrive at the Python Prompt:</p>
 <pre>python</pre>
-<p>The prompt should change to look more like:</p>
+<p>The Python Prompt should look like:</p>
 <pre>>>></pre>
 <p>This is the Read-Eval-Print Loop (REPL) environment for Python
 where user inputs are read and evaluated, and then the results
-are returned to the user. We call this the Python Prompt.</p>
+are returned to the user.</p>
 <p>Enter the following at the Python Prompt:</p>
 <pre>print("Hello World")</pre>
 <p>You should see the following output:</p>
@@ -149,16 +160,16 @@ which supports a subset of fractions or decimal numbers. We will
 worry about the details of this later. For the time being, cause
 an error by attempting a division by 0. Enter:</p>
 <pre>1/0</pre>
-<p>You should get the following error message:</p>
+<p>You should get the following Divide by Zero Error message:</p>
 <pre>
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ZeroDivisionError: division by zero
 </pre>
 
-<h3>2.3. Loading modules and Using functions</h3>
+<h3>2.3. Loading Modules and Using Functions</h3>
 <p>Mathematical operators can also be accessed via functions that
-reside in the "operator" module.</p>
+reside in the Operator Module.</p>
 <p>Enter:</p>
 <pre>operator.add(2, 3)</pre>
 <p>You should see the following error message:</p>
@@ -166,10 +177,10 @@ reside in the "operator" module.</p>
   File "<stdin>", line 1, in <module>
 NameError: name 'operator' is not defined</pre>
 <p>The error is that the interpretter does not know about the
-module named "operator"</p>
+Operator Module.</p>
 <p>Enter:</p>
 <pre>dir()</pre>
-<p>This runs (or calls) the "dir" function. You can tell it is
+<p>This runs (or calls) the Dir Function. You can tell it is
 a function as after the name there are start and end parentheses
 (()). In this case, the function is passed no arguments as there
 is nothing between the start and end parentheses.</p>
@@ -180,79 +191,76 @@ is nothing between the start and end parentheses.</p>
 list as it starts with an open square bracket ([) and ends with
 a closing square bracket (]), and each element is separated with a
 comma (,). This is a list of modules that the current Python
-environment has loaded and from which functionality can be
-accessed. Later on we will learn how to install modules that are
-not available. What we are learning here is about loading modules
-that are available.</p>
+Environment has access to and from which functionality can be
+used.</p>
 <p>Enter:</p
 <pre>import operator</pre>
-<p>This imports or loads the "operator" module.</p>
+<p>This imports or loads the Operator Module so that it's
+functionality can be accessed/used.</p>
 <p>Enter:</p>
 <pre>dir()</pre>
-<p>Now, you should see the operator module in the list.</p>
+<p>Now, you should see the Operator Module in the list.</p>
 <p>Enter:</p>
 <pre>operator.add(2, 3)</pre>
-<p>Now, you should not get the error, but see the result:</p>
-<pre>5</pre>
-<p>The dot (.) is an operator called the dot operator. It
+<p>Now, you should not get the error we encoutered previously, but
+see the result.</p>
+<p>The dot (.) is an operator called the Dot Operator. It
 instructs the Python interpretter to look inside the thing on the
 left to find the thing on the right. So, the expression looks
-inside the operator module for the add function, and passes into
-the add function two parameters, in this case the Integers 2 and
-3. The function returns the result which is then output.</p>
+inside the Operator Module for the Add Function, and passes into
+the Add Function two parameters, in this case the Integer 2
+followed by the Integer 3. The Add Function returns the result of
+adding these two numbers, and be default the value is printed.</p>
 <p>Enter:</p>
 <pre>dir(operator)</pre>
-<p>This lists all the functions in the "operator" module. It is
-quite a long list!</p>
+<p>This lists the functions in the Operator Module. It is quite a
+long list!</p>
 <p>Notice that there are numerous functions that have a name
-starting and ending with "__". These are not supposed to be
-called directly, but they can be.</p>
+starting and ending with a double underscore (__). These are not
+meant to be called directly, but they can be.</p>
 <p>Enter:</p>
 <pre>operator.__add__(2, 3)</pre>
-<p>Python does not have a way of exerting access control on
-variables or functions, so it uses a naming convention to
-indicate to users that the variable or function should not be
-accessed from outside the module. Variables with names that start
-with a single underscore ("_") or double underscore "__"
-are not to be accessed or used directly.</p>
-<p>Try using some other functions from the operator module.</p>
+<p>Python does not exert access control on variables and
+functions. A naming convention is used to indicate to users
+whether a variable or function is meant to be accessed from
+outside the module. Underscores (_) and double underscores (__) at
+the start and/or end of identifiers have a special meaning in
+Python.</p>
+<p>Try using some other functions from the Operator Module.</p>
 
 <h3>2.4. The Help System</h3>
 <p>Enter:</p>
 <pre>help(operator.add)</pre>
-<p>This prints out some information about how to use the operator
-module add function.</p>
+<p>This prints out some information about how to use the Operator
+Module Add Function.</p>
 <p>Enter:</p>
 <pre>help()</pre>
-<p>This enters the help system and the prompt changes to look
-like:</p>
+<p>This enters the Help System Prompt which looks like:</p>
 <pre>help> </pre>
 <p>Read what is printed.</p>
 <p>Enter:</p>
 <pre>modules</pre>
-<p>This may take a few minutes to build a list of available
+<p>It may take a few minutes to report a list of available
 modules. It takes longer to run the first time it is run.</p>
-<p>A list of modules should be returned.</p>
 <p>At the help prompt enter:</p>
 <pre>operator</pre>
 <p>This should dispay the start of the help documentation for the
-operator module. Press the <enter> key to get the next line of the
-help documentation. Press and hold the <enter> key and the
-documentation should stream to the screen at a reading speed.
-Release the <enter> key after you have read a bit further. The
-<space bar> key streams the documentation a page at a time. The
-<q> key quits and should return you to the help system prompt.</p>
+Operator Module. Press the <enter> key to see the next line of the
+documentation. Press and hold the <enter> key and the
+documentation should stream to the screen. The <space> bar key
+streams the documentation a page at a time. The
+<q> key quits and should return you to the Help System Prompt.</p>
 <p>Have a quick look at some documentation for other modules.</p>
 <p>Enter:</p>
 <pre>q</pre>
-<p>This should exit the help system and return you to the Python
-prompt.</p>
+<p>This should exit the Help System and return you to the Python
+Prompt.</p>
 <p>Enter:</p>
 <pre>quit()</pre>
 <p>This should quit the Python REPL environment and return you
-to the normal command prompt.</p>
+to the Command Prompt.</p>
 <p>Before learning how to run a file of Python commands, let us
-go through some basics of Python syntax.</p>
+consider a bit more basic Python syntax.</p>
 
 <h2>3. Basic Python Syntax</h3>
 <p>The syntax of a computer programming language are the rules
@@ -261,11 +269,15 @@ about how it must be written.</p>
 <h3>3.1. Syntax Errors</h3>
 <p>If a statement or expression is syntactically incorrect, and
 the Python interpretter attempts to interpret it, a syntax error
-is thrown.</p>
+is thrown. (N.B. The Divide by Zero Error we encountered earlier
+was not as a result of a syntax error, the expression was
+syntactically correct. However, when the expression was evaluated
+there was an error. The general type of that error is known as a
+Runtime Error.</p>
 <p> It is possible to set a file of Python code containing
 incorrect syntax running. In general though, it is best to avoid
-syntax errors by ensuring all code is syntactically correct. At
-the Python prompt enter:</p>
+syntax errors by ensuring all code is syntactically correct before
+running it. At the Python prompt enter:</p>
 <pre>x=</pre>
 <p>You should get the following syntax error:</p>
 <pre>
@@ -275,15 +287,16 @@ File "<stdin>", line 1
 SyntaxError: invalid syntax
 </pre>
 <p>Notice how this attempts to indicate where the syntax error is.
-Essentially, this is an incomplete expression. A lot of learning
-to code is about interpretting error messages and understanding
-what to do.</p>
+Essentially, this issue is that the expression is incomplete.
+There needs to be something on the right of the equals sign (=). A
+lot of learning to code is about interpretting error messages of
+one kind or another.</p>
 
-<h3>3.3. Statements</h3>
+<h3>3.2. Statements</h3>
 <p>Multiple statements on a single line are separated with
 semicolons (;). At the Python Prompt enter:</p>
 <pre>y=1;x=y;print(x)</pre>
-<p>The output of this is:</p>
+<p>The output of this is fairly ugly line of Python code is:</p>
 <pre>1</pre>
 <p>Statements might include many expressions and can be formulated
 over several lines. We will come across some examples shortly...
@@ -291,7 +304,7 @@ over several lines. We will come across some examples shortly...
 <p>Python does not have a special symbol to end a statement like
 many other languages do.</p>
 
-<h3>3.4. Comments</h3>
+<h3>3.3. Comments</h3>
 <p>The # symbol is the start of a comment.</p>
 <pre>
 # This entire line is a comment
@@ -314,8 +327,10 @@ This is between triple quotes and is a comment.
 <p>It is good practise to leave a comment to indicate why a
 section of code has been commented out. Comments aim to help make
 code easier to read and understand. What is an appropriate amount
-of comment depends. Sometimes it is good to refer to other
-information sources in comments.</p>
+of comment depends, but to start with try to write plenty of
+comments as it helps you learn. We will see some examples in
+shortly. Sometimes in source code comments, it is good to refer to
+other information sources in comments.</p>
 
 <h3>3.4. Code Layout</h3>
 <p>Blank lines are allowed and can help structure code into
@@ -335,12 +350,12 @@ x ** y
 blank space that precedes text on a line. (It is sometimes called
 white space - as code backgrounds were normally white in colour).
 It is good to be consistent with indentation and to be aware that
-indentation can effect what code does. Also, care must be taken
-with spaces and tabs as these are different, but spaces can appear
-the same as a tab in many editors. With Python it is recommended
-not to use tabs at all in source code and to use multiple spaces
-instead to indent. The following is a code block with an example
-"if" statement:</p>
+indentation can effect what code does. Care must be taken with
+spaces and tabs in this respect as these are different, but often
+a number of spaces appears the same as a single tab. With Python
+it is recommended not to use tabs at all in source code and to use
+multiple spaces instead to indent. The following is a code block
+with an example If Statement:</p>
 <pre>
 # if x is greater than y, then print a
 if x > y: # This line has the same indent as the comment above.
@@ -353,7 +368,7 @@ not been initialised, then there will be an error:</p>
 <pre>Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'x' is not defined</pre>
-<p>The print function is a built in function that is located in
+<p>The Print Function is a Built In Function that is located in
 the __builtins__ module. Have a look at the help for the function
 by entering:</p>
 <pre><code class="language-python">
@@ -361,9 +376,10 @@ help(print)
 </code></pre>
 
 <h3>3.5. Delimiters, Literals and Operators</h3>
-<p>Delimiters separate bits of code like blank lines and the
-colon (:) in the if statement above. Some delimeters also act as
-operators. Here are some to look at:</p>
+<p>Delimiters separate bits of code, like blank lines and the
+colon (:) in the If Statement example above. Some delimeters also
+act as operators. Here is a list from the Python Reference
+Documentation to look at:</p>
 <pre>(       )       [       ]       {       }
 "
   + ",       :       .       ;       @       =       ->
@@ -374,18 +390,19 @@ operators. Here are some to look at:</p>
 <p>The various types of bracket ((), [], {}) are parentheses (()),
 square brackets ([]) and curly brackets ({}) also known as braces.
 A lot of code uses brackets. Each open bracket ((, [, {) must be
-matched with a closing bracket (), ], }). Commas (,), colons (:),
-dots (.) and semicolons (;) are also common in code. A common
-issue with code can be because of brackets not being closed, so
-this is always something worth checking.
+matched with a closing bracket (), ], }). Failure to match
+brackets is a cause of much confusion as it can be difficult when
+there is a bracket mismatch to locate what the cause of the
+resulting error is. Commas (,), colons (:), dots (.) and
+semicolons (;) are also common in code.
 </p>
 <p>Literals are specific numerical or text values.</p>
-<p>Operators are sequences of mathematical symbols that are a
-shorthand for functions (e.g. +, -, *, /, %)</p>
+<p>Operators are sequences of symbols that are shorthand for
+Operator Module functions (e.g. +, -, *, /, %)</p>
 
 <h3>3.6. Identifiers and Keywords</h3>
-<p>Identifiers are (for the most part) names of variables. They
-are also used for function names, class names and module names.
+<p>Identifiers are names of variables, modules, functions and
+classes.
 </p>
 <p>Keywords are reserved terms that can't be used for other
 things like variable names (e.g. else, for, if, import).</p>
@@ -409,9 +426,9 @@ is that there was an attempt to use a keyword as a variable name.
 </p>
 
 <h4>3.7. Style</h4>
-<p>The following code block is an "if statement" which has an
-"else" condition. This can be read as follows: If the variable x
-is greater than the variable y, then  x is printed otherwise y is
+<p>The following code block is an If Statement which has an
+Else Condition. This can be read as follows: If the variable x
+is greater than the variable y, then x is printed, otherwise y is
 printed.</p>
 <pre>
 x = 0
@@ -422,7 +439,7 @@ if x > y:
 else:
     print("y", y)
 </pre>
-<p>Notice that the print function is called with two arguments.
+<p>Notice that the Print Function is called with two arguments.
 There are variables, comments, indentation, operators and
 keywords. Styling can be used added to make it easier to
 identify different parts, read and understand code:</p>
@@ -437,7 +454,8 @@ else:
 print("done")
 </code></pre>
 <p>The style does not change the meaning of the code. Code
-blocks presented subsequently, will tyically be styled as above.
+blocks presented subsequently in these learning resources will
+typically be styled as above.
 </p>
 
 <h2>4. Running a file of Python commands</h2>
@@ -501,6 +519,24 @@ stage, but hopfully you get an inkling of how it works.</p>
 
 <h2>6. Integrated Development Environments</h2>
 
+<p><a href="https://en.wikipedia.org/wiki/Integrated_development_environment">
+Integrated Development Environment</a>s (IDEs) are software tools
+used to make writing code and developing software easier. In this
+section we look at IDLE and Spyder - IDEs that come with Anaconda.
+There are other IDEs that support Python code development and if
+you are already familiar with one that does, then you might like
+to try using that. Other IDEs that I have been recommended by
+others Python developers are:
+<a href="https://www.jetbrains.com/pycharm/">PyCharm</a>
+, and
+<a href="https://www.pydev.org">PyDev</a>
+<!--
+for
+<a href="https://en.wikipedia.org/wiki/Eclipse_(software)">Eclipse</a>
+-->
+.
+</p>
+
 <h3>6.1. IDLE</h3>
 <p>The core Python language comes with IDLE - an Integrated
 Development and Learning Environment. IDLE has an editor window,
@@ -561,7 +597,7 @@ below:</p>
 <p><a href="https://docs.spyder-ide.org/current/index.html">
 Spyder Documentation</a></p>
 
-<h2>6. Python Environments In GIS Software</h2>
+<h2>7. Python Environments In GIS Software</h2>
 <p>Python environments are provided as part of some Geographical
 Information System (GIS) software including
 <a href="https://www.qgis.org/">QGIS</a> which is also Free and
@@ -617,21 +653,21 @@ development for QGIS in detail, but here are some links:
 <ul>
 <li><a href="https://www.qgis.org/en/site/getinvolved/development/development.html">
 QGIS Development Web Page</a></li>
-<li><a href="https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/plugins/index.html#developing-python-plugins"
+<li><a href="https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/plugins/index.html#developing-python-plugins">
 QGIS Development Cookbook Plugins Web Page Section on Developing Python Plugins</a></li>
 </ul>
 
 <p><a href="https://qgis.org/pyqgis/"></a></p>
-<h2>7. Recap and Expectations</h2>
+<h2>8. Recap and Expectations</h2>
 <p>This section of the course introduced some basic Python syntax
 and considered the evolution of the language. It explored running
 Python code in files, using the REPL environment and help system,
 Jupyter Notebooks, the IDLE and Spyder IDEs, and the Python
 environment in QGIS.</p>
 <p>It introduced loading modules using an import statement, and
-accessing functionality via a dot operator. It introduced examples
-of conditional IF statements and For Loops. (There will be more
-detail on conditional statements subsequently.)</p>
+accessing functionality via a dot operator. It considered examples
+of IF Statements and For Loops. (There will be more detail on
+conditional statements and loops subsequently.)</p>
 <p>This has been a broad brush overview which you might like to
 revisit once you are a bit more familiar with developing Python
 code and as you think about doing projects.</p>
@@ -640,7 +676,7 @@ code and as you think about doing projects.</p>
 <div>
 <p><a id="next" class="nav" href="../variables/index.html">Next: Variables</a></p>
 </div>
-<p>Date last modified: 2022-11-28.</p>
+<p>Date last modified: 2022-11-29.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
