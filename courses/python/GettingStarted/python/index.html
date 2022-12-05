@@ -34,8 +34,9 @@ DOM is fully loaded. -->
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> is a popular and powerful interpretted programming language. The language is supported and developed by the <a href="https://www.python.org/psf/">Python Software Foundation</a> with a mission to promote, protect, and advance the language, and to support and facilitate the growth of a diverse and international community of Python programmers.</p>
 <p>The core standard library and interpretters are freely available in source and binary forms for all major platforms from the <a href="https://www.python.org/">Python Website</a>, and may be freely distributed. There are various Python interpretter that read source code written in Python and translates this into machine instructions. We won't concern ourselves with the differences here.</p><p>The Python Website contains distributions of and pointers to many Free and Open Source third party Python modules, programs, tools, and additional documentation.</p><p>A particularly useful documentation page for beginners is the <a href="https://docs.python.org/3/reference/">Python 3 Language Reference</a>.</p>
 <p>On October 4, 2021 Python 3.10 was released. On November 24th,
-2022 Python 3.11 was released. For each incremental releases there
-are Whatsnew Web Pages:</p>
+2022 Python 3.11 was released. On the 4th of December Python 3.12
+was released. For each incremental releases there are Whatsnew Web
+Pages:</p>
 <ul>
 <a href="https://docs.python.org/3/whatsnew"></a>
 <li><a href="https://docs.python.org/3/whatsnew/3.0.html">Whatsnew Python 3.0</a></li>
@@ -50,6 +51,7 @@ are Whatsnew Web Pages:</p>
 <li><a href="https://docs.python.org/3/whatsnew/3.9.html">Whatsnew Python 3.9</a></li>
 <li><a href="https://docs.python.org/3/whatsnew/3.10.html">Whatsnew Python 3.10</a></li>
 <li><a href="https://docs.python.org/3/whatsnew/3.11.html">Whatsnew Python 3.11</a></li>
+<li><a href="https://docs.python.org/3/whatsnew/3.12.html">Whatsnew Python 3.12</a></li>
 </ul>
 <p>On Whatsnew Web Pages, changes are marked against Python
 Enhancement Proposals (PEPs). Each PEP is numbered and
@@ -65,44 +67,89 @@ versions of any third party modules you are using.</p>
 around 2008. There were changes that were not all backward
 compatible. As a result a lot of Python 2 code needed modifying
 (refactoring) in order to work as intended or at all in Python 3
-environments. Tools were written to help refactor code. Python 2
-is no longer supported in that Python Software Foundation Python
+environments. Tools were written to help refactor code, but
+nontheless, work was needed to make the change. In a way it gave
+an incentive to improve code sustainability and the writing of
+tests and what got left behind was perhpas of lesser use, but
+anyway this was a trying time for the community. Python 2 is no
+longer supported in that Python Software Foundation Python
 language developers and supporters are no longer responding to
 issues reported against Python 2. Python 2 code may still be in
-use. We will not look at the differences in this course.
+use. We will not look at the differences in this course. It is
+unclear whether Python 4 will materialise although the Python
+developers have been considering another major change.</p>
+<p>As Python evolves, some ways of doing things are gracefully
+retired (deprecated) as opposed to suddenly changing without
+warning. So, deprecation gives advanced notice of retiring
+features of a language allowing code developers and maintainers
+to plan ahead. The can do the same with code in the packages they
+develop which often change at a much faster pace than the
+language itself. Deprecation is a common part of modern high level
+languages. In low level languages like
+<a href="https://en.wikipedia.org/wiki/C_(programming_language)">
+C</a> which are much simpler, there is rarely deprecation in the
+core of the language.
 </p>
-<p>As Python evolves, some ways of doing things are retired
-(deprecated). Deprecation gives advanced notice of retiring
-features allowing code developers and maintainers to plan ahead.
-</p>
-<p>It is important to be aware of the evolving nature of high
-level computer programming languages. New features of Python 3.11
-will not work in Python 3.10. It is more likely that code written
-in Python 3.10 syntax will work in Python 3.11 environments, but
-that is not always the case.</p>
+<p>It is important to be aware of the evolving nature of computer
+programming languages. New features of Python 3.11 will not work
+in Python 3.10. It is more likely that code written in Python 3.10
+syntax will work in Python 3.11 environments, but that is not
+always the case.</p>
 <p>As well as the core of the Python language - the language
-specification and a reference implementation of an interpretter,
-there is a vast ecosystem of third party libraries written in
-Python. Many of these are useful and many are available via
+specification and a reference implementation of an interpretter
+(<a href="https://github.com/python/cpython">cpython</a>),
+there is a vast ecosystem of third party packages that extend the
+language, and other iterpretters written in other languages. We
+will not concern ourselves with Python interpretters, but it is
+important to know that Python typically leverages other languages
+to interpret what is written in Python syntax into more machine
+like instructions.</p>
+<p>Many third party Python packages are useful and many are
+available via
 <a href="https://pypi.org/">PyPI</a> - a Python Package Index -
 a repository of third party Python packages. In Section 8, there
-is an exercise involving installing Python packages from PyPI and
-links to details about how to package code and make it available
-via PyPI. Most of the additions to the core Python langauge that
-are used in this course are part of Anaconda which we will learn
-more about and start using shortly...</p>
-<p>The quality of third party code and indeed core Python code
-varies. You should always be a bit careful about running code
-written by others as it is quite easy to write malicious software
-or bad code that can damage computer systems, result in data
-breaches, and leave you and others vulnerable.
+is an exercise that involves installing Python packages from PyPI
+and that links to details about how to package code and make it
+available via PyPI.</p>
+<p>Most of the additions to the core Python language used in this
+course are part of Anaconda which we will learn more about and
+start using shortly...</p>
+<p>First, some brief words of caution and wisdom. The quality code
+varies. Most code is written for a particular reason or use case
+scenario, so when it is reused for other things it is not
+guaranteed to work although often there is some sureity. The only
+way to be sure is to test.</p>
+<p>Running code without inspecting or understanding it is risky.
+Think critically about where code is coming from. Some
+professionally developed code does not set a good example,
+especially in terms of being rich in comments that make it easier
+to read and understand. Some professionally developed code or code
+posted on forums might look quite different to code you are
+encouraged to produce (with less checking/testing code and
+fewer comments.) Programming well is not coding that makes how
+something works difficult to comprehend, but coding that makes
+comprehension easy!
+</p>
+<p>It is quite straightforward to write malicious software and
+code that could cause data breaches and data loss, and damage
+computer systems - perhaps leaving them more open to further
+attack. However, doing this is bad, so please do not be tempted,
+and try not to become a victim. Computers, computer programming
+languages, the packages that effectively extend them, and the
+software developed for end users that have little or no knowledge
+of the underlying language are part of modern life. So, to adapt a
+phrase of the great
+<a href="https://en.wikipedia.org/wiki/Helen_Keller">
+Helen Keller</a> - programming is a daring adventure or nothing at
+all!
 
 <p>The
 <a href="https://docs.python.org/3/tutorial/">Getting Started Tutorial</a>
 linked from the <a href="https://www.python.org/">Python Website</a>
 is a good place to start learning Python. This course covers
 some of the same things but in a way that is more geographically
-focused.</p>
+focused. In your own study time, you might like to make your way
+through that learning material too.</p>
 <p>The following sections of this Web page comprise practical
 exercises to get you running Python code in different ways. All
 these ways are useful to know about in general and for this
@@ -110,35 +157,49 @@ course.</p>
 
 <h2>2. Running Python from the Command Prompt</h2>
 <p>Python instructions also known as commands or statements, can
-be entered at what is called the Command Prompt, or they can be
-passed in files to be interpretted. There is a logical order in
-which the code is run. For code in files, the statements are
-executed from top to bottom. Program files may contain new types
-of instructions called functions that can be accessed and run from
-other parts of a program. We will learn how to define our own
-functions later in the course, but we will start accessing
-functions almost straight away...</p>
-<p>These instructions assume that you have
-<a href="https://www.anaconda.com/">Anaconda</a>
-installed or available for use. When installing Anaconda, choose
-the option to add to your Path (which is not the default
-option), otherwise you should do that once the installation is
-complete.</p>
+typically be entered at a Terminal or Command Window sometimes
+and what we will refer to as the Command Prompt. They can also be
+passed in files to be interpretted as explained in Section 5.</p>
+<p>Check if you have a version of Python on your path. At the
+Command Prompt enter:</p>
+<pre>python --version</pre>
+<p>If the command cannot be found, then this means that the system
+or some other software installed is not depending on a version of
+Python. If a version of Python is already on your system then
+the version of Python should be reported. The plan is not to
+interfere with any version of Python already on your system.
+Checking is a good idea before installing Anaconda as one of the
+install options might change the default Python version and
+result in unexpected system behaviour. It is also good to know
+about other existing Python versions on your system. So, try to
+keep this in mind.</p>
+<p>Once Anaconda is installed, the instructions in these course
+materials will direct you to use the Anaconda Prompt rather than
+the generic Command Prompt.</p>
+<p>There are one or more version of Anaconda available to
+University of Leeds staff and students via AppsAnywhere on it's
+Academic Windows Virtual Desktop which can be accessed via a
+Web browser and the following URL:
+<a href="https://wvd.leeds.ac.uk">https://wvd.leeds.ac.uk</a>.
+<a href="https://www.anaconda.com/">Anaconda</a> is a data science
+platform. If you want, download and install it choosing the
+default options. Typically this will install into your user home
+directory if you do not have permission to install elsewhere. This
+option can be changed if your home directory does not have
+sufficient space.</p>
 
 <h3>2.1. Python REPL</h3>
 
 <h4>2.1.1. Hello World</h4>
-<p>Open a Console, Terminal or Command Window (what you use
-depends on your Operating System (OS), and from now on the
-instructions assume some form of Windows OS and shall use the term
-Command Window when refering to this). Enter:</p>
+<p>From the Anaconda Install open the Anaconda Prompt. It should
+look something like:</p>
+<pre>(base) C:\></pre>
+<p>"(base)" is the activated Python environment and "C:" is the
+current directory. Enter:</p>
 <pre>python --version</pre>
-<p>This should output the version of Python your system is set up
-to use. If Python is not on your Path, then you should get an
-error message. (If that happens, it is likely that the install of
-Anaconda did not modify your Path and a Python executable is not
-on your Path. To sort this out you will need to edit your Path
-or try again to install Anaconda - uninstaling it first.)</p>
+<p>This should output the version of Python that came with
+Anaconda, for example:</p>
+<pre>Python 3.9.12</pre>
 <p>Enter the following command to arrive at the Python Prompt:</p>
 <pre>python</pre>
 <p>The Python Prompt should look like:</p>
@@ -199,7 +260,7 @@ is nothing between the start and end parentheses.</p>
 list as it starts with an open square bracket ([) and ends with
 a closing square bracket (]), and each element is separated with a
 comma (,). This is a list of modules that the current Python
-Environment has access to and from which functionality can be
+environment has access to and from which functionality can be
 used.</p>
 <p>Enter:</p
 <pre>import operator</pre>
@@ -479,12 +540,18 @@ Window. Change to the directory where you saved the file
 <pre>
 Hello World
 </pre>
+<p>For code in files, the statements are executed from top to
+bottom, but the flow may call functions and return to a statement
+at the end of running the function. We will learn how to define
+functions later in the course, but we lear about calling and using
+functions soon...</p>
 <p>Try creating another file adding some Python commands and
 running it.</p>
-<p>It is not necessary to run from the directory in which the
-file of Python commands is located if you provide a path to
+<p>It is not necessary to run the files of Python code from the
+directory in which the file is located. You can provide a path to
 the file in the run command. That path can be absolute (from the
-base) or relative (from the current directory).</p>
+base of the file system) or relative (from the current
+directory).</p>
 
 <h2>5. Jupyter Notebook</h2>
 <p>Jupyter Notebook, is a REPL based system that embeds code into
@@ -724,14 +791,15 @@ Python code is:
 
 <a href="https://packaging.python.org/">Packaging Python</a>
 <p>For those just beginning to learn to program, learning to
-package code is jumping a step ahead. However, it can help to be
-aware of packaging and repositories, to learn how to install
-packages from repositories into environents, and to understand
-about dependencies.</p>
+package code is jumping a step ahead. However, helps to be aware
+of packaging and repositories, to learn how to install packages
+from repositories into environents, and to understand about
+dependencies.</p>
 <p>As mentioned, <a href="https://pypi.org/">PyPI</a> is a widely
 used repository, for deploying packages to, and for users to get
 packages from. Many packages are provided as open source software.
-It is also possible to have private packages.</p>
+Private packages are also supported, but we will not be using any
+in this course.</p>
 <p>Often when installing a package, it is necessary to install a
 number of other packages that are dependencies. In Python terms,
 a dependency is a module that some other module needs in order to
@@ -739,56 +807,75 @@ work. Often the details are at the level of functions. As code is
 refactored, sometimes module dependencies change and functions
 change. A function's name may change, the specification of the
 parameters it expects may change, and the details of what is
-returned may change in ways such that some code no longer works.
+returned may change in ways such that some code calling the
+funtion is either syntactically incorrect, or no longer works.
 Internally, functions may utilise other different functions, but
 if the interface does not change, then code that worked with
-previous version is likely to still work. Yet, the only way to
-know for sure is to test.</p>
+previous version is likely to still work. The only way to be
+confident is to test. We will come onto testing later...</p>
 <p>One of the criticisms levelled at Python is to do with
 dependency management. Suppose modules from two different packages
 depend on different versions of another module (and there is no
 common version of that module that contains all that is wanted).
 In this scenario, some way of using two different versions of
-these dependencies is wanted. This involves orchestration and is
-an advanced topic that is not covered in this course, but it can
-be helpful to know it can be done. In some cases, it is perhaps a
-better idea to investigate to try and find out if the modules
-needing an older version of the dependency can be modified to use
-the newer version. The way to do this is to read documentation,
-search online to see if others have come across this issue, and
-what solutions have been found or are being worked on. At some
-stage in the investigation, you might want to contact package
-developers and perhaps raise an issue with them. How best to do
-this all depends on what platforms the package developers are
-using. Again, this requires more knowledge of Python and software
-development than beginners have, so let us leave that tangent and
-return to learning about managing environments and installing
+these dependencies is wanted. This involves orchestration -
+something not covered in this introductory course. In some cases,
+it is probably better to try to avoid the need for orchestration
+and expend efort investigating if and how the modules depending on
+an older version of a module can be modified to use a newer
+version. Whilst again the details of this are beyond introductory
+level, the way to do this is to: read documentation, try to find
+out if others have come across this issue, investigate any
+workarounds suggested, and perhaps contact package developers to
+raise an issue. How best to "raise an issue" all depends on what
+platforms the package developers are using. Let us leave that
+tangent and refocus on managing environments and installing
 packages.</p>
 <p>Learning about creating, activating, using, deactivating and
 deleting Python environments is important for other reasons: It is
 easy to pollute environments by installing packages (and their
 dependencies) that turn out not to be useful and that then get in
-the way - using up resources and slowing things down. Also, the
-process of setting up new environments involves some dependency
-conflict analysis which can result in environments that work
-when installing a new dependency in an existing enviornemnt can
-have undesirable side effects as a result of upgrading or
-downgrading dependencies. It is worth noting that uninstalling
-packages is often as cumbersome as setting up new environments.
-Furthermore, for to facilitate reproducing scientific results and
-information used in policy making, it is good to be explic and
-clear about exactly what versions of all software were used to
-generate results as well as the process for doing this. (The more
-automated the process, the easier this is, which is another
-reason why it is important to learn how to program.</p>
+the way - using up resources and slowing things down. Also, in
+setting up new environments a degree of dependency conflict
+analysis is automatically done, which can result in environments
+that work better than those that are created by installing
+dependencies in a more peacemeal fashion - which can have
+undesirable side effects as upgrading or downgrading dependencies
+can be necesssary in order to install a package and it seems there
+is less intelligence in the package installers at this level. It
+is worth noting that uninstalling packages is often as cumbersome
+as setting up new environments. So, my recommendation once you
+have enviornments that you care about is to look after these and
+use others to experiment and for development. Often systems end up
+with a production environment and one or more development
+environments, and this fits with that.</p>
+<p>Furthermore, to facilitate reproducing scientific results and
+information used in policy making, it is good to be explicit and
+clear about exactly what versions of all software have been used
+to generate outputs, as well as the process for doing this, and
+some information about resource requirements. (The more automated
+the output generation process, the easier reproducibility becomes
+and the more trust and assurance carries through into evidence
+bases.</p>
 <p>So, it is usual and good practice to set up and use different
 environments and so managing environments is a key topic.</p>
 <p>Conda is a package manager that comes with Anaconda. In
 addition to managing packages, Conda is also an environment
-manager. A key reference for Conda:
-<A href="https://docs.conda.io/">https://docs.conda.io/</a>
+manager. There are other ways to create and manage environments
+using
+<a href="https://docs.python.org/3/library/venv.html">venv</a> -
+which creates what are termed Virtual Environments. These are much
+like the Python environments created by Conda. The reason for us
+using Conda is because this is a recommended way of installing
+some packages that are helpful for geographical data processing
+and visualisation. It is not necessarily that those packages
+cannot be configured and made to work using venv and pip, but that
+such configuration can be more complicated and varies more for
+different platform operating systems currently. A key reference
+for Conda:
+<a href="https://docs.conda.io/">https://docs.conda.io/</a>
 </p>
-<p>Open a Command Window, change to a directory where you can
+<p>Open an Anaonda Prompt, change to a directory where you can
 write files and enter the following command to create a list of
 Python packages available in the Python environment:</p>
 <pre>pip list > piplist.txt</pre>
@@ -913,6 +1000,8 @@ thrown:</p>
 </pre>
 <p>Exit Jupyter Notebook and deactivate myenv2 by entering:</p>
 <pre>deactivate myenv2</pre>
+<p>To remove the conda environment myenv2 use:</p>
+<pre>conda remove --name myenv --all</p>
 <p>This ends the section on environment management and installing
 packages.</p>
 <p>Below are key references for installing pacakges using pip and conda:</p>
