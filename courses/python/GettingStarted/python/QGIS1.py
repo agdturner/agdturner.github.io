@@ -45,7 +45,8 @@ The code was developed, run and tested on QGIS Version 3.22. To run it:
        file.
    
 Users should expect:
-    1. The GeoPackage data layers to get loaded into QGIS.
+    1. The largest area OS Open Greenspace multipolygon Golf Course
+       to get loaded into QGIS.
     2. The following should be printed to the console:
 <QGIS1>
 A QFileDialog should appear. Please select the opgrsp_gb.gpkg File
@@ -103,7 +104,7 @@ from qgis.core import (
 # A message to the user to indicate that the program is running.
 print("<QGIS1>")
 
-# Load data
+#print("gpkg", gpkg)# Load data
 # Get path to opgrsp_gpkg_gb/OS Greenspace (GPKG) GB/data/opgrsp_gb.gpkg file
 fd = QFileDialog()
 title = 'Please select the opgrsp_gb.gpkg File'
@@ -112,7 +113,6 @@ path = "" # This can be used to start the QFileDialog in a particular directory
 gpkg_file = QFileDialog.getOpenFileName(fd, title, path)
 #print("gpkg_file", gpkg_file)
 gpkg = gpkg_file[0]
-#print("gpkg", gpkg)
 # Load in the layers
 print("<Load layers>")
 layer_names = [] # A list for storing the names of the layers in the GeoPackage
@@ -210,4 +210,20 @@ selected_gs_layer = gs_layer.materialize(QgsFeatureRequest().setFilterFids(
 QgsProject.instance().addMapLayer(selected_gs_layer)
 print("</QGIS1>")
 
+def get_file(title):
+    """
+    
 
+    Parameters
+    ----------
+    title : TYPE
+        DESCRIPTION.
+
+    Returns
+    -------
+    title : TYPE
+        DESCRIPTION.
+
+    """
+    print(title)
+    return title

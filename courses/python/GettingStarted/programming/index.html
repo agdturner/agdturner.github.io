@@ -33,12 +33,12 @@ DOM is fully loaded. -->
 <h2>1. Introduction</h2>
 <p>
 <a href="https://en.wikipedia.org/wiki/Computer_programming">Computer programming</a>
-(coding) is about instructing a computing machine (computer) to
-carry out a set of tasks where data is typically input, processed
-and output. Computers are typically networked through connections
-to other devices and other computers.</p>
-<p>Desktop and laptop computers typically have: a keyboard and
-mouse for user input and a visual display screen; smaller amounts
+(coding) is about instructing computing machines (computers) to
+carry out tasks where data is typically input, processed and
+output. Computers are typically networked through connections
+to other devices.</p>
+<p>Desktop and laptop computers typically have a keyboard and
+mouse for user input, a visual display screen, smaller amounts
 of faster more volatile data storage (memory), and larger amounts
 of more persistent data storage (disk) that uses a
 <a href="https://en.wikipedia.org/wiki/File_system">file system</a>.
@@ -81,42 +81,58 @@ combinations or arrangements of bits in the byte there are. With
 each added bit, there is a power of two more combinations. With 2
 bits there are 4 possible combinations (00, 01, 10, 11). With 3
 bits there are 8 combinations (000, 001, 010, 100, 011, 101, 110,
-111). With 4, 16... With 8, 256...</p>
-<p>Many encodings use 8 bits in a byte (as this allows for all
-English letters in both lower and upper case, the ten numeric
-digits 0 to 9, and with capacity let for 192 other symbols to be
-uniquely represented. To represent individual numbers, computers
-typically use more bits depending on the type of number. Let us
-consider numerical representations and calculations in more detail
-later in the course...</p>
+111). With 4, 16... With 7, 128. With 8, 256...</p>
+<p>Encodings use different numbers of bits in a byte depending on
+the variety of things that are to be expressed. The order of the
+bits in the byte is known as the endian (big-endian, or little
+endian). 7 bits in a byte allows for all English letters in both
+lower and upper case, the ten numeric digits 0 to 9, and with
+capacity for 64 other symbols to be uniquely represented. Often
+file paths are encoded in 7 bit representations. More commonly
+there are 8 bits in a byte. To represent individual numbers,
+often 32 or multiples of 2 thereof bits are used depending on the
+type of number. Numerical representations of non-integer numbers
+including is often
+<a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">
+single precision floating point format</a>
+or
+<a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">
+double precision floating point format</a>. Essentially, these
+provide an extended range over a fixed-point (<a href="https://en.wikipedia.org/wiki/Order_of_magnitude">order of magnitude</a>)
+format at the cost of precision. We will revisit numerical
+representation and precision in more detail later in the course...</p>
+
 <h2>3. Learning to Program</h2>
 <p>If you are new to computer programming, then you will learn
 lots of new terms and concepts as you learn the basics of Python
-in this course. There is a lot to learn which can be tiring and so
-you are strongly encouraged to take breaks as to help you learn
-faster and avoid fatigue. Learning should be a joy, but it is not
-much fun if you make slow progress and keep forgetting things
-which is much more likely to happen if you are tired. When you are
-not tired, sometimes you might struggle to understand something
-too. This is perfectly normal. With some things, it can take
-several attempts to understand something even when others seem to
-understand that thing seemingly easily.</p>
+in this course. There is a lot to learn, which can be tiring! You
+are strongly encouraged to take breaks to help understand these
+new things. Typically you will learn faster, remember easier,
+avoid fatigue and enjoy the learning experience more if you take
+regular breaks.</p>
+<p>It is perfectly normal for it to take several attempts to learn
+some concepts, even if you are well rested and in the right frame
+of mind to learn. This can be frustrating especially if you think
+others are learning things faster. Try not to worry about how fast
+anyone else is learning, it is not a race and there are likely to
+be technical hiccups along the way that might slow anyone down.
+</p>
 <p>Once you can program well in one language, it is generally much
-easier to learn to programme in another language. Once you know
+easier to learn to program using another language. Once you know
 two languages well, you might use one to do some things and
-another to do other things and you might be more confident to try
+another to do other things, and you might be more confident to try
 another language.</p>
 <p>Programming and programming language development are typically
 community activities. It is normal to ask others for help and to
 provide others with help and work collaboratively to develop
-things. There are different types of forums for asking and
-answering questions and different types of project that you might
-want to get involved with once you have gained some experience.
-Please refrain from asking questions on any forums unless you are
-encouraged to do so by your tutor. Please ask your tutor for help
-if you want it. If asking for help by email, it is often a good
-idea to attach your code, explain what you think should happen and
+things. There are different types of forums for asking, answering
+and feeding back available. Whilst you are encouraged to use these
+to read things and perhaps feedback. If you are enrolled on a
+course, please first ask your tutor for help before posting. If
+asking your tutor for help by email, it is often a good idea to
+attach your code, explain what you think should happen and
 describe what happens instead.</p>
+
 <h2>4. Considerata</h2>
 <p>High level languages evolve. New functionality is added and
 syntax can change to allow for more compact or easier to
@@ -129,37 +145,39 @@ needs reviewing and testing again and potentially refactoring
 aware of this when learning to program. Everything that you do and
 use needs to be reviewed and tested.</p>
 <p>Sometimes language evolution results in syntactic changes such
-that a ot of code writing in adherence to an old syntax will not
-necessarily work in the newer interpretters that convert that
-syntax into machine readble instructions.</p>
+that code written in older syntax will not necessarily work in
+newer interpretters. (Interpretters convert the source code into
+lower level machine instructions.)</p>
 <p>With any given syntax, there are usually a plethora of
 different ways to achieve the same or a similar thing. Some ways
 might be computationally faster under all or particular
 circumstances, some might be more memory efficient, some may work
 on a more diverse range of inputs, and in a range of cases all
-these different ways might result in the same answers or
-behaviour. In other cases, some ways might be more precise or
-accurate. For some tasks, it is likely to get a large variation in
-the ways different people will implement a solution in a given
-language, for others tasks, there may only be subtle differences
-such as in the names of the variables used or functions defined.
-In learning to program, it is often good to review how others have
-done the same or similar things. It is a good way to learn so long
-as you pick up good habits and not bad habits.</p>
+these different ways might result in the same results or
+behaviours. In other cases, some ways might be more precise or
+accurate or result in different behaviours. For some programming
+tasks, implementation detail are likley to vary a lot, for others
+only subtle differences are likely.</p>
+<p>In learning to program, and in programming generally, code
+review is an important way to transfer skills and knowledge, and
+to develop good practises and improve code bases.</p>
 <p>In general you are encouraged to produce easy to understand,
 easy to maintain, efficient, reliable, well tested and well
 documented code. Only a fraction of the code used today is like
-this. Also it is worth bearing in mind that not all code is used
-to make the world a better place. Please take care to review code
-before you run it just in case the code is nefarious. Also, please
-adhere to the terms and conditions of software licenses, keep a
-track of what you use and what is useful and attribute others work
-as appropriate.</p>
+this!</p>
+<p>Please also bear in mind that not all code is used to make the
+world a better place. Take care to think about the trustworthiness
+of anything you run and if approriate, review code before you run
+it.</p>
+<p>Please adhere to the terms and conditions of software licenses.
+Also bear in mind that for academic work, it is important to keep
+track of what is used so as not to plagiarise (present other's
+work as our own).</p>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../python/index.html">Next: Python</a></p>
 </div>
-<p>Date last modified: 2022-12-01.</p>
+<p>Date last modified: 2022-12-05.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
