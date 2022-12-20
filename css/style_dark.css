@@ -23,7 +23,7 @@ a {
 
 /* External Link */
 a[href*='//'] {
-	background-color: DarkRed;
+	background-color: DarkGrey;
 }
 
 /* unvisited link */

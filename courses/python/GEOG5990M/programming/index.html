@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang=en-GB>
+<head>
+<title>Programming Page</title>
+<!-- Styling. -->
+<!-- The following href is blank, but will be populated once the
+DOM is fully loaded. -->
+<link id="css" rel="stylesheet" type="text/css" href=""><script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link id="code_theme" rel="stylesheet" type="text/css" href="">
+<!-- Styling. -->
+<script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- The following href should be set when the DOM is loaded. -->
+<link id="css1" rel="stylesheet" type="text/css" href="">
+<link id="css2" rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+<header>
+<button id="style_button" onclick="swapStyle()"></button>
+<div>
+<nav>
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</nav>
+</div>
+</header>
+<div>
+<h1>Programming</h1>
+<h2>1. Introduction</h2>
+<p>
+<a href="https://en.wikipedia.org/wiki/Computer_programming">Computer programming</a>
+(coding) is about instructing computing machines (computers) to
+carry out tasks where data is typically input, processed and
+output. Computers are typically networked through connections
+to other devices.</p>
+<p>Desktop and laptop computers typically have a keyboard and
+mouse for user input, a visual display screen, smaller amounts
+of faster more volatile data storage (memory), and larger amounts
+of more persistent data storage (disk) that uses a
+<a href="https://en.wikipedia.org/wiki/File_system">file system</a>.
+Computers may have inbuilt or perpherally connected microphones
+and cameras, and the screen may be a touch screen. Networked
+computers can typically communicate with other machines on the
+<a href="https://en.wikipedia.org/wiki/Internet">Internet</a>.
+The basic functioning of the computer is handled by an 
+<a href="https://en.wikipedia.org/wiki/Operating_system">operating system</a>
+ that is configured to run when 
+<a href="https://en.wikipedia.org/wiki/Booting">booted</a>.
+Additional 
+<a href="https://en.wikipedia.org/wiki/Software">software</a>
+can be added and run on the operating system to extend the
+capability of the computer. This includes
+<a href="https://en.wikipedia.org/wiki/Programming_language">computer programming language</a>
+interpretters and run time environments which allow programs
+to be compiled and run.</p>
+<p>Programming can be done visually by arranging pre-built
+components that fit or connect together to form workflows that
+can be run. However, this course is not about visual programming,
+it is about programming using text based command instructions
+written specifically in the
+<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python programming language</a>.</p>
+<p>There are a wide variety of computer programming languages
+each defined by a specific syntax. Some computer languages
+look similar, some look very different. Whilst these learning
+resources focus on Python, occasionally similarities and
+differences between Python and other languages are pointed out.
+</p>
+<h2>2. Data</h2>
+<p>In most modern computers, data is encoded in a binary form
+where the smallest unit is called a bit which is in one of two
+possible states. Let us lable these one (1) and zero (0).</p>
+<p>Typically computers work with fixed size collections of bits
+called
+<a href="https://en.wikipedia.org/wiki/Byte">bytes</a>.
+The more more bits in a byte, the more different unique
+combinations or arrangements of bits in the byte there are. With
+each added bit, there is a power of two more combinations. With 2
+bits there are 4 possible combinations (00, 01, 10, 11). With 3
+bits there are 8 combinations (000, 001, 010, 100, 011, 101, 110,
+111). With 4, 16... With 7, 128. With 8, 256...</p>
+<p>Encodings use different numbers of bits in a byte depending on
+the variety of things that are to be expressed. The order of the
+bits in the byte is known as the endian (big-endian, or little
+endian). 7 bits in a byte allows for all English letters in both
+lower and upper case, the ten numeric digits 0 to 9, and with
+capacity for 64 other symbols to be uniquely represented. Often
+file paths are encoded in 7 bit representations. More commonly
+there are 8 bits in a byte. To represent individual numbers,
+often 32 or multiples of 2 thereof bits are used depending on the
+type of number. Numerical representations of non-integer numbers
+including is often
+<a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">
+single precision floating point format</a>
+or
+<a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">
+double precision floating point format</a>. Essentially, these
+provide an extended range over a fixed-point (<a href="https://en.wikipedia.org/wiki/Order_of_magnitude">order of magnitude</a>)
+format at the cost of precision. We will revisit numerical
+representation and precision in more detail later in the course...</p>
+
+<h2>3. Learning to Program</h2>
+<p>If you are new to computer programming, then you will learn
+lots of new terms and concepts as you learn the basics of Python
+in this course. There is a lot to learn, which can be tiring! You
+are strongly encouraged to take breaks to help understand these
+new things. Typically you will learn faster, remember easier,
+avoid fatigue and enjoy the learning experience more if you take
+regular breaks.</p>
+<p>It is perfectly normal for it to take several attempts to learn
+some concepts, even if you are well rested and in the right frame
+of mind to learn. This can be frustrating especially if you think
+others are learning things faster. Try not to worry about how fast
+anyone else is learning, it is not a race and there are likely to
+be technical hiccups along the way that might slow anyone down.
+</p>
+<p>Once you can program well in one language, it is generally much
+easier to learn to program using another language. Once you know
+two languages well, you might use one to do some things and
+another to do other things, and you might be more confident to try
+another language.</p>
+<p>Programming and programming language development are typically
+community activities. It is normal to ask others for help and to
+provide others with help and work collaboratively to develop
+things. There are different types of forums for asking, answering
+and feeding back available. Whilst you are encouraged to use these
+to read things and perhaps feedback. If you are enrolled on a
+course, please first ask your tutor for help before posting. If
+asking your tutor for help by email, it is often a good idea to
+attach your code, explain what you think should happen and
+describe what happens instead.</p>
+
+<h2>4. Considerata</h2>
+<p>High level languages evolve. New functionality is added and
+syntax can change to allow for more compact or easier to
+understand expressions. This can mean that code written in an
+older version of a language might appear different. In some
+language evolution, old versions of the syntax are broken and
+it is no longer guaranteed that code will run as expected and so
+needs reviewing and testing again and potentially refactoring
+(reworking) so that it will work again. It is important to be
+aware of this when learning to program. Everything that you do and
+use needs to be reviewed and tested.</p>
+<p>Sometimes language evolution results in syntactic changes such
+that code written in older syntax will not necessarily work in
+newer interpretters. (Interpretters convert the source code into
+lower level machine instructions.)</p>
+<p>With any given syntax, there are usually a plethora of
+different ways to achieve the same or a similar thing. Some ways
+might be computationally faster under all or particular
+circumstances, some might be more memory efficient, some may work
+on a more diverse range of inputs, and in a range of cases all
+these different ways might result in the same results or
+behaviours. In other cases, some ways might be more precise or
+accurate or result in different behaviours. For some programming
+tasks, implementation detail are likley to vary a lot, for others
+only subtle differences are likely.</p>
+<p>In learning to program, and in programming generally, code
+review is an important way to transfer skills and knowledge, and
+to develop good practises and improve code bases.</p>
+<p>In general you are encouraged to produce easy to understand,
+easy to maintain, efficient, reliable, well tested and well
+documented code. Only a fraction of the code used today is like
+this!</p>
+<p>Please also bear in mind that not all code is used to make the
+world a better place. Take care to think about the trustworthiness
+of anything you run and if approriate, review code before you run
+it.</p>
+<p>Please adhere to the terms and conditions of software licenses.
+Also bear in mind that for academic work, it is important to keep
+track of what is used so as not to plagiarise (present other's
+work as our own).</p>
+<footer>
+<div>
+<p><a id="next" class="nav" href="../python/index.html">Next: Python</a></p>
+</div>
+<p>Date last modified: 2022-12-15.</p>
+<p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
+</footer>
+</body>
+</html>
