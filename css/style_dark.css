@@ -1,19 +1,20 @@
 
 
 body {
-  background-color: black;
-  color: gray;
+  background-color: gray;
+  color: white;
 }
 
 /* button */
 button {
   background-color: black;
+  outline-color: gray
   color: gray;
 }
 
 /* hovered over button */
-button:hover{
-	colour: green;
+button:hover {
+  colour: green;
 }
 
 /* link */
@@ -23,7 +24,7 @@ a {
 
 /* External Link */
 a[href*='//'] {
-	background-color: DarkGrey;
+  background-color: DarkGray;
 }
 
 /* unvisited link */
