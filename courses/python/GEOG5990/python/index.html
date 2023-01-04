@@ -66,12 +66,13 @@ to see what might change and get involved in language development.
 PEPs have their own Web site:
 <a href="https://peps.python.org/">https://peps.python.org/</a>
 </p>
-<p>New language features will not work with older versions and
-code tested on older versions might not necessarily work on newer
-versions.</p>
+<p>New language features will not work with older interpretters,
+and code tested with older interpretters might not necessarily
+work the same on newer interpretters as some language features
+may be removed (through a process of deprecation).</p>
 <p>So, for reproducing results and diagnosing issues. It is
 important to know and sometimes provide information about exactly
-which version of everything are used.</p>
+which versions of everything are used.</p>
 
 <p>There is a vast ecosystem of third party Python packages. Many
 are made available via the
@@ -102,35 +103,36 @@ path. If a version of Python is already on your system and on your
 path, then the version of Python should be reported.</p>
 <p><a href="https://www.anaconda.com/">Anaconda</a> is a data
 science platform. It contains: Conda, an environment manager; a
-Python interpretter, some commonly used third party packages and
+Python interpretter; some commonly used third party packages; and,
 some useful additional tools. It is available at the University of
 Leeds via AppsAnywhere using machines on campus or remotely using
 a Windows Virtual Desktop which can be accessed via the following
 URL:<p>
 <p><a href="https://wvd.leeds.ac.uk">https://wvd.leeds.ac.uk</a>
 </p>
-<p>If you agree with the license then you can also download and
-install Anaconda on your own device. Choosing the default options
-should avoid interfering with any other version of python already
-installed on your system. By default, Anaconda installs into your
-user home directory.</p>
+<p>You can also download and install Anaconda on your own device.
+If you do this, then choosing the default options should avoid
+interfering with any other version of Python already installed on
+your system. By default, Anaconda installs into your user home
+directory.</p>
 
 <h3>3.1. Python REPL</h3>
 
 <h4>3.1.1. Hello World</h4>
-<p>Open an Anaconda Prompt. It should look something like:</p>
+<p>Open an Anaconda Prompt. On Windows the prompt should look
+something like:</p>
 <pre>(base) C:\></pre>
-<p>"(base)" is the activated Python environment and "C:" is the
-current directory. Enter:</p>
+<p>Here, "(base)" is the activated Python environment and "C:" is
+the current drive and directory. Enter:</p>
 <pre>python --version</pre>
 <p>This should inform you about the version of Python that came
-with Anaconda. Enter the following command to arrive at the Python
-Prompt:</p>
+with Anaconda. Enter:</p>
 <pre>python</pre>
-<p>The Python Prompt should look like:</p>
+<p>You should arrive at the Python Prompt looking something like:
+</p>
 <pre>>>></pre>
 <p>This is the Read-Eval-Print Loop (REPL) environment for Python.
-Enter the following at the Python Prompt:</p>
+Enter:</p>
 <pre>print("Hello World")</pre>
 <p>You should see the following output:</p>
 <pre>Hello World</pre>
@@ -140,13 +142,16 @@ Enter the following at the Python Prompt:</p>
 Enter:</p>
 <pre>2 + 3</pre>
 <p>You should see the result of adding the number 2 to the number
-3:</p>
+3 output:</p>
 <pre>5</pre>
-<p>Using the operator symbol for multiplication (*), try
-multiplying two numbers.</p>
-<p>Use the operator symbol for division (/) to divide two
-numbers. Try dividing 3 by 2 and notice that the result is not an
-Integer, but a Float. Python has a huge range of Integer numbers.
+<p>In the command entered, the "+" symbol is the operator symbol
+for addition (+) with numerical inputs. Using the operator symbol
+for multiplication - an asterix (*), try multiplying two numbers.
+</p>
+<p>Use the operator symbol for division - a forward slash (/) to
+divide two numbers. Try dividing 3 by 2. Notice that the result is
+not an integer. In Python generally used numbers are of two types,
+Integers and Floats. Python has a huge range of Integer numbers.
 We will worry more about what a Float is later. For the time
 being, think of it as a decimal number. Cause an error by
 attempting a division by 0. Enter:</p>
@@ -157,6 +162,43 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ZeroDivisionError: division by zero
 </pre>
+<p>Have a play using Python as a calculator. Try calculating
+bigger and bigger numbers that are powers of 2. Enter:</p>
+<pre>2 ** 64</pre>
+<p>This calculates 2 to the power of 64 - an integer number with
+20 digits. Enter:</p>
+<pre>2 ** 1000000</pre>
+<p>This calculates 2 to the power of 1000000 - an integer number
+with 301030 digits. This may take noticeably more time to process,
+part of this is the calculation, and part is printing the result
+out. We can calculate how many digits are in the resulting integer
+by pushing the result into a couple of functions. First we can
+convert it to a String using the Str Function str(), the result of
+which we can pass into the Len Function len() which gives the
+length. Enter:</p>
+<pre>len(str(2 ** 1000000))</pre>
+<p>Increasing the power by a further multiple of 10 would give 10
+times more digits. This takes significantly longer to compute in
+this way. Enter:</p>
+<pre>len(str(2 ** 10000000))</pre>
+<p>While waiting for an answer, open another Anaconda Prompt to
+look at some small numbers close to zero. Enter:
+<pre>1 / 10</pre>
+<pre>1 / 100</pre>
+<pre>1 / 1000</pre>
+<pre>1 / 10000</pre>
+<pre>1 / 100000</pre>
+<p>Notice how the format of the number printed out changes with
+the last command. This is a number written in a scientific
+notation where the letter e stands for multiply by 10 raised to
+the power of... Enter:<p>
+<pre>1/(2**1074)</pre>
+<pre>1/(2**1075)</pre>
+<p>This demonstrates that these types of calculations are
+approximation - ones that use a floating point arithmetic which
+rounds to the nearest value that can be represented in a specific
+way. We will look at floating point rounding and other types of
+numbers in Python later in the course.</p>
 
 <h3>3.2. Loading Modules and Using Functions</h3>
 <p>Mathematical operators can also be accessed via functions that
@@ -356,11 +398,9 @@ not been initialised, then there will be an error:</p>
   File "<stdin>", line 1, in <module>
 NameError: name 'x' is not defined</pre>
 <p>The Print Function is a Built In Function that is located in
-the __builtins__ module. Have a look at the help for the function
-by entering:</p>
-<pre><code class="language-python">
-help(print)
-</code></pre>
+the __builtins__ module. Have a look at the help for it, enter:
+</p>
+<pre>help(print)</pre>
 
 <h3>4.5. Delimiters, Literals and Operators</h3>
 <p>Delimiters separate bits of code, like blank lines and the
@@ -411,29 +451,25 @@ is that there was an attempt to use a keyword as a variable name.
 Else Condition. This can be read as follows: If the variable x
 is greater than the variable y, then x is printed, otherwise y is
 printed.</p>
-<pre>
-x = 0
+<pre>x = 0
 y = 1
 # If x is greater than y, then print x, else print y.
 if x > y:
     print("x", x)
 else:
-    print("y", y)
-</pre>
+    print("y", y)</pre>
 <p>Notice that: The Print Function is called with two arguments;
 there are variables, comments, indentation, operators and
 keywords. Styling can be used added to make it easier to
 identify different parts, read and understand code:</p>
-<pre><code class="language-python">
-x = 0
+<pre><code class="language-python">x = 0
 y = 1
 # if x is greater than y, then print x
 if x > y:
     print("x", x)
 else:
     print("y", y)
-print("done")
-</code></pre>
+print("done")</code></pre>
 <p>The style does not change the meaning of the code, but if the
 style is consistent and you get used to it, it helps to identify
 issues. Most code blocks presented subsequently in these learning
@@ -449,14 +485,12 @@ Prompt. Change to the directory where you saved the file
 <p>Run the file using:</p>
 <pre>python HelloWorld.py</pre>
 <p>You should see the following printed to the console:</p>
-<pre>
-Hello World
-</pre>
+<pre>Hello World</pre>
 <p>If you'r file is on a different drive in Windows, then you
 may have to switch to the drive before changing to the directory
 within the drive. To change from drive C: to drive M: in Windows,
 enter the following at the prompt:</p>
-<pre>K:</pre>
+<pre>M:</pre>
 <p>To change back again to C:, enter the following at the prompt:
 </p>
 <pre>C:</pre>
@@ -514,20 +548,22 @@ like shown in the following image:</p>
 <p>Entire programs can be entered into cells as can
 <a href="https://www.markdownguide.org/basic-syntax/">markdown</a>
 .</p>
-<p>In Section 9 there is a further exercise using Jupyter
-Notebooks. Because Jupyter Notebooks runs in the browser, it can
-utilise
+<p>Because Jupyter Notebooks runs in the browser, it can utilise
 <a href="https://en.wikipedia.org/wiki/JavaScript">Javascript</a>
 - a programming language that all widely used modern Web browsers
 work with. Leveraging Javascript and Python allows for the
-generation of some Web based interactive maps. We will come onto
-that shortly, but first there are some exercises on setting up
-environments and installing packages, as an easy way to get
-interactive maps working in a Jupyter Notebook is to make use of
-additional packages that are not included with Anaconda.</p>
+generation of some Web based interactive maps. In Section 9, there
+is a further exercise using Jupyter Notebooks to this end. First
+we learn about setting up Python environments and installing
+Python packages - as a good way to get interactive maps working in
+a Jupyter Notebook is to make use of additional packages that are
+not included with Anaconda and prior to modifying a Python
+environment by installing Python packages, it is good to know
+about Python environment management. First though, let's explore
+running Python in other ways... Before launching into that,
+consider if you should take a short break...</p>
 
 <h2>7. Integrated Development Environments</h2>
-
 <p><a href="https://en.wikipedia.org/wiki/Integrated_development_environment">
 Integrated Development Environment</a>s (IDEs) are software tools
 used to make writing code and developing software easier. This
@@ -649,7 +685,7 @@ key reference:</p>
 <p>In the Python Console, locate and action the Show Editor
 Button. The Editor should appear on the right of the Python
 Console.</p>
-<p>Download <a href="./QGIS1.py">QGIS1.py</a> -  a Python source
+<p>Download <a href="../resources/python/QGIS1.py">QGIS1.py</a> -  a Python source
 code file written to be run in the QGIS Desktop Python Console.
 Read the source code, and run the program following the
 instructions that are in the multi-line comment at the top of
@@ -762,13 +798,13 @@ Python packages available in the Python environment:</p>
 <p>It may take a minute or so to run, and it should output an
 ASCII text file containing a list of names with version numbers
 (that produced should be similar to
-<a href="./piplist.txt">piplist.txt</a>, but there may be
+<a href="../resources/python/piplist.txt">piplist.txt</a>, but there may be
 differences).</p>
 <p>Enter the following command to create a similar list:</p>
 <pre>conda list > condalist.txt</pre>
 <p>Again, it may take a minute or so to run, and it should output
 an ASCII text file (similar to
-<a href="./condalist.txt">condalist.txt</a>).</p>
+<a href="../resources/python/condalist.txt">condalist.txt</a>).</p>
 <p>Enter the following command to create an explicit list of all
 the conda packages sved in a file named "spec-file.txt":</p>
 <pre>conda list --explicit > spec-file.txt</pre>
@@ -827,25 +863,23 @@ myenv               M:\GEOG5990\envs\myenv</pre>
 <pre>conda install -c conda-forge contextily fiona folium geopandas pip pysal ipykernel spyder spyder-kernels=2.2</pre>
 <p>Install PyQt5 with:</p>
 <pre>pip install pyqt5</pre>
-<>
 <p>Install myenv into the ipykernel so it is available via the
 Jupyter Notebook interface.</p>
 <pre>python -m ipykernel install --user --name=myenv</pre>
 <p>Download
-<a href="./Jupyter1.ipynb">Jupyter1.ipynb</a> and save it in a
+<a href="../resources/python/Jupyter1.ipynb">Jupyter1.ipynb</a> and save it in a
 directory and start Jupyter Notebook so it can load the file.</p>
 <p>Enter the following to run Jupyter Notebook:</p>
 <pre>jupyter notebook --NotebookApp.max_buffer_size=1073741824</pre>
 <p>This gives Jupyter Notebook twice as much memory as the current
-default to overcome memory errors.</p>
+default (which helps prevent memory errors being encountered).</p>
 <p>Wait for a Web browser tab to appear with the Jupyter Notebook
 interface. When it appears select:<p>
 <pre>New > myenv</pre>
 <p>Open Jupyter1.ipynb read and run it cell by cell.</p>
 <p>If for some reason that does not work, then try something a bit
 simpler and copy the code below into a cell and run it.</p>
-<pre><code class="language-python">
-# Simple example code
+<pre><code class="language-python"># Simple example code
 import folium
 
 map = folium.Map(
@@ -861,18 +895,16 @@ ccg = folium.Marker(
 )
 ccg.add_to(map)
 
-map
-</code></pre>
+map</code></pre>
 <p>This should produce a slippy map with an icon on it that looks
 something like:</p>
-<img src="jupyter4.png" alt="Jupyter Notebook Interface 4" />
+<img src="../resources/python/jupyter4.png" alt="Jupyter Notebook Interface 4" />
 <p>From the Jupyter Notebook interface choose:</p>
 <pre>new > Python 3 (ipykernel)</pre>
 <p>Try running the same code. Most likely, the folium package is
 not installed in your base environment and the following error is
 thrown:</p>
-<pre>
- ---------------------------------------------------------------------------
+<pre>---------------------------------------------------------------------------
  ModuleNotFoundError                       Traceback (most recent call last)
  Input In [1], in <cell line: 1>()
  ----> 1 import folium
@@ -887,8 +919,7 @@ thrown:</p>
       12     icon=folium.Icon()
       13 )
 
- ModuleNotFoundError: No module named 'folium'
-</pre>
+ ModuleNotFoundError: No module named 'folium'</pre>
 <p>Exit Jupyter Notebook and deactivate myenv2 by entering:</p>
 <pre>deactivate myenv2</pre>
 <p>To remove the conda environment myenv2 use:</p>
@@ -914,7 +945,8 @@ accessing functionality via a dot operator. There are example
 IF Statements and For Loops which we will learn about again
 shortly.</p>
 <p>Versioning and packaging were introduced, as was managing
-Python/Conda environments and installing packages in them.</p>
+Python/Conda environments and installing Python packages in them.
+</p>
 <p>Some example code has been provided. This is quite good code in
 that there are plentiful comments, and the code also does some
 interesting things: The code that automated some QGIS Desktop
@@ -922,18 +954,19 @@ processing demonstrates how to access functionality from within
 QGIS. The Jupyter Notebook based example utilised Javascript
 capabilities of the Web browser and leveraged some widely used
 Python GIS tools.</p>
-<p>This has been a broad brush overview which you might like to
-revisit once you are a bit more familiar with developing Python
-code and as you think about doing projects.</p>
-<p>You are not expected to remember all the details, but hopefully
-you are gaining confidence that you are on a good learning path,
-and you are enjoying the learning journey.</p>
+<p>This has been a broad brush overview. You might benefit from
+revisiting parts of this learning once you are a bit more familiar
+with developing Python code and as you think about undertaking
+projects.</p>
+<p>You are not expected to remember all the details presented
+here, but hopefully you are gaining confidence that you are on a
+good learning path, and you are enjoying the learning journey.</p>
 
 <footer>
 <div>
 <p><a id="next" class="nav" href="../variables/index.html">Next: Variables</a></p>
 </div>
-<p>Date last modified: 2022-12-20.</p>
+<p>Date last modified: 2023-01-04.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
