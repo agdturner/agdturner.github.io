@@ -32,30 +32,22 @@ DOM is fully loaded. -->
 <h1>Variables</h1>
 <h2>1. Introduction</h2>
 <p>Python variables are a combination of an identifying label and
-a primitive value or an object. They work a bit differently
-depending on whether the variable is a primitive value or an
-object. Objects comprise other things which may include other
-objects and/or primitive values. Consider the following code in
-which a variable x is defined and set equal to the value 0. Then
-another variable label y is set to be equal to the value of x:</p>
-<pre><code class="language-python">
-x = 0
-y = x
-print(y)
-</code></pre>
-<p>The output from running this code is:</p>
-<pre>0</pre>
-<p>Pick a way of running Python code and try this yourself.</p>
+a primitive value or an object. Variables work a bit differently
+depending on whether the variable label is attached to a primitive
+value or an object. Objects may be comprised of other objects
+and contain other primitive variable values.</p>
 
 <h2>2. Variables types</h2>
 
 Variable labels can be reused and set to different values changing
-the type. This is known as dynamic typing. It allows us to set a
+the type. This is known as dynamic typing. It allows to set a
 variable as an Integer and then set it again to be a String or a
-List or anything. The Type Function in the Built In Module allows
-for testing the type of a variable. The following code sets a
-variable called x to have the Integer value 1, then sets it again
-to have the String value "1".</p>
+List or anything. The Type Function (type) in the Built In Module
+(<a href="https://docs.python.org/3/library/builtins.html">builtins</a>)
+allows for testing the type of a variable. The following code sets
+a variable called x to have the Integer value 1, then sets it
+again to have the String value "1", after each assignment the type
+of the variable is printed.</p>
 <pre><code class="language-python">
 # Set x = 1 and print the type of x")
 x = 1
@@ -69,12 +61,27 @@ print(type(x))
 &lt;class 'str'&gt;
 </pre>
 <p>Again, try this yourself.</p>
+<p>In declarative programming languages, the type of a variable
+is declared. If the langauge is statically typed, then the
+variable is not permitted to change type. The
+<a href="https://en.wikipedia.org/wiki/Java_(programming_language)">
+Java programming language</a> is like this. The type of Python
+variables do not have to be declared, and labels can be reused
+and get assigned to point to completely different type of things.
+Is it useful not to be declarative and to alow for dynamic typing?
+It can be. Code can look a bit more succinct and some developers
+find it easier to experiment this way, but there are dangers and
+some things are much harder with dynamically typed langauges, for
+example writing tools for developing code. It is possible though,
+as we have seen, to test the type of a variable. Doing a lot of
+type teting though makes code more verbose and less efficient.
+<p>
 
 <h3>2.1. Primitives</h3>
-<p>The four primitive variable types are: Integers, Floats,
-Strings, and Booleans. Integers are whole numbers. Floats are a
-subset of fractions. Strings are text. Booleans are True or False
-and also equate to 0 or 1.</p>
+<p>The four primitive variable types in Python are: Integers,
+Floats, Strings, and Booleans. Integers are whole numbers. Floats
+are a special subset of fractions. Strings are essentially blocks
+of text. Booleans are True or False and also equate to 0 or 1.</p>
 <p>Integers are virtually unbounded in Python although there is
 ultimately a limit based on the size of a word that Python and the
 machine can handle. Take care if you want to process numbers with
@@ -177,40 +184,39 @@ f == 0 True
 <p>The following code sets the variable x to be 1 and y to equal
 x, it then adds 1 to the value of x and prints out y.</p>
 <pre><code class="language-python">
-x = 1
-y = x
-x = x + 1 # This is the same as: x += 1
-print(y)
+x = 0    # Set x equal to 0
+y = x    # Set y equal to x
+x = 1    # Set x to a different value
+print(y) # y no longer equals x
 </code></pre>
 <p>The output from running this code is:</p>
-<pre>1</pre>
-<p>So, y only has the same value as x until x is given a new
-value.</p>
+<pre>0</pre>
+<p>So, y only has the same value as x until x is assigned to
+another value.</p>
 <p>The following code: creates a list variable called a, sets
-b to be a new label for a, appends the Integer 1 to the list a,
-and then prints out b.</p>
+b to equal a, appends the Integer 1 to the list a, and then prints
+out b.</p>
 <pre><code class="language-python">
-a = [] # Assign a as a new empty List.
-b = a
-a.append(1) # Append the Integer 1 to the List
+a = [] # Assign a to equal a new empty List.
+b = a  # Set b to equal a
+a.append(1) # Append the Integer 1 to the List a
 print(b)
 </code></pre>
 <p>The output from running this code is:</p>
 <pre>[1]</pre>
 <p>So, a and b are still referring to the same thing, the same
-list. Try appending another thing to the list and printing out
+list. That is because appending to the list does not change the
+references to the list, it changes what is in the list.</p>
+<p>Try appending another thing to the list and printing out
 a and b to check they are the same.</p>
-<p>Now, if a is reassigned, then b will left referring to the list
-with the Integer 1 and whatever else was appended to it (rather
-than b also being equal to whatever a was reassigned to).<p>
-<p>Spend some time thinking about this key difference between
-variables that are primitive and variables that are objects. We
-will revisit this when considering functions and scope...</p>
+<p>Now, if a is reassigned, then b will still refer to the list
+containing the Integer 1 (and whatever else was appended to it).
+</p>
 
-<h2>3. Fun
-<h2>3. Variable Scope and the Global Keyword</h2>
-<p>The scope of a variable is where it is defined and it's value
-can be accessed. The global keyword can modify the scope.</p>
+<h2>3. Functions, Variable Scope and the Global Keyword</h2>
+<p>The scope of a variable is to do with where it is defined and
+where it's value can be accessed. The global keyword can modify
+the scope.</p>
 <p>Run the following code:</p>
 <pre><code class="language-python">
 x = 1
@@ -218,24 +224,68 @@ if x == 1:
     y = 2
 print(y)
 </code></pre>
-<p>You should get a syntax error:</p>
-<pre>
-
-</pre>
-# Assign a as a new empty List.
-              b = a
-              a.append(1) # Append the Integer 1 to the List
-              print(b)
-              </code></pre>
-
-<p>Whilst we have a list, try adding something of a different type
-into the list.
+<p>Produces the output:</p>
+<pre>1</pre>
+<p>The above code runs each line one at a time, from top to
+bottom. If the expression of the IF statement evaluated as false,
+then the interpretter would skip the internal of the if
+statement. For example, the following code:</p>
 <pre><code class="language-python">
-a = 2
-print(b)
+x = 1
+if x == 0:
+    y = 2
+print(y)
 </code></pre>
-<p>Will result still in:</p>
-<pre>[1]</pre>
+<p>Produces the error:</p>
+<pre>Traceback (most recent call last):
+
+  File "variables1.py", line 4, in <module>
+    print(y)
+
+NameError: name 'y' is not defined</pre>
+<p>Read and run the following code:</p>
+<pre><code class="language-python">
+x = 1
+def f1 ():
+    x = 2
+    print("b", x) # Prints: b 2
+print("a", x) # Prints: a 1
+f1()
+print("c", x) # Prints: c 1
+</code></pre>
+<p>The output should be:</p>
+<pre>a 1
+b 2
+c 1</pre>
+<p>At line 2, the interpretter reads the function definition, then
+skips to the end of the function and executes line 5. Then at line
+6 the function is called. The interpreter then effectively goes
+back to line 3 and runs that and line 4. This is the end of the
+function and the interpretter then effectively runs the next bit
+of code after the function call that it was running on line 7.
+Now, the variable inside the function called x is a different
+variable to the one outside of the function even though the names
+are the same. Using the global keyword, we can make these
+variables the same as follows:</p>
+<pre><code class="language-python">
+x = 1
+def f1 ():
+    global x
+    x = 2
+    print("b", x) # Prints: b 2
+print("a", x) # Prints: a 1
+f1()
+print("c", x) # Prints: c 1
+</code></pre>
+<p>The output should be:</p>
+<pre>a 1
+b 2
+c 2</pre>
+<p>Try the code yourself to test your understanding.</p>
+<p>Note that the function code snippet does not contain any
+documentation about the function explaining what it is and what it
+does. The function takes in no arguments (parameters) and there is
+no return statement.
 
 <p></p>
 <pre><code class="language-python">
@@ -246,16 +296,12 @@ for a in range(0, 10) :
 <p></p>
 <p></p>
 <p></p>
-<p></p>
+<p>The following commands allow us to use spyder with a customenvironment, but this swells the environment to about 2GB is size.</p><pre>conda install -c conda-forge spyder-kernels=2.2</pre></p>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../github/index.html">Next: GitHub</a></p>
 </div>
-<<<<<<< HEAD
-<p>Date last modified: 2022-10-26.</p>
-=======
-<p>Date last modified: 2022-12-05.</p>
->>>>>>> 8dd868b2a5dac4a9ca28e8862d45f95e6997a412
+<p>Date last modified: 2023-01-04.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

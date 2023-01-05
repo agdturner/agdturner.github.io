@@ -31,66 +31,74 @@ DOM is fully loaded. -->
 <div>
 <h1>Variables</h1>
 <h2>1. Introduction</h2>
-<p>Python variables are a combination of an identifying label and
-a primitive value or an object. Variables work a bit differently
-depending on whether the variable label is attached to a primitive
-value or an object. Objects may be comprised of other objects
-and contain other primitive variable values.</p>
+<p>Python variables are a combination of an identifying label or
+name and a value - either a primitive or a more complex object
+(which may comprise a single primitive variable or be comprised of
+multiple other primitive variables and other objects).</p>
+<p>Variables work a bit differently depending on whether they are
+primitives or objects. The main difference is to do with whether
+the variable is duplicated when it is passed into a function as a
+parameter or whether a reference or pointer is passed in which
+still refers to the value of the variable. There are other
+differences to do with scope, but let's not worry about this for
+now, we will revise all this in due course...</p>
 
-<h2>2. Variables types</h2>
-
-Variable labels can be reused and set to different values changing
-the type. This is known as dynamic typing. It allows to set a
-variable as an Integer and then set it again to be a String or a
-List or anything. The Type Function (type) in the Built In Module
+<h2>2. Variables Types</h2>
+In Python, variable labels/names can be reused to refer to
+different types of value. This is known as dynamic typing. It
+allows us to initialise a variable with an Integer value and then
+set it later to have a value given by a Float or a String or
+something non-primitive like a List. The Type Function (type()) in
+the Built In Module
 (<a href="https://docs.python.org/3/library/builtins.html">builtins</a>)
-allows for testing the type of a variable. The following code sets
-a variable called x to have the Integer value 1, then sets it
+allows for testing the type of a variable at some stage of a
+program execution. For example, the following code initialises a
+variable called x to have the Integer value 1, then sets it
 again to have the String value "1", after each assignment the type
 of the variable is printed.</p>
-<pre><code class="language-python">
-# Set x = 1 and print the type of x")
+<pre><code class="language-python"># Set x = 1 and print the type of x")
 x = 1
 print(type(x))
 x = "1"
-print(type(x))
-</code></pre>
+print(type(x))</code></pre>
 <p>The output from running this code is:</p>
-<pre>
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;
-</pre>
+<pre>&lt;class 'int'&gt;
+&lt;class 'str'&gt;</pre>
 <p>Again, try this yourself.</p>
 <p>In declarative programming languages, the type of a variable
 is declared. If the langauge is statically typed, then the
-variable is not permitted to change type. The
-<a href="https://en.wikipedia.org/wiki/Java_(programming_language)">
-Java programming language</a> is like this. The type of Python
-variables do not have to be declared, and labels can be reused
-and get assigned to point to completely different type of things.
-Is it useful not to be declarative and to alow for dynamic typing?
-It can be. Code can look a bit more succinct and some developers
-find it easier to experiment this way, but there are dangers and
+variable is not permitted to change type. Some of the most
+commonly used high level languages (including
+<a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>) are both
+declarative and statically typed.</p>
+<p>The type of Python variables do not have to be declared, and
+labels can be reassigned to different types of thing. There are
+both benefits and drawbacks of this. Code can look a bit more
+succinct, interfaces can be more stable, and some developers find
+it easier to experiment this way, but there are dangers and
 some things are much harder with dynamically typed langauges, for
 example writing tools for developing code. It is possible though,
-as we have seen, to test the type of a variable. Doing a lot of
-type teting though makes code more verbose and less efficient.
+as we have seen, to test the type of a variable, so type safety
+checks can be added to code. However, this makes code more verbose
+and less efficient.
 <p>
 
 <h3>2.1. Primitives</h3>
 <p>The four primitive variable types in Python are: Integers,
 Floats, Strings, and Booleans. Integers are whole numbers. Floats
-are a special subset of fractions. Strings are essentially blocks
-of text. Booleans are True or False and also equate to 0 or 1.</p>
+are a special subset of fractions. We've looked at these briefly
+before. Strings are essentially blocks of text. We created some of
+these too already. Booleans are True or False and also equate to 0
+or 1.</p>
 <p>Integers are virtually unbounded in Python although there is
 ultimately a limit based on the size of a word that Python and the
-machine can handle. Take care if you want to process numbers with
-more than 2 to the power of 63 digits.</p>
+machine can handle (which is typically very large, but depends on
+available memory).</p>
 <p>Floats have a Maximum Value and a Minimum Normal Value
-(smallest number > 0) that can be ascertained from the sys
-module and can also be set to postive or negative infinity:</a>
-<pre><code class="language-python">
-import sys
+(smallest number > 0). These can be ascertained from the Sys
+Module (sys) and can also be set to postive or negative
+infinity:</a>
+<pre><code class="language-python">import sys
 
 # Exploring Float max and min values.
 max = sys.float_info.max
@@ -132,8 +140,7 @@ min + min 4.450147717014403e-308
 d 9.9792015476736e+291
 max + d/2 1.7976931348623157e+308
 max + d inf
-min2 2.2250754194454158e-293
-</pre>
+min2 2.2250754194454158e-293</pre>
 <p>Float is extremely useful, but for geometry care is needed in
 working with floating point numbers.</p>
 <p><a href="https://docs.python.org/3/library/decimal.html#floating-point-notes">
@@ -144,41 +151,30 @@ useful:</p>
 <li><a href="https://docs.python.org/3/library/decimal.html">decimal</a></li>
 <li><a href="https://docs.python.org/3/library/fractions.html">fractions</a></li>
 </ul>
-<p>If these are not suited to your needs (perhaps in the future)
-then your needs are especially interesting to me, so if you can,
-please let me know...</p>
 <p>Strings are assigned in double quotes and can be checked for
 equality using the == operator:</p>
-<pre><code class="language-python">
-s = "A"
+<pre><code class="language-python">s = "A"
 s2 = "a"
 s3 = "B"
 print("s == s", s == s)
 print("s == s2", s == s2)
-print("s == s3", s == s3)
-</code></pre>
+print("s == s3", s == s3)</code></pre>
 <p>This code generates the following output:</p>
-<pre>
-s == s True
+<pre>s == s True
 s == s2 False
-s == s3 False
-</pre>
+s == s3 False</pre>
 <p>Some code to explore Boolean:</p>
-<pre><code class="language-python">
-t = True
+<pre><code class="language-python">t = True
 f = False
 print("t == t", t == t)
 print("f == f", f == f)
 print("t == 1", t == 1)
-print("f == 0", f == 0)
-</code></pre>
+print("f == 0", f == 0)</code></pre>
 <p>This code generates the following output:</p>
-<pre>
-t == t True
+<pre>t == t True
 f == f True
 t == 1 True
-f == 0 True
-</pre>
+f == 0 True</pre>
 
 <h3>2.2. Objects</h3>
 <p>The following code sets the variable x to be 1 and y to equal
@@ -215,27 +211,23 @@ containing the Integer 1 (and whatever else was appended to it).
 
 <h2>3. Functions, Variable Scope and the Global Keyword</h2>
 <p>The scope of a variable is to do with where it is defined and
-where it's value can be accessed. The global keyword can modify
-the scope.</p>
+from where it's value can be accessed. The Global Keyword (global)
+can modify the scope.</p>
 <p>Run the following code:</p>
-<pre><code class="language-python">
-x = 1
+<pre><code class="language-python">x = 1
 if x == 1:
     y = 2
-print(y)
-</code></pre>
-<p>Produces the output:</p>
+print(y)</code></pre>
+<p>It should produce the following output:</p>
 <pre>1</pre>
 <p>The above code runs each line one at a time, from top to
-bottom. If the expression of the IF statement evaluated as false,
-then the interpretter would skip the internal of the if
-statement. For example, the following code:</p>
-<pre><code class="language-python">
-x = 1
+bottom. If the expression of the IF Statement evaluated as false,
+then the interpretter would skip the internal part of it. For
+example, the following code:</p>
+<pre><code class="language-python">x = 1
 if x == 0:
     y = 2
-print(y)
-</code></pre>
+print(y)</code></pre>
 <p>Produces the error:</p>
 <pre>Traceback (most recent call last):
 
@@ -244,15 +236,13 @@ print(y)
 
 NameError: name 'y' is not defined</pre>
 <p>Read and run the following code:</p>
-<pre><code class="language-python">
-x = 1
+<pre><code class="language-python">x = 1
 def f1 ():
     x = 2
     print("b", x) # Prints: b 2
 print("a", x) # Prints: a 1
 f1()
-print("c", x) # Prints: c 1
-</code></pre>
+print("c", x) # Prints: c 1</code></pre>
 <p>The output should be:</p>
 <pre>a 1
 b 2
@@ -267,16 +257,14 @@ Now, the variable inside the function called x is a different
 variable to the one outside of the function even though the names
 are the same. Using the global keyword, we can make these
 variables the same as follows:</p>
-<pre><code class="language-python">
-x = 1
+<pre><code class="language-python">x = 1
 def f1 ():
     global x
     x = 2
     print("b", x) # Prints: b 2
 print("a", x) # Prints: a 1
 f1()
-print("c", x) # Prints: c 1
-</code></pre>
+print("c", x) # Prints: c 1</code></pre>
 <p>The output should be:</p>
 <pre>a 1
 b 2
@@ -285,7 +273,8 @@ c 2</pre>
 <p>Note that the function code snippet does not contain any
 documentation about the function explaining what it is and what it
 does. The function takes in no arguments (parameters) and there is
-no return statement.
+no return statement. We will learn about documenting functions
+later in the course.
 
 <p></p>
 <pre><code class="language-python">
@@ -296,12 +285,12 @@ for a in range(0, 10) :
 <p></p>
 <p></p>
 <p></p>
-<p>The following commands allow us to use spyder with a customenvironment, but this swells the environment to about 2GB is size.</p><pre>conda install -c conda-forge spyder-kernels=2.2</pre></p>
+<p>The following commands allow us to use spyder with a customenvironment, but this swells the environment to about 2GB in size.</p><pre>conda install -c conda-forge spyder-kernels=2.2</pre></p>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../github/index.html">Next: GitHub</a></p>
 </div>
-<p>Date last modified: 2023-01-04.</p>
+<p>Date last modified: 2023-01-05.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
