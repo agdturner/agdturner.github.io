@@ -239,10 +239,10 @@ NameError: name 'y' is not defined</pre>
 <pre><code class="language-python">x = 1
 def f1 ():
     x = 2
-    print("b", x) # Prints: b 2
-print("a", x) # Prints: a 1
+    print("b", x)
+print("a", x)
 f1()
-print("c", x) # Prints: c 1</code></pre>
+print("c", x)</code></pre>
 <p>The output should be:</p>
 <pre>a 1
 b 2
@@ -261,10 +261,10 @@ variables the same as follows:</p>
 def f1 ():
     global x
     x = 2
-    print("b", x) # Prints: b 2
-print("a", x) # Prints: a 1
+    print("b", x)
+print("a", x)
 f1()
-print("c", x) # Prints: c 1</code></pre>
+print("c", x)</code></pre>
 <p>The output should be:</p>
 <pre>a 1
 b 2
@@ -276,21 +276,12 @@ does. The function takes in no arguments (parameters) and there is
 no return statement. We will learn about documenting functions
 later in the course.
 
-<p></p>
-<pre><code class="language-python">
-for a in range(0, 10) :
-    print (a)
-    print ("done")
-</code></pre>
-<p></p>
-<p></p>
-<p></p>
-<p>The following commands allow us to use spyder with a customenvironment, but this swells the environment to about 2GB in size.</p><pre>conda install -c conda-forge spyder-kernels=2.2</pre></p>
+</div>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../github/index.html">Next: GitHub</a></p>
 </div>
-<p>Date last modified: 2023-01-05.</p>
+<p>Date last modified: 2023-01-07.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
