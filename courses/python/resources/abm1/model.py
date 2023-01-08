@@ -7,8 +7,11 @@ Created on Fri Jan  6 11:01:28 2023
 import random
 import math
 
+nickname = {"thomas": "tom", "samuel": "sam", "samson": "sam"}
+alias = dict([("rm", "remove"), ("cd", "change directory"), ("ls", "list")])
+print(alias.get("rm")) # <-- This should print 'remove'.
 
-a = (False, False)
+a = (True, False)
 print(any(a))
 # Set the pseudo-random seed for reproducibility
 random.seed(0)

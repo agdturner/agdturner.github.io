@@ -30,13 +30,74 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Branching</h1>
-<p>ABM</p>
+<h2>Control Flow</h2>
+<p>A linear flow of a program that executes one line at a time say
+from top to bottom would involve a lot of repeated code. A more
+sophisticated flow reduces the amount of repetition and allowing
+different threads of execution to occur simultaneously allows for
+more interactivity with users.</p>
+
+<h3>Control Flow Statements</h3>
+<p>A simple control flow is to branch based upon a condition. So,
+if the condition is True, then the flow goes one way, otherwise it
+goes another way. Branching can be done with If Statements and
+function calls.
+Since Python 3.10 there is also a Match-case Statement which
+saves using long chains of If-elif constructs which have multiple
+conditions that are slightly more efficient than nested If
+Statements. Consider the following code snippet:</p>
+<pre><code class="language-python">def do_a():
+    print("a")
+def do_b():
+    print("b")
+x = 5
+y = 0
+# A simple If Statement
+if x < 0:
+    y = -1
+    do_a()
+# An If-else Statement
+if x < 0:
+    y = -1
+    do_a()
+else:
+    y = 1
+    do_b()
+# An If-elif Statement
+if x < 0:
+    y = -1
+    do_a()
+elif x == 0:
+    y = 0
+elif x < 1000:
+    y = 1
+    do_a()
+else:
+    y = 2
+</code></pre>
+<p>There can be many elif parts, but since Python 3.10 there is a
+Match-case Statement which offers a better way to do this.</p>
+
+code with many elif ()lst types of these are ranching: If-this-do-this.
+Looping: Do this many times with slight differences.
+Procedure calls: Do this with some new information, and return an answer.
+Sockets: Read/write code from/to somewhere else.
+Objects: Make a toolkit to do a specific job.
+Libraries: Group toolkits for easy use.</p>
+a better user experience and
+
+
+<h3>Match-case Statement</h3>
+<p>Python 3.10 (2021) introduced the match-case statement which
+provides an implementation of a "switch" for Python which has long
+been available in most other high level langauges.</p>
+
 </div>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../loops/index.html">Next: Loops</a></p>
 </div>
-<p>Date last modified: 2023-01-07.</p>
+<p>Date last modified: 2023-01-08.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
