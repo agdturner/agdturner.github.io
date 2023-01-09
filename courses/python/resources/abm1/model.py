@@ -7,19 +7,13 @@ Created on Fri Jan  6 11:01:28 2023
 import random
 import math
 
-nickname = {"thomas": "tom", "samuel": "sam", "samson": "sam"}
-alias = dict([("rm", "remove"), ("cd", "change directory"), ("ls", "list")])
-print(alias.get("rm")) # <-- This should print 'remove'.
-
-a = (True, False)
-print(any(a))
 # Set the pseudo-random seed for reproducibility
 random.seed(0)
 # Initialise variable x0
-x0 = 0
+x0 = random.randint(0, 99)
 print("x0", x0)
 # Initialise variable y0
-y0 = 0
+y0 = random.randint(0, 99)
 print("y0", y0)
 # Change x0 and y0 randomly
 rn = random.random()
@@ -36,10 +30,10 @@ else:
     y0 = y0 - 1
 print("y0", y0)
 # Initialise variable x1
-x1 = 0
+x1 = random.randint(0, 99)
 print("x1", x1)
 # Initialise variable y1
-y1 = 0
+y1 = random.randint(0, 99)
 print("y1", y1)
 # Change x1 and y1 randomly
 rn = random.random()

@@ -136,7 +136,7 @@ print(a)
 while b < 10:
     print(b)
     a, b = b, a+b
-print(b)<code></pre>
+print(b)</code></pre>
 <p>The While Statement is a loop with an expression that is
 evaluated each time around the loop. While the expression (b < 10)
 evaluates to True the loop continues to run, when it evaluates
@@ -146,25 +146,31 @@ the loop.</p>
 <h3>3.3. Ranges</h3>
 <p>Ranges are a special type of immutable sequence. They are
 created as follows:
-<pre><code class="language-python">range(start, stop, step) # start and step are optional and default to 0 and 1 repectively<code></pre>
-<p>start, stop and step should be Integers. The range function
-generates numbers up to but not including stop, for example:</p>
-<pre><code class="language-python">range(4) # generates 0,1,2,3
-range(2,8,2) # generates 2,4,6
-range(0,-5,-1) # generates 0,-1,-2,-3,-4<pre><code></pre>
-<p>Another way to create a tuple is to use the tuple constructor
-giving this an argument which is a sequence or producer of a
-sequence like range:</p>
+<pre><code class="language-python">range(start, stop, step) # start and step are optional and default to 0 and 1 repectively</code></pre>
+<p>The parameters: start, stop and step should be Integers. The
+range function generates numbers up to but not including stop,
+for example:</p>
+<pre><code class="language-python">r = range(4) # generates 0,1,2,3
+print(r)
+r = range(2,8,2) # generates 2,4,6
+print(r)
+r = range(0,-5,-1) # generates 0,-1,-2,-3,-4
+print(r)</pre></code>
+<p>Try the code for yourself and have a play around. See if you
+can generate the sequence: -10, -5, 0, 5, 10.</p>
+<p>Another way to create a Tuple is to use the Tuple constructor
+tuple() giving this an argument which is a sequence or producer of
+a sequence like range:</p>
 <code class="language-python">a = tuple(range(5))
 print(a)
-type(a)<code></pre>
+type(a)</code></pre>
 <p>Produces:</p>
 <pre>(0,1,2,3,4)
 <class 'range'></pre>
 <p>Note that simply assigning a label does not work, the
 constructor has to be used:</p>
 <code class="language-python">a = range(5)
-print(a)<code></pre>
+print(a)</code></pre>
 <p>Produces:</p>
 <pre>'range(0,5)'</pre>
 <p>There are functions that work with sequences such as min() and
@@ -174,10 +180,10 @@ occurence of a particular value in a sequence between different
 parts of the sequence. For a sequence of Boolean values (True or
 False) the function any() will return True if any of the items in
 the sequence are True.</p>
-<code class="language-python">a = (1, 6, 9, 0, 6)
+<pre><code class="language-python">a = (1, 6, 9, 0, 6)
 print(min(a))
 print(max(a))
-print(a.index(6,0,4)) # Print the first index of item equal to 6 at or after index 0 and before index 4<code></pre>
+print(a.index(6,0,4)) # Print the first index of item equal to 6 at or after index 0 and before index 4
 print(a.count(6)) # Print the count of items equal to 6 in a.
 b = (True, False)
 print(any(b)) # Print if any of the items in b are True.</code></pre>
@@ -215,7 +221,7 @@ What's important is the position of the colons.
 a[:2] # First two values.
 a[-2:] # Last two values.</pre>
 <p>Slices can be used with mutable sequences like lists for
-assignment as well. Consider the following two examples:</p>
+assignment. Consider the following two examples:</p>
 <pre>>>> a = [0,1,2,3,4]
 >>> b = [10,20,30]
 >>> a[1:3] = b
@@ -235,9 +241,12 @@ up as follows:
 >>> b = [10,20,30,40,50]
 >>> c = zip(a,b)
 >>> d = list(c)
->>> d
+>>> print(d)
 [(1,10),(2,20),(3,30),(4,40),(5,50)]</pre>
-<p>This has varous uses which we will come onto a bit later...</p>
+<p>The zip() function pairs up the values by index. If the
+sequences have different lengths then the paired up list is the
+length of the shorter sequence and does not contain the end of the
+longer sequence.</p>
 <p>A final thing on lists for the time being is that command line
 arguments are a list in Python. So, when a Python program is run
 from the command line, information can be passed in. For instance
@@ -287,7 +296,8 @@ a.add("orange") # Add "orange" to a
 if "orange" in a:
     print('"orange" is in a')</code></pre>
 <p>Traditional mathemetical set functions like union() and
-intersection() are available for sets.</p>
+intersection() are available for sets which can also be compared.
+Two sets are equal if they contain all of the same elements</p>
 
 <h3>4.3. Dictionaries</h3>
 <p>Dictionaries hold keys and value pairs. The keys are unique
@@ -310,7 +320,7 @@ processing dictionaries.</p>
 <div>
 <p><a id="next" class="nav" href="../branching/index.html">Next: Branching</a></p>
 </div>
-<p>Date last modified: 2023-01-08.</p>
+<p>Date last modified: 2023-01-09.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
