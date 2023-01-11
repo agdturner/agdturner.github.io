@@ -37,14 +37,17 @@ import math
 
 # Set the pseudo-random seed for reproducibility
 random.seed(0)
+
 # Initialise variable x0
 x0 = random.randint(0, 99)
 print("x0", x0)
 # Initialise variable y0
 y0 = random.randint(0, 99)
 print("y0", y0)
+
 # Change x0 and y0 randomly
 rn = random.random()
+print("rn", rn)
 if rn < 0.5:
     x0 = x0 + 1
 else:
@@ -57,14 +60,17 @@ if rn < 0.5:
 else:
     y0 = y0 - 1
 print("y0", y0)
+
 # Initialise variable x1
 x1 = random.randint(0, 99)
 print("x1", x1)
 # Initialise variable y1
 y1 = random.randint(0, 99)
 print("y1", y1)
+
 # Change x1 and y1 randomly
 rn = random.random()
+print("rn", rn)
 if rn < 0.5:
     x1 = x1 + 1
 else:
@@ -77,6 +83,7 @@ if rn < 0.5:
 else:
     y1 = y1 - 1
 print("y1", y1)
+
 # Calculate the Euclidean distance between (x0, y0) and (x1, y1)
 # Set x0 and y0 to equal 0, x1 to equal 3, and y1 to equal 4
 x0 = 0
@@ -95,14 +102,16 @@ distance = ssd ** 0.5
 print("distance", distance)
 distance = math.sqrt(ssd)
 print("distance", distance)</code></pre>
-<p>The output from running the above code is:</p>
+<p>Running the code should produce the following text output:</p>
 <pre>x0 49
 y0 97
+rn 0.890243920837131
 x0 48
 rn 0.04048437818077755
 y0 98
 x1 65
 y1 62
+rn 0.4049341374504143
 x1 66
 rn 0.7837985890347726
 y1 61
@@ -111,12 +120,13 @@ distance 5.0
 distance 5.0</pre></code>
 
 <h2>2. Using Lists</h2>
-<p>Rather than handle coordinates separately, they are going to
-stored in lists with the first item being x and the second item
-being y. All the coordinate pairs are also going to be stored in a
-list. Once that works, the code is going to be reorganised so that
-all the coordinate pairs are created in a first loop, and there
-will be a second loop to adjust the coordinates.<p>
+<p>Rather than handle each coordinate individually, they are going
+to be stored in lists of length 2, with the first item being x and
+the second item being y. All the coordinate pairs are also going
+to be stored in a list. The code is also going to be reorganised
+so that all the coordinate pairs (the agents) are created in a
+first loop, and there will be a second loop to adjust the
+coordinates (move the agents).<p>
 <p>In your local code repository src directory create a new
 directory called "abm2". Open Spyder and use save as to save your
 "model.py" file into the abm2 directory. Then, at the top of the
@@ -159,8 +169,6 @@ from matplotlib import pyplot as plt
 import operator</pre>
 <p>And adding the following code to the end of your file:</p>
 <pre># Plot the agents
-plt.ylim(0, 99)
-plt.xlim(0, 99)
 plt.scatter(agents[0][0], agents[0][1], color='black')
 plt.scatter(agents[1][0], agents[1][1], color='black')
 plt.show()
@@ -231,7 +239,7 @@ numbers of agents.</p>
 <div>
 <p><a id="next" class="nav" href="../functions/index.html">Next: Functions</a></p>
 </div>
-<p>Date last modified: 2023-01-09.</p>
+<p>Date last modified: 2023-01-11.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

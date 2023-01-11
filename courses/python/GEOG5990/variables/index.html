@@ -213,17 +213,17 @@ the same.</p>
 containing the Integer 1 (and whatever else was appended to it).
 Have a play around to help this make sense.</p>
 
+<a name="3"/>
 <h2>3. Functions, Variable Scope and the Global Keyword</h2>
-<p>The scope of a variable is to do with where it is defined and
-from where it's value can be accessed. The Global Keyword (global)
-can modify the scope.</p>
+<p>The scope of a variable is from where in the code it can be
+accessed. The Global Keyword (global) can modify the scope.</p>
 <p>Run the following program code:</p>
 <pre><code class="language-python">x = 1
 if x == 1:
     y = 2
 print(y)</code></pre>
-<p>It should produce the following output:</p>
-<pre>1</pre>
+<p>It should produce the output:</p>
+<pre>2</pre>
 <p>Now, the program runs one line one at a time, from top to
 bottom. If the expression of the IF Statement evaluated as false,
 then the interpretter would skip the internal part of it. For
@@ -241,42 +241,43 @@ print(y)</code></pre>
 NameError: name 'y' is not defined</pre>
 <p>Have a think about this, then read and run the following code:</p>
 <pre><code class="language-python">x = 1
-def f1():
+def my_function():
     x = 2
     print("b", x)
 print("a", x)
-f1()
+my_function()
 print("c", x)</code></pre>
 <p>The output should be:</p>
 <pre>a 1
 b 2
 c 1</pre>
 <p>At line 2, the interpretter reads a function definition for a
-function called f1(), then skips to the end of the function and
-executes line 5. Then at line 6 the function is called. The
-interpreter then effectively goes back to line 2 and runs lines 3
-and 4. Then, at the end of the function, the interpretter
-effectively runs the next bit of code after the function call i.e.
-line 7.</p>
+function called my_function(), then skips to the end of the
+function and executes line 5. Then at line 6 my_function() is
+called. The interpreter then effectively goes back to line 2 and
+runs the function (lines 2 to 4). Then, at the end of the
+function, the interpretter returns to the next bit of code after
+my_function() call i.e. line 7.</p>
 <p>Now, the variable inside the function called x is a different
 variable to the one outside of the function (even though the names
 are the same). Using the global keyword, we can make these
 variables the same as follows:</p>
 <pre><code class="language-python">x = 1
-def f1 ():
+def my_function():
     global x
     x = 2
     print("b", x)
 print("a", x)
-f1()
+my_function()
 print("c", x)</code></pre>
 <p>The output should be:</p>
 <pre>a 1
 b 2
 c 2</pre>
-<p>Try the code yourself to test your understanding.</p>
-<p>Note that the function code snippet does not contain any
-documentation about the function explaining what it is and what it
+<p>Try the code yourself and play around to test your
+understanding.</p>
+<p>Note that after we have defined the function, there is no
+function documentation that outlines what it is and what it
 does. The function takes in no arguments (parameters) and there is
 no return statement. We will learn about functions in more detail
 and how to document them a bit later in the course...</p>
@@ -286,7 +287,7 @@ and how to document them a bit later in the course...</p>
 <div>
 <p><a id="next" class="nav" href="../github/index.html">Next: GitHub</a></p>
 </div>
-<p>Date last modified: 2023-01-09.</p>
+<p>Date last modified: 2023-01-11.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

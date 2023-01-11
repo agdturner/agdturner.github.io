@@ -16,6 +16,39 @@ random.seed(0)
 # A variable to store the number of agents
 n_agents = 10
 
+def get_distance(x0, y0, x1, y1):
+    """
+    Calculate the Euclidean distance between (x0, y0) and (x1, y1).
+
+    Parameters
+    ----------
+    x0 : Number
+        The x-coordinate of the first coordinate pair.
+    y0 : Number
+        The y-coordinate of the first coordinate pair.
+    x1 : Number
+        The x-coordinate of the second coordinate pair.
+    y1 : Number
+        The y-coordinate of the second coordinate pair.
+
+    Returns
+    -------
+    distance : Number
+        The Euclidean distance between (x0, y0) and (x1, y1).
+    """
+    # Calculate the difference in the x coordinates.
+    diff_x = x0 - x1
+    # Calculate the difference in the y coordinates.
+    diff_y = y0 - y1
+    # Square the differences and add the squares
+    ssd = (diff_x * diff_x) + (diff_y * diff_y)
+    # Calculate the square root
+    distance = ssd ** 0.5
+    return distance
+
+# Test the distance function
+print("Check this is 5:", get_distance(0, 0, 3, 4))
+
 # Initialise agents
 agents = []
 for i in range(n_agents):
@@ -27,41 +60,25 @@ for i in range(n_agents):
     # Change agents[i] coordinates randomly
     # x-coordinate
     rn = random.random()
+    #print("rn", rn)
     if rn < 0.5:
         agents[i][0] = agents[i][0] + 1
     else:
         agents[i][0] = agents[i][0] - 1
     # y-coordinate
     rn = random.random()
-    print("rn", rn)
+    #print("rn", rn)
     if rn < 0.5:
         agents[i][1] = agents[i][1] + 1
     else:
         agents[i][1] = agents[i][1] - 1
 print(agents)
 
-# Calculate the Euclidean distance between (x0, y0) and (x1, y1)
-# Set x0 and y0 to equal 0, x1 to equal 3, and y1 to equal 4
-x0 = 0
-y0 = 0
-x1 = 3
-y1 = 4
-# Calculate the difference in the x coordinates.
-diff_x = x0 - x1
-# Calculate the difference in the y coordinates.
-diff_y = y0 - y1
-# Square the differences and add the squares
-ssd = (diff_x * diff_x) + (diff_y * diff_y)
-print("ssd", ssd)
-# Calculate the square root
-distance = ssd ** 0.5
-print("distance", distance)
-distance = math.sqrt(ssd)
-print("distance", distance)
+
 
 # Plot
-plt.ylim(0, 99)
-plt.xlim(0, 99)
+#plt.ylim(0, 99)
+#plt.xlim(0, 99)
 for i in range(n_agents):
     plt.scatter(agents[i][0], agents[i][1], color='black')
 # Plot the coordinate with the largest x red
