@@ -18,6 +18,14 @@ random.seed(0)
 n_agents = 10
 # A variable to control the number of iterations
 n_iterations = 1000
+# The minimum an agents x coordinate is allowed to be.
+x_min = 0
+# The minimum an agents y coordinate is allowed to be.
+y_min = 0
+# The maximum an agents x coordinate is allowed to be.
+x_max = 99
+# The maximum an agents y coordinate is allowed to be.
+y_max = 99
 
 def get_distance(x0, y0, x1, y1):
     """
@@ -104,6 +112,15 @@ for ite in range(n_iterations):
             agents[i][1] = agents[i][1] + 1
         else:
             agents[i][1] = agents[i][1] - 1
+        # Keep agents in a rectangular area
+        if agents[i][0] < x_min:
+            agents[i][0] = x_min
+        if agents[i][1] < y_min:
+            agents[i][1] = y_min
+        if agents[i][0] > x_max:
+            agents[i][0] = x_max
+        if agents[i][1] > y_max:
+            agents[i][1] = y_max
     #print(agents)
     
     # Print the maximum distance between all the agents

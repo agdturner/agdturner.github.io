@@ -5,14 +5,29 @@ Created on Fri Jan  6 11:01:28 2023
 @author: Andy Turner
 """
 import random
+import math
+import matplotlib
 from matplotlib import pyplot as plt
+import operator
 import time
+import agentframework
 
+# Initialise model
 # Set the pseudo-random seed for reproducibility
 random.seed(0)
-
 # A variable to store the number of agents
-#n_agents = 500
+n_agents = 10
+# A variable to control the number of iterations
+n_iterations = 10
+# Bounds for restricting agents movement.
+# The minimum an agents x coordinate is allowed to be.
+x_min = 0
+# The minimum an agents y coordinate is allowed to be.
+y_min = 0
+# The maximum an agents x coordinate is allowed to be.
+x_max = 99
+# The maximum an agents y coordinate is allowed to be.
+y_max = 99
 
 def get_distance(x0, y0, x1, y1):
     """
@@ -63,33 +78,53 @@ def get_max_distance():
         a = agents[i]
         for j in range(len(agents)):
             b = agents[j]
-            distance = get_distance(a[0], a[1], b[0], b[1])
+            distance = get_distance(a.x, a.y, b.x, b.y)
             #print("distance between", a, b, distance)
             max_distance = max(max_distance, distance)
             #print("max_distance", max_distance)
     return max_distance
 
-# A list to store times
-run_times = []
-n_agents_range = range(500, 5000, 500)
-for n_agents in n_agents_range:
-    # Initialise agents
-    agents = []
+# Initialise agents
+agents = []
+for i in range(n_agents):
+    # Create an agent
+    agents.append(agentframework.Agent())
+    print(agents[i])
+print(agents, sep=';')
+
+
+# Print the maximum distance between all the agents
+start = time.perf_counter()
+print("Maximum distance between all the agents", get_max_distance())
+end = time.perf_counter()
+print("Time taken to calculate maximum distance", end - start)
+
+# Model loop
+for ite in range(n_iterations): 
+    # Move agents
     for i in range(n_agents):
-        agents.append([random.randint(0, 99), random.randint(0, 99)])
-    #print(agents)
+        agents[i].move(x_min, y_min, x_max, y_max)
+        print(agents[i])
+    
     
     # Print the maximum distance between all the agents
-    start = time.perf_counter()
-    print("Maximum distance between all the agents", get_max_distance())
-    end = time.perf_counter()
-    run_time = end - start
-    print("Time taken to calculate maximum distance", run_time)
-    run_times.append(run_time)
-
+    print("Iteration", ite, "Maximum distance between all the agents", get_max_distance())
+    
 # Plot
-j = 0
-for i in n_agents_range:
-    plt.scatter(i, run_times[j], color='black')
-    j = j + 1
+#plt.ylim(0, 99)
+#plt.xlim(0, 99)
+for i in range(n_agents):
+    plt.scatter(agents[i].x, agents[i].y, color='black')
+# Plot the coordinate with the largest x red
+lx = max(agents, key=operator.attrgetter('x'))
+plt.scatter(lx.x, lx.y, color='red')
+# Plot the coordinate with the smallest x blue
+sx = min(agents, key=operator.attrgetter('x'))
+plt.scatter(sx.x, sx.y, color='blue')
+# Plot the coordinate with the largest y yellow
+ly = max(agents, key=operator.attrgetter('y'))
+plt.scatter(ly.x, ly.y, color='yellow')
+# Plot the coordinate with the smallest y green
+sy = min(agents, key=operator.attrgetter('y'))
+plt.scatter(sy.x, sy.y, color='green')
 plt.show()

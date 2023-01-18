@@ -48,24 +48,27 @@ maintain.</p>
 <h2>2. Parameters</h2>
 
 <h3>2.1. Positional Parameters</h3>
-<p>Functions can be parameterised; that is, made flexible through
-variables which are set up when the function is called. If the
-variable passed into the function is primitive, then the parameter
-becomes a copy of the primitive value and if the copy is changed
-within the function, the value of the variable passed in remains
-unchanged. However, if the variable is not primitive, then the
-parameter and the variable are the same thing. So, a non-primitive
-passed into a function can be modified and though the function may
-not return that modificiation, the modification will have happened
-to the variable value that is held outside the function.</p>
+<p>Functions can be parameterised; that is, made more generic and
+flexible by allowing things to be passed in as arguments. These
+things can be variables and other function. If a variable passed
+into a function is primitive, then the parameter becomes a copy of
+the primitive value and if the copy is changed within the
+function, the value of the variable passed in remains unchanged.
+However, if the variable is not primitive, then the parameter and
+the variable are the same thing. So, a non-primitive passed into a
+function can be modified and though the function may not return
+that modificiation, the modification will have happened to the
+variable referred to in the scope outside the function.</p>
+<p>Passing in a function as an argument allows that function to be
+used within the function.</p>
 <p>As with variable declarations, in Python there is no need to
-declare the type of a parameter as declared in a function.</p>
-<p>By default, functions invisibly return None, but other things
+declare the type of a parameter passed to a function.</p>
+<p>By default, functions invisibly return 'None', but other things
 can be returned. Only one thing can be returned, so typically
-multiple things are turned into a Tuple when they are returned.
-Often it is sensible to test the type of something that is
-returned when you are not sure what is being returned to help you
-unpack it or know how to handle it.</p>
+multiple things are packaged and returned in a Tuple. Often it is
+sensible to test the type of something that is returned when you
+are not sure what is being returned to help unpack it and know how
+to handle it.</p>
 <p>Arguments can be allocated to parameters based on position, so
 the first argument is the first in a sequence and the last is the
 last in a sequence. For example:</p>
@@ -214,15 +217,91 @@ print(a) # Prints 1.</code></pre>
 <h2>4. Function Complexity</h2>
 <p>As shown above, functions can be nested inside other functions.
 This can hide those inner functions so that they can't be called
-directly (which can reduce how complicated things are when viewing
-functionality from the outside - which can be a good thing). Inner
-functions can help with unpacking parameters or dealing with
-different types of parameter input to the outer function. Python
-also allows for functions themselves to be passed into and
-returned from other functions. So a nested inner function can be
-returned as the output of an outer function. This is powerful, but
-utilising this power is more of an advanced topic, so details of
-this are intentionally omitted for now.</p>
+directly. This can help reduce how complicated things appear and
+keep application programming interfacing easier. Inner functions
+can help with unpacking parameters and dealing with different
+types of parameter input to the outer function.</p>
+<p>As already mentioned, Python also allows for functions
+themselves to be passed into functions. Functions can also be
+returned from other functions. So, a nested inner function can be
+returned as (part of) the output of an outer function.</p>
+<p>Functions are key to a lot of programming. Having nested
+functions, passing functions into other functions as parameters,
+and returning functions from functions are features of Python that
+are not features of some other high level languages. It is perhaps
+easier to begin with to practise using and defining functions that
+more simply have variables as parameters and return only variables
+albeit packaged in a Tuple.</p>
+
+<h3>4.1. Decorators</h3>
+<p>Decorators can be added prior to the def keyword of a function
+to apply other functions to the outputs of a function. The syntax
+for these makes use of the At Symbol (@) which is followed
+immediately by the function name (e.g. @my_function). There can be
+multiple decorators which would work in turn passing the output
+back until all the decorators have been applied. A useful example
+of a decorator function is for reporting the time it takes to run
+a function. The following is an example:<p>
+<pre><code class="language-python">import random
+import time
+
+def timer(func):
+    """
+    Get the run time of the decorated function.
+
+
+    Parameters
+    ----------
+    func : The function to be timed.
+        DESCRIPTION.
+
+    Returns
+    -------
+    Tuple
+        The run time then func output.
+    """
+    def inner_timer(*args, **kwargs):
+        start = time.perf_counter()
+        value = func(*args, **kwargs)
+        run_time = time.perf_counter() - start
+        return run_time, value
+    return inner_timer
+
+@timer
+def create_agents(n_agents):
+    """
+    A function to create a list of agents. The decorator will print the time
+    it takes to run this function.
+
+    Parameters
+    ----------
+    n_agents : Integer
+        The number of agents to create.
+
+    Returns
+    -------
+    agents : List
+        A list of the created agents.
+
+    """
+    agents = []
+    for i in range(n_agents):
+        agents.append([random.randint(0, 99), random.randint(0, 99)])
+    return agents
+
+# Create agents
+n_agents = 1000000
+run_time, agents = create_agents(n_agents)
+print(run_time, "seconds to create", n_agents, "agents.")</code></pre>
+
+<h3>4.2. Lamdas
+<p>Lamda functions are small anonymous functions in Python. They
+can take any number of arguments, but can only have one
+expression. For example:</p>
+<pre><code class="language-python"># A lamda to return the result of dividing a by b.
+x = lambda a, b : a / b
+
+print(x(1, 2)) # <-- Prints 0.5.</code></pre>
 
 <h2>5. Style and Documenting Functions</h2>
 
@@ -294,7 +373,7 @@ Based Modelling Code.</p>
 <div>
 <p><a id="next" class="nav" href="../abm3/index.html">Next: ABM3</a></p>
 </div>
-<p>Date last modified: 2023-01-13.</p>
+<p>Date last modified: 2023-01-18.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
