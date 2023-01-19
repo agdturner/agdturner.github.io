@@ -28,7 +28,9 @@ class Agent:
         pass
 
     def __str__(self):
-        return self.__class__.__name__ + "(x=" + str(self.x) \
+        return self.__class__.__name__ \
+            + "(i=" + str(self.i) \
+            + ", x=" + str(self.x) \
             + ", y=" + str(self.y) + ")"
 
     def __repr__(self):
@@ -69,14 +71,14 @@ class Agent:
         else:
             self.y = self.y - 1
             # Variables for constraining movement.
-              # The minimum x coordinate.
-              x_min = 0
-              # The minimum y coordinate.
-              y_min = 0
-              # The maximum x coordinate.
-              x_max = 99
-              # The maximum y coordinate.
-              y_max = 99
+            # The minimum x coordinate.
+            x_min = 0
+            # The minimum y coordinate.
+            y_min = 0
+            # The maximum x coordinate.
+            x_max = 99
+            # The maximum y coordinate.
+            y_max = 99
         # Apply movement constraints.
         if self.x < x_min:
             self.x = x_min
@@ -86,16 +88,3 @@ class Agent:
             self.x = x_max
         if self.y > y_max:
             self.y = y_max
-
-
-
-    def getx(self):
-        return self._x
-        
-    def setx(self, x):
-        self._x = x
-       
-    def delx(self):
-        del self._x
-
-    #x = property(getx, setx, delx, "I'm the 'x' property.")

@@ -142,19 +142,19 @@ the Agent class:</p>
 attributes of the Agent instances and not to the item in a no
 longer existant list. So, change the following line of code in
 the get_max_distance() function:</p>
-<pre>distance = get_distance(a[0], a[1], b[0], b[1])<pre>
+<pre>distance = get_distance(a[0], a[1], b[0], b[1])</pre>
 <p>To be:</p>
-<pre>distance = get_distance(a.x, a.y, b.x, by)<pre>
+<pre>distance = get_distance(a.x, a.y, b.x, by)</pre>
 <p>Notice that this is simpler and easier to read and understand.
 </p>
 <p>Now, everywhere else in the code that was referring to
 a coordinate from the agents list - as being an item in a list -
 also needs changing. Run the modified program to see the error and
 where the next issue is encountered.</p>
-<p>Occurances of "agents[i][0]" should be changed to
+<p>Occurrences of "agents[i][0]" should be changed to
 "agents[i].x"; and, occurances of "agents[i][1]" should be change
-to "agents[i].y". Make this chages and additionally, in section of
-code where agents is plotted change:
+to "agents[i].y". Make a further change in section of code for
+plotting agents from:
 </p>
 <pre><code class="language-python">
 # Plot the coordinate with the largest x red
@@ -184,22 +184,22 @@ plt.scatter(ly.x, ly.y, color='yellow')
 sy = min(agents, key=operator.attrgetter('y'))
 plt.scatter(sy.x, sy.y, color='green')</code></pre>
 <p>Compare the code to identify what has changed.</p>
-<p>If you made all the changes as instructes, then the program
+<p>If you made all the changes as instructed, then the program
 should now run without error and produce the same output as
 previously.</p>
 <p>As this completes a refactoring step, it is good practise to
 commit this code to your repository with an approriate message.
-So do that now. It is not necessary to push this change to
-GitHub, but it will do no harm to do so (assuming you are using
-GitHub).</p>
+So, do that now. It is not necessary to push this change to
+GitHub yet, but remember to do so before the end of your coding
+session (assuming you are using GitHub).</p>
 
 <h2>3. Separation of Concerns</h2>
 <p>Define a method called move in the Agent class as follows:</p>
 <pre>def move(self, x_min, y_min, x_max, y_max):</pre>
 <p>Cut the code from the "# Move agents" loop that moves an agent
-and add it to the new move method. In this code, replace
-"agents[i]" with "self". Where the code was cut from, add the
-following to call the move method:</p>
+and add it to the new move method, replacing all the "agents[i]"
+with "self". Where the code was cut from, add the following to
+call the move method:</p>
 <pre>agents[i].move(x_min, y_min, x_max, y_max)</pre>
 <p>Now, in the Agent class, it appears as though the move method
 also takes in self, but this is not a parameter that is passed in.
@@ -246,15 +246,9 @@ pass</code></pre>
 TypeError: __init__() missing 1 required positional argument: 'i'</pre>
 <p>This error indicates that a positional argument is missing when
 constructing an instance of the Agent class. Change model.py to
-add the missing argument "i". Next, modify the __str__ method in
-the Agent class to add the unique characteristic of each Agent
-instance to what gets printed out.</p>
-
-<h2>4. Give each agent a unique name</h2>
-<p>The code is more consise and easier to understand,
-there is not a huge gain in much has been gained
-yet from this new way of representing agents.</p>
-
+add the missing argument "i". Modify the Agent class __str__
+method to add the unique characteristic of each Agent to the
+returned String.</p>
 
 </div>
 <footer>

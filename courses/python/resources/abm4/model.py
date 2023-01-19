@@ -90,7 +90,7 @@ for i in range(n_agents):
     # Create an agent
     agents.append(agentframework.Agent(i))
     print(agents[i])
-print(agents, sep=';')
+print(agents)
 
 
 # Print the maximum distance between all the agents
