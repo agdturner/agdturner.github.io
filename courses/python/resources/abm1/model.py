@@ -63,11 +63,11 @@ y0 = 0
 x1 = 3
 y1 = 4
 # Calculate the difference in the x coordinates.
-diff_x = x0 - x1
+dx = x0 - x1
 # Calculate the difference in the y coordinates.
-diff_y = y0 - y1
+dy = y0 - y1
 # Square the differences and add the squares
-ssd = (diff_x * diff_x) + (diff_y * diff_y)
+ssd = (dx * dx) + (dy * dy)
 print("ssd", ssd)
 # Calculate the square root
 distance = ssd ** 0.5

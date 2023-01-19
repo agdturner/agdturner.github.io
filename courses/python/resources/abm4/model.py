@@ -50,11 +50,11 @@ def get_distance(x0, y0, x1, y1):
         The Euclidean distance between (x0, y0) and (x1, y1).
     """
     # Calculate the difference in the x coordinates.
-    diff_x = x0 - x1
+    dx = x0 - x1
     # Calculate the difference in the y coordinates.
-    diff_y = y0 - y1
+    dy = y0 - y1
     # Square the differences and add the squares
-    ssd = (diff_x * diff_x) + (diff_y * diff_y)
+    ssd = (dx * dx) + (dy * dy)
     # Calculate the square root
     distance = ssd ** 0.5
     return distance
@@ -88,7 +88,7 @@ def get_max_distance():
 agents = []
 for i in range(n_agents):
     # Create an agent
-    agents.append(agentframework.Agent())
+    agents.append(agentframework.Agent(i))
     print(agents[i])
 print(agents, sep=';')
 
@@ -104,7 +104,7 @@ for ite in range(n_iterations):
     # Move agents
     for i in range(n_agents):
         agents[i].move(x_min, y_min, x_max, y_max)
-        print(agents[i])
+        #print(agents[i])
     
     
     # Print the maximum distance between all the agents

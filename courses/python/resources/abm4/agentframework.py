@@ -8,7 +8,21 @@ import random
 
 class Agent:
     
-    def __init__(self):
+    def __init__(self, i):
+        """
+        The constructor method.
+
+        Parameters
+        ----------
+        i : Integer
+            To be unique to each instance.
+
+        Returns
+        -------
+        None.
+
+        """
+        self.i = i
         self.x = random.randint(0, 99)
         self.y = random.randint(0, 99)
         pass
@@ -27,13 +41,13 @@ class Agent:
         Parameters
         ----------
         x_min : Integer
-            The minimum an agents x coordinate is allowed to be.
+            The minimum x coordinate constraint.
         y_min : TYPE
-            The minimum an agents y coordinate is allowed to be.
+            The minimum y coordinate constraint.
         x_max : TYPE
-            The maximum an agents x coordinate is allowed to be.
+            The maximum x coordinate constraint.
         y_max : TYPE
-            The maximum an agents y coordinate is allowed to be.
+            The maximum y coordinate constraint.
 
         Returns
         -------
@@ -54,7 +68,16 @@ class Agent:
             self.y = self.y + 1
         else:
             self.y = self.y - 1
-        # Keep agents in bounds
+            # Variables for constraining movement.
+              # The minimum x coordinate.
+              x_min = 0
+              # The minimum y coordinate.
+              y_min = 0
+              # The maximum x coordinate.
+              x_max = 99
+              # The maximum y coordinate.
+              y_max = 99
+        # Apply movement constraints.
         if self.x < x_min:
             self.x = x_min
         if self.y < y_min:
