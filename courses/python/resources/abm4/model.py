@@ -11,6 +11,14 @@ from matplotlib import pyplot as plt
 import operator
 import time
 import agentframework
+import csv
+
+f = open('data.csv', newline='')
+reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
+for row in reader: # A list of rows
+    for value in row: # A list of value
+        print(value) # Floats
+f.close()
 
 # Initialise model
 # Set the pseudo-random seed for reproducibility
@@ -61,7 +69,8 @@ def get_distance(x0, y0, x1, y1):
 
 # Test the distance function
 print("Check this is equal to 5:", get_distance(0, 0, 3, 4))
-
+n_agents = input("Key in a positive integer between 10 and 100 to set the number of agents then press the <ENTER> or <RETURN> key:")
+print("The input detected is:", n_agents)
 def get_max_distance():
     """
     Calculate and return the maximum distance between all the agents

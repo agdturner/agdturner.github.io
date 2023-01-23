@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang=en-GB>
+<head>
+<title>Branching Page</title>
+<!-- Styling. -->
+<!-- The following href is blank, but will be populated once the
+DOM is fully loaded. -->
+<link id="css" rel="stylesheet" type="text/css" href=""><script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link id="code_theme" rel="stylesheet" type="text/css" href="">
+<!-- Styling. -->
+<script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- The following href should be set when the DOM is loaded. -->
+<link id="css1" rel="stylesheet" type="text/css" href="">
+<link id="css2" rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+<header>
+<button id="style_button" onclick="swapStyle()"></button>
+<div>
+<nav>
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</nav>
+</div>
+</header>
+<div>
+<h1>Branching</h1>
+<h2>1. Introduction</h2>
+<p>
+Python supports looping (when some part of the code is executed
+repeatedly a number of times, or until some condition is reached)
+and branching (when some code is executed only if some condition
+is matched). The way looping, branching, calling functions and
+threading (where multiple threads of execution are running
+simultaneously) are all part of what is termed control flow. These
+things help make code much more concise. Threading allows for more
+interactivity with users and often speeds up processing. This
+section of the course focuses on loops and branching.</p>
+
+<h2>2. Loops</h3>
+
+
+<h3>Branching</h3>
+<p>A simple control flow is to branch based upon a condition which
+evaluates to either True or False. So, if the condition is True,
+then the program follows one path, otherwise it follows another
+path. Branching can be done with various types of If Statement and
+since Python 3.10 there is also a Match-case Statement which
+saves using long chains of If-elif constructs which have multiple
+conditions. Consider the following code snippet:</p>
+<pre><code class="language-python">
+# A simple If Statement
+day_of_week = 5
+day = "Weekday"
+if day_of_week >= 6:
+    day = "Weekend"
+# An If-else Statement
+if day_of_week < 6:
+    day = "Weekday"
+else:
+    day = "Weekend"
+# An If-elif Statement
+if day_of_week == 1:
+    day = "Monday"
+elif day_of_week == 2:
+    day = "Tuesday"
+elif day_of_week == 3:
+    day = "Wednesday"
+elif day_of_week == 4:
+    day = "Thursday"
+elif day_of_week == 5:
+    day = "Friday"
+else:
+    day = "Weekend"
+</code></pre>
+<p>You could argue that this example would be better stored in a
+dictionary. A Match-case Statement which offers another way to do
+this:</p>
+<pre><code class="language-python">
+day_of_week = 5
+match day_of_week:
+    case 1:
+        day = "Monday"
+    case 2:
+        day = "Tuesday"
+    case 3:
+        day = "Wednesday"
+    case 4:
+        day = "Thursday"
+    case 5:
+        day = "Friday"
+    case _:
+        day = "Weekend"
+</code></pre>
+<p>In this example the Match-case Statement is not much better
+than a If-elif Statement. The final case is a catch all case using
+the anonymous variable which matches anything. The added extras of
+the Match-case Statement are from passing in containers or other
+objects and having more sophisticated case clauses. Examples of
+these are a bit involved, so for the time being we will leave
+this here after referencing the PEPS:</p>
+<ul>
+<li><a href="https://peps.python.org/pep-0634/">PEP 634, Structural Pattern Matching: Specification</a></li>
+<li><a href="https://peps.python.org/pep-0635/">PEP 635, Structural Pattern Matching: Motivation and Rationale</a></li>
+<li><a href="https://peps.python.org/pep-0636/">PEP 636, Structural Pattern Matching: Tutorial</a></li>
+</ul>
+
+
+
+
+<h3>Match-case Statement</h3>
+<p>Python 3.10 (2021) introduced the match-case statement which
+provides an implementation of a "switch" for Python which has long
+been available in most other high level langauges.</p>
+
+</div>
+<footer>
+<div>
+<p><a id="next" class="nav" href="../loops/index.html">Next: Loops</a></p>
+</div>
+<p>Date last modified: 2023-01-23.</p>
+<p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
+</footer>
+</body>
+</html>

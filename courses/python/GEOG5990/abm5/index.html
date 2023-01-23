@@ -24,19 +24,172 @@ DOM is fully loaded. -->
 <button id="style_button" onclick="swapStyle()"></button>
 <div>
 <nav>
-<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="assignments" class="nav" href="../assignments/index.html">Assignments</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
 </nav>
 </div>
 </header>
 <div>
 <h1>Agent Based Model Part 5</h1>
-<p>ABM</p>
-</div>
+<h2>1. Introduction and Preparation</h2>
+<p>The next step in developing our Agent Based Model is to load
+some spatial data to represent a varied environment in which the
+agents interact. The model will be changed so that the agents
+interact with the environment in a simplistic way. Model output
+in the form of a file will be generated.</p>
+<p>In your local code repository src directory create a new
+directory called "abm5". Open Spyder and use "save as" to save
+your "model.py" and "agentframework.py" files from abm4 into the
+abm5 directory. Create a new directory at the same level as your
+"src" directory called "data" and within this create new
+directories called "input" and "output". These directories will be
+used to store the model data separately to the program source
+code.</p>
+
+<h2>2. Input Data</h2>
+<p>Download/save into your newly created input data directory the
+text file:
+<a href="../../resources/abm5/in.txt">in.txt</a></p>
+<p>Open the file in a text editor. Note that the file is made up
+of lines of Integer numbers separated with commas. Essentially,
+the file is a rectangular data file with 300 lines each with 300
+values.</p>
+<p>Create a new source code file named "io.py" in the abm5
+directory, add the following lines:</p>
+<pre><code class="language-python">import csv
+
+# Read input data
+f = open('../../data/input/in.txt', newline='')
+data = []
+for line in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):
+    row = []
+    for value in line:
+        row.append(value)
+        #print(value)
+    data.append(row)
+f.close()
+print(data)</code></pre>
+<p>Run this new file. The output should correspond to the input
+data file only the values are presented with ".0" added.</p>
+<p>Change the code block into a function called "read_data" that
+returns data. Write code to call this function from model.py by
+adding the following import statement:</p>
+<pre>import io</pre>
+<p>After the import statements try to call the read_data function
+using:</p>
+<pre>environment = io.read_data()</pre>
+<p>It is expected that you will encounter the following error:</p>
+<pre>Traceback (most recent call last):
+
+  File "\src\abm5\model.py", line 19, in <module>
+    environment = io.read_data('../../data/input/in.txt')
+
+AttributeError: module 'io' has no attribute 'read_data'</pre>
+<p>This is confusing until you realise that there is a name
+collision because io is also a Python standard library and this is
+being imported instead. Create a directory called my_modules and
+move io.py and agentframework.py into it. Change the respective
+import statements in model.py to be:</p>
+<pre><code class="language-python">from my_modules import agentframework
+from my_modules import agentframework</code></pre>
+<p>Your code is hopefully now correct and should run without
+error, but if you still get a confusing error and you are using
+Spyder, try restarting Spyder.</p>
+<p>When reading the data add code to check that each row of data
+contains the same number of values and modify the read_data
+function to return the number of lines (rows) and number of values
+in each line (columns).</p>
+<p>Let's regard each row as aligning with a y-coordinate and each
+column as aligning with an x-coordinate.</p>
+
+<h2>3. Plot environment</h2>
+<p>To plot the agents on the environment add the following at the
+start of the plotting section:</p>
+<pre>plt.imshow(environment)</pre>
+<p>A plot should be produced that looks like:</p>
+<p><img src="../../resources/abm5/Figure_1.png"
+  alt="A plot of agents on the enviornment." /></p>
+<p>Notice that the plot y-axis has flipped. Limit the plot axes
+and flip the y-axis back by adding the following code before the
+plot.show() function is called:</p>
+<pre>plt.ylim(y_min, y_max)
+plt.xlim(x_min, x_max)</pre>
+<p>The output plot should now look like:</p>
+<p><img src="../../resources/abm5/Figure_2.png"
+  alt="A plot of agents on a limited part of the environment." /></p>
+
+<h2>4. Agent-Environment Interaction</h2>
+<p>Let us imagine that the environment values represent resources
+that can be eaten/stored by agents.</a>
+<p>Add environment as a parameter to the Agent class constructor.
+Set a class attribute in the same way as for the
+parameter/variable i, and add a store attribute setting this equal
+to zero. The __init__ method should be something like:</p>
+<pre><code class="language-python">def __init__(self, i, environment):
+"""
+The constructor method.
+
+Parameters
+----------
+i : Integer
+    To be unique to each instance.
+environment : List
+    A reference to a shared environment
+
+Returns
+-------
+None.
+
+"""
+self.i = i
+self.environment = environment
+self.x = random.randint(0, 99)
+self.y = random.randint(0, 99)
+self.store = 0</code></pre>
+<p>In model.py when you instantiate Agent objects be sure to pass
+in i and environment in the correct order.</p>
+<p>In the Agent class define the following function:</p>
+<pre><code class="language-python">def eat(self):
+    if self.environment[self.y][self.x] > 10:
+        self.environment[self.y][self.x] -= 10
+        self.store += 10</code></pre>
+<p>Think about what this code does and adapt it so that if the
+value of environment[self.y][self.x] <= 10 then the Agent
+instance stores what there is. If two or more agents are at the
+same location and there is less at the location for all the agents
+to have 10, then those that are processed first will be getting
+more. We will worry about this later.</p>
+<p>In model.py call the new eat function after the move function
+and run the file. You should be able to see that the environment
+in the plot has changed around where the agents have been plotted,
+as in the following image.</p>
+<p><img src="../../resources/abm5/Figure_3.png"
+  alt="A plot of agents on a limited part of the environment with part of it eaten away." /></p>
+</p>
+<p>The eating away should be more obvious if n_iterations is
+increased.</p>
+<p>Commit your code to your local repository.</p>
+
+<h2>5. Coding Tasks</h2>
+<p>Define a function in model.py that adds up all the values in
+environment.</p>
+<p>Define another function that adds up all the store values in
+all the agents.</p>
+<p>Print out these sums and check that the total amount of
+resource and store in the system is not changing after each
+iteration of the model.</p>
+<p>Define a function to write out the values of environment to a
+file at the end of the the iterations.</p>
+<p>Try setting some of the model parameters towards the start of
+the program using keyboard input using something like:</p>
+<pre><code class="language-python">n_agents = int(input("Set n_agents: Key in a positive integer then press <ENTER>:"))</code></pre>
+<p>Commit your code to your local repository, and assuming you are
+using GitHub - push your changes to GitHub.</p>
+
 <footer>
 <div>
-<p><a id="next" class="nav" href="../abm6/index.html">Next: ABM6</a></p>
+<p><a id="next" class="nav" href="../modules/index.html">Next: Modules</a></p>
 </div>
-<p>Date last modified: 2023-01-19.</p>
+<p>Date last modified: 2023-01-23.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

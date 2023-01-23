@@ -24,7 +24,7 @@ DOM is fully loaded. -->
 <button id="style_button" onclick="swapStyle()"></button>
 <div>
 <nav>
-<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="assignments" class="nav" href="../assignments/index.html">Assignments</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
 </nav>
 </div>
 </header>
@@ -37,8 +37,14 @@ instances of a class, like you are an instance of a thing known as
 a human. In Python classes can be embedded throughout programs,
 but it is good practice to organise classes in modules.</p>
 <p>Modules are source code files, the name of the module is given
-by the filename which should be a short word all in lowercase. The
-name of a class should start with a capital letter and should be
+by the filename which should be a short word all in lowercase.
+Modules are best placed in a directory alongside the main script
+that is run. If they are simply placed in the same directory as
+the script that is run, then there can be difficulties resulting
+from name collisions with modules in the standard library that
+have the same name as other bespoke modules. We will encounter a
+problem like this later in the course.</p>
+<p>The name of a class should start with a capital letter and be
 in CamelCase (with capitalised letters of each word making up the
 name of the class). It is helpful to organise code into modules as
 having all code in one file becomes cumbersome.</p>
@@ -252,7 +258,7 @@ The Python 3 Language Reference Data Model Chapter Section on Basic Customizatio
 <div>
 <p><a id="next" class="nav" href="../abm4/index.html">Next: ABM4</a></p>
 </div>
-<p>Date last modified: 2023-01-19.</p>
+<p>Date last modified: 2023-01-23.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
