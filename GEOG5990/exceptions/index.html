@@ -30,7 +30,7 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Exceptions</h1>
-<h2>1. Introduction</h2>
+<h2 id="1">1. Introduction</h2>
 <p>When something goes wrong, ideally we don't want our program to
 fail completely without informing about what went wrong. When the
 Python interpretter detects a problem, it generates an Exception
@@ -39,7 +39,7 @@ went wrong.</p>
 <p>In this part of the course we will learn a bit more about
 exception and error handling and debugging.</p>
 
-<a name="2"/><h2>2. Try-Except</h2>
+<h2 id="2">2. Try-Except</h2>
 <p>If it is suspected that code might generate an exception, a
 try-except compound statement can be used to help do this.</p>
 <p>Consider the following example:</p>
@@ -99,7 +99,7 @@ except (ZeroDivisionError, SystemError) :
 print("Done")</code></pre></li>
 </ol>
 
-<a name="3"/><h2>3. Raising Exceptions</h2>
+<h2 id="3">3. Raising Exceptions</h2>
 <p>Exceptions are raised automatically if they are encountered and
 there no Try-Expect statement catches them.</p>
 <p>The Raise Keyword (raise) used inside an except clause, raises
@@ -115,7 +115,7 @@ else:
 <p>You can define your own exceptions by subclassing an
 exception.</p>
 
-<a name="4"/><h2>4. Else and Finally</h2>
+<h2 id="4">4. Else and Finally</h2>
 <p>If there is something that should be run only if exceptions are
 not raised, the add an Else Clause (else) to the Try-Except, for
 example:</p>
@@ -153,7 +153,7 @@ Continue Keyword (continue) can be used to execute the finally
 clause before restarting the loop, and the Break Keyword (break)
 can be used to execute the finally clause.</p>
 
-<a name="5"/><h2>5. System Exit Calls</h2>
+<h2 id="5">5. System Exit Calls</h2>
 <p>To exit the system at any point, call the Exit Function (exit)
 from the Sys Module (sys). For example:</p>
 <pre><code class="language-python">import sys

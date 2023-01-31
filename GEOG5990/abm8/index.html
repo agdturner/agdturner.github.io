@@ -30,13 +30,13 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Agent Based Model Part 8</h1>
-<h2>1. Introduction and Preparation</h2>
+<h2 id="1">1. Introduction and Preparation</h2>
 <p>This practical is about adding a Graphical User Interface so
 that users can run the model.</p>
 <p>In your local code repository src directory duplicate your abm7
 directory and call the new directory "abm8".</p>
 
-<h2>2. Setting up Tkinter<h2>
+<h2 id="2">2. Setting up Tkinter<h2>
 <p>Matplotlib has different "backends" that allow it to render
 graphics in different ways. As the GUI will be developed using
 tkinter, it is necessary to change the matplotlib backend by
@@ -51,7 +51,7 @@ matplotlib.use('TkAgg')</code></pre>
 <pre>File > Restart</pre>
 <p>save your files and restart Spyder.</p>
 
-<h2>3. Organising the GUI</h2>
+<h2 id="3">3. Organising the GUI</h2>
 <p>Add the following funtion:</p>
 
 Next, let's add a function that will run our model. We'll connect this to our menu such that when the menu is clicked, this function will run, in line with the event based programming model. Note that what you put in the line to run the model will depend what you did with the animation; you may need to adjust the line to match whatever you have:

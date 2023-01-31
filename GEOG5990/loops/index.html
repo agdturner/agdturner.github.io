@@ -30,13 +30,13 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Loops</h1>
-<h2>1. Introduction</h2>
+<h2 id="1">1. Introduction</h2>
 <p>Python has syntax for While Loops and For Loops. While Loops
 are typically used to repeat something until a condition is
 reached. For Loops are typically used to repeat something for
 each thing in a sequence. Let's look at these in turn:</p>
 
-<h2>2. While Loops</h2>
+<h2 id="2">2. While Loops</h2>
 <p>The following is an example of a While Loop:</p>
 <pre><code class="language-python">x = 1
 while (x < 10):
@@ -76,7 +76,7 @@ evaluates to False.</p>
 called end has been used to substitute the normal end of print
 statement - a newline - with a space.</p>
 
-<h2>3. For Loops</h2>
+<h2 id="3">3. For Loops</h2>
 <p>For Loops in Python are used with sequences that are iterable.
 What this means is that the for loop is passed the next in the
 sequence until it has reached the last after which the loop
@@ -147,7 +147,7 @@ As well as Break Statements, Continue Statements can also be used
 to skip back to the start of a For Loop in much the same way as in
 a While Loop.</p>
 
-<h2>4. Nesting loops</h2>
+<h2 id="4">4. Nesting loops</h2>
 <p>In spatial analysis it is common to want to go through two
 dimensional raster data or tables of values. One way to do this is
 to nest loops. Consider the following code which goes through all
@@ -182,7 +182,7 @@ Integer into a sequence starting from 0 and ending with one less.
 to make mistakes and mix up rows and columns which can be hard to
 spot if the data has the same number of rows and columns.</p>
 
-<h2>5. Moving Window Algorithms</h2>
+<h2 id="5">5. Moving Window Algorithms</h2>
 <p>These are commonly used in image processing and for surface
 analysis. One of the difficulties in applying these concerns what
 to do at the boundaries. The main options are: to deal with the
@@ -217,7 +217,7 @@ for row in range(1, len(data) - 1):
 26 27 28 29
 32 33 34 35</pre>
 
-<h2>6. Next</h2>
+<h2 id="6">6. Next</h2>
 <p>Let us apply what we have learned about Containers, Branching
 and Looping to simplify and extend our Agent Based Modelling
 code.</p>

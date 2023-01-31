@@ -30,7 +30,7 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Modules</h1>
-<h2>1. Introduction</h2>
+<h2 id="1">1. Introduction</h2>
 <p>A module is usually a single file that may contain classes,
 functions and variables. It should be imported to make these
 things accessible and those things are then referred to using the
@@ -44,7 +44,7 @@ can be used to do specific things.</p>
 packages which are not imported automatically. These need to be
 imported in order to be used.</p>
 
-<a name="2"/><h2>2. Importing</h2>
+<h2 id="2">2. Importing</h2>
 <p>A couple of different types of import statement should now be
 familiar. The following imports a module and then access the Agent
 class within it to construct an instance of that class:</p>
@@ -95,7 +95,7 @@ it to run as a script without contaminating the environment:</p>
     # Imports needed for running.
     function_name()</code></pre>
 
-<a name="3"/><h2>3. Packages</h2>
+<h2 id="3">3. Packages</h2>
 <p>Consider the following package file structure:</p>
 <pre><code class="language-python">/abm
     __init__.py
@@ -123,7 +123,7 @@ code in a file called __main__.py and the following command is
 issued at the prompt:</p>
 <pre>python -m packagename</pre>
 
-<a name="4"/><h2>4. Standard Libraries</h2>
+<h2 id="4">4. Standard Libraries</h2>
 <p>The <a href="https://docs.python.org/3/library/functions.html">
 Builtin Functions List</a> and the
 <a href="https://docs.python.org/3/py-modindex.html">
@@ -173,7 +173,7 @@ statistics</a> - for basic summary statistics.</li>
 random</a> - for sampling and doing things randomly.</li>
 </ul>
 
-<a name="5"/><h2>5. External Libraries</h2>
+<h2 id="5">5. External Libraries</h2>
 <p>Anaconda comes bundled with some useful external libraries.
 Exactly what it comes with varies with the version and underlying
 operating system. Details can be found via the following URL:
@@ -186,7 +186,7 @@ available via:
 <a href="https://pypi.python.org/pypi">
 PyPi - Python Package Index</a>.</p>
 
-<h3>5.1. General utility</h3>
+<h3 id="5.1">5.1. General utility</h3>
 <p>The following is a list of some widely used libraries:</p>
 <ul>
 <li><a href="http://www.numpy.org/">numpy</a> is useful for
@@ -208,7 +208,7 @@ for distributed computing (splitting up programs and running them
 on multiple computers).</li>
 </ul>
 
-<h3>5.2. Geospatial</h3>
+<h3 id="5.2">5.2. Geospatial</h3>
 <p>Some of these were used in the introduction to the course:</p>
 <ul>
 <li><a href="https://docs.qgis.org/3.10/en/docs/pyqgis_developer_cookbook/">

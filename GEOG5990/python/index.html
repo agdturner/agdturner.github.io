@@ -30,10 +30,10 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Python</h1>
-<h2>1. Introduction</h2>
+<h2 id="1">1. Introduction</h2>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> is a popular and powerful high-level interpretted programming language supported and developed by the <a href="https://www.python.org/psf/">Python Software Foundation</a> that has a mission to promote, protect, and advance the language, and support and facilitate the growth of a diverse and international community of Python programmers.</p>
 <p>The core standard library and interpretters are freely available in source and binary forms for all major platforms from the <a href="https://www.python.org/">Python Website</a>, and may be freely distributed. There are various Python interpretters that read source code written in Python and translate it into machine instructions. Details of interpretters is regarded as an advanced topic and is not covered in this course.</p><p>The Python Website contains distributions of and pointers to many Free and Open Source third party Python code, tools, and additional documentation.</p><p>A particularly useful documentation page for beginners learning the Python langauge is the <a href="https://docs.python.org/3/reference/">Python 3 Language Reference</a>.</p>
-<a name="2"/><h2>2. Python 3</h2>
+<h2 id="2">2. Python 3</h2>
 <p>Python 3 was first released in 2008. Much third party code
 needed refactoring to work with Python 3. For several years Python
 2 and Python 3 were both developed, but eventually in January 2020
@@ -100,7 +100,7 @@ too.</p>
 <p>Now for some practical exercises to get you running Python code
 in different ways...</p>
 
-<a name="3"/><h2>3. Running Python</h2>
+<h2 id="3">3. Running Python</h2>
 <p>Python instructions also known as commands or statements, can
 be entered one at a time in a Terminal or Command Window or passed
 in a file.</p>
@@ -126,7 +126,7 @@ interfering with any other version of Python already installed on
 your system. By default, Anaconda installs into your user home
 directory.</p>
 
-<a name="3.1"/><h3>3.1. Python REPL</h3>
+<h3 id="3.1">3.1. Python REPL</h3>
 
 <h4>3.1.1. Hello World</h4>
 <p>Open an Anaconda Prompt. On Windows the prompt should look
@@ -210,7 +210,7 @@ rounds to the nearest value that can be represented in a specific
 way. We will look at floating point rounding and other types of
 numbers in Python later in the course.</p>
 
-<a name="3.2"/><h3>3.2. Loading Modules and Using Functions</h3>
+<h3 id="3.2">3.2. Loading Modules and Using Functions</h3>
 <p>Mathematical operators can also be accessed via functions that
 reside in the Operator Module.</p>
 <p>Enter:</p>
@@ -272,7 +272,7 @@ the start and/or end of identifiers have a special meaning in
 Python.</p>
 <p>Try using some other functions from the Operator Module.</p>
 
-<a name="3.3"/><h3>3.3. The Help System</h3>
+<h3 id="3.3">3.3. The Help System</h3>
 <p>At the Python prompt, enter:</p>
 <pre>help(operator.add)</pre>
 <p>This prints out some information about how to use the Operator
@@ -302,11 +302,11 @@ Prompt.</p>
 <p>Before learning how to run a file of Python commands, let us
 consider a bit more basic Python syntax.</p>
 
-<a name="4"/><h2>4. Basic Python Syntax</h3>
+<h2 id="4">4. Basic Python Syntax</h3>
 <p>The syntax of a computer programming language are the rules
 about how it must be written.</p>
 
-<a name="4.1"/><h3>4.1. Syntax Errors</h3>
+<h3 id="4.1">4.1. Syntax Errors</h3>
 <p>If a statement or expression is syntactically incorrect, and
 the Python interpretter attempts to interpret it, a syntax error
 is encountered.</p>
@@ -329,7 +329,7 @@ sign (=).</p>
 <p>One of the key skills in coding is learning to interpret error
 messages.</p>
 
-<a name="4.2"/><h3>4.2. Statements</h3>
+<h3 id="4.2">4.2. Statements</h3>
 <p>Multiple statements on a single line are separated with
 semicolons (;). At the Python Prompt enter:</p>
 <pre>y=1;x=y;print(x)</pre>
@@ -343,7 +343,7 @@ of these shortly...</p>
 <p>Python does not have a special symbol to end a statement like
 many other languages do.</p>
 
-<h3>4.3. Comments</h3>
+<h3 id="4.3">4.3. Comments</h3>
 <p>The # symbol is the start of a comment.</p>
 <pre>
 # This entire line is a comment
@@ -371,7 +371,7 @@ It is sensible to add a comment to indicate why a section of code
 is commented out, and not assume that you will remember why at a
 later date.</p>
 
-<a name="4.4"/><h3>4.4. Code Layout</h3>
+<h3 id="4.4">4.4. Code Layout</h3>
 <p>Blank lines are allowed and can help structure code into
 blocks. It is good practice to start each code block with a
 comment that outlines what the code block is for. For example:
@@ -412,7 +412,7 @@ the __builtins__ module. Have a look at the help for it, enter:
 </p>
 <pre>help(print)</pre>
 
-<a name="4.5"/><h3>4.5. Delimiters, Literals and Operators</h3>
+<h3 id="4.5">4.5. Delimiters, Literals and Operators</h3>
 <p>Delimiters separate bits of code, like blank lines and the
 colon (:) in the If Statement example above. Some delimeters also
 act as operators. Here is a list from the Python Reference
@@ -434,7 +434,7 @@ worry about what these other things do for now.</p>
 <p>Operators are sequences of symbols that are shorthand for
 some Builtin Functions (e.g. +, -, *, /, %)</p>
 
-<a name="4.6"/><h3>4.6. Identifiers and Keywords</h3>
+<h3 id="4.6">4.6. Identifiers and Keywords</h3>
 <p>Identifiers are names of variables, functions, classes,
 modules and packages.</p>
 <p>Keywords are reserved terms that can't be used for
@@ -456,7 +456,7 @@ is that there was an attempt to use a keyword as a variable name.
 <a href="https://docs.python.org/3/reference/lexical_analysis.html">Python 3 Lexical Analysis Documentation</a>
 </p>
 
-<a name="4.7"/><h4>4.7. Style</h4>
+<h4 id="4.7">4.7. Style</h4>
 <p>The following code block is an If Statement which has an
 Else Condition. This can be read as follows: If the variable x
 is greater than the variable y, then x is printed, otherwise y is
@@ -485,7 +485,7 @@ style is consistent and you get used to it, it helps to identify
 issues. Most code blocks presented subsequently in these learning
 resources will typically be styled as in the last snippet.</p>
 
-<a name="5"/><h2>5. Running a file of Python commands</h2>
+<h2 id="5">5. Running a file of Python commands</h2>
 <p>Create a new ASCII text file, add to it the following line:</p>
 <pre>print("Hello World")</pre>
 <p>Save the file with the name "HelloWorld.py". Open an Anaconda
@@ -521,7 +521,7 @@ directory - provided that is on Windows that the file is on the
 same drive, and if not, the path must be absolute and include the
 drive letter).</p>
 
-<a name="6"/><h2>6. Jupyter Notebook</h2>
+<h2 id="6">6. Jupyter Notebook</h2>
 <p>Jupyter Notebook, is a REPL based system that embeds code into
 a document containing other information: text, images, data, and
 links. Code is entered in cells which when run present outputs
@@ -573,14 +573,14 @@ about Python environment management. First though, let's explore
 running Python in other ways... Before launching into that,
 consider if you should take a short break...</p>
 
-<a name="7"/><h2>7. Integrated Development Environments</h2>
+<h2 id="7">7. Integrated Development Environments</h2>
 <p><a href="https://en.wikipedia.org/wiki/Integrated_development_environment">
 Integrated Development Environment</a>s (IDEs) are software tools
 used to make writing code and developing software easier. This
 section introduces IDLE and Spyder - IDEs that come with Anaconda.
 </p>
 
-<a name="7.1"/><h3>7.1. IDLE</h3>
+<h3 id="7.1">7.1. IDLE</h3>
 <p>The core Python language comes with IDLE - an Integrated
 Development and Learning Environment. IDLE has an editor window,
 as well as a console window for REPL commands and for output from
@@ -608,7 +608,7 @@ IDLE Documentation</a>.</p>
 with Python.</p>
 <p>Close down IDLE.<p>
 
-<a name="7.2"/><h3>7.2. Spyder</h3>
+<h3 id="7.2">7.2. Spyder</h3>
 <p>Spyder (the Scientific PYthon Development EnviRonment) is a
 more sophisticated IDE that comes with Anaconda and can be
 downloaded from the
@@ -642,7 +642,7 @@ below:</p>
 <p><a href="https://docs.spyder-ide.org/current/index.html">
 Spyder Documentation</a></p>
 
-<a name="7.3"/><h3>7.3 Other IDEs</h3>
+<h3 id="7.3">7.3 Other IDEs</h3>
 <p>There are other IDEs that support Python code development. If
 you are already familiar with an IDE that supports Python code
 development, then you might like to give it a try. Other IDEs that
@@ -657,7 +657,7 @@ for
 .
 </p>
 
-<a name="8"/><h2>8. QGIS Desktop Python Console</h2>
+<h2 id="8">8. QGIS Desktop Python Console</h2>
 <p>Geographical Information System (GIS) software are used to
 create, manage, process, model, visualise and serve geographical
 data and information. <a href="https://www.qgis.org/">QGIS</a>,
@@ -728,7 +728,7 @@ QGIS Development Web Page</a></li>
 PyQGIS Development Cookbook: Plugins Web Page: Section on Developing Python Plugins</a></li>
 </ul>
 
-<a name="9"/><h2>9. Python Packages and Environment Management</h2>
+<h2 id="9">9. Python Packages and Environment Management</h2>
 <p>Packaging code and delivering it to users via repositories is
 good practise for a numerous reasons. Many software and code
 repositories are language specific or software specific (like QGIS
@@ -946,7 +946,7 @@ https://packaging.python.org/en/latest/tutorials/installing-packages/#use-pip-fo
 https://docs.anaconda.com/anaconda/user-guide/tasks/install-packages/</a></li>
 </ul>
 
-<a name="10"/><h2>10. Recap and Expectations</h2>
+<h2 id="10">10. Recap and Expectations</h2>
 <p>This section of the course introduced some basic Python syntax
 and considered the evolution of the language. It explored running
 Python code: using the REPL environment and help system; in files;
