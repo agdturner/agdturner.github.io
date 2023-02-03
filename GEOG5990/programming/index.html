@@ -36,14 +36,15 @@ DOM is fully loaded. -->
 (coding) is about instructing computing machines (computers) to
 carry out tasks where data is typically input, processed and
 output.</p>
-<p>Desktop and laptop computers typically have a keyboard and
-mouse for user input, a visual display screen, smaller amounts
-of faster more volatile data storage (memory), and larger amounts
-of more persistent data storage (disk) using a
+<p>Contemporary desktop and laptop computers typically have a
+keyboard and mouse for user input, a visual display screen,
+smaller amounts of faster more volatile data storage (memory), and
+larger amounts of more persistent data storage (disk) that
+is organised using a
 <a href="https://en.wikipedia.org/wiki/File_system">file system</a>.
-Computers may have inbuilt or perpherally connected deveices such
+Computers may have inbuilt or perpherally connected devices such
 as microphones and cameras, and the screen may be a touch screen.
-Networked computers can typically communicate using
+Networked computers can typically communicate using standard
 <a href="https://en.wikipedia.org/wiki/Internet">Internet</a> protocols.
 The basic functioning of a computer is handled by an 
 <a href="https://en.wikipedia.org/wiki/Operating_system">operating system</a>
@@ -56,19 +57,19 @@ interpretters and run time environments.</p>
 components that fit or connect together to form workflows that
 can be run. However, this course is not about visual programming,
 it is about programming using text based command instructions
-written specifically in the
-<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python programming language</a>.</p>
+and specifically the
+<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python programming language</a> which like any written language has a formal syntax.</p>
 <p>There are a wide variety of computer programming languages
 each defined by a specific syntax. Some computer languages
-look similar, some look very different. Whilst these learning
-resources focus on Python, occasionally similarities and
-differences between Python and other languages are pointed out.
-</p>
+look similar, some look very different. There are many common
+syntactic components like keywords, delimiters, literals and
+punctuation.</p>
 
 <h2 id="2">2. Data</h2>
 <p>In most modern computers, data is encoded in a binary form
 where the smallest units called bits are in one of two possible
-states. Let us label these one (1) and zero (0).</p>
+states. Many encodings equate these to the numbers one (1) and
+zero (0).</p>
 <p>Typically computers work with fixed size collections of bits
 called
 <a href="https://en.wikipedia.org/wiki/Byte">bytes</a>.
@@ -77,27 +78,42 @@ combinations or arrangements of bits there are. With each added
 bit, there is a power of two more combinations. So, with 2
 bits there are 4 possible combinations (00, 01, 10, 11); with 3
 bits there are 8 combinations (000, 001, 010, 100, 011, 101, 110,
-111); with 4, 16; with 7, 128; with 8, 256.</p>
-<p>The order of the bits in a byte is known as the endian - there
-are two types: big-endian and little endian. 7 bits in a byte
-allows for all English letters in both lower and upper case, the
-ten numeric digits 0 to 9, and 64 other symbols to be uniquely
-represented. Often file paths are encoded in 7 bit
-representations.</p>
-<p>More commonly these days there are multiples of 8 bits in a
-byte. To represent individual numbers, often 32 or 64 bits are
-used. Numerical representations of a subset of non-integer numbers
-are often in either
+111); with 4, 16; with 7, 128; with 8, 256. This exponential
+doubling pattern continues so that with just 64 bits there are
+18446744073709551616 combinations.</p>
+<p>7 bits in a byte allows for all English letters in both lower
+and upper case, the ten numeric digits 0 to 9, and 64 other
+symbols to be uniquely represented. This was the limit of the
+original <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>
+format, and is still a restriction for file paths on many
+operating systems.</p>
+<p>A lot of modern data is now encoded using
+<a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a>.
+As of Unicode version 15.0, there are 149,186 characters,
+including mathematical symbols and emojis with attributed codes.
+</p>
+<p>Commonly there are multiples of 8 bits in a byte. Individual
+numbers are often represented using 32 or 64 bits. For integer
+number representations, typically all interger values in a range
+are represented in the byte encoding. For non-integer only
+encodings commonly known as floating point numbers, a subset of
+rational numbers are also encoded and the range of integers can be
+larger, but the integers within this range that are representable
+is more sparse. In
+<a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">
+standard floating point arithmetic</a>, the result of a
+calculation is rounded to the nearest value.</p>
+<p>
 <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">
-single precision floating point format</a> (which uses 32 bits per
-number) or
+Single precision floating point format</a> uses 32 bits per
+number.
 <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">
-double precision floating point format</a> (which uses 64 bits per
-number). These provide an extended range of numbers at the cost of
-precision. Calculations done with these numbers are only sometimes
-accurate. This is important to bear in mind when using them to
-represent geometry and angles and also when calculating
-statistics.</p>
+Double precision floating point format</a> uses 64 bits per
+number. The important thing to bear in mind about these
+numbers is that calculations with them are only sometimes
+accurate, and the imprecision varies. This can be a source of
+significant confusion and error especially when using these
+numbers for geometry and statistics.</p>
 
 <h2 id="3">3. Learning to Program</h2>
 <p>If you have done little or no programming before, then other
