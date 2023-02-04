@@ -81,118 +81,153 @@ bits there are 8 combinations (000, 001, 010, 100, 011, 101, 110,
 111); with 4, 16; with 7, 128; with 8, 256. This exponential
 doubling pattern continues so that with just 64 bits there are
 18446744073709551616 combinations.</p>
-<p>7 bits in a byte allows for all English letters in both lower
-and upper case, the ten numeric digits 0 to 9, and 64 other
-symbols to be uniquely represented. This was the limit of the
-original <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>
-format, and is still a restriction for file paths on many
-operating systems.</p>
-<p>A lot of modern data is now encoded using
-<a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a>.
+<p>7 bits in a byte allows for all English/Roman alphabet letters
+in both lower and upper case, the ten numeric digits 0 to 9, and
+64 other symbols to be uniquely represented (encoded as a series
+of bits of a fixed length). The
+<a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>
+format is a text encoding using 7 bits. ASCII is used to encode
+file paths on some operating systems and is used for a lot of
+simple text file encodings. It gets expensive to store numbers
+with a large number of digits in ASCII, and other encodings are
+needed to represent more characters.</p>
+<p>Some data formats encode different parts of a file using
+different byte lengths and with reference to different encodings.
+The encodings are mappings that define what each series of bits
+represents. The encodings can become complicated as what a thing
+is to represent can be part encoded in the data rather than in
+some standard look up (a map that links unique keys to, in this
+case, unique values).</p>
+<p><a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> is
+a common standard encoding used for a lot communication data.
 As of Unicode version 15.0, there are 149,186 characters,
 including mathematical symbols and emojis with attributed codes.
+It uses between 1 and 4 bytes of length 8 for encoding.
 </p>
-<p>Commonly there are multiples of 8 bits in a byte. Individual
-numbers are often represented using 32 or 64 bits. For integer
-number representations, typically all interger values in a range
-are represented in the byte encoding. For non-integer only
-encodings commonly known as floating point numbers, a subset of
-rational numbers are also encoded and the range of integers can be
-larger, but the integers within this range that are representable
-is more sparse. In
+<p>Commonly, there are multiples of 8 bits in a byte.</p>
+<p>Data formats have a specification which details how data are
+encoded. Some are open formats, where details of the specification
+are made publicly available and changes to the format are made by
+standards defining organisations. Formats can change over time and
+so are typically versioned.</p>
+<p>Individual integer numbers in a range are typically represented
+using a fixed number of bits that can map individually to every
+number in the range. The encoding will detail how this is done and
+what the range is. Often, zero is either the middle or at the
+start of the range. The type of such integer number
+representations are the details of the range and encoding. To
+represent integer numbers beyond this range, either the number of
+bits for all numbers must increase, or multiple bytes must be
+combined into a single number, so for this an additional byte
+might be needed to encode the number of bytes. Python hides the
+encoding complications and from the outside appears to have just
+one type of integer. How this is done is implementation specific
+in that different interpreters may handle this differently.</p>
+<p>Non-integer encodings include numbers commonly called floating
+point numbers that are currently commonly encoded using a 32 and
+64 bits. With these, a subset of rational numbers (fractions) are
+encoded the density of these varies throughout a range. In general
+the density is greatest in the middle of the range and more sparse
+towards the extremes of the range. In
 <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">
-standard floating point arithmetic</a>, the result of a
-calculation is rounded to the nearest value.</p>
+floating point arithmetic</a>, the result of a
+calculation is rounded to the nearest value in the range.</p>
 <p>
 <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">
 Single precision floating point format</a> uses 32 bits per
 number.
 <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">
 Double precision floating point format</a> uses 64 bits per
-number. The important thing to bear in mind about these
+number. The important things to bear in mind about these
 numbers is that calculations with them are only sometimes
 accurate, and the imprecision varies. This can be a source of
 significant confusion and error especially when using these
-numbers for geometry and statistics.</p>
+numbers for geometry, physics and statistics.</p>
+<p>Computers do not have a way to precisely represent
+transcendental numbers except symbolically. So, for example, the
+ratio of the circumference to the diameter of a circle can be
+represented by a symbol, but only stored approximately in a
+computer (although that approximation might be accurate to as many
+decimal places as have been calculated - so long as that
+information is available and there is sufficent memory).</p>
 
 <h2 id="3">3. Learning to Program</h2>
-<p>Others on your course may seemingly be learning faster than
-you. Please do not worry about this and take time to develop your
-understanding. Try to take regular and frequent breaks to look
-after yourself, avoid fatigue and help you remember and enjoy the
-learning experience.</p>
-<p>People learn in different ways and some get lucky and
-comprehend some things a bit quicker than others. Initially,
-anyone with more programming experience is likely to progress
-faster than anyone with less, but after learning the basics in an
-introductory course, skill and knowledge levels tend to become
-more similar.</p>
+<p>Learning to program takes time and energy. It involves
+developing and strengthening neural networks in your brain. So,
+try to find time to learn new programming concepts when you are
+well rested and most able. You can apply things you already know
+when you are more tired, but try not to program when you are tired
+as this is when it is easy to make mistakes and do worse than
+wasting your time!</p>
+<p>People have different backgrounds and experiences, and learn
+better at different times. Part of learning to program is about
+learning to program yourself!</p>
+<p>Organise to take breaks as you are learning to program. Breaks
+help you avoid fatigue, remember what you are learning, and enjoy
+the learning experience. Often if you think about something else
+for a short while and then return to think about something that
+was not making sense, then suddenly you find it making sense.</p>
+<p>It is not reasonable to expect to learn everything about a
+programming language like Python in an introductory course. You
+will learn about most of the supported syntax, but the
+functionality is vast and knowing all about what there is and when
+to use it typically takes more time than you have for this course.
+It is more important to learn how to discover functionality that
+does what you want than to know about all there is. Mastering a
+language can take many years of study and practise.</p>
+<p>Once familiar with one programming language, it is usually
+much easier to learn others. Many languages can be used to do the
+same things, but some are particularly suited to specific tasks.
+</p>
+<p>Programming and programming language development are typically
+community activities. It is normal to ask others for help and to
+provide others with help and work collaboratively to develop
+things. There are many different types of forums that can be used
+for this. Feel free to engage in online forums if you want, but
+please do not post questions about this course and turn instead to
+your tutor for help.</p>
+<p>If you want help, then please ask. Your tutor is here to help
+and has lots of experience, so please ask for help rather than
+staying stuck for too long.</p>
+<p>There is a skill to asking for programming help. You might want
+to show someone what is happening and talk about it as often
+something explained in a slightly different way helps.</p>
+<p>Often it is a good idea to document an issue - write down
+what happens and why this is different to what you expect. Often
+the act of documenting the issue helps you to understand better
+and you might simply want to ask to confirm your understanding.
+If you detail the steps required to replicate the issue and
+explain what is happening and why this is different to what you
+expect, then it is easy to ask for help and for the helper to
+provide the help. Typically this involves providing a copy of
+your code and any input data.</p>
+<p>Some things you might comprehend instantly, other things might
+take several attempts. Some things you might understand, but it
+seems strange. Usually, there is a good reason why something works
+and is written the way it is, but no language is perfect! They
+evolve - often in strange seeming ways - or they die!</p>
+
+<h2 id="4">4. Language Evolution, Deprecation and Versions</h2>
 <p>Most computer programming languages are evolving and new ones
 occasionally emerge. Some programming languages become obsolete
 and some versions become unsupported over time. Supporting
 <a href="https://en.wikipedia.org/wiki/Backward_compatibility">
 backward compatibility</a> - interoperability with older versions
 - has both costs and benefits. These are weighed up seriously by
-those developing a language, and breaking backward compatibility
-is not done lightly and in Python and in other widely used
-languages it is attempted in a way to mitigate the costs whilst
-realising the benefits.
+those developing languages, and breaking backward compatibility
+is not done lightly. Language development is attempted in a way to
+mitigate the costs whilst realising the benefits.
 </p>
-<p>It is not reasonable to expect to learn everything about all
-languages. Some languages are so expansive that even learning all
-the supported syntax and when it is appropriate to use it can take
-many years of study and practise.</p>
 <p>Languages compete for users and developers. Often new features
-in one langauge will be implemented in others not very long in the
-future. The pace at which languages are evolving is related to the
-amount of investment in resources and the skill and design
-decisions of the developers.</p>
-<p>Some programming concepts may be difficult to understand,
-especially if you try and expect to learn these in one attempt and
-or when you are not well rested. It can be frustrating to not make
-progress. This is more likely to happen if you work too hard than
-if you work too little.</p>
-<p>Your tutor is here to help and has lots of experience, so
-please ask for help rather than staying stuck for too long. Often
-something explained in a slightly different way, just talking
-about something, or writing something down to try to explain what
-you don't understand can lead to a better understanding that helps
-you to make progress much faster.</p>
-<p>Some things you might comprehend instantly, other things might
-take several attempts. Some things you might understand, but it
-seems strange. Many things it is best to simply understand what
-they do and not how they work. Usually, there is a good reason why
-something works and is written the way it is, but no language is
-perfect!</p>
-<p>Once familiar with one programming language, it is usually
-much easier to learn others. Many languages can be used to do the
-same things, but some are particularly suited to specific tasks.
+in one language are implemented in others soon after. The pace of
+language evolution is related to the scale of investment in
+resources and the skill and design decisions of the developers.
 </p>
-<p>Languages evolve and are in some ways becoming more
-syntactically similar. As well as it being hard to keep track of
-all the new langauge features in the core of a high level
-language like Python, it is also hard to keep track of changes in
-the ecosystem of third party libraried that extend and enrich
-it.</p>
-<p>Programming and programming language development are typically
-community activities. It is normal to ask others for help and to
-provide others with help and work collaboratively to develop
-things. There are many different types of forums that can be used
-for this. Feel free to read the questions and answers posts on
-other forums if you want, but please do not post questions about
-this course and turn instead to your tutor for help.</p>
-<p>If you want help, then make it easy for your tutor to help you
-and in the future for others to help you. Sometimes the act of
-documenting an issue and asking for help gets you to understand
-and resolve the issue before sedning the help request. Once you
-get into coding, if something is not working as you expect, and
-you want to ask for help, then bear in mind that it is often
-easiest to detail the minimal steps required to replicate the
-issue. Typically this involves providing a copy of your code and
-any input data as well as details of what the issue is. A key
-skill in programming is learning how to ask for help.</p>
-
-<h2 id="4">4. Language Evolution, Deprecation and Versions</h2>
+<p>Languages evolve and many general purpose languages are
+becoming more similar. It is hard to be aware of all the new
+language features in a fast evolving language like Python. It is
+also hard to keep track of changes in the ecosystem of third party
+libraries that extend and enrich it.</p>
 <p>As languages evolve, often new functionality is added and new
 types of expression (new syntax) are supported. These changes are
 driven by what users want and what is available in other
@@ -233,7 +268,7 @@ important to keep track of what you consult and avoid plagiarism
 <div>
 <p><a id="next" class="nav" href="../python/index.html">Next: Python</a></p>
 </div>
-<p>Date last modified: 2023-02-03.</p>
+<p>Date last modified: 2023-02-04.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
