@@ -31,15 +31,14 @@ DOM is fully loaded. -->
 <div>
 <h1>Python</h1>
 <h2 id="1">1. Introduction</h2>
-<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> is a popular and powerful high-level interpretted programming language supported and developed by the <a href="https://www.python.org/psf/">Python Software Foundation</a> that has a mission to promote, protect, and advance the language, and support and facilitate the growth of a diverse and international community of Python programmers.</p>
-<p>The core standard library and interpretters are freely available in source and binary forms for all major platforms from the <a href="https://www.python.org/">Python Website</a>, and may be freely distributed. There are various Python interpretters that read source code written in Python and translate it into machine instructions. Details of interpretters is regarded as an advanced topic and is not covered in this course.</p><p>The Python Website contains distributions of and pointers to many Free and Open Source third party Python code, tools, and additional documentation.</p><p>A particularly useful documentation page for beginners learning the Python langauge is the <a href="https://docs.python.org/3/reference/">Python 3 Language Reference</a>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> is a popular and powerful high-level programming language supported and developed by the <a href="https://www.python.org/psf/">Python Software Foundation</a> that has a mission to promote, protect, and advance the language, and support and facilitate the growth of a diverse and international community of Python programmers.</p>
+<p>The core standard library and interpreters are freely available in source and binary forms for all major platforms from the <a href="https://www.python.org/">Python Website</a>, and may be freely distributed. There are various interpreters that translate Python source code into machine instructions. The need for interpretation is what classifies Python as a high-level language.</p><p>The main <a href="https://www.python.org">Python Website</a> contains distributions of and pointers to many Free and Open Source third party Python code, tools, and additional documentation.</p><p>A particularly useful page for beginners is the <a href="https://docs.python.org/3/reference/">Python 3 Language Reference</a>.</p>
 <h2 id="2">2. Python 3</h2>
-<p>Python 3 was first released in 2008. Much third party code
-needed refactoring to work with Python 3. For several years Python
-2 and Python 3 were both developed, but eventually in January 2020
-development and maintenance of Python 2 ceased. We will not look
-at the differences between Python 2 and Python 3 in this course
-and will focus just on Python 3.</p>
+<p>Python 3 was first released in 2008. For several years Python
+2 and Python 3 were both developed and supported, but eventually
+in January 2020 development and maintenance of Python 2 ceased.
+We will not look at the differences between Python 2 and Python 3
+in this course and will focus just on Python 3.</p>
 <p>On October 4, 2021 Python 3.10 was released.
 On November 24th, 2022 Python 3.11 was released.
 <!--On <date> Python 3.12 was released.-->
@@ -65,28 +64,28 @@ Python Enhancement Proposals (PEPs). PEPs allow the community of
 Python users to look ahead and see what might change and get
 involved in language development. PEPs have their own Web
 site:
-<a href="https://peps.python.org/">https://peps.python.org/</a>
-</p>
-<p>New language features will not work with older interpretters,
-and code tested with older interpretters might not necessarily
-work the same on newer interpretters as some language features may
-be changed or removed (through a process of deprecation). Changes
-are typically well thought through and often standardise things,
-or add flexibility or enhancement capabilities, but sometimes the
-changes in syntax necessitate changes in third part code. In a way
-this is good as it ensures that Python libraries evolve or die
-in a survival of the fittest evolutionary way that may have long
-term benefits. It also keeps programmers employed, and adds
-greater importance on producing well documented and well tested
-code. But lack of backwards compatability can be a worry and
-result in complicated requirements. Also, for ensuring
-reproducibility of results and diagnosing issues, it is therefore
-important to provide information about exactly which versions of
-everything are used.</p>
 
-<p>There is a vast ecosystem developing third party Python code.
-Much of this is made available as packages via the
-<a href="https://pypi.org/">PyPI</a> Python Package Index.</p>
+<a href="https://peps.python.org/">https://peps.python.org/</a>
+      </p>
+      <p>As with all programming languages, Python evolves through
+      versions. As well as adding new things, some things may change
+      from one version to the next - which can necessitate changes in
+      third party code. There are few changes to the Application
+      Programming Interface (API) - the syntax, names, and details of
+      function inputs and outputs that are not backwards compatible.
+      However, there there were some of these in the transition from
+      Python 2 to Python 3 and there are occasionally others between
+      minor versions of Python 3.</p>
+      <p>New language features will not work with older interpreters,
+      and code tested with older interpreters might not necessarily
+      work the same on newer interpreters - due to API changes. This is
+      important to bear in mind - for reproducibility of results and
+      diagnosing issues, it is important to provide information about
+      exactly which versions of everything are used.</p>
+      <p>There is a vast ecosystem developing third party Python code.
+      Much of this is made available as packages via the
+
+<a href="https://pypi.org/">Python Package Index (PyPI)</a>
 <p>In Section 9, there is an exercise that involves installing
 Python packages from PyPI and that links to details about how to
 package code and make it available via PyPI.</p>
@@ -976,7 +975,7 @@ projects.</p>
 <div>
 <p><a id="next" class="nav" href="../variables/index.html">Next: Variables</a></p>
 </div>
-<p>Date last modified: 2023-02-05.</p>
+<p>Date last modified: 2023-02-06.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
