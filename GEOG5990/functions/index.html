@@ -162,7 +162,8 @@ kwargs. It is, therefore usual to place them after their
 associated variables or together at the end.</p>
 <pre><code class="language-python">def func(a,b,*c,d,**e) # d has to be a kwarg.
 def func(a,b,d,*c,**e) # abd,bd,or d can be kwargs.</code></pre>
-<p>For more on unpacking operators see: <a href="https://peps.python.org/pep-0448/">PEP-0448</p>
+<p>For more on unpacking operators see:
+<a href="https://peps.python.org/pep-0448/">PEP-0448</a></p>
 <p>Another useful summary reference is the
 <a href="https://docs.python.org/3/faq/programming.html#how-do-i-write-a-function-with-output-parameters-call-by-reference">
 Python documentation: Outline of how to get output from a function documentation</a></p>
@@ -182,7 +183,7 @@ my_function()
 print(b) # Prints 10.</code></pre>
 <p>The variable b is declared and initialised prior to any call
 to my_function() and the variable can be accessed from within
-my_function(). However, assigning a local variables within a
+my_function(). However, assigning a local variable within a
 function that has the same name as a variable already accessible
 from the function creates a new variable. So, to force a local
 assignment to a global variable, use the global keyword as
@@ -216,22 +217,21 @@ print(a) # Prints 1.</code></pre>
 
 <h2 id="4">4. Function Complexity</h2>
 <p>As shown above, functions can be nested inside other functions.
-This can hide those inner functions so that they can't be called
-directly. This can help reduce how complicated things appear and
-keep application programming interfacing easier. Inner functions
-can help with unpacking parameters and dealing with different
-types of parameter input to the outer function.</p>
-<p>As already mentioned, Python also allows for functions
-themselves to be passed into functions. Functions can also be
+This can be done to hide inner functions so they can't be called
+directly and this is a way to make things appear simple. Inner
+functions can help with unpacking parameters and dealing with
+different types of parameter input to the outer function.</p>
+<p>As mentioned, Python allows for functions to be passed into
+functions as arguments. This is very useful! Functions can also be
 returned from other functions. So, a nested inner function can be
-returned as (part of) the output of an outer function.</p>
-<p>Functions are key to a lot of programming. Having nested
-functions, passing functions into other functions as parameters,
-and returning functions from functions are features of Python that
-are not features of some other high level languages. It is perhaps
-easier to begin with to practise using and defining functions that
-more simply have variables as parameters and return only variables
-albeit packaged in a Tuple.</p>
+returned in the output from an outer function.</p>
+<p>Functions are key to a lot of programming. Supporting nested
+functions, being able to pass functions into other functions as
+parameters, and returning functions from functions are useful
+features of Python. However, it is perhaps simpler to first get
+used to defining functions that more simply have variables as
+parameters and return only variables albeit packaged in a Tuple.
+</p>
 
 <h3 id="4.1">4.1. Decorators</h3>
 <p>Decorators can be added prior to the def keyword of a function
@@ -309,7 +309,7 @@ print(x(1, 2)) # <-- Prints 0.5.</code></pre>
 <p>Good Python style is set out in
 <a href="https://www.python.org/dev/peps/pep-0008/">PEP-0008</a>
 which is worth finding time to read.</p>
-<p>The main styl elements are:
+<p>The main style elements are:
 <ul>
 <li>Use 4 spaces per indent</li>
 <li>Insert blank lines before function definitions and to separate
@@ -373,7 +373,7 @@ Based Modelling Code.</p>
 <div>
 <p><a id="next" class="nav" href="../abm3/index.html">Next: ABM3</a></p>
 </div>
-<p>Date last modified: 2023-02-07.</p>
+<p>Date last modified: 2023-02-10.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

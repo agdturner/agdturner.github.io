@@ -87,6 +87,9 @@ for n_agents in n_agents_range:
     run_times.append(run_time)
 
 # Plot
+plt.title("Time taken to calculate maximum distance for different numbers of agent")
+plt.xlabel("Number of agents")
+plt.ylabel("Time")
 j = 0
 for i in n_agents_range:
     plt.scatter(i, run_times[j], color='black')
