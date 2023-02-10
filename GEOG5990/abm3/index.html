@@ -350,24 +350,25 @@ i 1 j 2
 i 2 j 0
 i 2 j 1</pre>
 <p>Comment out the print statement and run the code for 1000
-agents. Compare the processing time without the if statement.</p>
-<p>The timing with the If Statement is about the same. It may
-sometimes be slower as calculating whether on not to do the
-calculation is about as computationally demanding as simply doing
-it!</p>
-<p>Modify the If Statement added in the loop so that it only
-considers the distance between a and b and not b and a or vice
-versa. One way to do this is to change the operator in the If
-Statement. (Hints: Set n_agents to a small number and uncomment
+agents. Compare the processing time with/without the if statement.
+</p>
+<p>The timing with the If Statement is about the same. It may be
+slower - as calculating whether on not to do the calculation is
+about as much computation as doing the calculation.</p>
+<p>Modify the If Statement so that it only considers the distance
+between <pre>a</pre> and <pre>b</pre> and not <pre>b</pre> and
+<pre>a</pre> by changing the operator in the If Statement
+condition. (Hints: Set n_agents to a small number and uncomment
 the Print Statement to test. Try the Less Than (<) or Greater Than
 (>) operator).</p>
-<p>Run again for n_agents = 1000, (after commenting out the Print
-Statement). You should get the same max_distance result calculated
-previously, but the run time should be roughly half.</p>
-<p>There is a way to do this even faster by modifying the loops
-and removing the If Statement. Can you work out how to do it?
-(Hint: Change the range function of the inner ForLoop to begin at
-i).</p>
+<p>Do some timings again running for n_agents = 1000, (after
+commenting out the Print Statement). You should get the same
+max_distance result calculated previously, but the processing time
+should be roughly half.</p>
+<p>There is a faster way which involves modifying the loops and
+removing the If Statement. Can you work out how to do it? (Hint:
+Change the range function of the inner For Loop to begin at i).
+</p>
 <p>Once you've given this a try, compare your answer with
 <a href="../../resources/abm3/timing2.py">this one</a> in which
 the code has been simplified a little and the following graph of
