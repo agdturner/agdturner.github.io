@@ -175,27 +175,26 @@ accessed. Scope was introduced in
 functions were first considered where there is an explanation of
 changing a variable scope using the Global Keyword (global). To
 recap, consider the following code:</p>
-<pre><code class="language-python">b = 10
-def my_function():
-    print(b) # Prints 10;
-print(b) # Prints 10.
-my_function()
-print(b) # Prints 10.</code></pre>
-<p>The variable b is declared and initialised prior to any call
-to my_function() and the variable can be accessed from within
-my_function(). However, assigning a local variable within a
-function that has the same name as a variable already accessible
-from the function creates a new variable. So, to force a local
-assignment to a global variable, use the global keyword as
-follows:
-<pre><code class="language-python">b = 10
-def a ():
-    global b
-    b = 20
-    print(b) # Prints 20.
-print(b) # Prints 10.
-a()
-print(b) # Prints 20 as the function changes the global b.</code></pre>
+<pre><code class="language-python">a = 10
+def f1():
+    print(a) # Prints 10;
+print(a) # Prints 10.
+f1()
+print(a) # Prints 10.</code></pre>
+<p>The variable a is declared and initialised prior to any call
+to f1() and the variable can be accessed from within f1().
+However, assigning a local variable within a function that has the
+same name as a variable already accessible from the function
+creates a new variable. So, to force a local assignment to a
+global variable, use the global keyword as follows:
+<pre><code class="language-python">a = 10
+def f1():
+    global a
+    a = 20
+    print(a) # Prints 20.
+print(a) # Prints 10.
+f1()
+print(a) # Prints 20 as the function changes the global a.</code></pre>
 <p>With nested functions there are situations where non local
 and non global variables are wanted in the inner function such
 that the outer function and inner function have the same variable
@@ -216,39 +215,41 @@ f1()
 print(a) # Prints 1.</code></pre>
 
 <h2 id="4">4. Function Complexity</h2>
-<p>As shown above, functions can be nested inside other functions.
-This can be done to hide inner functions so they can't be called
-directly and this is a way to make things appear simple. Inner
-functions can help with unpacking parameters and dealing with
-different types of parameter input to the outer function.</p>
+<p>As shown above, functions can be nested. In the example above,
+f2 is inside f1, so f2 is known as an inner function and f2 is
+known as an outer function. Nesting functions to an extent hides
+inner functions - they cannot be called directly from outside the
+outer function. This is a way to make things appear simple. Inner
+functions are often used to help unpack parameters and deal with
+different types of parameter passed to the outer function in a
+function call.</p>
 <p>As mentioned, Python allows for functions to be passed into
-functions as arguments. This is very useful! Functions can also be
-returned from other functions. So, a nested inner function can be
-returned in the output from an outer function.</p>
+functions as arguments. Functions can also be returned from other
+functions. So, an inner function can be returned in the output
+from an outer function.</p>
 <p>Functions are key to a lot of programming. Supporting nested
 functions, being able to pass functions into other functions as
 parameters, and returning functions from functions are useful
-features of Python. However, it is perhaps simpler to first get
-used to defining functions that more simply have variables as
-parameters and return only variables albeit packaged in a Tuple.
-</p>
+features of Python.</p>
+<p>This section considers a number of other features of functions.
+The detail might be better understood after gaining practise in
+defining and using functions that have variables as parameters and
+return variables, perhaps packed in a tuple.</p>
 
 <h3 id="4.1">4.1. Decorators</h3>
 <p>Decorators can be added prior to the def keyword of a function
 to apply other functions to the outputs of a function. The syntax
 for these makes use of the At Symbol (@) which is followed
-immediately by the function name (e.g. @my_function). There can be
-multiple decorators which would work in turn passing the output
-back until all the decorators have been applied. A useful example
-of a decorator function is for reporting the time it takes to run
-a function. The following is an example:<p>
+immediately by the function name. There can be multiple decorators
+which would work in turn passing the output back until all the
+decorators have been applied. A decorator function can be used for
+reporting the time it takes to run a function:<p>
 <pre><code class="language-python">import random
 import time
 
 def timer(func):
     """
     Get the run time of the decorated function.
-
 
     Parameters
     ----------
@@ -294,14 +295,126 @@ n_agents = 1000000
 run_time, agents = create_agents(n_agents)
 print(run_time, "seconds to create", n_agents, "agents.")</code></pre>
 
-<h3 id="4.2">4.2. Lamdas
+<h3 id="4.2">4.2. Lamdas</h3>
 <p>Lamda functions are small anonymous functions in Python. They
 can take any number of arguments, but can only have one
-expression. For example:</p>
+expression. Consider the following example:</p>
 <pre><code class="language-python"># A lamda to return the result of dividing a by b.
 x = lambda a, b : a / b
 
 print(x(1, 2)) # <-- Prints 0.5.</code></pre>
+<p>Note that: the lamda function is defined with the lambda
+keyword, the parameters are separated with a comma and a colon is
+used to separate the parameters from an expression - the result of
+which is passed back.</p>
+
+<h3 id="4.3">4.3. Callbacks</h3>
+<p>Callbacks are when a function is called by another function
+which takes the function to be called as a parameter. Consider the
+following example where the callbacks are to the add and multiply
+functions from the caller function that itself is called in the
+lines that print out the results returned from the function
+calls:</p>
+<pre><code class="language-python">def add(x):
+    """
+    Calculate and return all the elements of x added together.
+
+    Parameters
+    ----------
+    x : Tuple
+        The things to add.
+
+    Returns
+    -------
+    r : Things added.
+        All the things in x added together.
+
+    """
+    r = 0
+    for y in x:
+        r = r + y
+    return r
+
+def multiply(x):
+    """
+    Calculate and return all the elements of x multplied together.
+
+    Parameters
+    ----------
+    x : Tuple
+        The things to multiply.
+
+    Returns
+    -------
+    r : Things multiplied.
+        All the things in x multiplied together.
+
+    """
+    r = 0
+    for y in x:
+        r = r + y
+    return r
+
+def caller(func, args):
+    """
+    A function that calls the function func passing in the
+    arguments args.
+
+    Parameters
+    ----------
+    func : Function
+        The (name of the) function to be called.
+    args : Tuple
+        The arguments to be passed to func
+    Returns
+    -------
+    Whatever is returned from func(args)
+    """
+    return func(args)
+
+print(caller(add, (1, 2, 3))) # Prints 6
+print(caller(multiply, (1, 2, 3, 4, 5, 6))) # Prints 21</code></pre>
+<p>The following is another example which uses a callback to help
+sort items in a list:</p>
+<pre><code class="language-python">class Mark:
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+
+    def __str__(self):
+        return "name=" + self.name + " grade=" + str(self.grade)
+
+def getGrade(mark):
+    return mark.grade
+
+marks = [Mark("name1", 50), Mark("name2", 70), Mark("name3", 60)]
+print("Unordered marks:")
+for mark in marks:
+    print(mark)
+
+# Sort marks using a callback
+marks.sort(key=getGrade)
+
+print("Ordered marks:")
+for mark in marks:
+    print(mark)
+</code></pre>
+<p>Often a callback is used in event based processing, such as
+when a button is clicked. It allows other tasks can be done
+whilst waiting for an event to happen.</p>
+
+<h3 id="4.4">4.4. Partial</h3>
+<p>Partial is part of functools. It allows for arguments of a
+function to be set parially. For example:</p>
+<pre><code class="language-python">from functools import partial
+
+def f(x, y, z):
+    return a + b + c
+
+# A partial function that calls f with x = 1 and y = 2.
+pf = partial(f, 1, 2)
+
+print(pf(3)) # Prints 6</code></pre>
 
 <h2 id="5">5. Style and Documenting Functions</h2>
 
@@ -373,7 +486,7 @@ Based Modelling Code.</p>
 <div>
 <p><a id="next" class="nav" href="../abm3/index.html">Next: ABM3</a></p>
 </div>
-<p>Date last modified: 2023-02-10.</p>
+<p>Date last modified: 2023-02-13.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
