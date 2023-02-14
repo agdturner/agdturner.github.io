@@ -31,68 +31,76 @@ DOM is fully loaded. -->
 <div>
 <h1>Functions</h1>
 <h2 id="1">1. Introduction</h2>
-<p>So far, we've been using functions from the builtin module,
-which is automatically loaded in most cases. We've also accessed
-functions in other modules using import statements. We'll now
-look more closely at building our own functions.</p>
-<p>Functions are a code block begun with a function declaration or
-header followed by a set of indented statements:</p>
-<pre>def function_name():
-    # Suite of statements</pre>
-<p>In a standard script, functions need to be defined before they
-can be used. Once they are defined, they can be used or called
-many times, which can dramatically reduce the amount of repetition
-in code, making code smaller, and easier to understand and
-maintain.</p>
+<p>Up to this part of the course, most Python functions that have
+been used were automatically accessible via the builtin module.
+Functions from other modules in the standard library have been
+made accessible using import statements. This section is about
+defining and using functions, some special types of function and
+some different ways they can be used.</p>
+<p>Standard Python functions are a code block begun with a
+function declaration followed by a set of indented statements.
+The function declaration uses the keyword "def" which is followed
+by the name of the function. After the function name, there are
+parenthesis which may be empty or may contain parameters also
+called arguments - names for things passed into the function.
+Multiple parameters are separated with commas. The function
+declaration ends with a colon. The following gives the general
+form:</p>
+<pre>def function_name(arg_0, arg_1):
+    # Function statements</pre>
+<p>A function may return one thing which can be a tuple of things.
+This is done with a return statement which starts with the keyword
+return followed by the name of the thing returned. By default,
+functions invisibly return None - a special object of type
+NoneType.</p>
+<p>Functions that are not in the built in module need to be either
+imported or defined before they can be used. Once available, they
+can be used or called repeatedly. Rather than repeat a block of
+code, it is typically better to define a function and call the
+function twice. The bigger the block of code turned into a
+function, the greater the gain is in terms of making the code
+easier to read, understand, maintain and use.</p>
 
 <h2 id="2">2. Parameters</h2>
 
 <h3 id="2.1">2.1. Positional Parameters</h3>
-<p>Functions can be parameterised; that is, made more generic and
-flexible by allowing things to be passed in as arguments. These
-things can be variables and other function. If a variable passed
-into a function is primitive, then the parameter becomes a copy of
-the primitive value and if the copy is changed within the
-function, the value of the variable passed in remains unchanged.
+<p>Functions parameters add flexibility and can make functions
+more generic. The arguments passed in as parameters can be
+variables and functions. If a variable passed into a function is
+primitive, then the parameter becomes a copy of the primitive
+value. So, the variable which is refered to from where the
+function was called will remain unchanged whatever happens in the
+function. This is sometimes refered to as "pass by value".
 However, if the variable is not primitive, then the parameter and
-the variable are the same thing. So, a non-primitive passed into a
-function can be modified and though the function may not return
-that modificiation, the modification will have happened to the
-variable referred to in the scope outside the function.</p>
+the variable which is refered to from where the function was
+called refer to the same thing. This is known as "pass by
+reference".</p>
 <p>Passing in a function as an argument allows that function to be
 used within the function.</p>
 <p>As with variable declarations, in Python there is no need to
 declare the type of a parameter passed to a function.</p>
-<p>By default, functions invisibly return 'None', but other things
-can be returned. Only one thing can be returned, so typically
-multiple things are packaged and returned in a Tuple. Often it is
-sensible to test the type of something that is returned when you
-are not sure what is being returned to help unpack it and know how
-to handle it.</p>
-<p>Arguments can be allocated to parameters based on position, so
-the first argument is the first in a sequence and the last is the
-last in a sequence. For example:</p>
+<p>Positional parameters or positional arguments are given in
+order from left to right, so in the following add function num1 is
+the first argument and num2 is the second argument:</p>
 <pre>def add(num1, num2):
     return num1 + num2
 print(add(20,30)) # Prints 50</pre>
-<p>These are called positional arguments and in the example: num1
-gets 20, as it is first; and, num2 gets 30 as it is second.</p>
-<p>Default values can be specified if a parameter is missing:</p>
+<p>Default values can be specified as follows:</p>
 <pre>def add(num1 = 0, num2 = 0):
     return num1 + num2
 print(add(3)) # Prints 3</pre>
-<p>Arguments are allocated left to right, so in the example, num1
-gets 3, and num2 gets nothing and so is set to the default of 0.
-</p>
+<p>As arguments are ordered left to right, in the example, num1
+gets 3, and num2 gets nothing and so is set to the default value
+0.</p>
 <p>In the absence of a default, an argument must be passed in.
 For example the following code:</p>
-<pre>def add(num1 = 0, num2):
+<pre><code class="language-python">def add(num1 = 0, num2):
     return num1 + num2
-print(add(3))</pre>
+print(add(3))</code></pre>
 <p>Results in:</p>
 <pre>SyntaxError: non-default argument follows default argument</pre>
-<p>Because of this, parameters with defaults come after any
-undefaulted parameters.</p>
+<p>Because of this, arguments with defaults come in the order
+after any undefaulted arguments.</p>
 
 <h3 id="2.2">2.2. Keyword Arguments (kwargs)</h3>
 <p>Arguments can also be named, these are called keyword arguments
@@ -100,69 +108,79 @@ or kwargs. Note that this use of the term keyword has nothing to
 do with the generic use for words you can't use as identifiers.
 Consider the following which uses kwargs to assign the parameter
 values:</p>
-<pre>def add(num1, num2):
+<pre><code class="language-python">def add(num1, num2):
     return num1 + num2
-print(add(num2 = 30, num1 = 50))</pre>
+print(add(num2 = 30, num1 = 50))</code></pre>
 <p>In the example, the order of the positional arguments is
 ignored as kwargs are used to assign the values: num2 gets 30;
 and, num1 gets 50.</p>
-<p>Mixing positional arguments and kwargs is allowed, but kwargs
-must come to the right of positional arguments.</p>
-<p>Parameters can be forced into being kwargs by putting a * to
-the left of the kwarg.</p>
+<p>Having both positional arguments and kwargs is allowed, but
+kwargs must come to the right of positional arguments in the
+argument order.</p>
 
 <h3 id="2.3">2.3. Flexibility using Tuples and Dictionaries</h3>
 <p>More positional arguments can be allowed using *tuple_name, as
 in the following example:</p>
-<pre><code class="language-python">def sum (num1, num2, *others):
-    sum = num1
-    sum += num2
-    for num in others:
-        sum += num
-    return sum
-print(sum(1,2,3,4,5,6,7)) # Prints 28</code></pre>
-<p>The * used this way is known as the iterable un/packing
+<pre><code class="language-python">def add(*nums):
+    r = 0
+    for num in nums:
+        r += num
+    return r
+print(add(1,2,3,4,5,6,7)) # Prints 28</code></pre>
+<p>The * used this way is known as the iterable (un)packing
 operator. If nothing is allocated, the tuple is empty.</p>
 <p>The * operator can be used with lists or tuples to generate
 parameters:</p>
-<pre><code class="language-python">def sum (num1, num2, num3, num4):
-    return num1 + num2 + num3 + num4
-a = [1,2,3,4]
-print(sum(*a)) # Prints 10</code></pre>
-<p>Note that these can also be in the middle:</p>
-<pre><code class="language-python">a = [10,20]
-print(sum(1,*a, 2)) # Prints 33</code></pre>
-<p>So, it can be used in both positions packing and unpacking:</p>
-<pre><code class="language-python">def sum(*nums):
-    sum = 0
+<pre><code class="language-python">def add(*nums):
+    r = 0
     for num in nums:
-        sum += num
-    return sum
-a = [1,2,3]
-print(sum(*a)) # Prints 6</code></pre>
+        r += num
+    return r
+a = [1,2,3,4]
+print(add(*a)) # Prints 10
+print(add(1,*a, 2)) # Prints 13</code></pre>
 <p>The same can be done with dictionaries using **dict_name (where
-** is the dictionary unpacking operator), which will make a
+** is the dictionary (un)packing operator), which will make a
 dictionary from unallocated kwargs:</p>
-<pre><code class="language-python">def print_details (a, **details):
+<pre><code class="language-python">def print_details(a, **details):
     first = details["first"]
     surname = details["surname"]
     print (first + " " + surname + " has " + a + " pounds")
 print_details("5", first="George", surname="Formby") # Prints George Formby has 5 pounds</code></pre>
-<p>Note that you can't use one of these to override other
-variables. If nothing is allocated, the dictionary is empty.</p>
 <p>The ** dictionary operator can be used to generate kwargs:</p>
 <pre><code class="language-python">def print_details(a, first, surname):
     print (first + " " + surname + " has " + a + " pounds")
 d = {"first":"George","surname":"Formby"}
 print_details("5",**d) # Prints George Formby has 5 pounds</code></pre>
-<p>Similar to with standard arguments *tuple_name arguments must
-come before **dict_name arguments if both are used. *tuple_name
+<p>Similar to with standard arguments, *tuple_name arguments must
+come before **dict_name arguments (if both are used). *tuple_name
 must come after positional parameters and **dict_name after other
 kwargs. It is, therefore usual to place them after their
-associated variables or together at the end.</p>
-<pre><code class="language-python">def func(a,b,*c,d,**e) # d has to be a kwarg.
-def func(a,b,d,*c,**e) # abd,bd,or d can be kwargs.</code></pre>
-<p>For more on unpacking operators see:
+associated variables or together at the end. Try the following
+code:</p>
+<pre><code class="language-python">def f1(a, b=2, *args, **kwargs):
+    print(a, b)
+    print(args)
+    print(kwargs)
+
+l = [10, 20, 30]
+d = {'c': 100, 'd': 200}
+
+f1(1, 3, *l, **d)</code></pre>
+<p>Note that the kwargs packed into the dictionary cannot have
+name collisions with the other arguments. So, the following:</p>
+<pre><code class="language-python">def f1(a, b=2, *args, **kwargs):
+    print(a, b)
+    print(args)
+    print(kwargs)
+
+l = [10, 20, 30]
+d = {'c': 100, 'd': 200, 'b':300}
+
+f1(1, 3, *l, **d)</code></pre>
+<p>Results in:</p>
+<pre>TypeError: f1() got multiple values for argument 'b'</pre>
+<p>For details on unpacking operators see:
 <a href="https://peps.python.org/pep-0448/">PEP-0448</a></p>
 <p>Another useful summary reference is the
 <a href="https://docs.python.org/3/faq/programming.html#how-do-i-write-a-function-with-output-parameters-call-by-reference">
@@ -172,8 +190,8 @@ Python documentation: Outline of how to get output from a function documentation
 <p>The scope of a variable is from where in the code it can be
 accessed. Scope was introduced in
 <a href="../Variables/index.html#3">Variables Section 3</a> when
-functions were first considered where there is an explanation of
-changing a variable scope using the Global Keyword (global). To
+functions were first considered, and where there is an explanation
+of changing a variable scope using the Global Keyword (global). To
 recap, consider the following code:</p>
 <pre><code class="language-python">a = 10
 def f1():
@@ -181,7 +199,7 @@ def f1():
 print(a) # Prints 10.
 f1()
 print(a) # Prints 10.</code></pre>
-<p>The variable a is declared and initialised prior to any call
+<p>The variable 'a' is declared and initialised prior to any call
 to f1() and the variable can be accessed from within f1().
 However, assigning a local variable within a function that has the
 same name as a variable already accessible from the function
@@ -216,25 +234,26 @@ print(a) # Prints 1.</code></pre>
 
 <h2 id="4">4. Function Complexity</h2>
 <p>As shown above, functions can be nested. In the example above,
-f2 is inside f1, so f2 is known as an inner function and f2 is
-known as an outer function. Nesting functions to an extent hides
-inner functions - they cannot be called directly from outside the
-outer function. This is a way to make things appear simple. Inner
-functions are often used to help unpack parameters and deal with
-different types of parameter passed to the outer function in a
+f2 is inside f1, so: f2 is an 'inner function'; and, f2 is an
+'outer function'. Nesting functions thus hides inner functions -
+they cannot be called directly from outside the outer function.
+This is a way to make things appear simple.</p>
+<p>Inner functions can be used to help unpack arguments and deal
+with different types of argument passed to the outer function in a
 function call.</p>
 <p>As mentioned, Python allows for functions to be passed into
-functions as arguments. Functions can also be returned from other
-functions. So, an inner function can be returned in the output
-from an outer function.</p>
+functions as arguments. Functions can also be returned from
+functions. An inner function can be returned in the output from an
+outer function.</p>
 <p>Functions are key to a lot of programming. Supporting nested
 functions, being able to pass functions into other functions as
 parameters, and returning functions from functions are useful
 features of Python.</p>
 <p>This section considers a number of other features of functions.
 The detail might be better understood after gaining practise in
-defining and using functions that have variables as parameters and
-return variables, perhaps packed in a tuple.</p>
+defining and using functions that simply have variables as
+parameter arguments and return variables, perhaps packed in a
+tuple.</p>
 
 <h3 id="4.1">4.1. Decorators</h3>
 <p>Decorators can be added prior to the def keyword of a function
@@ -312,9 +331,9 @@ which is passed back.</p>
 <p>Callbacks are when a function is called by another function
 which takes the function to be called as a parameter. Consider the
 following example where the callbacks are to the add and multiply
-functions from the caller function that itself is called in the
+functions from the caller function (that itself is called in the
 lines that print out the results returned from the function
-calls:</p>
+calls):</p>
 <pre><code class="language-python">def add(x):
     """
     Calculate and return all the elements of x added together.
@@ -374,8 +393,8 @@ def caller(func, args):
 
 print(caller(add, (1, 2, 3))) # Prints 6
 print(caller(multiply, (1, 2, 3, 4, 5, 6))) # Prints 21</code></pre>
-<p>The following is another example which uses a callback to help
-sort items in a list:</p>
+<p>The following is another example which uses a callback to sort
+items in a list:</p>
 <pre><code class="language-python">class Mark:
     def __init__(self, name, grade):
         self.name = name
@@ -400,16 +419,16 @@ for mark in marks:
     print(mark)
 </code></pre>
 <p>Often a callback is used in event based processing, such as
-when a button is clicked. It allows other tasks can be done
-whilst waiting for an event to happen.</p>
+when a button is clicked. It allows other tasks to be done whilst
+waiting for an event to happen.</p>
 
 <h3 id="4.4">4.4. Partial</h3>
 <p>Partial is part of functools. It allows for arguments of a
-function to be set parially. For example:</p>
+function to be set partially. For example:</p>
 <pre><code class="language-python">from functools import partial
 
 def f(x, y, z):
-    return a + b + c
+    return x + y + z
 
 # A partial function that calls f with x = 1 and y = 2.
 pf = partial(f, 1, 2)
@@ -486,7 +505,7 @@ Based Modelling Code.</p>
 <div>
 <p><a id="next" class="nav" href="../abm3/index.html">Next: ABM3</a></p>
 </div>
-<p>Date last modified: 2023-02-13.</p>
+<p>Date last modified: 2023-02-14.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
