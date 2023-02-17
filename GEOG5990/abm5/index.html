@@ -90,7 +90,7 @@ being imported instead. Create a directory called my_modules and
 move io.py and agentframework.py into it. Change the respective
 import statements in model.py to be:</p>
 <pre><code class="language-python">from my_modules import agentframework
-from my_modules import agentframework</code></pre>
+from my_modules import io</code></pre>
 <p>Your code is hopefully now correct and should run without
 error, but if you still get a confusing error and you are using
 Spyder, try restarting Spyder.</p>
@@ -146,14 +146,14 @@ self.x = random.randint(0, 99)
 self.y = random.randint(0, 99)
 self.store = 0</code></pre>
 <p>In model.py when you instantiate Agent objects be sure to pass
-in i and environment in the correct order.</p>
+in the parameters/arguments in the correct order.</p>
 <p>In the Agent class define the following function:</p>
 <pre><code class="language-python">def eat(self):
     if self.environment[self.y][self.x] > 10:
         self.environment[self.y][self.x] -= 10
         self.store += 10</code></pre>
 <p>Think about what this code does and adapt it so that if the
-value of environment[self.y][self.x] <= 10 then the Agent
+value of environment[self.y][self.x] &lt;= 10 then the Agent
 instance stores what there is. If two or more agents are at the
 same location and there is less at the location for all the agents
 to have 10, then those that are processed first will be getting

@@ -224,8 +224,8 @@ something else is check for data that might otherwise be sitting
 in a buffer...</p>
 
 <h4 id="2.4.1">2.4.1. CSV Module</h4>
-<p>It is easier to read and write CSV format files using code
-written specifically to do this which is in the CSV Module (csv).
+<p>It is easier to read and write CSV format files using functions
+written specifically to do this from the CSV Module (csv).
 </p>
 <p>The following is an example of reading data using csv:</p>
 <pre><code class="language-python">import csv
@@ -245,7 +245,7 @@ writer = csv.writer(f, delimiter=' ')
 for row in data:
     writer.writerow(row) # List of values.
 f.close()</code></pre>
-<p>The optional delimiter parameter specified here delimits using
+<p>The optional delimiter kwarg specified here delimits using
 a space instead of the default comma.</p>
 
 <h4 id="2.4.2">2.4.2. JSON Module</h4>

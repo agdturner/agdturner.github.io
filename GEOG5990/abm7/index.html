@@ -115,7 +115,7 @@ random stopping condition:</p>
         print("stopping condition")
 
     # Plot
-    plot()</pre>
+    plot()</code></pre>
 <p>Define a function called gen_function and create the animation
 using the following:</p>
 <pre><code class="language-python">def gen_function():
@@ -144,8 +144,8 @@ included in gen_function and runs only once carry_on is equal to
 False.</p>
 
 <h2 id="3">3. Code and Model Review</h2>
-<p>Nearly all the bespoke code developed is in functions and is
-organised into modules.</p>
+<p>Nearly all our code is now in functions and organised into
+modules.</p>
 <p>The essence of a Spatial Agent Based Model is now working.
 Typically such models either run in a loop until some condition is
 reached, or for a predefined number of iterations. At the moment
@@ -155,12 +155,12 @@ randomly before this is reached if the n_iterations is set to 10
 or more.</p>
 <p>As yet, the model cannot be re-started. Although some
 information is written to file that could be used to restart the
-model, this is incomplete. The ability to be able to stop and
-restart a model can be useful and is often called check pointing.
-For reproducibility, so that a run of n iterations followed by a
-further m iterations would produce the same results as a run of
-m + n iterations, it would be sensible to make use of the
-random.getstate() and random.setstate(state) methods.</p>
+model, this is incomplete/insufficient. The ability to be able to
+stop and restart a model can be useful and is often called check
+pointing. For reproducibility, so that a run of n iterations
+followed by a further m iterations would produce the same results
+as a run of m + n iterations, it would be sensible to make use of
+the random.getstate() and random.setstate(state) methods.</p>
 <p>The simple agents in the model are not learning or adapting
 their behaviour based on interaction or the state of the
 environment. So, it is more random than anything else, and
@@ -169,34 +169,22 @@ should not be expected.</p>
 <p>Whilst the model has been framed as an ecological model, the
 agents could represent other things, they don't necessarily have
 to communicate by sharing resources, they could share something
-else, and they don't have to eat the environment. However, the
-model is a good basis for developing an ecological model.</p>
+else, and they don't have to eat the environment.</p>
 <p>Developing a more sophisticated model could be fun and the
 practise could help develop your programming skills.</p>
 <p>Some things that might make the model more realistic are:</p>
 <ul>
 <li>To have less resource in the environment that can be eaten
-by the agents, and model this resource as vegetation (growing
-at some kind of simple or more complicated rate).</li>
-<li>Have agents that are successful at finding resources breed
-and those unsuccessful dying. You could also model ageing and
-dependency relationships.</li>
-<li>Incorporating different types of agent. For an a more
-natural ecological model - adding predators, agents that work
-together in family groups, and agents that limit or have patterns
-to their movement could be interesting.</li>
-<li>The simple model could be adapted to have different
-types of vegetation, to include predators, to have a greater
-diversity of sizes and characteristics of preditor and prey. An
-ambitious model might also include ecosystem engineers or so
-called keystone species that transform parts of the landscape.
-The model could also include parasites that may have an intricate
-relationships with other agents that are hosts and vectors.</p>
-<p>Models of less natural systems are also useful. Consider for
-example agricultural organisation where one of the aims is to
-maximise production. Similarly too, the simple model could be
-adapted to model human movement and interation for example, in
-more urban environments.</p>
+by the agents, and model this resource as vegetation that
+grows.</li>
+<li>Have those agents that are successful at finding resources get
+stronger/more able and replicating and those unsuccessful get
+weaker/less able and dying.</li>
+<li>Dependency relationships could be modelled.</li>
+<li>Different types of agent could be incorporated. The next step
+for a more natural ecological model is to introduce a predator.
+</li>
+</ul>
 
 <h2 id="4">4. Coding Tasks</h2>
 <p>Complete the following tasks for your portfolio.</p>
@@ -212,15 +200,14 @@ add the following import statement:
 <pre><code class="language-python"># Write out the animation as a GIF
 animation.save('../../data/output/out.gif', writer=PillowWriter(fps=3))
 </code></pre>
-<p>The fps argument is the number of frames per second. In writing
-out the animation as a GIF you may notice that the other output
-seems to be written out twice. Write some code to ensure the text
-output is only written once. (Hint: declare and use another global
-boolean variable.)</p>
+<p>The fps argument is the number of frames per second.</p>
+<p>Note that in writing out the animation as a GIF, the other
+output seems to be written out twice. Write some code to ensure
+the text output is only written once. (Hint: declare and use
+another global boolean variable.)</p>
 <p>For your portfolio, attempt one of the following:</p>
 <ul>
-<li>Define preditor and prey subclasses of Agent. The idea is that
-preditors will eat prey.<li>
+<li>Include preditor agents.<li>
 <li>Model agent breeding.</li>
 <li>Initialise the environment with fewer resources that may
 gradually accumulate as well as being eaten.</li>
