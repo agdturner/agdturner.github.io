@@ -45,7 +45,7 @@ is organised using a
 Computers may have inbuilt or perpherally connected devices such
 as microphones and cameras, and the screen may be a touch screen.
 Networked computers can typically communicate using standard
-<a href="https://en.wikipedia.org/wiki/Internet">Internet</a> protocols.
+<a href="https://en.wikipedia.org/wiki/Internet">internet</a> protocols.
 The basic functioning of a computer is handled by an 
 <a href="https://en.wikipedia.org/wiki/Operating_system">operating system</a>
  upon which additional 
@@ -58,8 +58,8 @@ The basic functioning of a computer is handled by an
 pre-built components into executable workflows. However, this
 course is about programming using text based command instructions
 that have a formal syntax. Some computer languages look similar,
-some look very different. In this course the focus is on the
-<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python programming language</a>.
+some look very different. This course is mostly based on the
+<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">python</a> programming language.
 <h2 id="2">2. Data</h2>
 <p>In most modern computers, data is encoded in a binary form
 where the smallest units called bits are in one of two possible
@@ -78,12 +78,18 @@ combinations which may seem like a lot of combinations for such a
 small number of bits, but such is the power of binary!</p>
 <p>7 bits in a byte allows for all English/Roman alphabet letters
 in both lower and upper case, the ten numeric digits 0 to 9, and
-64 other symbols to be uniquely represented (encoded). The
+64 other symbols to be uniquely represented (encoded).</p>
+<p>Data stored in files is typically stored in a standardised
+<a href="https://en.wikipedia.org/wiki/File_format">
+file format</a>. The
 <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>
 format is a text encoding using 7 bits. ASCII is used to encode
 file paths on some operating systems as well as data files.
-Whilst it is a useful format, ASCII is expensive for storing
-numbers with a large number of digits.</p>
+Whilst it is a useful format, ASCII is both limited by the
+encoding and is inefficient at storing numbers, although it can
+often be compressed a lot by a
+<a href="https://en.wikipedia.org/wiki/Data_compression">
+data compression</a> utility.</p>
 <p>Some data formats encode different parts of a file using
 different byte lengths and with reference to different mappings
 between bytes and what they represent.</p>
@@ -97,7 +103,14 @@ It uses between 1 and 4 bytes of length 8 for encoding.
 <p>Data formats have a specification which details how data are
 encoded. Some are open formats - details of the specification
 are made publicly available. Formats can change over time and
-so are typically versioned.</p>
+so are typically versioned. Often the name of a file indicates the
+file format with a particular file suffix (the part of the file
+name after the dot, for example the file format of a file named
+index.html is expected to be in
+<a href="https://en.wikipedia.org/wiki/HTML">HTML</a> format).
+Some file formats also contain an identifying code (known as a
+<https://en.wikipedia.org/wiki/File_format#Magic_number>
+magic number</a>) at the start which indicates the file type.</p>
 <p>Individual integer numbers are typically represented using a
 fixed number of bits that can map individually to every integer
 number in a range. The encoding will detail how this is done and
@@ -265,7 +278,7 @@ important to keep track of what you consult and avoid plagiarism
 <div>
 <p><a id="next" class="nav" href="../python/index.html">Next: Python</a></p>
 </div>
-<p>Date last modified: 2023-02-20.</p>
+<p>Date last modified: 2023-02-21.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
