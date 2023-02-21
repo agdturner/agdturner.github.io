@@ -85,9 +85,9 @@ mapping of these is known as
 <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>.</p>
 
 <h3 id="2.1">2.1 File Formats</h3>
-<p>Data stored in files is typically stored in a standardised
+<p>Data stored in files is often stored in a standardised
 <a href="https://en.wikipedia.org/wiki/File_format">
-format</a> and is consistent with a (version of) a specification.
+format</a> - consistent with a (version of) a specification.
 ASCII is a file format and is also used to encode file paths on
 some operating systems.</p>
 <p>Some formats encode different parts of a file using
@@ -97,10 +97,14 @@ between bytes and what they represent.</p>
 a common standard encoding used for a lot contemporary
 communication data. As of Unicode version 15.0, there are 149,186
 characters that are uniquely encoded in this format, including
-various alpabets, mathematical symbols and emojis. Unicode uses
+various alphabets, mathematical symbols and emojis. Unicode uses
 between 1 and 4 bytes of length 8 for encoding.
 </p>
-<p>Commonly, there are multiples of 8 bits in a byte.</p>
+<p>Commonly, there are multiples of 8 bits in a byte, but there
+can be any number, and data stored in files can be stored in a
+bespoke format which only those who write and read the data know
+about and anyone else must guess unless they are given a
+specification.</p>
 <p>Often the suffix of a filename indicates the format, for
 example the format of a file named "index.html" is expected to be
 in <a href="https://en.wikipedia.org/wiki/HTML">HTML</a> format.
@@ -207,9 +211,7 @@ instantly, other things might take several attempts. Some things
 you might understand, but they seem strange. Usually, there is a
 good reason why something works and is written the way it is, but
 no language is perfect and the code to do something might
-currently seem a little odd and that there could be a much simpler
-way. Languages evolve (sometimes in strange seeming ways) - or
-they die!</p>
+currently seem a little odd and there could be a better way...</p>
 
 <h2 id="4">4. Language Evolution, Deprecation and Versions</h2>
 <p>High level computer programming languages like Python are
