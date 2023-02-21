@@ -61,6 +61,8 @@ that have a formal syntax. Some computer languages look similar,
 some look very different. This course is mostly based on the
 <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">python</a> programming language.
 <h2 id="2">2. Data</h2>
+
+<h2 id="2.1">2.1 Binary</h2>
 <p>In most modern computers, data is encoded in a binary form
 where the smallest units called bits are in one of two possible
 states: 0 or 1.</p>
@@ -78,39 +80,35 @@ combinations which may seem like a lot of combinations for such a
 small number of bits, but such is the power of binary!</p>
 <p>7 bits in a byte allows for all English/Roman alphabet letters
 in both lower and upper case, the ten numeric digits 0 to 9, and
-64 other symbols to be uniquely represented (encoded).</p>
+64 other symbols to be uniquely represented (encoded). A specific
+mapping of these is known as
+<a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>.</p>
+
+<h3 id="2.1">2.1 File Formats</h3>
 <p>Data stored in files is typically stored in a standardised
 <a href="https://en.wikipedia.org/wiki/File_format">
-file format</a>. The
-<a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>
-format is a text encoding using 7 bits. ASCII is used to encode
-file paths on some operating systems as well as data files.
-Whilst it is a useful format, ASCII is both limited by the
-encoding and is inefficient at storing numbers, although it can
-often be compressed a lot by a
-<a href="https://en.wikipedia.org/wiki/Data_compression">
-data compression</a> utility.</p>
-<p>Some data formats encode different parts of a file using
+format</a> and is consistent with a (version of) a specification.
+ASCII is a file format and is also used to encode file paths on
+some operating systems.</p>
+<p>Some formats encode different parts of a file using
 different byte lengths and with reference to different mappings
 between bytes and what they represent.</p>
 <p><a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> is
-a common standard encoding used for a lot communication data.
-As of Unicode version 15.0, there are 149,186 characters,
-including mathematical symbols and emojis with attributed codes.
-It uses between 1 and 4 bytes of length 8 for encoding.
+a common standard encoding used for a lot contemporary
+communication data. As of Unicode version 15.0, there are 149,186
+characters that are uniquely encoded in this format, including
+various alpabets, mathematical symbols and emojis. Unicode uses
+between 1 and 4 bytes of length 8 for encoding.
 </p>
 <p>Commonly, there are multiples of 8 bits in a byte.</p>
-<p>Data formats have a specification which details how data are
-encoded. Some are open formats - details of the specification
-are made publicly available. Formats can change over time and
-so are typically versioned. Often the name of a file indicates the
-file format with a particular file suffix (the part of the file
-name after the dot, for example the file format of a file named
-index.html is expected to be in
-<a href="https://en.wikipedia.org/wiki/HTML">HTML</a> format).
-Some file formats also contain an identifying code (known as a
+<p>Often the suffix of a filename indicates the format, for
+example the format of a file named "index.html" is expected to be
+in <a href="https://en.wikipedia.org/wiki/HTML">HTML</a> format.
+Some formats contain an identifying code (known as a
 <https://en.wikipedia.org/wiki/File_format#Magic_number>
 magic number</a>) at the start which indicates the file type.</p>
+
+<h3 id="2.1">2.1 Encoding Numbers</h3>
 <p>Individual integer numbers are typically represented using a
 fixed number of bits that can map individually to every integer
 number in a range. The encoding will detail how this is done and
@@ -135,47 +133,45 @@ number.
 <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">
 Double precision floating point format</a> uses 64 bits per
 number. The important things to bear in mind about these numbers
-is that calculations with them are only sometimes accurate, and
-the imprecision varies. This can be a source of significant
-confusion and error especially when using these numbers for
-geometry, physics and statistics.</p>
+is that calculations with them are only sometimes accurate. This
+can cause confusion and error especially when using such numbers
+in geometry, physics and statistics calculations.</p>
 
 <h2 id="3">3. Learning to Program</h2>
 <p>Learning to program takes time and energy. It involves
-developing and strengthening neural networks in your brain. So,
-try to find time to learn new programming concepts when you are
-well rested and ready to learn. You can apply yourself to things
-you already know when you are tired, but this is also when you
-are more likely to make mistakes. Having a good workflow,
-especially in terms of saving your work and using
-
-<a href="https://en.wikipedia.org/wiki/Version_control">version control</a>
-helps to avoid making mistakes that are very costly.</p>
+developing and strengthening neural networks in your brain. It is
+highly recommended that you organise yourself to be learning
+new programming concepts when you are well rested and able to
+concentrate and that you allow yourself time for this new thinking
+to come readily. If you work when tired, it is easier to make
+mistakes and misunderstand.</p>
 <p>Organise to take breaks as you learn. These help you avoid
 fatigue, remember what you are learning, and enjoy the learning
 experience. Often if you do something else for a short while and
 then return to work on something that you were struggling with,
 often you may figure it out quickly.</p>
+<p>Saving your work periodically and using
+
+<a href="https://en.wikipedia.org/wiki/Version_control">version control</a>
+helps to avoid costly mistakes and so is highly recommended.</p>
 <p>It is not reasonable to expect to learn about all the
 functionality of a programming language like Python in an
 introductory course - the standard library contains many functions
 and there is a vast ecosystem of third party libraries too. It is
-key to learn how to discover functionality and there are several
-ways to do this, including reading documentation, reviewing code
-written by others, asking for advice from experts and doing other
-targeted searches. One of the best ways to lear how to do these
-things is to have a project to work on and to practise the art
-of software development.</p>
+key to learn how to discover and use existing functionality. There
+are several ways to do this including reading documentation,
+engaging in code review, and liaising with other programmers.</p>
+<p>The ultimate way to learn is to get involved in software
+development projects.</p>
 <p>Once familiar with one programming language, it is usually
-much easier to learn others as they can have many concepts in
-common despite their often being subtle differences. Many
-languages can be used to do the same things, but some are
-particularly suited to specific tasks. Experienced programmers
-will often turn to a particular language to do something as they
-either know that language well and know how to approach the
-problem with it, or because they want to learn something new, or
-because the organisation they are working with directs them to use
-a particular language.</p>
+much easier to learn others, as they can have many concepts in
+common despite there often being subtle differences. Different
+programming languages can be used to do the same things, but some
+are particularly well geared for certain kinds of thing.
+When given a choice, experienced programmers will often turn to a
+particular language to do something as they either know that
+language well - and know how to approach the problem with it, or
+because they want to learn something new.</p>
 <p>Programming and programming language development are typically
 community activities. It is normal to ask others for help and to
 provide others with help and work collaboratively to develop
@@ -186,31 +182,34 @@ a practical demonstrator if you want help.</p>
 <p>There is a skill to asking for programming help. You might want
 to show someone what is happening and talk about it. This is easy
 to do in a classroom or shared office, but often that is not an
-option, so the main alternative is to document the issue - write
-down what happens and why this is different to what you expect.
-Often the act of doing this helps you to understand better and
-you might not even feel the need to ask for confirmation. Don't
-see this as wasted effort, it is all good practise.</p>
-<p>Often in documenting the issue you might consult documentation
-more closely and realise what the issue is without asking for
-help. Sometimes it is necessary to detail the steps required to
-replicate the issue on someone elses computer. Sometimes
-replicating the issue involves configuring environments so that
-they are more similar. Sometimes the issue is not that you have
-done something wrong, but that some other code is not working as
-intended. This is known as a bug. Many programmers take pride in
-their work and want to make sure that bugs are known about in bug
-reports and work to fix them. Often you will be asked for a
-copy of your code and any input data to replicate the issue for
-a bug report. As with all things, you need to think about if you
-can share the data (including the source code) for this.</p>
-<p>Some things you might comprehend instantly, other things might
-take several attempts. Some things you might understand, but it
-seems strange. Usually, there is a good reason why something works
-and is written the way it is, but no language is perfect and the
-code to do something might currently seem a little odd in that
-there could be a much simpler way to write it. Languages evolve -
-sometimes in strange seeming ways - or they die!</p>
+option, so the main alternative is to describe and detail the
+issue by recording what happens and why this is different to what
+you expect. Often the act of doing this helps you to understand
+better and in many cases resolve the issue, or come up with ideas
+to try. Don't see this as wasted effort, the more times you
+practise detailing an issue and the steps others need to take to
+replicate, the better you will be at this, and you want to be good
+at this in order to get help which may even come from your future
+self!</p>
+<p>Often in detailing an issue involves consulting documentation
+and providing information about your environment. Sometimes the
+issue is not that you have done something wrong, but that some
+other code is not working as it should, which is commonly known
+as a bug. Writing good bug reports is a community avtivity at the
+heart of much software and language development. Whether you are
+filing a bug report, or just asking for help, often you should
+provide a minimum working example to replicate the issue. As with
+all data exchanges, you should think about if you can share the
+data and the source code in the way you intend to before you do!
+</p>
+<p>In learning to program, some things you might comprehend
+instantly, other things might take several attempts. Some things
+you might understand, but they seem strange. Usually, there is a
+good reason why something works and is written the way it is, but
+no language is perfect and the code to do something might
+currently seem a little odd and that there could be a much simpler
+way. Languages evolve (sometimes in strange seeming ways) - or
+they die!</p>
 
 <h2 id="4">4. Language Evolution, Deprecation and Versions</h2>
 <p>High level computer programming languages like Python are
