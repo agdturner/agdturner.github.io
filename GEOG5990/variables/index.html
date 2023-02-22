@@ -31,31 +31,30 @@ DOM is fully loaded. -->
 <div>
 <h1>Variables</h1>
 <h2 id="1">1. Introduction</h2>
-<p>Python variables are a combination of an identifying label or
-name and a value - either a primitive or a more complex object
-(which may comprise a single primitive variable or be comprised of
-multiple other primitive variables and other objects).</p>
+<p>Python variables are a combination of an identifying label (a
+name) and a value - either a primitive or a more complex object
+(the object may be comprised of multiple primitive variables and
+other objects).</p>
 <p>Variables work a bit differently depending on whether they are
 primitives or objects. The main difference is to do with whether
 the variable is duplicated when it is passed into a function as a
-parameter or whether a reference or pointer is passed in which
-still refers to the value of the variable. There are other
-differences to do with scope, but let's not worry about this for
-now, we will revise all this in due course...</p>
+parameter (known as 'pass by value') or whether a reference or
+pointer is passed in which refers to the value of the variable
+(known as 'pass by reference').</p>
 
-<h2 id="2">2. Variables Types</h2>
+<h2 id="2">2. Variables/types</h2>
 In Python, variable labels/names can be reused to refer to
 different types of value. This is known as dynamic typing. It
-allows us to initialise a variable with an Integer value and then
-set it later to have a value given by a Float or a String or
-something non-primitive like a List. The Type Function (type()) in
-the Built In Module
-(<a href="https://docs.python.org/3/library/builtins.html">builtins</a>)
-allows for testing the type of a variable at some stage of a
-program execution. For example, the following code initialises a
-variable called x to have the Integer value 1, then sets it
-again to have the String value "1", after each assignment the type
-of the variable is printed.</p>
+allows for a variable to be initialised with one type of value and
+then later to be assigned a different type of value. The function
+'type()' in the
+(<a href="https://docs.python.org/3/library/builtins.html">
+builtins</a> module)
+can be used to test and reporting the type of a variable. For
+example, the following code initialises a variable called x to
+have the Integer value 1, then sets it again to have the String
+value "1", after each assignment the type of the variable is
+printed.</p>
 <pre><code class="language-python"># Set x = 1 and print the type of x")
 x = 1
 print(type(x))
@@ -71,33 +70,29 @@ variable is not permitted to change type. Some of the most
 commonly used high level languages (including
 <a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>) are both
 declarative and statically typed.</p>
-<p>The type of Python variables do not have to be declared, and
-labels can be reassigned to different types of thing. There are
-both benefits and drawbacks of this. Code can look a bit more
-succinct, interfaces can be more stable, and some developers find
-it easier to experiment this way, but there are dangers and
-some things are much harder with dynamically typed langauges, for
-example writing tools for developing code. It is possible though,
-as we have seen, to test the type of a variable, so type safety
-checks can be added to code. However, this makes code more verbose
-and less efficient.
-<p>
+<p>The type of python variables are not declared, and as
+mentioned, variable labels can be reassigned to refer to different
+types of thing. The main benefits of this are that code is a
+little more succinct, interfaces can be more stable, and this
+makes coding a bit more flexible. However, there can be
+difficulties with dynamic typing, in particular debugging and
+developing tools to help write code is somewhat harder. Anyway, it
+is possible to test the type of a variable, so type checks and
+branching based on type can be done (although doing this a lot
+makes code more verbose and less efficient).</p>
 
 <h3 id="2.1">2.1. Primitives</h3>
-<p>The four primitive variable types in Python are: Integers,
+<p>The four primitive variable types in python are: Integers,
 Floats, Strings, and Booleans. Integers are whole numbers. Floats
-are a special subset of fractions. We've looked at these briefly
-before. Strings are essentially blocks of text. We created some of
-these too already. Booleans are True or False and also equate to 0
-or 1.</p>
-<p>Integers are virtually unbounded in Python although there is
-ultimately a limit based on the size of a word that Python and the
-machine can handle (which is typically very large, but depends on
-available memory).</p>
+are a special subset of fractions. Strings are essentially blocks
+of text. Booleans are True or False and also equate to 0 or 1.</p>
+<p>Integers are virtually unbounded in python although there is
+limit to the size of an Integer that a system can handle related
+to the amount of memory available.</p>
 <p>Floats have a Maximum Value and a Minimum Normal Value
-(smallest number > 0). These can be ascertained from the Sys
-Module (sys) and can also be set to postive or negative
-infinity:</a>
+(smallest number &gt; 0). These can be ascertained from the
+<a href="https://docs.python.org/3/library/sys.html">sys module</a>
+and can also be set to postive or negative infinity:</a>
 <pre><code class="language-python">import sys
 
 # Exploring Float max and min values.
@@ -296,7 +291,7 @@ print(a) # <-- Results in: NameError: name 'a' is not defined</pre>
 <div>
 <p><a id="next" class="nav" href="../github/index.html">Next: GitHub</a></p>
 </div>
-<p>Date last modified: 2023-02-21.</p>
+<p>Date last modified: 2023-02-22.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
