@@ -31,66 +31,57 @@ DOM is fully loaded. -->
 <div>
 <h1>Containers</h1>
 <h2 id="1">1. Introduction</h2>
-<p>In this section we are going to consider some basic types of
-data structure for storing collections of things in Python.
-Similar structures are available in most high level languages, but
-they can be called different things. The main types are sequences,
-tuples, ranges, lists, arrays, sets and dictionaries. Some of
-these are mutable - can be changed once they have been created,
-others are immutable - cannot be changed once they have been
-created although these may contain elements which themselves can
-be changed. Some are ordered or can be ordered, and others are
-unordered. There is
-<a href="https://docs.python.org/3/tutorial/datastructures.html">
-a good and helpful tutorial about data structures in the Python
-documentation</a>. There are various ways to compare collections
-and to iterate over their elements. We will learn more about this
-when we come to use them in practise when developing our basic
-ABM code.</p>
+<p>The main basic data structures in python are are sequences,
+tuples, ranges, lists, arrays, sets and dictionaries. Similar
+structures are available in most high level languages, but they
+can be called different things. Some of the aforementioned python
+data structures are mutable - can be changed once they have been
+created, others are immutable - cannot be changed once they have
+been created (although these may contain elements which themselves
+can be changed). Some are ordered, or can be ordered, and others
+are unordered.</p>
 
 <h2 id="2">2. Sequences, Tuples, Ranges, Lists</h2>
 
 <h3 id="2.1">2.1. Sequences</h3>
-<p>A list is a sequence as is a Byte and a String. A Byte in
-Python is a sequence of eight zeros and ones which can represent
-the integers between 0 and 255. We do not use Bytes much in this
-course, but they can be very useful. Strings are a sequence of one
-character long Strings. Python unlike many other high level
-languages does not have a primitive type for individual
-characters. Strings in Python are immutable (they can not be
+<p>A list is a sequence as is a Byte and a String. A python Byte
+is a sequence of eight zeros and ones. Strings are a sequence of
+one character long Strings. Unlike many other high level
+languages, python does not have a primitive type for individual
+characters. Strings in python are immutable (they can not be
 modified), so part of a String cannot be replaced with part of
-another String. Instead, when this is effectively wanted, a new
-String has to be created comprised of what is wanted. This can
-make processing with Strings inefficient, but it helps with memory
-management. Strings can be created using single quotation
-marks ('), double quotation marks ("), and usually for multiline
-Strings, with triple single quotes (''') or triple double quotes
-("""), and by using the str() constructor function which allows
-for creating Strings for example from Integers.</p>
+another String. Instead of changing a String, a new String has to
+be created which can make processing with Strings seem
+inefficient. Strings can be created using either single or double
+quotation marks, one at the start and one at the end of a sequence
+of single length ASCII characters. Multiline Strings are either
+encapsulated by triple single quotes or triple double quotes. The
+String constuctor function str() can be used to create Strings
+from other types of variable.</p>
 <p>Strings may contain quotation marks, but if a String is to
 contain both single and double quotes, then one or the other needs
-escaping using the backslash escape characer (\). If the String
-itself is to include a backslash, then this also would need
+escaping using the backslash escape character '\'. If the String
+itself is to include a backslash, then this also would also need
 escaping. There are ways of making sure when defining a String
-that line breaks are as wanted.  As a String is a sequence, parts
+that line breaks are as wanted. As a String is a sequence, parts
 of it can be accessed using an index. Consider the following and
 try the code out for yourself:</p>
-<pre>print('''This is \ # <-- The backslash ensures the continuation of the line
+<pre><code class="language-python">print('''This is \ # <-- The backslash ensures the continuation of the line
 all one line.
-This is a second.''')</pre>
+This is a second.''')</code></pre>
 <p>The + operator allows to join strings:</p>
-<pre>print("This is all " +
+<pre><code class="language-python">print("This is all " +
 "one line.")
-print("This is a second")</pre>
+print("This is a second")</code></pre>
 <p>Strings contain many useful funtions for working on Strings
 which can be accessed in a couple of ways, for example Strings
 can be split by:</p>
-<pre>a = "A simple string to split."
+<pre><code class="language-python">a = "A simple string to split."
 delimeter = " " # What is used to split the String into parts
 a_split0 = str.split(a, delimiter) # Doing the split one way
 print(a_split0)
 a_split1 = a.split(delimiter)
-print(a_split1)</pre>
+print(a_split1)</code></pre>
 <p>There is no real difference between the two ways and it is down
 to programming preference as to what is used. Note that the
 delimeter is also optional, but by default is white space (a
@@ -102,32 +93,23 @@ out if a string starts or ends with a particular String
 A Tuple is also a sequence. Tuple elements (items) are separated
 with commas. An empty tuple can be made using parentheses. Tuples
 can be added to and nested. Like Strings, Tuples are immutable in
-that once created the itemscannot be substituted and their order
-cannot be changed - although they may themselves be items that can
-be modified and modifying the items is then allowed. Tuples are
-commonly used for function returns where several things are wanted
-to be returned from a function. Returning a Tuple effectively
-packs the things together, and those things can be unpacked again.
-The order and amount of packing and unpacking must correspond.
-Consider the following code, the try it for yourself and have a
-play around to try to figure out what is going on:</p>
-<pre>>>> a = ()
->>> print(len(a)) # Print the length of a
-0
->>> singleton = 'hello', # <-- Note the trailing comma.
->>> print(len(singleton)) # Print the length of singleton
-1
->>> b = (1, "two", 4) # Pack 3 things into b
->>> c, d, e = b # unpack b into three things (c will refer to 1, d to "two" and e to 4)
->>> print(c)
-1
->>> print(d)
-'two'
-</pre>
-<p>Packing and unpacking is quite a Pythonic thing in that it is
-quite different in Python compared with other high level
-languages. It is quite a convenient language feature.</p>
-<p>Consider the following code snippet which generates part of a
+that once created the items cannot be substituted and their order
+cannot be changed - although they may themselves contain items
+that can be modified. Tuples are commonly used for function
+returns where several things are to be returned from a function.
+Returning a Tuple effectively packs the things together. Consider
+the following code where there is some packing and unpacking of a
+tuple:</p>
+<pre><code class="language-python">a = ()
+print(len(a)) # <-- Prints 0
+singleton = 'hello', # <-- Note the trailing comma.
+print(len(singleton)) # Prints 1
+b = (1, "two", 4) # Pack 3 things into b
+c, d, e = b # unpack b into three things (c will refer to 1, d to "two" and e to 4)
+print(c) # <-- Prints 1
+print(d) # <-- Prints 'two'</code></pre>
+<p>Try the code yourself, then consider the following code snippet
+which generates part of a
 <a href="https://en.wikipedia.org/wiki/Fibonacci_number">
 Fibonacci series</a> of Integers:</p>
 <pre><code class="language-python"># Fibonacci series - the sum of the last two numbers in a sequence defines the next
@@ -138,7 +120,7 @@ while b < 10:
     a, b = b, a+b
 print(b)</code></pre>
 <p>The While Statement is a loop with an expression that is
-evaluated each time around the loop. While the expression (b < 10)
+evaluated each time around the loop. While the expression 'b < 10'
 evaluates to True the loop continues to run, when it evaluates
 to False, the program continues by executing the next line after
 the loop.</p>
@@ -162,17 +144,12 @@ can generate the sequence: -10, -5, 0, 5, 10.</p>
 tuple() giving this an argument which is a sequence or producer of
 a sequence like range:</p>
 <code class="language-python">a = tuple(range(5))
-print(a)
-type(a)</code></pre>
-<p>Produces:</p>
-<pre>(0,1,2,3,4)
-<class 'range'></pre>
+print(a) # <-- Prints (0,1,2,3,4)
+type(a) # <-- Prints <class 'range'></code></pre>
 <p>Note that simply assigning a label does not work, the
 constructor has to be used:</p>
 <code class="language-python">a = range(5)
-print(a)</code></pre>
-<p>Produces:</p>
-<pre>'range(0,5)'</pre>
+print(a) # <-- Prints 'range(0,5)'</code></pre>
 <p>There are functions that work with sequences such as min() and
 max() which will return the minimum and maximum item in a
 sequence. The function index() can be used to find the first
@@ -190,24 +167,24 @@ print(any(b)) # Print if any of the items in b are True.</code></pre>
 <p>Again copy this code into a file and have a play around.</p>
 
 <h3 id="2.4">2.4. Lists</h3>
-<p>We have already come across lists which are commonly used in
-Python. They are essentially the mutable form of tuples. Lists
-have an order, different types of thing can be stored in them,
-things can be appended, inserted and removed from them. The
-elements within the list can be reordered in various ways. They
-are initialised with square brackets or using the list()
-constructor method that takes in some othe container as an
-argument. For example:</p>
+<p>Lists are commonly used in python. They are the mutable form of
+tuples. Lists have an order, different types of thing can be
+stored in them, things can be appended, inserted and removed from
+them. The elements within the list can be reordered in various
+ways. They are initialised with square brackets or using the
+constructur function list() that can take in some other container
+as an argument. For example:</p>
 <pre><code class="language-python">a = [] # Create an empty list called a.
 a.append("apple") # Append the String "apple" to the list a
 print(len(a)) # Print the length of a
 print(a[0]) # Print the first element of a
-a.insert(0, 2) # Insert the Integer 2 into the first element of a
+a.insert(0, 2) # Insert the Integer 2 into a at index 0
 a.reverse() # Reverse the order of elements in a
-a.del(1) # Remove the element in a at index 1
+a.del(1) # Remove the element of a at index 1
 b = list((1, 2, 4, 8))
 print(type(b))</code></pre>
-<p>Again copy this code into a file and have a play around.</p>
+<p>Again copy this code into a file, run it and check the output
+then have a play around.</p>
 <p>Extended indexing is a way of referencing values in a sequence.
 These are sometimes called a 'slice' (essentially slice objects
 are generated, containing the indices generated by a range):</p>
@@ -314,6 +291,14 @@ print(alias.get("rm")) # <-- This should print 'remove'.
 </code></pre>
 <p>Again there are functions that help with modifying and
 processing dictionaries.</p>
+
+<h3 id="5">
+ The
+              <a href="https://docs.python.org/3/tutorial/datastructures.html">
+              python documentation tutorial about data structures</a>. There are various ways to compare collections
+              and to iterate over their elements. We will learn more about this
+              when we come to use them in practise when developing our basic
+              ABM code.
 
 </div>
 <footer>
