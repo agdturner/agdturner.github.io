@@ -104,8 +104,8 @@ directory</li>
 of the model.py file.</li>
 <li>After the line "# Initialise a variable x0" add the
 following to initialise the variable x0 with the Integer value 0:
-<pre>x0 = 0
-print("x0", x0)</pre>
+<pre><code class="language-python">x0 = 0
+print("x0", x0)</code></pre>
 </li>
 <li>Save and run the program</li>
 </ul>
@@ -126,7 +126,7 @@ something out.</p>
 Package (random)</a>
 which has to be imported. Towards the top of your source code file
 below any general file comments add the import statement:</p>
-<pre>import random</pre>
+<pre><code class="language-python">import random</code></pre>
 <p>Import statements are best placed at the top of files as this
 makes them easy to find.</p>
 <p>In order to increase or decrease variable values, we are going
@@ -145,8 +145,8 @@ what the other properties are for the time being.</p>
 [0 to 1) - a range that includes 0 but does not include 1 by
 adding the following after the "# Change x0 and y0 randomly"
 line:</p>
-<pre>rn = random.random()
-print(rn)</pre>
+<pre><code class="language-python">rn = random.random()
+print(rn)</code></pre>
 <p>Now, run your code a few times. Notice that the number rn
 generated and printed out varies in the range given. What is going
 on, is that the current time is used to initialise the position
@@ -163,8 +163,8 @@ seed (the initial position within the pseudo-random sequence)
 using a called to the random seed function. Let us do that in a
 line after the import statements towards the top of the source
 code by adding in the following lines:</p>
-<pre># Set the pseudo-random seed for reproducibility
-random.seed(0)</pre>
+<pre><code class="language-python"># Set the pseudo-random seed for reproducibility
+random.seed(0)</code></pre>
 <p>Note that this passes the Integer 0 into the random seed
 function. Passing in different integers will result in different
 results. Try passing in a few different integers and running the
@@ -173,13 +173,13 @@ program before setting the seed using 0 again.</p>
 something that evaluates to True or False. We can use the less
 than operator (<) to evaluate whether the Float rn is less than
 another number. Add the following lines after printing out rn:</p>
-<pre>b = rn < 0.5
+<pre><code class="language-python">b = rn < 0.5
 print("b", b)
 if b:
     x0 = x0 + 1
 else:
     x0 = x0 - 1
-print("x0", x0)</pre>
+print("x0", x0)</code></pre>
 <p>When you run the program, you should get the following output:
 </p>
 <pre>x0 0
@@ -191,11 +191,11 @@ x0 -1</pre>
 to False so the if-else statement else condition is computed.</p>
 <p>Now, let us simplify the code a little and replace the
 following:</p>
-<pre>b = rn < 0.5
+<pre><code class="language-python">b = rn < 0.5
 print("b", b)
-if b:</pre>
+if b:</code></pre>
 <p>With:</p>
-<pre>if rn < 0.5:</pre>
+<pre><code class="language-python">if rn < 0.5:</code></pre>
 <p>Next, duplicate the if-else statement and modify it to change
 the value of y0 and print out the modified value. Then, after
 having initialised x1 and y1 add code to randomly change these
