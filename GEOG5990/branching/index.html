@@ -31,37 +31,33 @@ DOM is fully loaded. -->
 <div>
 <h1>Branching</h1>
 <h2 id="1">1. Introduction</h2>
-<p>
-Python supports looping (when some part of the code is executed
-repeatedly a number of times, or until some condition is reached)
-and branching (when some code is executed only if some condition
-is matched). The way looping, branching, calling functions and
-threading (where multiple threads of execution are running
-simultaneously) are all part of what is termed control flow. These
-things help make code much more concise. Threading allows for more
-interactivity with users and often speeds up processing. This
-section of the course focuses on loops and branching.</p>
 
-<h2 id="2">2. Branching</h2>
-<p>A simple control flow is to branch based upon a condition which
-evaluates to either True or False. So, if the condition is True,
-then the program follows one path, otherwise it follows another
-path. Branching can be done with various types of If Statement and
-since Python 3.10 there is also a Match-case Statement which
-saves using long chains of If-elif constructs which have multiple
-conditions. Consider the following code snippet:</p>
-<pre><code class="language-python">
-# A simple If Statement
+<p>Branching is to do with the flow of a program. At a branching,
+the program either goes one way or another. In this section we
+will look at a couple of main ways of branching.</p>
+
+<h2 id="2">2. If, Else and Elif</h2>
+
+<p>The If Statement provides a means to branch based upon a
+condition which evaluates to either True or False as in the
+following example.</p>
+<pre><code class="language-python"># A simple If Statement
 day_of_week = 5
 day = "Weekday"
 if day_of_week >= 6:
-    day = "Weekend"
-# An If-else Statement
+    day = "Weekend"</code></pre>
+<p>An Else clause branches into two distinct paths which become
+one again at the end of the compound statement as in the
+following example.</p>
+<pre><code class="language-python"># An If-else Statement
 if day_of_week < 6:
     day = "Weekday"
 else:
-    day = "Weekend"
-# An If-elif Statement
+    day = "Weekend"</code></pre>
+<p>One or many Elif clauses can also be inserted between an If and
+Else clause. Elif is a short for 'else if'. Consider the following
+example:</p>
+<pre><code class="language-python"># An If-elif-else Statement
 if day_of_week == 1:
     day = "Monday"
 elif day_of_week == 2:
@@ -73,11 +69,18 @@ elif day_of_week == 4:
 elif day_of_week == 5:
     day = "Friday"
 else:
-    day = "Weekend"
-</code></pre>
-<p>You could argue that this example would be better stored in a
-dictionary. A Match-case Statement which offers another way to do
-this:</p>
+    day = "Weekend"</code></pre>
+<p>It can be argued that it is better to store a dictionary to
+look up the day from the day_of_week, but a simple mlook up does
+not branch, and more code can be inserted in any of the clauses,
+so this can be more than a sort of look up.</p>
+
+<h2 id="3">3. Match-case</h2>
+
+<p>Since Python 3.10 there is also a Match-case statement which
+can simplify long If-elif compound statements. The following
+example shows the equivalent of the If-elif-else example from the
+end of previous section:</p>
 <pre><code class="language-python">
 day_of_week = 5
 match day_of_week:
@@ -94,26 +97,17 @@ match day_of_week:
     case _:
         day = "Weekend"
 </code></pre>
-<p>In this example the Match-case Statement is not much better
-than a If-elif Statement. The final case is a catch all case using
-the anonymous variable which matches anything. The added extras of
-the Match-case Statement are from passing in containers or other
-objects and having more sophisticated case clauses. Examples of
-these are a bit involved, so for the time being we will leave
-this here after referencing the PEPS:</p>
+<p>The final case is a catch all case using the anonymous variable
+which matches anything.</p>
+<p>The Math-case statement offers more than a syntactic variation
+of Else-elif-else compound statements, as containers and other
+objects can be matched against. Examples of these can be found in
+the relevant PEPS:</p>
 <ul>
 <li><a href="https://peps.python.org/pep-0634/">PEP 634, Structural Pattern Matching: Specification</a></li>
 <li><a href="https://peps.python.org/pep-0635/">PEP 635, Structural Pattern Matching: Motivation and Rationale</a></li>
 <li><a href="https://peps.python.org/pep-0636/">PEP 636, Structural Pattern Matching: Tutorial</a></li>
 </ul>
-
-
-
-
-<h3 id="3">Match-case Statement</h3>
-<p>Python 3.10 (2021) introduced the match-case statement which
-provides an implementation of a "switch" for Python which has long
-been available in most other high level langauges.</p>
 
 </div>
 <footer>
