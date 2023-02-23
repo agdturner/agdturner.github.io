@@ -66,11 +66,19 @@ escaping. There are ways of making sure when defining a String
 that line breaks are as wanted. As a String is a sequence, parts
 of it can be accessed using an index. Consider the following and
 try the code out for yourself:</p>
+<pre><code class="language-python">print('''This is \
+all one line.
+This is a second.''')</code></pre>
+<p>The backslash at the end of the first line ensures the
+continuation of the line. Unfortunately, a comment cannot be
+added at the end of a line that is continued in this way, so the
+following does not work:</p>
 <pre><code class="language-python">print('''This is \ # <-- The backslash ensures the continuation of the line
 all one line.
 This is a second.''')</code></pre>
-<p>The + operator allows to join strings:</p>
-<pre><code class="language-python">print("This is all " +
+</p> The + operator allows to join strings and this allows also
+for comments to work:</p>
+<pre><code class="language-python">print("This is all " + # This comment works fine!
 "one line.")
 print("This is a second")</code></pre>
 <p>Strings contain many useful funtions for working on Strings
@@ -305,7 +313,7 @@ processing dictionaries.</p>
 <div>
 <p><a id="next" class="nav" href="../branching/index.html">Next: Branching</a></p>
 </div>
-<p>Date last modified: 2023-02-22.</p>
+<p>Date last modified: 2023-02-23.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
