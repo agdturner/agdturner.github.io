@@ -129,54 +129,48 @@ your "model.py" file into the abm3 directory.</p>
 <p>Change the distance calculation code into a function called
 get_distance: Use the def keyword and specify four input
 parameters (x0, y0, x1, y1). Recall that the function declaration
-ends with a colon (:). You must indent the code of the function
-that comes after the function definition for it to be regarded as
-part of the function. At the end of the function code, return the
-distance calculated. After the function write a statement to call
-it and print out the result.</p>
+ends with a colon ':'. The code of the function must be indented.
+Return the distance calculated as the last statement of the
+function using the keyword 'return' followed by the name of the
+variable. After the function write a statement to call it and
+print out the distance returned.</p>
 <p>Run the code to test it works</p>
 <p>If your code calculates the square root in two ways, then
 simplify it by removing one of these ways. You may want to
 simplify the code in other ways too...</p>
-<p>Next, change the comment that describes the function into a
+<p>Change the comment that describes the function into a
 docstring. Clarify what the inputs and outputs are in the
 docstring.</p>
 
 <h3 id="2.2">2.2 Calculate the maximum distance</h3>
-<p>Imagine a two dimensional matrix organised in rows and columns
-where each row and each column represents a coordinate. If the row
-coordinates are in the same sequence as the column coordinates,
-then the distance for the same index of row and column will be
-zero, and the potentially non-zero cells of the matrix should be
-symmetrical about this zero diagonal.</p>
-<p>So, to calculate the maximum distance between a collection of
-coordinates, there is only a need to calculate distances for one
-of the potentially non-zero parts of this matrix. (In other words,
-if we know the distance between A and B, this is the same as the
-distance between B and A.)</p>
-<p>Anyway, to calculate the maximum distance, we can use nested
-loops. An outer loop to go through all the agents, and an inner
+<p>Imagine a two dimensional matrix of distances where each
+distance is the distance between the cooridnate for a row and the
+coordinate for a column. If all the coordinates for the rows and
+columns are the same and in the same order, then the matrix is
+symetrical about a diagonal where all the distances are zero.</p>
+<p>The maximum distance between any two agents is the maximum
+distance in this matrix. Nested loops can be used to calculate it.
+An outer loop to go through all the agents, and an inner
 loop to go through all agents. Within the inner loop we can use
-the function get_distance() to calculate the distance, and the
-max() function to calculate a maximum. To use the max function we
-should input the distance from get_distance() as well as the
-current maximum, and set the current maximum to be the output from
-this. Some code for doing this is as follows:</p>
-<pre><code class="language-python">max_distance = 0
+the function get_distance() to calculate the distance between a
+pair of coordinates, and the max() function to calculate the
+maximum distance encountered yet. Some code for doing this is as
+follows:</p>
+<pre><code class="language-python">max_distance = 0 # Initialise max_distance
 for a in agents:
     for b in agents:
         distance = get_distance(a[0], a[1], b[0], b[1])
         print("distance between", a, b, distance)
         max_distance = max(max_distance, distance)
         print("max_distance", max_distance)</code></pre>
-<p>If you add the above code to the end of your program and
-examine the output, you should see that some zero distances are
-calculated. These will either be where an agent is located at the
-same place as another agent, or where the calculation is for the
-same agent.</p>
+<p>Add the code to the end of your program, run it and examine the
+output. In calculating the maximum distance, you should see that
+some zero distances are calculated. These will either be where an
+agent is located at the same place as another agent, or where the
+calculation is for the same agent.</p>
 <p>Recall that there are two main ways to iterate over the items
 in a list. As above, and alternatively using the list indexes. It
-is common to use range() to get a sequence of indexes. So, the
+is common to use range() to get a sequence of indexes, and the
 looping can also be done as follows:</p>
 <pre><code class="language-python">max_distance = 0
 for i in range(len(agents)):
@@ -192,12 +186,8 @@ given sequencially by range(), and len() is used to get the length
 of the agents list. (Also, as len(agents) is the same as n_agents,
 we could alternatively be using n_agents as a parameter for the
 range function. This would save a calculation and be slightly more
-efficient. However, later on we might be changing the length of
-the agents list and the efficiency gained by this optimisation is
-insignificant. It may also be slightly more efficient to store the
-sequence given by range(len(agents)) rather than recalculate this
-for each iteration of the inner loop. But, let us not worry too
-much about optimising the code with these changes for now.)</p>
+efficient. As the length of the agents list is something that we
+may want to change, keep using len(agents) for now...</p>
 <p>Define a function called get_max_distance that uses the
 above code and returns the max_distance. This is like the exercise
 of defining get_distance(). It is good to practise turning code
@@ -265,7 +255,7 @@ resolution timer perf_counter_ns() that could be used, but we have no need for i
 maximum distance between agents.
 </li>
 </ol>
-<p>Let's begin with the first of these things:</p>
+<p>Begin with the first of these things:</p>
 <ul>
 <li>Save your source code file with a new name, for example
 "timing.py".</li>
