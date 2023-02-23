@@ -73,7 +73,7 @@ This is a second.''')</code></pre>
 continuation of the line. Unfortunately, a comment cannot be
 added at the end of a line that is continued in this way, so the
 following does not work:</p>
-<pre><code class="language-python">print('''This is \ # <-- The backslash ensures the continuation of the line
+<pre><code class="language-python">print('''This is \ # Not a comment, but is
 all one line.
 This is a second.''')</code></pre>
 </p> The + operator allows to join strings and this allows also
@@ -206,60 +206,52 @@ What's important is the position of the colons.
 a[:2] # First two values.
 a[-2:] # Last two values.</pre>
 <p>Slices can be used with mutable sequences like lists for
-assignment. Consider the following two examples:</p>
-<pre>>>> a = [0,1,2,3,4]
->>> b = [10,20,30]
->>> a[1:3] = b
->>> a
-[0,10,20,30,3,4]
-# Note we replace 2 values with 3.</pre>
-<pre>>>> a = [0,1,2,3,4]
->>> b = [10,20]
->>> a[1:5] = b
->>> a
-[0,10,20]
-# We replace 4 values with 2.</pre>
-<p>There is a function called zip() which allows for the joining
-together of two lists or tuples. The items are effectively paired
-up as follows:
-<pre>>>> a = [1,2,3,4,5]
->>> b = [10,20,30,40,50]
->>> c = zip(a,b)
->>> d = list(c)
->>> print(d)
-[(1,10),(2,20),(3,30),(4,40),(5,50)]</pre>
-<p>The zip() function pairs up the values by index. If the
-sequences have different lengths then the paired up list is the
-length of the shorter sequence and does not contain the end of the
-longer sequence.</p>
-<p>A final thing on lists for the time being is that command line
-arguments are a list in Python. So, when a Python program is run
-from the command line, information can be passed in. For instance
-consider:</p>
+assignment. Consider the following example that replaces 2 values
+in one with the values from another list:</p>
+<pre><code class="language-python">a = [0,1,2,3,4]
+b = [10,20,30]
+a[1:3] = b
+print(a) # <-- Prints [0,10,20,30,3,4]</code></pre>
+<p>The next example replaces 4 values with 2:</p>
+<pre><code class="language-python">a = [0,1,2,3,4]
+b = [10,20]
+a[1:5] = b
+print(a) # <-- Prints [0,10,20]</code></pre>
+<p>The builtin module function zip() can be used to join together
+lists or tuples as follows:
+<pre><code class="language-python">a = [1,2,3,4,5]
+b = [10,20,30,40,50]
+c = zip(a,b)
+d = list(c)
+print(d) # <-- Prints [(1,10),(2,20),(3,30),(4,40),(5,50)]</code></pre>
+<p>The zip function pairs up the values by index. If the sequences
+have different lengths then the paired up list is the length of
+the shorter sequence and does not contain the end of the longer
+sequence.</p>
+<p>Command line arguments are passed in a list. For example, the
+following command passes the filename HelloWorld.py to the Python
+interpreter which then loads the file of commands to execute:</p>
 <pre>python HelloWorld.py</pre>
-<p>This command passes the filename HelloWorld.py to the Python
-interpretter which then loads the file of commands to execute.
-More command line arguments can be passed in this way, with each
-one separated by a space. In this way software can be configured
-and run in different ways without having to modify the code.</p>
-<p>A Python program recieves the command line arguments as a list.
-The first item in the list is the name o the program file to be
-run. For example, the following is a python run command that
-passes in four arguments:</p>
+<p>More command line arguments can be passed, each one separated
+by a space.</p>
+<p>The python program receives the command line arguments as a list.
+The first item in the list is the program filename. For example,
+the following is a python run command that passes in four
+arguments:</p>
 <pre>python model.py arg1 arg2 arg3</pre>
 <p>Inside the program, these are made available in a list called
-sys.argv, where sys.argv[0] is "model.py", sys.argv[1] is "arg1",
-sys.argv[2] is "arg2", and so on...</p>
+sys.argv. In the last example, sys.argv[0] is "model.py",
+sys.argv[1] is "arg1", sys.argv[2] is "arg2" and sys.argv[3] is
+"arg3".</p>
 
 <h2 id="4">4. Arrays, Sets, Dictionaries</h2>
 
 <h3 id="4.1">4.1. Arrays</h3>
 <p>Arrays are suited to storing and processing large collections
-of basic types (bytes, integers and floating point numbers). If you
-know how many elements the collection will contain, then declaring
-this when initialising the array will typically improve
-efficiency.</p>
-<p>Python arrays are in the
+of Bytes, Integers or Floats. If it is known as to how many
+elements the array will contain, then declaring this in the
+initialisation can be more efficient.</p>
+<p>Python arrays are classes declared in the
 <a href="https://docs.python.org/3/library/array.html">array
 module</a>.
 They can be made and used as follows:</p>
@@ -270,9 +262,9 @@ print(a[3]) # Print the value at position 3</code></pre>
 
 <h3 id="4.2">4.2. Sets</h3>
 <p>Sets are unordered collections. Adding something into a set
-which already contains that thing will not change the set. They
-are mostly used to test if something is or is not already
-contained in the collection. Sets are created using the
+which already contains that thing will not change the set. It is
+easy to test whether or not something is in a set. Sets are
+created using the
 <a href="https://docs.python.org/3/library/stdtypes.html#set">
 set()</a> constructor, for example:</p>
 <pre><code class="language-python">a = set() # Empty set
@@ -282,12 +274,12 @@ if "orange" in a:
     print('"orange" is in a')</code></pre>
 <p>Traditional mathemetical set functions like union() and
 intersection() are available for sets which can also be compared.
-Two sets are equal if they contain all of the same elements</p>
+Two sets are equal if they contain all of the same elements.</p>
 
 <h3 id="4.3">4.3. Dictionaries</h3>
-<p>Dictionaries hold keys and value pairs. The keys are unique
-the values can be anything. Dictionaries can be sorted by the
-keys. The keys can be treated a bit like a set. Dictionaries can
+<p>Dictionaries hold key-value pairs. The keys are unique, the
+values can be anything. Dictionaries can be sorted by the keys.
+The keys can be treated a bit like a set. Dictionaries can
 be created using curly braces and colons to separate the keys,
 which are given first, and the values, which are given second.
 Different pairs are separated with commas. Alternatively the
@@ -300,13 +292,9 @@ print(alias.get("rm")) # <-- This should print 'remove'.
 <p>Again there are functions that help with modifying and
 processing dictionaries.</p>
 
-<h3 id="5">
- The
-              <a href="https://docs.python.org/3/tutorial/datastructures.html">
-              python documentation tutorial about data structures</a>. There are various ways to compare collections
-              and to iterate over their elements. We will learn more about this
-              when we come to use them in practise when developing our basic
-              ABM code.
+<h3 id="5">Further reading</h3>
+<p><a href="https://docs.python.org/3/tutorial/datastructures.html">
+Python documentation tutorial about data structures</a>.
 
 </div>
 <footer>
