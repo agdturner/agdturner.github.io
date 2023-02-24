@@ -31,23 +31,27 @@ DOM is fully loaded. -->
 <div>
 <h1>Agent Based Model Part 4</h1>
 <h2 id="1">1. Introduction</h2>
-<p>Up to now, our agents are lists of two items - the coordinates
-defining their location. More attributes could be added to the
-list to represent other characteristics of the agents, but it is
-almost certainly easier to define them a class for an agent and
-use this instead.</p>
-
-<h2 id="2">2. Define an Agent class</h2>
+<p>Currently, agents is a lists of lists. The lists agents
+contains have two items - the coordinates defining each agent's
+location. More attributes could be added to the list to represent
+other agent characteristics, but dealing with lists is not as easy
+as dealing with objects defined by a class and defining classes
+allows for a better separation of functionality. So, in this
+practical, the agents list will change to contain objects which
+are instances of an Agent class. This Agent class will be defined
+in a different file.</p>
 <p>In your local code repository src directory create a new
 directory called "abm4". Open Spyder and use "save as" to save
 your "model.py" file from abm3 into the abm4 directory.</p>
-<p>Create a new file in the abm4 directory called
+
+<h2 id="2">2. Agent class definition</h2>
+<p>Create a new file in the abm4 directory named
 "agentframework.py", and add a minimal class definition for
 an Agent class in it:</p>
 <pre><code class="language-python">class Agent():
     pass</code></pre>
-<p>The keyword "pass" does not really do anything, but ensures
-this code is syntactically correct. In the model.py file reduce
+<p>The keyword "pass" does nothing really, but ensures this code
+is syntactically correct. In the model.py file reduce
 n_iterations to 10, and add the following import statement:</p>
 <pre><code class="language-python">import agentframework</code></pre>
 <p>At the start of the "# Initialise agents" code section add the
@@ -57,8 +61,8 @@ print("type(a)", type(a))</code></pre>
 <p>Run model.py and examine the output which should contain the
 following line:</p>
 <pre>type(a) <class 'agentframework.Agent'></pre>
-<p>So, we have successfully created an instance of the class Agent
-as defined in the agentframework module.</p>
+<p>This indicates that an instance of the class Agent as defined
+in the agentframework module was successfully created.</p>
 <p>Add a constructor method to the Agent class that initialises
 x and y variable attributes of instances of the Agent class
 to be random Integers between 0 and 99 as follows:</p>
@@ -70,21 +74,18 @@ class Agent:
         self.y = random.randint(0, 99)</code></pre>
 <p>Note that for this to work, it was necessary to import the
 random module.</p>
-<p>In model.py, add a statement to print Agent a after it has
-been instantiated and run the program again.</p>
+<p>In model.py, add a statement to print the Agent instance that
+was instantiated, and run the program again.</p>
 <p>The new print statement should produce output that looks like
 the following:</p>
 <pre><agentframework.Agent object at 0x00000249AEA21D88></pre>
 <p>The last part of your print statement will probably be
 different and if you run the program again, it will likely be
 different again. That last part is a memory address for where the
-object is stored. Python does not control which address in memory
-is used to store things, this is handled by the underlying
-operating system, and what is allocated will depend on the system
-state when the program is run.</p>
+object is stored.</p>
 <p>When printing an Agent instance, it would be better if
-something more informative were printed. The way yo do this is to
-override the __str__ method in the Agent class. To do this, define
+something more informative were printed. The best way to do this
+is to override the __str__ method in the Agent class by defining
 the method __str__() in the Agent class as follows:</p>
 <pre><code class="language-python">def __str__(self):
     return self.__class__.__name__ + "(x=" + str(self.x) \
@@ -92,12 +93,14 @@ the method __str__() in the Agent class as follows:</p>
 <p>Note that this has to be indented at the right level in the
 Agent class. Also note that it returns a String which includes
 the name of the class and details of the x and y variable
-attributes which have been transformed by the built in function
-str() to add them to the String that is returned. Run model.py
-again and the print statement should now result in the following:
+attributes which have been transformed by the builtin function
+str() to be Strings that are added to the String that is returned.
+Run model.py again and the print statement should now result in
+the following:
 </p>
 <pre>x=49, y=97</pre>
-<p>Change the "# Initialise agents" code section to be:</p>
+<p>Change the "# Initialise agents" code section in model.py to
+be:</p>
 <pre><code class="language-python"># Initialise agents
 agents = []
 for i in range(n_agents):
@@ -120,10 +123,10 @@ Agent(x=27, y=64)
 Agent(x=17, y=36)
 Agent(x=17, y=96)
 Agent(x=12, y=79)
-[<agentframework.Agent object at 0x00000249B140C6C8>, <agentframework.Agent object at 0x00000249B14194C8>, <agentframework.Agent object at 0x00000249B1419148>, <agentframework.Agent object at 0x00000249B1419388>, <agentframework.Agent object at 0x00000249B14193C8>, <agentframework.Agent object at 0x00000249B1419448>, <agentframework.Agent object at 0x00000249B14191C8>, <agentframework.Agent object at 0x00000249B1419048>, <agentframework.Agent object at 0x00000249B1419488>, <agentframework.Agent object at 0x00000249B1419208>]
+[@lt;agentframework.Agent object at 0x00000249B140C6C8@gt;, @lt;agentframework.Agent object at 0x00000249B14194C8@gt;, @lt;agentframework.Agent object at 0x00000249B1419148@gt;, @lt;agentframework.Agent object at 0x00000249B1419388@gt;, @lt;agentframework.Agent object at 0x00000249B14193C8@gt;, @lt;agentframework.Agent object at 0x00000249B1419448@gt;, @lt;agentframework.Agent object at 0x00000249B14191C8@gt;, @lt;agentframework.Agent object at 0x00000249B1419048@gt;, @lt;agentframework.Agent object at 0x00000249B1419488@gt;, @lt;agentframework.Agent object at 0x00000249B1419208@gt;]
 Traceback (most recent call last):
 
-  File "\abm4\model.py", line 95, in <module>
+  File "\abm4\model.py", line 95, in @lt;module@gt;
     print("Maximum distance between all the agents", get_max_distance())
 
   File "\abm4\model.py", line 81, in get_max_distance

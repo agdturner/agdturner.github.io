@@ -118,16 +118,16 @@ producing classes.</p>
 <p>The classes from which a class inherits are known as super
 classes, and the classes that inherit from another class are known
 as subclasses.</p>
-<p>Inheritance is heirarchical and can be very useful. It allows
-things common to multiple classes to be stored in a super class
-avoiding having similar attributes and methods repeated in
-subclasses. Those attributes and methods are accessible directly
-from subclasses. Methods can be overridden by defining a method
-with the same name as the superclass method to be overridden.</p>
-<p>The super() function can be used in a subclass, to access an
-overriden method of a superclass. In this way an overridden method
-can access the superclass method that it is overriding as we shall
-see in an example below.<p>
+<p>Inheritance is heirarchical and allows for things in common to
+multiple classes to be stored in a super class avoiding having
+to define attributes and methods repeatedly in subclasses. Those
+attributes and methods in a superclass are accessible directly
+from subclasses.</p>
+<p>Methods can be overridden by defining a method with the same
+name as the superclass method. The function super() can be used,
+to access an overriden method. In this way an overridden method
+can access the superclass method that it is overriding as shown in
+an example below.<p>
 <p>Python supports multiple inheritance where a subclass may
 inherit from multiple superclasses. To do this, the classes being
 inherited from are listed in the class definition - each separated
@@ -149,12 +149,13 @@ class Wolf(Agent):
         super().__init__(x, y)
         self.pack = pack</code></pre>
 <p>The constructors methods of the Goat and Wolf classes call the
-superclass (Agent) constructor method. Each instance of Goat is
+superclass constructor method. Each instance of Goat would be
 instantiated with the attribute self.hungry equal to True. Each
-wolf is given a parameter called pack which it assigns an
-attribute self.pack to. In this example, pack could be a list that
-gives access to other members of a Wolf instances pack (other Wolf
-instances).</p>
+instance of Wolf is given a parameter called pack when
+constructed. This is a variable which is assigned to the
+respective attribute. In this example, pack could be a identifier
+for a pack that the instance is part of, or it could be a list of
+references or something else.</p>
 <p>Inheritance allows for a class (A) to be extended to create
 different subclasses, and a further class to be defined as the
 subclass of multiple of the subclasses of A. In such a case, there
@@ -165,17 +166,18 @@ The Python Tutorial on Classes Section on Multiple Inheritance</a>.</p>
 
 <h2 id="4">4. Access Control</h2>
 <p>Python does not have a way to declare the accessibility of
-variables or functions as is common in other languages.</p>
-<p>Instead it uses a convention that variables that have a name
-starting with an underscore and functions starting with a double
-underscore should not be accessed directly from outside, but these
-may be accessed by subclasses.</p>
-<p>The Property Function property() can be used with a
-specifically named get method to provide indirect access to a
-class attribute. The function can optionally allow for setting the
-value and deleting the variable too. In the following example the
-Property Function is set up to pass, modify and delete the
-attribute variable _x:</p>
+variables or functions/methods as is common in other languages.
+</p>
+<p>Instead there is a naming convention which is that variables
+that have a name starting with an underscore and functions
+starting with a double underscore are not to be accessed directly
+from outside the class or module.</p>
+<p>The function property() can be used with a specifically named
+get method to provide indirect access to a object attribute. This
+can optionally allow for setting the attribute value and deleting
+the attribute too. In the following example the function
+property() is set up to pass, modify and delete the attribute _x:
+</p>
 <pre><code class="language-python">class Agent():
     def __init__(self, ax, ay):
         self._x = ax
@@ -196,12 +198,10 @@ attribute variable _x:</p>
 a = agent.Agent(0, 0):
 a.x = 3
 print(a.x) # <-- Prints 3</code></pre>
-<p>The @property decorator can be used to turn a method into a
-"getter" for an attribute. A property object has getter, setter,
-and deleter methods usable as decorators that create a copy of the
-property with the corresponding accessor function set to the
-decorated function. The following is equivallent to the last code
-snippet:
+<p>So, rather than access the attribute _x directly, this is done
+via a function which is aliased as x.</p>
+<p>Decorators can alternatively be used to achieve the same thing
+as follows:</p>
 <pre><code class="language-python">class Agent():
     def __init__(self, ax, ay):
         self._x = ax
@@ -227,9 +227,9 @@ The Python Library Documentation Chapter on Functions Section on Property</a>.</
 This __str__ method can be overriden to help the print function to
 represent the instance of a class as a String. By default the
 memory address of the class instance is printed, but rarely is
-this of any use. For example, the following allows for Agent
-instances to print instead their coordinates and for a Goat the
-String also includes details of the hungry attribute:
+this of any use. The following allows for Agent instances to print
+their coordinates and for a Goat the String also includes details
+of the hungry attribute:
 <pre><code class="language-python">class Agent():
     def __init__(self, x, y):
         self.x = x
@@ -246,12 +246,13 @@ class Goat(Agent):
     def __str__(self):
         return super().__str__() + ", hungry=" + self.str(hungry)</code></pre>
 <p>More details on customisation can be found in
-<a href="https://docs.python.org/3/reference/datamodel.html#basic-customization
+<a href="https://docs.python.org/3/reference/datamodel.html#basic-customization">
 The Python 3 Language Reference Data Model Chapter Section on Basic Customization</a>.</p>
 
 <h2 id="6">6. Further learning</h2>
 <p>For a more in depth consideration of classes, see:
-<a href="https://docs.python.org/3/tutorial/classes.html">The Python Tutorial on Classes</a>.</p>
+<a href="https://docs.python.org/3/tutorial/classes.html">
+The Python Tutorial on Classes</a>.</p>
 
 </div>
 <footer>
