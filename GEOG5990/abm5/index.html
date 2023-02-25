@@ -31,11 +31,10 @@ DOM is fully loaded. -->
 <div>
 <h1>Agent Based Model Part 5</h1>
 <h2 id="1">1. Introduction and Preparation</h2>
-<p>The next step in developing our Agent Based Model is to load
-some spatial data to represent a varied environment in which the
-agents interact. The model will be changed so that the agents
-interact with the environment in a simplistic way. Model output
-in the form of a file will be generated.</p>
+<p>In this part the ABM will be enhanced by loading spatial data
+representing an environment from a file, agents will interact with
+the environment in a simplistic way, and an output file will be
+generated.</p>
 <p>In your local code repository src directory create a new
 directory called "abm5". Open Spyder and use "save as" to save
 your "model.py" and "agentframework.py" files from abm4 into the
@@ -69,39 +68,46 @@ for line in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):
 f.close()
 print(data)</code></pre>
 <p>Run this new file. The output should correspond to the input
-data file only the values are presented with ".0" added.</p>
-<p>Change the code block into a function called "read_data" that
-returns data. Write code to call this function from model.py by
-adding the following import statement:</p>
+data file only the values are presented with ".0" added as they
+have been loaded as Float type numbers.</p>
+<p>Note that the data variable is a list of lists. Essentially
+the list is the rows of data and the lists are the values in the
+columns for each row.</p>
+<p>Change the code block into a function called 'read_data' that
+returns the data variable. Write code to call this function from
+model.py by adding the following import statement:</p>
 <pre>import io</pre>
 <p>After the import statements try to call the read_data function
 using:</p>
 <pre>environment = io.read_data()</pre>
-<p>It is expected that you will encounter the following error:</p>
+<p>It is expected that you will encounter an error along the lines
+of the following:</p>
 <pre>Traceback (most recent call last):
 
   File "\src\abm5\model.py", line 19, in <module>
     environment = io.read_data('../../data/input/in.txt')
 
 AttributeError: module 'io' has no attribute 'read_data'</pre>
-<p>This is confusing until you realise that there is a name
-collision because io is also a Python standard library and this is
-being imported instead. Create a directory called my_modules and
-move io.py and agentframework.py into it. Change the respective
-import statements in model.py to be:</p>
+<p>This error has occured because there is a name collision as
+'io' is also a python standard library module and this is what is
+imported instead of the 'io' module that you have just created.
+</p>
+<p>Create a directory called my_modules and move io.py and
+agentframework.py into it. Change the respective import statements
+in model.py to be:</p>
 <pre><code class="language-python">from my_modules import agentframework
 from my_modules import io</code></pre>
-<p>Your code is hopefully now correct and should run without
-error, but if you still get a confusing error and you are using
-Spyder, try restarting Spyder.</p>
-<p>When reading the data add code to check that each row of data
-contains the same number of values and modify the read_data
-function to return the number of lines (rows) and number of values
-in each line (columns).</p>
-<p>Let's regard each row as aligning with a y-coordinate and each
-column as aligning with an x-coordinate.</p>
+<p>Your code should now run without error. If you still get a
+confusing error then try restarting Spyder and hopefully the error
+will no longer be raised.</p>
+<p>Change the function read_data so it checks that each row of
+data contains the same number of values, and so it returns the
+number of lines (n_rows) and number of values in each line
+(n_cols) as well as data.</p>
 
 <h2 id="3">3. Plot environment</h2>
+<p>Assume that each row aligns with a y-coordinate and each column
+aligns with an x-coordinate.</p>
 <p>To plot the agents on the environment add the following at the
 start of the plotting section:</p>
 <pre>plt.imshow(environment)</pre>
@@ -118,12 +124,12 @@ plt.xlim(x_min, x_max)</pre>
   alt="A plot of agents on a limited part of the environment." /></p>
 
 <h2 id="4">4. Agent-Environment Interaction</h2>
-<p>Let us imagine that the environment values represent resources
-that can be eaten/stored by agents.</a>
+<p>Imagine that the environment values represent resources that
+can be eaten/stored by agents.</a>
 <p>Add environment as a parameter to the Agent class constructor.
-Set a class attribute in the same way as for the
+Set a class attribute in the same way as was done for the
 parameter/variable i, and add a store attribute setting this equal
-to zero. The __init__ method should be something like:</p>
+to zero. Your __init__ method should be something like:</p>
 <pre><code class="language-python">def __init__(self, i, environment):
 """
 The constructor method.
@@ -145,31 +151,36 @@ self.environment = environment
 self.x = random.randint(0, 99)
 self.y = random.randint(0, 99)
 self.store = 0</code></pre>
-<p>In model.py when you instantiate Agent objects be sure to pass
-in the parameters/arguments in the correct order.</p>
+<p>Where Agent class objects are instantiated in model.py, pass
+in the parameters/arguments either as kwargs or in the correct
+order.</p>
 <p>In the Agent class define the following function:</p>
 <pre><code class="language-python">def eat(self):
-    if self.environment[self.y][self.x] > 10:
+    if self.environment[self.y][self.x] &gt;= 10:
         self.environment[self.y][self.x] -= 10
         self.store += 10</code></pre>
 <p>Think about what this code does and adapt it so that if the
-value of environment[self.y][self.x] &lt;= 10 then the Agent
-instance stores what there is. If two or more agents are at the
-same location and there is less at the location for all the agents
-to have 10, then those that are processed first will be getting
-more. We will worry about this later.</p>
+value of environment[self.y][self.x] is less than &lt;= 10 then
+the Agent instance stores what there is and this is taken from
+environment.</p>
+<p>Consider that if two or more agents are at the same location,
+and there is less resource at the location for all the agents
+to have 10, then those that are processed first will get more! Do
+not worry about this for now, but keep this in mind and write a
+comment in your source code about it.</p>
 <p>In model.py call the new eat function after the move function
-and run the file. You should be able to see that the environment
-in the plot has changed around where the agents have been plotted,
-as in the following image.</p>
-<p><img src="../../resources/abm5/Figure_3.png"
-  alt="A plot of agents on a limited part of the environment with part of it eaten away." /></p>
+and run the program. You should be able to see that the
+environment in the plot has changed around where the agents are
+plotted as in the following image:
+<img src="../../resources/abm5/Figure_3.png"
+  alt="A plot of agents on a limited part of the environment with part of it eaten away." />
 </p>
-<p>The eating away should be more obvious if n_iterations is
-increased.</p>
-<p>Commit your code to your local repository.</p>
+<p>If the changes are hard to see, try increasing n_iterations and
+hopfully this will be more obvious.</p>
+<p>Commit your code to your local repository and assuming you are
+using GitHub - push your changes to GitHub.</p>
 
-<h2 id="5">5. Coding Tasks</h2>
+<h2 id="5">5. Assignment 1 Coding Tasks</h2>
 <p>Define a function in model.py that adds up all the values in
 environment.</p>
 <p>Define another function that adds up all the store values in
@@ -178,10 +189,12 @@ all the agents.</p>
 resource and store in the system is not changing after each
 iteration of the model.</p>
 <p>Define a function to write out the values of environment to a
-file at the end of the the iterations.</p>
+file and call this function after the main model loop.</p>
+<!--
 <p>Try setting some of the model parameters towards the start of
 the program using keyboard input using something like:</p>
 <pre><code class="language-python">n_agents = int(input("Set n_agents: Key in a positive integer then press <ENTER>:"))</code></pre>
+-->
 <p>Commit your code to your local repository, and assuming you are
 using GitHub - push your changes to GitHub.</p>
 

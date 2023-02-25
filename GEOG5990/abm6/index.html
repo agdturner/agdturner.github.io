@@ -75,21 +75,21 @@ dot operator. (In other words change "get_distance" to
 <p>Import the geometry module into agentframework and add the
 following method:</p>
 <pre><code class="language-python">def share(self, neighbourhood):
-# Create a list of agents in neighbourhood
-neighbours = []
-#print(self.agents[self.i])
-for a in self.agents:
-    distance = geometry.get_distance(a.x, a.y, self.x, self.y)
-    if distance < neighbourhood:
-        neighbours.append(a.i)
-# Calculate amount to share
-n_neighbours = len(neighbours)
-#print("n_neighbours", n_neighbours)
-shares = self.store / n_neighbours
-#print("shares", shares)
-# Add shares to store_shares
-for i in neighbours:
-    self.agents[i].store_shares += shares</code></pre>
+    # Create a list of agents in neighbourhood
+    neighbours = []
+    #print(self.agents[self.i])
+    for a in self.agents:
+        distance = geometry.get_distance(a.x, a.y, self.x, self.y)
+        if distance < neighbourhood:
+            neighbours.append(a.i)
+    # Calculate amount to share
+    n_neighbours = len(neighbours)
+    #print("n_neighbours", n_neighbours)
+    shares = self.store / n_neighbours
+    #print("shares", shares)
+    # Add shares to store_shares
+    for i in neighbours:
+        self.agents[i].store_shares += shares</code></pre>
 <p>This code is using the fact that self.i will be the same as the
 index of an agent in the agents list. In the first For Loop the
 distance between self and each agent in the agents lists
