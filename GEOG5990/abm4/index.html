@@ -57,10 +57,10 @@ an Agent class in it:</p>
 syntactically correct and will run.</p>
 <p>In the model.py file reduce n_iterations to 10, and add the
 following import statement:</p>
-<pre><code class="language-python">import agentframework</code></pre>
+<pre><code class="language-python">import agentframework as af</code></pre>
 <p>At the start of the "# Initialise agents" code section add the
 following lines:</p>
-<pre><code class="language-python">a = agentframework.Agent()
+<pre><code class="language-python">a = af.Agent()
 print("type(a)", type(a))</code></pre>
 <p>Run model.py and examine the output which should contain the
 following line:</p>
@@ -109,7 +109,7 @@ be:</p>
 agents = []
 for i in range(n_agents):
     # Create an agent
-    agents.append(agentframework.Agent())
+    agents.append(af.Agent())
     print(agents[i])
 print(agents)</code></pre>
 <p>Run model.py and you should get similar output to the
@@ -268,7 +268,7 @@ using GitHub - push your changes to GitHub.</p>
 <div>
 <p><a id="next" class="nav" href="../io/index.html">Next: IO</a></p>
 </div>
-<p>Date last modified: 2023-02-25.</p>
+<p>Date last modified: 2023-02-26.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
