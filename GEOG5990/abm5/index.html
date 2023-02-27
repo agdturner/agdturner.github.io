@@ -80,25 +80,27 @@ model.py by adding the following import statement:</p>
 <p>After the import statements try to call the read_data function
 using:</p>
 <pre><code class="language-python">environment = io.read_data()</code></pre>
-<p>It is expected that you will encounter an error along the lines
-of the following:</p>
+<p>You should encounter an error along the lines of the following:
+</p>
 <pre>Traceback (most recent call last):
 
   File "\src\abm5\model.py", line 19, in <module>
     environment = io.read_data('../../data/input/in.txt')
 
 AttributeError: module 'io' has no attribute 'read_data'</pre>
-<p>This error has occured because there is a name collision as
-'io' is also a python standard library module and this is what is
-imported instead of the 'io' module that you have just created.
-</p>
-<p>Create a directory called my_modules and move io.py and
+<p>This error occurs because there is a name collision - 'io' is
+also a python standard library module and this is what is imported
+instead of the module you have just created.</p>
+<p>To overcome this error there is a need to package the module.
+This involves creating a directory, moving io.py into it and
+modifying the import statement. In the src directory, create a
+directory called "my_modules" and move both io.py and
 agentframework.py into it. Change the respective import statements
 in model.py to be:</p>
 <pre><code class="language-python">import my_modules.agentframework as af
 import my_modules.io as io</code></pre>
-<p>Your code should now run without error. If you still get an
-error then try restarting Spyder.</p>
+<p>Run model.py and it should now run without the error. (If you
+still get an error then try restarting Spyder.)</p>
 <p>Change the function read_data so it checks that each row of
 data contains the same number of values. Also change the function
 so it returns the number of lines (n_rows) and number of values
@@ -110,6 +112,13 @@ aligns with an x-coordinate.</p>
 <p>To plot the agents on the environment add the following at the
 start of the plotting section:</p>
 <pre><code class="language-python">plt.imshow(environment)</code></pre>
+<p>Change the initialisation of x_max and y_max to be as follows:
+</p>
+<pre><code class="language-python"># The maximum an agents x coordinate is allowed to be.
+x_max = n_cols - 1
+# The maximum an agents y coordinate is allowed to be.
+#y_max = 99
+y_max = n_rows - 1</code></pre>
 <p>A plot should be produced that looks like:</p>
 <p><img src="../../resources/abm5/Figure_1.png"
   alt="A plot of agents on the environment." /></p>
@@ -121,7 +130,31 @@ plt.xlim(x_min, x_max)</code></pre>
 <p>The output plot should now look like:</p>
 <img src="../../resources/abm5/Figure_2.png"
   alt="A plot of agents on a limited part of the environment." />
-<p>Change the initialisation of x_max and y_max as follows:</p>
+<p>Currently, the agents are being initialised in a corner of the
+environment. Change the code so that they are initialised in the
+middle as follows: Change the constructor function of an agent so
+that it also passes in the n_rows and n_cols parameters:</p>
+<pre><code class="language-python">def __init__(self, i, n_rows, n_cols):
+    """
+    The constructor method.
+
+    Parameters
+    ----------
+    i : Integer
+        To be unique to each instance.
+    n_rows : Integer
+        The number of rows in environment.
+    n_cols : Integer
+        The number of columns in environment.
+    Returns
+    -------
+    None.
+    """
+    self.i = i
+    self.x = random.randint(n_cols/3 - 1, 2 * n_cols / 3)
+    self.y = random.randint(n_rows/3 - 1, 2 * n_rows / 3)</code></pre>
+<p>In model.py, change the initialisation of x_max and y_max as
+follows:</p>
 <pre><code class="language-python"># The maximum x coordinate.
 x_max = n_cols - 1
 # The maximum y coordinate.
@@ -129,8 +162,9 @@ y_max = n_rows - 1</code></pre>
 <p>The output plot should now look like:</p>
 <img src="../../resources/abm5/Figure_3.png"
   alt="A plot of agents on the environment in the middle." />
-<p>
-</p>
+<p>Note that although the random seed has not changed, the pattern
+of agent locations has changed. This is because the calls to
+random.randint have significantly different limits.</p>
 
 <h2 id="4">4. Agent-Environment Interaction</h2>
 <p>Imagine that the environment values represent resources that
@@ -138,8 +172,8 @@ can be eaten/stored by agents.</a>
 <p>Add environment as a parameter to the Agent class constructor.
 Set a class attribute in the same way as was done for the
 parameter/variable i, and add a store attribute setting this equal
-to zero. Your __init__ method should be something like:</p>
-<pre><code class="language-python">def __init__(self, i, environment):
+to zero. Your __init__ method should be as follows:</p>
+<pre><code class="language-python">def __init__(self, i, environment, n_rows, n_cols):
 """
 The constructor method.
 
@@ -149,6 +183,10 @@ i : Integer
     To be unique to each instance.
 environment : List
     A reference to a shared environment
+n_rows : Integer
+    The number of rows in environment.
+n_cols : Integer
+    The number of columns in environment.
 
 Returns
 -------
@@ -157,8 +195,8 @@ None.
 """
 self.i = i
 self.environment = environment
-self.x = random.randint(0, 99)
-self.y = random.randint(0, 99)
+self.x = random.randint(n_cols/3 - 1, 2 * n_cols / 3)
+self.y = random.randint(n_rows/3 - 1, 2 * n_rows / 3)
 self.store = 0</code></pre>
 <p>Where Agent class objects are instantiated in model.py, pass
 in the parameters/arguments either as kwargs or in the correct
@@ -168,53 +206,35 @@ order.</p>
     if self.environment[self.y][self.x] &gt;= 10:
         self.environment[self.y][self.x] -= 10
         self.store += 10</code></pre>
-<p>Think about what this code does and adapt it so that if the
-value of environment[self.y][self.x] is less than &lt;= 10 then
-the Agent instance stores what there is and this is taken from
-environment.</p>
-<p>Consider that if two or more agents are at the same location,
-and there is less resource at the location for all the agents
-to have 10, then those that are processed first will get more! Do
-not worry about this for now, but keep this in mind and write a
-comment in your source code about it.</p>
+<p>Think about what this code is for and adapt it so that if the
+value of environment[self.y][self.x] is less than or equal to 10
+then the Agent instance stores what there is and this is removed
+from the environment.</p>
+<p>Consider what happens when two or more agents are at the same
+location and there is less resource at the location for all the
+agents to have 10. Those agents processed first will get more!
+Keep this in mind and write a comment in your source code about
+it. Write a docstring for the method.</p>
 <p>In model.py call the new eat function after the move function
-and run the program. You should be able to see that the
-environment in the plot has changed around where the agents are
-plotted as in the following image:
-<img src="../../resources/abm5/Figure_3.png"
-  alt="A plot of agents on a limited part of the environment with part of it eaten away." />
+and run the program. The environment in the plot should have
+changed around where the agents are plotted, but this is difficult
+to see.</p>
+<p>To zoom into the plot, change the plot limits as follows:
 </p>
-<p>If the changes are hard to see, try increasing n_iterations and
-hopfully this will be more obvious.</p>
-<p>Currently, the agents are being initialised in a corner of the
-environment. Change the code so that they are initialised in the
-middle as follows: Change the constructor function of an agent so
-that it is also passed the n_rows and n_cols parameters.
-, but we want them to be
-<pre><code class="language-python">def __init__(self, i, environment, n_rows, n_cols):
-    """
-    The constructor method.
-
-    Parameters
-    ----------
-    i : Integer
-        To be unique to each instance.
-    environment : List
-        A reference to a shared environment.
-    n_rows : Integer
-        The number of rows in environment.
-    n_cols : Integer
-        The number of columns in environment.
-    Returns
-    -------
-    None.
-
-    """
-    self.i = i
-    self.environment = environment
-    self.x = random.randint(0, 99)
-    self.y = random.randint(0, 99)
-    self.store = 0</code></pre>
+<pre><code class="language-python">plt.ylim(y_max / 3, y_max * 2 / 3)
+plt.xlim(x_max / 3, x_max * 2 / 3)</code></pre>
+<p>Run the program again and you should get the following image:
+</p>
+<img src="../../resources/abm5/Figure_4.png"
+alt="A plot of agents on a limited part of the environment with part of it eaten away and the agents centralised." />
+<p>Note that two of the agents have moved to the right beyond the
+zoomed area.</p>
+<p>Increase n_iterations to 100 and run again and you should get
+the following image:</p>
+<img src="../../resources/abm5/Figure_5.png"
+  alt="A plot of agents on a limited part of the environment with part of it eaten away." />
+<p>Note that some of the agents are no longer in this zoom window.
+</p>
 <p>Commit your code to your local repository and assuming you are
 using GitHub - push your changes to GitHub.</p>
 
@@ -240,7 +260,7 @@ using GitHub - push your changes to GitHub.</p>
 <div>
 <p><a id="next" class="nav" href="../modules/index.html">Next: Modules</a></p>
 </div>
-<p>Date last modified: 2023-02-26.</p>
+<p>Date last modified: 2023-02-27.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
