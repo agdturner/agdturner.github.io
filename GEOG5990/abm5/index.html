@@ -122,9 +122,11 @@ y_max = n_rows - 1</code></pre>
 <p>A plot should be produced that looks like:</p>
 <p><img src="../../resources/abm5/Figure_1.png"
   alt="A plot of agents on the environment." /></p>
-<p>Notice that the plot y-axis has flipped. Limit the plot axes
-and flip the y-axis back by adding the following code before the
-plot.show() function is called:</p>
+<p>The pattern of agent locations is the same, although the plot
+y-axis has flipped and the x-axis and y-axis now have the same
+increments so the the pattern is more squashed along the x-axis.
+Limit the plot axes and flip the y-axis back by adding the
+following code before the plot.show() function is called:</p>
 <pre><code class="language-python">plt.ylim(y_min, y_max)
 plt.xlim(x_min, x_max)</code></pre>
 <p>The output plot should now look like:</p>
@@ -132,8 +134,9 @@ plt.xlim(x_min, x_max)</code></pre>
   alt="A plot of agents on a limited part of the environment." />
 <p>Currently, the agents are being initialised in a corner of the
 environment. Change the code so that they are initialised in the
-middle as follows: Change the constructor function of an agent so
-that it also passes in the n_rows and n_cols parameters:</p>
+middle by modifying the constructor method. A good way to do this
+is to pass in n_rows and n_cols and use these parameters to
+initialise the x and y coordinates as follows:</p>
 <pre><code class="language-python">def __init__(self, i, n_rows, n_cols):
     """
     The constructor method.
@@ -151,28 +154,34 @@ that it also passes in the n_rows and n_cols parameters:</p>
     None.
     """
     self.i = i
-    self.x = random.randint(n_cols/3 - 1, 2 * n_cols / 3)
-    self.y = random.randint(n_rows/3 - 1, 2 * n_rows / 3)</code></pre>
-<p>In model.py, change the initialisation of x_max and y_max as
-follows:</p>
-<pre><code class="language-python"># The maximum x coordinate.
-x_max = n_cols - 1
-# The maximum y coordinate.
-y_max = n_rows - 1</code></pre>
-<p>The output plot should now look like:</p>
+    tnc = int(n_cols / 3)
+    self.x = random.randint(tnc - 1, (2 * tnc) - 1)
+    tnr = int(n_rows / 3)
+    self.y = random.randint(tnr - 1, (2 * tnr) - 1)</code></pre>
+<p>When calling the constuctor method pass in the variables n_rows
+and ncols. Run model.py. The output plot should look like the
+following:</p>
 <img src="../../resources/abm5/Figure_3.png"
   alt="A plot of agents on the environment in the middle." />
 <p>Note that although the random seed has not changed, the pattern
-of agent locations has changed. This is because the calls to
-random.randint have significantly different limits.</p>
+of agent locations is different. This is because the calls to
+random.randint are different and produce different coordinates.
+The pattern could be kept the same if 100 was added to the x and
+y values. The following code would do this and effectively
+initialise agents in the central third of a similar rectangular
+environment irrespective of the number of rows and columns:</p>
+<pre><code class="language-python">tnc = int(n_cols / 3)
+self.x = random.randint(0, tnc - 1) + tnc
+tnr = int(n_rows / 3)
+self.y = random.randint(0, tnr - 1) + tnr</code></pre>
 
 <h2 id="4">4. Agent-Environment Interaction</h2>
 <p>Imagine that the environment values represent resources that
-can be eaten/stored by agents.</a>
-<p>Add environment as a parameter to the Agent class constructor.
-Set a class attribute in the same way as was done for the
-parameter/variable i, and add a store attribute setting this equal
-to zero. Your __init__ method should be as follows:</p>
+can be eaten/stored by Agent class instances (agents).</a>
+<p>Change the constructor method of the Agent class again so that
+environment is also expected to be passed in and keep a reference
+to this as a class attribute. Also create a store attribute and
+set this equal to zero:</p>
 <pre><code class="language-python">def __init__(self, i, environment, n_rows, n_cols):
 """
 The constructor method.
@@ -198,29 +207,24 @@ self.environment = environment
 self.x = random.randint(n_cols/3 - 1, 2 * n_cols / 3)
 self.y = random.randint(n_rows/3 - 1, 2 * n_rows / 3)
 self.store = 0</code></pre>
-<p>Where Agent class objects are instantiated in model.py, pass
-in the parameters/arguments either as kwargs or in the correct
-order.</p>
-<p>In the Agent class define the following function:</p>
+<p>Change model.py so that environment is passed in correctly as
+agents are initialised.</p>
+<p>In the Agent class define the following method:</p>
 <pre><code class="language-python">def eat(self):
     if self.environment[self.y][self.x] &gt;= 10:
         self.environment[self.y][self.x] -= 10
         self.store += 10</code></pre>
-<p>Think about what this code is for and adapt it so that if the
-value of environment[self.y][self.x] is less than or equal to 10
-then the Agent instance stores what there is and this is removed
-from the environment.</p>
-<p>Consider what happens when two or more agents are at the same
-location and there is less resource at the location for all the
-agents to have 10. Those agents processed first will get more!
-Keep this in mind and write a comment in your source code about
-it. Write a docstring for the method.</p>
-<p>In model.py call the new eat function after the move function
+<p>This method checks the value of the environment where the agent
+is located and if this is greater than or equal to 10, the value
+of the environment where the agent is located is reduced by 10 and
+10 is added to the store attribute of the agent.</p>
+<p>Write a docstring for the method eat().</p>
+<p>In model.py call the method eat() after the move function
 and run the program. The environment in the plot should have
 changed around where the agents are plotted, but this is difficult
 to see.</p>
-<p>To zoom into the plot, change the plot limits as follows:
-</p>
+<p>Change the plot limits for a closer look at the centre of the
+environment as follows:</p>
 <pre><code class="language-python">plt.ylim(y_max / 3, y_max * 2 / 3)
 plt.xlim(x_max / 3, x_max * 2 / 3)</code></pre>
 <p>Run the program again and you should get the following image:
@@ -228,17 +232,28 @@ plt.xlim(x_max / 3, x_max * 2 / 3)</code></pre>
 <img src="../../resources/abm5/Figure_4.png"
 alt="A plot of agents on a limited part of the environment with part of it eaten away and the agents centralised." />
 <p>Note that two of the agents have moved to the right beyond the
-zoomed area.</p>
+limited area.</p>
 <p>Increase n_iterations to 100 and run again and you should get
 the following image:</p>
 <img src="../../resources/abm5/Figure_5.png"
   alt="A plot of agents on a limited part of the environment with part of it eaten away." />
-<p>Note that some of the agents are no longer in this zoom window.
-</p>
+<p>Note that there is a checkerboard effect. This is a consequence
+of how the agents move!</p>
 <p>Commit your code to your local repository and assuming you are
 using GitHub - push your changes to GitHub.</p>
 
-<h2 id="5">5. Assignment 1 Coding Tasks</h2>
+<h2 id="5">5. Further Assignment 1 Coding Tasks</h2>
+<p>For the method eat() in the Agent class, detail an Else clause
+for the If Statement so that if the value of environment where the
+agent is located is less than or equal to 10 then what is there is
+removed and added to the store of the agent. Test this works and
+write a brief document about the testing. Consider what happens
+when two or more agents are at the same location and there is less
+resource at the location for all the agents to have 10... Those
+agents processed first will get more... And if we always process
+agents in the same order, then some agents will eat more as
+resources become limited... Keep this in mind and write a comment
+in your source code about it.
 <p>Define a function in model.py that adds up all the values in
 environment.</p>
 <p>Define another function that adds up all the store values in
@@ -249,9 +264,11 @@ iteration of the model.</p>
 <p>Define a function to write out the values of environment to a
 file and call this function after the main model loop.</p>
 <!--
-<p>Try setting some of the model parameters towards the start of
-the program using keyboard input using something like:</p>
+<p>Set some of the model parameters towards the start of
+the program using keyboard input such like:</p>
 <pre><code class="language-python">n_agents = int(input("Set n_agents: Key in a positive integer then press <ENTER>:"))</code></pre>
+<p>Get agents to optional stay still or moving left, right, up or down and not just diagonally.</p>
+<p>Get agents to move or eat but not both in an iteration.</p>
 -->
 <p>Commit your code to your local repository, and assuming you are
 using GitHub - push your changes to GitHub.</p>
@@ -260,7 +277,7 @@ using GitHub - push your changes to GitHub.</p>
 <div>
 <p><a id="next" class="nav" href="../modules/index.html">Next: Modules</a></p>
 </div>
-<p>Date last modified: 2023-02-27.</p>
+<p>Date last modified: 2023-02-28.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
