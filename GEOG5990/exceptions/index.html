@@ -31,22 +31,28 @@ DOM is fully loaded. -->
 <div>
 <h1>Exceptions</h1>
 <h2 id="1">1. Introduction</h2>
-<p>When the Python interpretter encounters a problem - a error, it
-generates an Exception object which can be interrogated to try to
-understand what the problem is.</p>
-<p>In this part of the course we will learn a bit about exception
-handling and debugging.</p>
+<p>In python, an exception is a warning or an error that is raised
+when the python interpreter encounters a problem or issue. There
+are numerous types of exception, all are derived from
+<a href="https://docs.python.org/3/library/exceptions.html#BaseException">
+BaseException</a>.</p>
+<p>The raised exception is an object which contains details of
+what the problem is.</p>
 
 <h2 id="2">2. Try-Except</h2>
-<p>If it is suspected that code might generate an exception, a
-try-except compound statement can be used.</p>
+<p>If it is suspected that code might generate an exception, or if
+code generates an exception and analysis of this is to be done,
+then a try-except compound statement can be used. This tries to
+run the code that might or does generate the exception and catches
+the exceptions if it occurs allowing further code to then be
+executed.</p>
 <p>Consider the following example:</p>
-<pre><code class="language-python"># Catch an excpetion
+<pre><code class="language-python"># Catch an exception
 import random
 try:
     a = 1/random.random()
     # Random generates number in
-    # range 0,1 so
+    # range [0,1) so
     # ZeroDivisionError possible
 except:
     a = 0
@@ -57,7 +63,7 @@ run the except clause.</p>
 <p>The except clause in the example above catches any exception
 type. It is possible to be more specific and catch particular
 types of exception, for example, the following example will only
-run the except cluase if the exception thrown is a
+run the except clause if the exception thrown is a
 ZeroDivisionError:</p>
 <pre><code class="language-python"># Catch a specific exception:
 import random
@@ -66,12 +72,12 @@ try:
     # Random generates number in
     # range 0,1 so
     # ZeroDivisionError possible
-except ZeroDivisionError :
+except ZeroDivisionError:
     a = 0
 print("Done")</code></pre>
-<p>There is a heirarchy of exception types. For details see:
-<a href="https://docs.python.org/3/library/exceptions.html#Exception">
-Python Exceptions</a>.</p>
+<p>There is a
+<a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">
+heirarchy of exception types</a>.</p>
 <p>If an exception is encountered and is not of the type handled
 by an except clause, it is raised to where the code that raised
 the exception was called from. This raising continues until there
@@ -85,37 +91,33 @@ in a couple of ways:</p>
 <pre><code class="language-python">import random
 try:
     a = 1/random.random()
-except (ZeroDivisionError, SystemError) :
+except (ZeroDivisionError, SystemError):
     a = 0
 print("Done")</code></pre></li>
 <li>Using multiple except clauses, for example:
 <pre><code class="language-python">import random
 try:
     a = 1/random.random()
-except (ZeroDivisionError, SystemError) :
+except ZeroDivisionError:
+    a = 0
+except SystemError:
+    print("Warning: SystemError")
     a = 0
 print("Done")</code></pre></li>
 </ol>
 
 <h2 id="3">3. Raising Exceptions</h2>
 <p>Exceptions are raised automatically if they are encountered and
-there no Try-Expect statement catches them.</p>
-<p>The Raise Keyword (raise) used inside an except clause, raises
-the exception. This is useful as temporarily catching the
-exception can help provide diagnostics and with debugging.</p>
-<p>The user can raise exceptions, for example, the following code
-raises a ZeroDivisionError exception:</p>
-<pre><code class="language-python">a = random.random()
-if a == 0:
-    raise ZeroDivisionError
-else:
-    a = 1/a</code></pre>
-<p>You can define your own exceptions by subclassing an
-exception.</p>
+not handled in an except clause.</p>
+<p>The keyword 'raise' can be used to raise an exception by simply
+giving the exception type. The following raises a SystemError</p>
+<pre><code class="language-python">raise SystemError</code></pre>
+<p>New types of exception can be defined by subclassing an
+exception from the builtin module.</p>
 
 <h2 id="4">4. Else and Finally</h2>
 <p>If there is something that should be run only if exceptions are
-not raised, the add an Else Clause (else) to the Try-Except, for
+not raised, then add an Else Clause (else) to the Try-Except, for
 example:</p>
 <pre><code class="language-python">import random
 try:
@@ -124,7 +126,7 @@ except:
     a = 0
 else:
     print(a)
-    # Exceptions here not caught.
+    # Exceptions here are raised.
 print("Done")</code></pre>
 <p>If there is something that should be run, whether an exception
 is raised or not, then add a Finally Clause (finally) to the
@@ -152,8 +154,8 @@ clause before restarting the loop, and the Break Keyword (break)
 can be used to execute the finally clause.</p>
 
 <h2 id="5">5. System Exit Calls</h2>
-<p>To exit the system at any point, call the Exit Function (exit)
-from the Sys Module (sys). For example:</p>
+<p>To exit the system at any point, call the function exit()
+from the sys module. For example:</p>
 <pre><code class="language-python">import sys
 sys.exit()</code></pre>
 <p>This has an arg option:</p>
