@@ -47,13 +47,33 @@ agents within a given distance. The algorithm is as follows:</p>
 <pre># Calculate which other agents are within a given distance.
 # Calculate shares.
 # Distribute shares.</pre>
-<p>In order to share resources fairly (in that the order in which
-agents are processed is irrelevant), there is a need to
-distinguish those resources to be shared with those that have been
-shared.</p>
+<p>In order to share resources so that the order in which agents
+are processed is irrelevant, there is a need to distinguish those
+resources to be shared with those that have been shared.</p>
 <p>Change the Agent contructor function to include the agents list
 and add an attribute for storing the shares as follows:</p>
-<pre><code class="language-python">def __init__(self, agents, i, environment, nrows, ncols):
+<pre><code class="language-python">def __init__(self, agents, i, environment, n_rows, n_cols):
+    """
+    The constructor method.
+
+    Parameters
+    ----------
+    agents : List
+        A list of Agent instances.
+    i : Integer
+        To be unique to each instance.
+    environment : List
+        A reference to a shared environment
+    n_rows : Integer
+        The number of rows in environment.
+    n_cols : Integer
+        The number of columns in environment.
+
+    Returns
+    -------
+    None.
+
+    """
     self.agents = agents
     self.i = i
     self.environment = environment
@@ -61,16 +81,16 @@ and add an attribute for storing the shares as follows:</p>
     self.y = random.randint(0, 99)
     self.store = 0
     self.store_shares = 0</code></pre>
-<p>Change model.py so that agents are initialised passing in the
-reference to the agents list.</p>
-<p>Test your code works and that this provide access to another
-agent by printing out another agent from an agent.</p>
+<p>Change model.py so that the agents list is passed as a
+parameter as agents are initialised.</p>
+<p>Test your code works and that from one agent you can access
+other agents by printing out one agent from another agent.</p>
 <p>In agentframework.py we are going to want to use the
 get_distance function, and we want to avoid cyclic imports. Create
 a new file called geometry.py in the my_modules directory, and
-move the get_distance method from model.py to it. Add an
-import statement for geometry in model.py and change where the
-function is called by referring to the new module and by using the
+move the get_distance method from model.py to it. Add an import
+statement for geometry in model.py and change where the function
+is called by referring to the new module and by using the
 dot operator. (In other words change "get_distance" to
 "geometry.get_distance").</p>
 <p>Import the geometry module into agentframework and add the
@@ -95,9 +115,9 @@ following method:</p>
 index of an agent in the agents list. In the first For Loop the
 distance between self and each agent in the agents lists
 (including itself) is calculated and if this is less than the
-neighbourhood paramter that is passed in, then the index of the
+neighbourhood parameter that is passed in, then the index of the
 agent from the agents list is stored in the neighbours list. The
-attribute self.store is than divided into shares and added to the
+attribute self.store is then divided into shares and added to the
 store_shares attribute of all neighbours.</p>
 <p>Replace the model loop in the model.py file with the following:
 </p>
@@ -137,7 +157,8 @@ the code works.</p>
 store of each agent in initialisation to be a value between 0 and
 100.</p>
 <p>Change the eat function so that if an agent store reaches 100,
-then half the store is released back to the environment.</p>
+then half the store is released back to the environment at the
+agent's location.</p>
 
 </div>
 <footer>
