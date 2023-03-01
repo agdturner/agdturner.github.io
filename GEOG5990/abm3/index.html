@@ -373,9 +373,9 @@ i + 1).
 <p>Once you've given this a try, compare your answer with
 <a href="../../resources/abm3/timing2.py">this one</a> in which
 the code has been simplified a little and the following graph of
-results was obtained:
+results was obtained:</p>
 <img src="../../resources/abm3/Figure_2.png"
-alt="Another graph of time (y axis) and n_agents (x axis)" /></p>
+alt="Another graph of time (y axis) and n_agents (x axis)" />
 
 <h2 id="4">4. Other distance statistics</h2>
 <p>In calculating the maximum distance, a lower bound of 0 was
@@ -391,16 +391,17 @@ positive infinity:</p>
 all the agents and record timings of how long it takes to
 calculate both the maximum and minimum distances using the two
 different functions.</p>
-<p>For Assignment 1, working on your own, change your code so that
-it calculates both the minimum and maximum distances in a single
-function and returns the result in a Tuple. Change the code so
-that the maximum and minumum distances are calculated using the
-same set of nested loops which you should find is a lot faster.
-Write a brief document about the timings, save it and commit this
-to your repository along with your code.
-</p>
+<p>Change your code so that it calculates both the minimum and
+maximum distances in a single function and returns the result in
+a Tuple. If you have not done so, change the code so that the
+maximum and minumum distances are calculated using the same set of
+nested loops. You should find that this is significantly quicker
+than calculating all the distances twice. Write a brief document
+about the timings, save it and commit this to your repository
+along with your code.</p>
 <p>As well as the maximum and minimum distance, you might want to
-calculate other statistics, such as the average distance. The
+calculate other statistics, such as the average distance.</p>
+<p>The
 <a href="https://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a>
 average can be calculated with one run through the data. To
 calculate the
@@ -412,43 +413,40 @@ the data values a second time. The
 and
 <a hre="https://en.wikipedia.org/wiki/Mode_(statistics)">mode</a>
 could be calculated with a single run through the data. For
-calculating the median the data needs to be sorted, and for
-calculating the mode it might be best to use a dictionary to store
-the count. However as distance is a continuous, the mode is
-probably not a very useful statistic.</p>
-<p>Learning how to calculate these summary statistics from first
+calculating the median the data needs to be sorted. Calculating
+the mode of a continuous variable is often not useful. Anyway, for
+a mode calculation, a dictionary can be used to store a count for
+each value and then return the value for which the count is
+highest.</p>
+<p>Practising calculating such summary statistics from first
 principles is a good way to develop programming skills, so if
 you want the extra practise then have a go. Perhaps try
-calculating a truncated mean of distances ignoring the 10% of
-highest and lowest distances. Think about how you would test to
-ensure your code produces correct results.</p>
+calculating a truncated mean of distances ignoring a proportion
+of the highest and lowest distances. Think about how you would
+test to ensure your code produces correct results.</p>
 <p>Replace the get_max_distance() in model.py with the new faster
 version you have developed.</p>
 <p>Commit changes to your local repository and assuming you are
 using GitHub - push your changes there.</p>
 
 <h2 id="5">5. Movement</h2>
-<p>Currently, our program moves all agents once, but we want them
-to move a number of times. As well as moving, the agents are going
-to be doing other things iteratively depending on attributes of
-the environment at their location, and interaction with other
-nearby agents. So, after setting n_agents, initialise a new
-variable called n_iterations and set it equal to 1000.</p>
+<p>Currently, in model.py agents move once. The code will now be
+changed to move them a number of times. After setting n_agents,
+initialise a variable called n_iterations and set it equal to
+1000.</p>
 <p>Create a new outer For Loop to loop through moving agents
-n_iteration times. An outer loop rather than an inner loop as
-what is wanted is that in each iteration all the agents move
-and possibly interact in turn. A bit like in a roll play game, it
-does not work if one player makes all their moves before another
-player gets a turn.</p>
+n_iteration times. An outer loop is wanted rather than an inner
+loop as in each iteration we want each agents to move in turn. We
+don't want each agent to make all their moves before the next
+makes any.</p>
 <p>The agents are moving randomly, and the more of them there are,
-the more spread out they are likely to become. Edge effects can be
-a major issue in geographical modelling. Our agents currently have a
-theoretically infinite two dimensional (2D) area to move in. What
-we want to do soon is to load in some 2D environment data so that
-the agents can interact with it. To keep the model simple, the
-movement of agents is going to be restricted so that they stay
-within a rectangluar area by limiting the x and y coordinates
-using the following code:</p>
+the more spread out they are likely to become.</p>
+<p>Edge effects are important to consider in geographical data
+analysis and modelling. The agents currently have a theoretically
+infinite two dimensional (2D) area to move in. We want to restrict
+agents to move in a more constrained area. To begin with this will
+be a rectangluar area and we can limit the x and y coordinates
+using the following code blocks:</p>
 <pre><code class="language-python"># Variables for constraining movement.
 # The minimum x coordinate.
 x_min = 0
@@ -457,8 +455,8 @@ y_min = 0
 # The maximum x coordinate.
 x_max = 99
 # The maximum y coordinate.
-y_max = 99
-# Apply movement constraints.
+y_max = 99</code></pre>
+<pre><code class="language-python"># Apply movement constraints.
 if agents[i][0] < x_min:
     agents[i][0] = x_min
 if agents[i][1] < y_min:
@@ -467,13 +465,11 @@ if agents[i][0] > x_max:
     agents[i][0] = x_max
 if agents[i][1] > y_max:
     agents[i][1] = y_max</code></pre>
-<p>The variables x_min, y_min, y_max, and y_max are to be
-initialised outside of the loop (perhaps best placed with all the
-other initialised variables towards the top of the code). The
-correction code is to become part of the loop that moves the
-agents. There is no need to loop through the agents again to
-apply the correction, which would also work, but would be slightly
-less efficient.<p>
+<p>Insert the first code block with at the top of model.py after
+the other initialised variables. Insert the other code block after
+moving an agent. Looping through the agents again to constrain
+movement would work, but this is less efficient than constraining
+within the move agents loop.<p>
 <p>Commit your code to your local repository and assuming you
 are using GitHub - push your changes to GitHub.</p>
 
