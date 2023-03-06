@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang=en-GB>
+<head>
+<title>GEOG5003 Programming for Geographical Information Analysis: Core Skills Page</title>
+<!-- Styling. -->
+<!-- The following href is blank, but will be populated once the
+DOM is fully loaded. -->
+<link id="css" rel="stylesheet" type="text/css" href=""><script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link id="code_theme" rel="stylesheet" type="text/css" href="">
+<!-- Styling. -->
+<script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- The following href should be set when the DOM is loaded. -->
+<link id="css1" rel="stylesheet" type="text/css" href="">
+<link id="css2" rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+<header>
+<button id="style_button" onclick="swapStyle()"></button>
+<div>
+<nav>
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="assignments" class="nav" href="../assignments/index.html">Assignments</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</nav>
+</div>
+</header>
+<div>
+<h1>GEOG5003 Programming for Geographical Information Analysis: Core Skills</h1>
+<h2>1. Introduction</h2>
+<p>Welcome to the course website!</p>
+
+<p>The course timetable is linked from the
+<a href="https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202223&M=GEOG-5003M">University of Leeds GEOG5003 Module Catalogue Page</a>.</p>
+<p>The website is a set of webpages and file based resources. At
+the top of each webpage is a Style Button that can be used to
+change between a lighter and darker style. Below that is a
+Navigation Section which outlines the current page. Each webpage
+links to the next at the end. Index and Reference webpages are
+provided. Essentially, the idea is for you - students taking the
+course - to read through the webpages trying out code yourself
+and undertaking practical exercises. You may find it helpful to
+re-read parts and re-do exercises.</p>
+<p>If you encounter issues with the website, then please provide
+feedback so that these can be resolved. If you are struggling to
+comprehend things, then please don't struggle for long and ask
+your tutor for help.
+</p>
+
+<h2 id="2">2. Syllabus</h2>
+
+<p>General computer programming language concepts, including:</p>
+<ul>
+
+<li>The notion of an <a href="https://en.wikipedia.org/wiki/API">Application Programming Interface (API)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">Variables</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Control_flow">Control flow</a>(<a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming)">conditionals</a>/<a href="https://en.wikipedia.org/wiki/For_loop">for loops</a>/<a href="https://en.wikipedia.org/wiki/While_loop">while loops</a>/<a href="https://en.wikipedia.org/wiki/Thread_(computing)">threads</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/Function_(computer_programming)">Functions</a> and <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Class_(computer_programming)">Classes</a> and <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object Oriented Programming</a></li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python programming language</a> specifics:</p>
+<ul>
+<li>Language development and limitations</li>
+<li>Structuring and organising code into <a href="https://docs.python.org/3/tutorial/classes.html">Classes</a>, <a href="https://docs.python.org/3/tutorial/modules.html">Modules</a>, and <a href="https://docs.python.org/3/tutorial/modules#packages.html">Packages</a>.</li>
+<li>Using the <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">Read Evaluate Print Loop (REPL)</a> environment</li>
+<li>Running programs from the command line, in  <a href="https://jupyter.org/">Jupyter</a> Notebooks, and from within the <a href="https://docs.python.org/3/library/idle.html">IDLE</a> and <a href="https://www.spyder-ide.org/">Spyder</a> Integrated Development Environments.</li>
+<li>Python Environment Management using <a href="https://docs.conda.io/">Conda</a> and <a href="https://docs.python.org/3/library/venv.html">Venv</a></li>
+<li>Using the <a href="https://docs.python.org/3/library/">Standard Library</a>, and third party packages available via <a href="https://pypi.org/">PyPI - the Python Package Index</a></a></li>
+<li>Using Python to automate <a href="https://qgis.org/">QGIS</a> Desktop - geospatial data processing software.</li>
+<li>Code comments, <a href="https://peps.python.org/pep-0257/#what-is-a-docstring">docstring</a>s and print statements to ease comprehension and use.</li>
+<li>Producing documentation using <a href="https://docs.python.org/3/library/pydoc.html">Pydoc</a> and <a href="https://www.sphinx-doc.org/">Sphinx</a></li>
+<li>Testing code using print statements and <a href="https://docs.python.org/3/library/doctest.html">Doctest</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unit_testing">Unit testing</a> using <a href="https://docs.python.org/3/library/unittest.html">Unittest</a> and <a href="https://docs.pytest.org/">Pytest</a></li></ul>
+<h2 id="3">3. Expectations</h2>
+
+<p>You will learn about:</p>
+<ul>
+
+<li><a href="https://en.wikipedia.org/wiki/Version_control">Version control</a></li>
+<li>Encoding data</li>
+<li>Data formats</li>
+<li>Program input and output</li>
+<!--
+<li>Developing Python code (planning, writing, testing,
+organising)</li>
+<li>The Python parts of the
+<a href="https://www.anaconda.com/">Anaconda</a> data science
+platform</li>
+<li>Processing geographical features (geometry and related
+attribute) data.</li>
+-->
+
+<li>Visualisation using <a href="https://matplotlib.org/">Matplotlib</a></li>
+<li>Processing raster data stored in lists.</li>
+<li>Using <a href="https://github.com/">GitHub</a></li>
+<li>Developing a <a href="https://en.wikipedia.org/wiki/Graphical_user_interface">Graphical User Interface</a></li>
+<li>Developing and visualising a basic spatial <a href="https://en.wikipedia.org/wiki/Agent-based_model">Agent Based Model</a></li>
+</ul>
+<p>Computer programming typically involves problem solving and
+computational thinking. It is often helpful to break a task into
+smaller subtasks, and to think about the order in which to do
+things. Often good solutions involve doing a sequence of things
+repeatedly on some data stored in a data structure. Often it is
+helpful to use a framework for testing from the outset and to test
+often as the code develops.</p>
+<p>There is quite a lot of terminology to learn, some is generic
+to programming, some is more specific to Python.</p>
+<p>There is a lot to learn especially if you are new to
+programming.</p>
+
+<h2 id="4">4. The Learning Journey</h2>
+<p>Take time to develop your understanding and practise your new
+programming skills.</p>
+<p>Be experimental and test your understanding by testing code
+does what you expect it to.</p>
+<p>Be cautious and do not run code that you do not fully trust.
+Think about the source of the code and whether you comprehend it
+sufficiently to know it won't do anything malicious before trying
+it out.</p>
+<p>If code does not do what you expected it to, then treat it as
+a learning opportunity and try to understand what is going on.</p>
+<p>One of the keys to coding is learning to be able to interpret
+errors messages and understand what caused them. Errors are not
+something to fear, but they are something not to ignore!</p>
+<p>The webpages with names starting "ABM" are sequence of
+practicals that gradually develop a basic spatial Agent Based
+Model (ABM). The ABM can be regarded as a simplistic
+representation of animals moving about in an environment,
+interacting with each other and the environment.</p>
+<p>Developing the ABM by following instructions puts into practise
+some of the theory detailed in other webpages. By the end of these
+practicals, you should have ABM model code that:</p>
+<ul>
+<li>produces an animation, data files and messages;</li>
+<li>reads in data from local files and from the Web; and</li>
+<li>has a basic Graphical User Interface.</li>
+</ul>
+<p>You should then have sufficient knowledge and skill to develop
+the model further without detailed instructions. Whilst you might
+learn a lot trying to do that, save time for the main challenge in
+this module, which is to undertake an independent project based on
+a task set by your tutor. The task will involve applying what you
+have learned to develop some software. There will be a
+specification for the software, but no detailed instructions about
+how to develop it.</p>
+
+<h2 id="5">5. Platform/Software</h2>
+<p>All the software used in this course is
+
+<a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source Software (FOSS)</a> which is available to download and install on <a href="https://en.wikipedia.org/wiki/Linux">Linux</a>, <a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a>, and <a href="https://en.wikipedia.org/wiki/MacOS">macOS</a>.<p>
+<p>The software is available at the University of Leeds via
+AppsAnywhere and the Academic Windows Virtual Desktop which can be
+accessed via a Web browser and the following URL:
+<a href="https://wvd.leeds.ac.uk">https://wvd.leeds.ac.uk</a>.
+This includes:
+<a href="https://www.anaconda.com/">Anaconda</a> - a data science
+platform,
+<a href="https://qgis.org/">QGIS</a> Desktop - Geographical
+Information System software, and various third party Python
+packages.</p>
+
+<h2 id="6">6. Assignments and Assessments</h2>
+<p>There are two assignments that are assessed:</p>
+<ol>
+
+<li>Assignment 1 Portfolio worth 30% of the overal mark and due 23rd March 2023 - developed by completing practical exercises by following instructions.</li>
+<li>Assignment 1 Portfolio worth 30% of the overal mark and due 23rd March 2023 - developed by applying what you have learned to a software development task for which there is a specification, but no detailed instructions to follow. You should have sufficent knowledge and skill to sensibly begin this assignment from about half way through the course.</li>
+</ol>
+</div>
+<footer>
+<div>
+<p><a id="next" class="nav" href="../programming/index.html">Next: Programming</a></p>
+</div>
+<p>Date last modified: 2023-03-06.</p>
+<p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
+</footer>
+</body>
+</html>

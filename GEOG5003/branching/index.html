@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang=en-GB>
+<head>
+<title>Branching Page</title>
+<!-- Styling. -->
+<!-- The following href is blank, but will be populated once the
+DOM is fully loaded. -->
+<link id="css" rel="stylesheet" type="text/css" href=""><script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link id="code_theme" rel="stylesheet" type="text/css" href="">
+<!-- Styling. -->
+<script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- The following href should be set when the DOM is loaded. -->
+<link id="css1" rel="stylesheet" type="text/css" href="">
+<link id="css2" rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+<header>
+<button id="style_button" onclick="swapStyle()"></button>
+<div>
+<nav>
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="assignments" class="nav" href="../assignments/index.html">Assignments</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</nav>
+</div>
+</header>
+<div>
+<h1>Branching</h1>
+<h2 id="1">1. Introduction</h2>
+
+<p>Branching is to do with the flow of a program. At a branching,
+the program either goes one way or another. In this section we
+will look at a couple of main ways of branching.</p>
+
+<h2 id="2">2. If, Else and Elif</h2>
+
+<p>The If Statement provides a means to branch based upon a
+condition which evaluates to either True or False as in the
+following example.</p>
+<pre><code class="language-python"># A simple If Statement
+day_of_week = 5
+day = "Weekday"
+if day_of_week >= 6:
+    day = "Weekend"</code></pre>
+<p>An Else clause branches into two distinct paths which become
+one again at the end of the compound statement as in the
+following example.</p>
+<pre><code class="language-python"># An If-else Statement
+if day_of_week < 6:
+    day = "Weekday"
+else:
+    day = "Weekend"</code></pre>
+<p>One or many Elif clauses can also be inserted between an If and
+Else clause. Elif is a short for 'else if'. Consider the following
+example:</p>
+<pre><code class="language-python"># An If-elif-else Statement
+if day_of_week == 1:
+    day = "Monday"
+elif day_of_week == 2:
+    day = "Tuesday"
+elif day_of_week == 3:
+    day = "Wednesday"
+elif day_of_week == 4:
+    day = "Thursday"
+elif day_of_week == 5:
+    day = "Friday"
+else:
+    day = "Weekend"</code></pre>
+<p>It can be argued that it is better to store a dictionary to
+look up the day from the day_of_week, but a simple mlook up does
+not branch, and more code can be inserted in any of the clauses,
+so this can be more than a sort of look up.</p>
+
+<h2 id="3">3. Match-case</h2>
+
+<p>Since Python 3.10 there is also a Match-case statement which
+can simplify long If-elif compound statements. The following
+example shows the equivalent of the If-elif-else example from the
+end of previous section:</p>
+<pre><code class="language-python">
+day_of_week = 5
+match day_of_week:
+    case 1:
+        day = "Monday"
+    case 2:
+        day = "Tuesday"
+    case 3:
+        day = "Wednesday"
+    case 4:
+        day = "Thursday"
+    case 5:
+        day = "Friday"
+    case _:
+        day = "Weekend"
+</code></pre>
+<p>The final case is a catch all case using the anonymous variable
+which matches anything.</p>
+<p>The Math-case statement offers more than a syntactic variation
+of Else-elif-else compound statements, as containers and other
+objects can be matched against. Examples of these can be found in
+the relevant PEPS:</p>
+<ul>
+<li><a href="https://peps.python.org/pep-0634/">PEP 634, Structural Pattern Matching: Specification</a></li>
+<li><a href="https://peps.python.org/pep-0635/">PEP 635, Structural Pattern Matching: Motivation and Rationale</a></li>
+<li><a href="https://peps.python.org/pep-0636/">PEP 636, Structural Pattern Matching: Tutorial</a></li>
+</ul>
+
+</div>
+<footer>
+<div>
+<p><a id="next" class="nav" href="../loops/index.html">Next: Loops</a></p>
+</div>
+<p>Date last modified: 2023-03-06.</p>
+<p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
+</footer>
+</body>
+</html>

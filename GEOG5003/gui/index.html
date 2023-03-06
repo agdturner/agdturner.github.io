@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang=en-GB>
+<head>
+<title>GUI Page</title>
+<!-- Styling. -->
+<!-- The following href is blank, but will be populated once the
+DOM is fully loaded. -->
+<link id="css" rel="stylesheet" type="text/css" href=""><script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link id="code_theme" rel="stylesheet" type="text/css" href="">
+<!-- Styling. -->
+<script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- The following href should be set when the DOM is loaded. -->
+<link id="css1" rel="stylesheet" type="text/css" href="">
+<link id="css2" rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+<header>
+<button id="style_button" onclick="swapStyle()"></button>
+<div>
+<nav>
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="assignments" class="nav" href="../assignments/index.html">Assignments</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</nav>
+</div>
+</header>
+<div>
+<h1>GUI</h1>
+<h2 id="1">1. Introduction</h2>
+<p>A Graphical User Interface (GUI) is typically comprised of
+rectangular windows and panels (parts of windows), a panal for
+data display, menus, and various things called widgets (buttons,
+sliders, and other things a user might interact with using a mouse
+or keyboard.</p>
+<p>There are various alternatives for GUI development in Python.
+In this section, we briefly look at
+<a href="https://docs.python.org/3/library/tkinter.html">
+TkInter</a> which is part of
+<a href="https://docs.python.org/3/library/tk.html">tk</a>.</p>
+<!--
+<p><a href="https://www.wxpython.org/">wxpython</a></p>
+-->
+<p>GUIs are event based, where some thread of the program is
+typically looping and waiting for events to fire as a result
+of user interaction. In Python this is facilitated by callbacks -
+where a function is passed to another function, with the
+expectation that (depending on conditions) the function will be
+run. This involves registering a function with a GUI component
+such that when the GUI component is actioned, the registered
+function is called.</p>
+
+<h2 id="2">2. Getting Started with TkInter</h2>
+<p>The following code sets up a simple canvas for a GUI
+and a main loop that waits for interactions with it:</p>
+<pre><code class="language-python">import tkinter
+
+root = tkinter.Tk() # Main window.
+
+c = tkinter.Canvas(root, width=200, height=200)
+c.pack() # Layout
+c.create_rectangle(0, 0, 200, 200, fill="blue")
+
+tkinter.mainloop() # Wait for interactions.</code></pre>
+<p>The following defines a function called run and registers this
+to run when the command that is added to GUI menu is actioned.</p>
+<pre><code class="language-python">import tkinter
+def run():
+    pass
+
+# Menu elements
+root = tkinter.Tk()
+menu_bar = tkinter.Menu(root)
+root.config(menu=menu_bar)
+model_menu = tkinter.Menu(menu_bar)
+menu_bar.add_cascade(label="Model", menu=model_menu)
+model_menu.add_command(label="Run model", command=run)
+
+tkinter.mainloop() # Wait for interactions.</code></pre>
+<p>The run function does nothing currently, but try this code
+yourself and print something in the run function to check it
+works.</p>
+
+<h2 id="3">3. GUI Design and Development</h2>
+<p>There are various important things to consider in designing a
+GUI. Firstly, who are the users and what are the common things
+they are going to want to do? What are they already familiar with?
+It is key to think about user experience and often it is helpful
+to get feedback from users when designing and developing GUIs.</p>
+<p>It is often helpful to including help systems and tutorials
+and do extensive 'usability testing'.</p>
+<p>At every stage when designing the GUI, think "is it obvious
+what this does?"</p>
+<p>Often it is a good idea to keep the GUI simple and keep parts
+hidden until they are called for or disabled until it is sensible
+to action them. In Tkinter this is achieved with a parameter
+called "state".
+
+</div>
+<footer>
+<div>
+<p><a id="next" class="nav" href="../abm8/index.html">Next: ABM8</a></p>
+</div>
+<p>Date last modified: 2023-03-06.</p>
+<p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
+</footer>
+</body>
+</html>

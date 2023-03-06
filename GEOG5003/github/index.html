@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang=en-GB>
+<head>
+<title>GitHub Page</title>
+<!-- Styling. -->
+<!-- The following href is blank, but will be populated once the
+DOM is fully loaded. -->
+<link id="css" rel="stylesheet" type="text/css" href=""><script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link id="code_theme" rel="stylesheet" type="text/css" href="">
+<!-- Styling. -->
+<script src="/scripts/style.js"></script>
+<!-- The following are used for stying code. -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- The following href should be set when the DOM is loaded. -->
+<link id="css1" rel="stylesheet" type="text/css" href="">
+<link id="css2" rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+<header>
+<button id="style_button" onclick="swapStyle()"></button>
+<div>
+<nav>
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="assignments" class="nav" href="../assignments/index.html">Assignments</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</nav>
+</div>
+</header>
+<div>
+<h1>GitHub</h1>
+<h2 id="1">1. Introduction</h2>
+<p><a href="http://www.github.com">GitHub</a> is a
+<a href="https://en.wikipedia.org/wiki/Git">Git</a>
+based code hosting platform for version control and collaboration.
+"It lets you and others work together on projects from anywhere."
+</p>
+<p>GitHub makes it easy to get involved in code development, and
+provides hosting for basic websites. It is popular and reliable.
+</p>
+<p>For a history of GitHub have a look at the
+<a href="https://en.wikipedia.org/wiki/GitHub">
+GitHub Wikipeida Article</a></p>
+<p>If you accept the
+<a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service">
+GitHub Terms of Service</a>, please create a
+<a href="http://www.github.com">GitHub</a> account choosing a
+username comprising lower case letters and numbers. You do not
+need a GitHub account to complete this course, but it is
+recommended. There are other ways that you can use version control
+and create a basic website for the assignments.</p>
+
+<h2 id="2">2. Getting Started with GitHub</h2>
+<p>Complete the
+<a href="https://docs.github.com/en/get-started/quickstart/hello-world">
+Hello World Tutorial</a>.</p>
+<p>If you are using a University of Leeds machine you can access
+Git client software via AppsAnywhere and the Windows Vitual
+Desktop:
+<a href="https://wvd.leeds.ac.uk">https://wvd.leeds.ac.uk</a>.
+Alternatively,
+<a href="https://docs.github.com/en/get-started/quickstart/set-up-git#setting-up-git">
+follow these instructions to setup a
+<a href="https://git-scm.com/downloads">Git Client<a> on your
+local machine</a>.</p>
+<p>Complete the
+<a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">
+GitHub Create a Repository Tutorial</a> and clone the repository
+to the local machine you are using by following the
+<a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">
+GitHub Clone a Repository Tutorial</a>.</p>
+<p>If you have followed correctly, you should now have a
+hello-world local git repository cloned from a hello-world
+remote repository on GitHub.</p>
+<p>Now to practice making changes and keeping things synchronised:
+First, make a change in the local hello-world repository, commit
+the change, and then push the change to the remote repository on
+GitHub:<p>
+<ol>
+<li>Open your local copy of README.md in a text editor, make a
+change (for example, add a line of text) and save the file.</li>
+<li>Open the git client command line interface and change to
+the local repository directory.</li>
+<li>Commit the change to the local repository and then push this
+change to the remote repository on GitHub using the following
+commands:
+<pre>git add .
+git commit -m "change this commit message so it is informative"
+git push</pre>
+</li>
+</ol>
+<p>There are alternative ways to do this, but this way is
+recommended.</p>
+<p>Now, check on GitHub that the README.md file has changed. You
+may need to reload the page in order to see the change.</p>
+<p>Next, change the file on the remote GitHub repository using the
+browser and commit the change there: To edit the README click on
+the Edit Button which looks like a pen (in dark mode it looks
+like the following where the button is identified with a red
+elipse:
+<img src="../resources/github/edit.png"  alt="GitHub README edit
+button" />), then click on the "Commit changes" button which
+should save the changes.</p>
+<p>At this stage the remote repository is "ahead" of the local
+repository which is "behind". To synchronize, we can pull the
+committed remote repository change to the local repository: In the
+git bash tool in the repository directory directory enter:</p>
+<pre>git pull</pre>
+<p>You should see confirmation of this pulling the remote
+repository changes to the local repository.</p>
+<p>There is a lot to learn with a versioning system and with
+having multiple clones of repositories. Indeed there is a lot to
+GitHub that we are not going to learn about and use in this
+course. We are not going to learn about forking repositories,
+creating branches, creating issues and resolving these by
+submitting and accepting pull requests. These are all key steps in
+collaborating on shared code bases in the GitHub ecosystem which
+is typically what a lot of team programming involves nowadays.</p>
+<p>Something you may have to learn about is to deal with merge
+conflicts. This is when changes have been made to the same file
+and in the same places such that the act of sychronizing the
+repositories now requires decisions to be made about which
+changes to keep. Let us deal with that in an ad hoc manner if and
+when it happens.</p>
+<p>One of the main benefits of using git or a similar repository
+like system is that all changes are recorded and versioned,so it
+is possible to reset to an earlier version should this be desired,
+and this takes the difficulty away from doing this yourself.</p>
+
+<h2 id="3">3. Python Code Repository Setup</h3>
+<p>Create a new repository on GitHub which will be your code
+repository for this course, call it something simple (you can
+rename it later), include a README and in the '.gitignore' section
+choose the python option. Spend some time to
+<a href="https://choosealicense.com/">choose a license</a> and
+select this from the options available. There are a few different
+kinds. You are advised to choose an open source license and not
+write your own from scratch. The license is a legal document that
+states terms of use, modification and redistribution and provides
+a disclaimer to indemnify you if something goes wrong.</p>
+<p>Clone your new repository so you have a local repository set
+up as was done with the hello-world repository. Create a new
+folder/directory in the new repository called test.
+Start Spyder; add a python command to the file that opens by
+default and save this into your test directory. Add and Commit
+changes to the local repository and push the changes to the remote
+GitHub repository like you did with the hello-world repository.
+Finally check the new file appears on GitHub.</p>
+<p>Run the new Python file you have created. A directory named
+__pycache__ might appear in the test directory with python source
+code file. This contains interpreted files generated by the
+python interpretter. The '.gitignore' settings for python will not
+push this directory contents to GitHub - which is what we want.
+</p>
+
+<h2 id="4">4. GitHub Pages</h2>
+<p>Create another repository on GitHub - your GitHub Pages
+Website. Follow the
+<a href="https://docs.github.com/en/pages/quickstart">
+GitHub Pages Quickstart Tutorial</a></p>
+
+<h2 id="5">5. Taking Stock</h2>
+<p>The benefits of using GitHub and the command line interface for
+git might not yet be clear and this may seem a complicated
+distraction, but it is important to be aware of current
+programming practice and hopefully you will realise the benefits
+during the course as you become more familiar with programming and
+using git/GitHub.</p>
+<p>There is a lot more to GitHub than has been covered here, but
+having understood and practised creating repositories, cloning,
+pulling, committing and pushing you are ready to return to
+learning more about the python language and develop a repository
+of python code.</p>
+<p>If you have decided against using GitHub, then consider
+using
+<a href="https://about.gitlab.com/">GitLab</a>;
+<a href="http://sourceforge.net/">Sourceforge</a>, or
+<a href="https://bitbucket.org/">BitBucket</a> instead.</p>
+<p>If you do not want to use these either, then consider using:
+<a href="http://git-scm.com/">Git</a>,
+<a href="https://www.mercurial-scm.org/">Mercurial</a> or
+<a href="http://subversion.apache.org/">Subversion</a> to set up
+a local repository.</p>
+<p>As a minimum, please ensure your files are organised, versioned
+and backed up.</p>
+
+<footer>
+<div>
+<p><a id="next" class="nav" href="../abm1/index.html">Next: ABM1</a></p>
+</div>
+<p>Date last modified: 2023-03-06.</p>
+<p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
+</footer>
+</body>
+</html>
