@@ -148,17 +148,69 @@ for ite in range(n_iterations):
     sum_e = sum_environment()
     print("sum_environment", sum_e)
     print("total resource", (sum_as + sum_e))</code></pre>
-<p>Run model.py and try to interpret the output. Add in more print
-statements and play around to gain a good understanding of how
-the code works.</p>
+<p>Run model.py and interpret the output. Add more print
+statements to gain a clear understanding of how the code works.
+</p>
 
-<h2 id="3">3. Coding Tasks</h2>
+<h2 id="4">4. Organise model.py</h2>
+<p>Ensure all import statements are together at the top. Move all
+code that is not in functions to be within the following If
+Statement at the end of the file:</p>
+<pre><code class="language-python">if __name__ == '__main__':</code></pre>
+<p>If model.py is the file that is run, then the code in this If
+Statement is run.</p>
+<p>Any code in my_modules that you do not want run when the
+modules are loaded can go in the same If Statments in those files.
+</p>
+<p>Make sure to test that your code still produces the same
+results.</p>
+
+<h2 id="3">3. Output images and generate an animated Gif</h2>
+<p>Add the following import statements with the import statements
+in the model.py file:</p>
+<pre><code class="language-python">import imageio
+import os</code></pre>
+<p>Before the Model loop add the following code:
+<pre><code class="language-python"># Create directory to write images to.
+    try:
+        os.makedirs('../../data/output/images/')
+    except FileExistsError:
+        print("path exists")
+
+    # For storing images
+    global ite
+    ite = 0
+    images = []</code></pre>
+<p>Indent the plotting so that this occurs within the Model loop
+and replace the following line:</p>
+<pre><code class="language-python">plot.show()</code></pre>
+<p>With:</p>
+<pre><code class="language-python">filename = '../../data/output/images/image' + str(ite) + '.png'
+#filename = '../../data/output/images/image' + str(ite) + '.gif'
+plt.savefig(filename)
+plt.show()
+plt.close()
+images.append(imageio.v2.imread(filename))</code></pre>
+<p>The code will now create plots, save these to png format files
+and show them and then close them. Then it reloads the file and
+appends the image to the images list.</p>
+<p>After the end of the Model loop the images can be turned into
+a gif animation using the following:</p>
+<pre><code class="language-python">imageio.mimsave('../../data/output/out.gif', images, fps=3)</code></pre>
+<p>The parameter fps is the number of frames that are shown per
+second.</p>
+<p>Commit your code to your local repository and assuming you
+are using GitHub - push your changes to GitHub.</p>
+
+<h2 id="4">4. Further Assignment 1 Coding Tasks</h2>
 <p>Create some more variable results by randomly setting the
 store of each agent in initialisation to be a value between 0 and
-100.</p>
-<p>Change the eat function so that if an agent store reaches 100,
-then half the store is released back to the environment at the
-agent's location.</p>
+99.</p>
+<p>Change the eat function so that if an agent store goes above
+100, then half the store is released back to the environment at
+the agent's location.</p>
+<p>Commit your code to your local repository and assuming you
+are using GitHub - push your changes to GitHub.</p>
 
 </div>
 <footer>

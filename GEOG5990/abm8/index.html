@@ -52,15 +52,44 @@ matplotlib.use('TkAgg')</code></pre>
 <p>save your files and restart Spyder.</p>
 
 <h2 id="3">3. Organising the GUI</h2>
-<p>Add the following funtion:</p>
-
-Next, let's add a function that will run our model. We'll connect this to our menu such that when the menu is clicked, this function will run, in line with the event based programming model. Note that what you put in the line to run the model will depend what you did with the animation; you may need to adjust the line to match whatever you have:
-
-<pre><code class="language-python">def run():
-    animation = matplotlib.animation.FuncAnimation(fig, update, frames=gen_function, repeat=False)
+<p>Add the following function run():</p>
+<pre><code class="language-python">def run(canvas):
+    animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
+    animation.new_frame_seq()
     canvas.draw()</code></pre>
-
-Note also that whereas we did have matplotlib.plot.show() we've replaced this and put in canvas.draw(). We'll come to canvas in a second, but for now make sure matplotlib.plot.show() has been deleted from you code (or you'll get two windows).
+<p>Replace the following line in the main If Statement:</p>
+<pre><code class="language-python">animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)</code></pre>
+<p>With:</p>
+<pre><code class="language-python"># GUI
+root = tk.Tk()
+root.wm_title("Agent Based Model")
+canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, master=root)
+canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+menu_bar = tk.Menu(root)
+root.config(menu=menu_bar)
+menu_0 = tk.Menu(menu_bar)
+menu_bar.add_cascade(label="Model", menu=menu_0)
+menu_0.add_command(label="Run model", command=lambda: run(canvas))
+menu_0.add_command(label="Write data", command=lambda: output())
+menu_0.add_command(label="Exit", command=lambda: exiting())
+menu_0.entryconfig("Write data", state="disabled")
+# Exit if the window is closed.
+root.protocol('WM_DELETE_WINDOW', exiting)
+tk.mainloop()</code></pre>
+<p>Add the following function:</p>
+<pre><code class="language-python">def exiting():
+    """
+    Exit the program.
+    """
+    root.quit()
+    root.destroy()
+    #sys.exit(0)</code></pre>
+<p>Now if the window in which the animation runs is closed, the
+program exit and exiting the program is also added as a menu
+option in the GUI.</p>
+<p>Run the program.</p>
+<p>Commit your code to your local repository and assuming you
+are using GitHub - push your changes to GitHub.</p>
 
 </div>
 <footer>

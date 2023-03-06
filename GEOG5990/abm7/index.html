@@ -31,8 +31,9 @@ DOM is fully loaded. -->
 <div>
 <h1>Agent Based Model Part 7</h1>
 <h2 id="1">1. Introduction and Preparation</h2>
-<p>This practical is about animating the model and incorporating
-some stopping conditions to halt the model and exit.</p>
+<p>In this practical we make use of matplotlibs FuncAnimation to
+animate the model in a separate window. Also, some stopping
+conditions will be added to halt the model and exit.</p>
 <p>In your local code repository src directory duplicate your abm6
 directory and call the new directory "abm7".</p>
 
@@ -42,41 +43,49 @@ Spyder.</p>
 <p>A matplotlib animation requires us to have a figure that is
 cleared and redrawn, and to make use of the animation module. Add
 the following import statement:</p>
-<pre><code class="language-python">from matplotlib import animation as anim</code></pre>
+<pre><code class="language-python">import matplotlib.animation as anim</code></pre>
 <p>After initialising agents add the following code block:</p>
-<pre><code class="language-python"># Initialise fig and carry_on
+<pre><code class="language-python"># Animate
+# Initialise fig and carry_on
 fig = matplotlib.pyplot.figure(figsize=(7, 7))
 ax = fig.add_axes([0, 0, 1, 1])
-carry_on = True</code></pre>
-<p>Change the plotting code block into a function and move the
-code to where the other functions are defined. Add a line to clear
+carry_on = True
+data_written = False
+animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)</code></pre>
+<p>Change the plotting code block into a function plot()
+defined where the other functions are defined. Add a line to clear
 fig at the start of the function and at the end of the function
-return fig. Leave the plt.show() command at the end of the code:
-</p>
+return fig. Rather than pass ite into the function set it as a
+global variable. The following is what is wanted:</p>
 <pre><code class="language-python">def plot():
-    fig.clear()
-    plt.ylim(y_min, y_max)
-    plt.xlim(x_min, x_max)
-    plt.imshow(environment)
-    for i in range(n_agents):
-        plt.scatter(agents[i].x, agents[i].y, color='black')
-    # Plot the coordinate with the largest x red
-    lx = max(agents, key=operator.attrgetter('x'))
-    plt.scatter(lx.x, lx.y, color='red')
-    # Plot the coordinate with the smallest x blue
-    sx = min(agents, key=operator.attrgetter('x'))
-    plt.scatter(sx.x, sx.y, color='blue')
-    # Plot the coordinate with the largest y yellow
-    ly = max(agents, key=operator.attrgetter('y'))
-    plt.scatter(ly.x, ly.y, color='yellow')
-    # Plot the coordinate with the smallest y green
-    sy = min(agents, key=operator.attrgetter('y'))
-    plt.scatter(sy.x, sy.y, color='green')
-    return fig</code></pre>
+fig.clear()
+plt.ylim(y_min, y_max)
+plt.xlim(x_min, x_max)
+plt.imshow(environment)
+for i in range(n_agents):
+    plt.scatter(agents[i].x, agents[i].y, color='black')
+# Plot the coordinate with the largest x red
+lx = max(agents, key=operator.attrgetter('x'))
+plt.scatter(lx.x, lx.y, color='red')
+# Plot the coordinate with the smallest x blue
+sx = min(agents, key=operator.attrgetter('x'))
+plt.scatter(sx.x, sx.y, color='blue')
+# Plot the coordinate with the largest y yellow
+ly = max(agents, key=operator.attrgetter('y'))
+plt.scatter(ly.x, ly.y, color='yellow')
+# Plot the coordinate with the smallest y green
+sy = min(agents, key=operator.attrgetter('y'))
+plt.scatter(sy.x, sy.y, color='green')
+global ite
+filename = '../../data/output/images/image' + str(ite) + '.png'
+plt.savefig(filename)
+plt.show
+images.append(imageio.v2.imread(filename))
+return fig</code></pre>
 <p>Change the model loop code block into a function called update
 that has a parameter called frames. At the end of this call the
-plot function. Declare the carry_on global function and add a
-random stopping condition:</p>
+function plot(). Set the variables carry_on and ite as global
+variables and add a random stopping condition as follows:</p>
 <pre><code class="language-python">def update(frames):
     # Model loop
     global carry_on
@@ -109,26 +118,31 @@ random stopping condition:</p>
     print("total resource", (sum_as + sum_e))
 
     # Stopping condition
+    # Random
     if random.random() < 0.1:
         #if sum_as / n_agents > 80:
         carry_on = False
         print("stopping condition")
 
     # Plot
-    plot()</code></pre>
-<p>Define a function called gen_function and create the animation
-using the following:</p>
+    global ite
+    plot()
+    ite = ite + 1</code></pre>
+<p>Define a function gen_function() as follows:</p>
 <pre><code class="language-python">def gen_function():
-    a = 0
-    while (a < n_iterations) & (carry_on) :
-        yield a			# Returns control and waits next call.
-        a = a + 1
-    # Write data
-    print("write data")
-    io.write_data('../../data/output/out.txt', environment)
-
-animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
-plt.show()</code></pre>
+    global ite
+    ite = 0
+    global carry_on #Not actually needed as we're not assigning, but clearer
+    while (ite < n_iterations) & (carry_on) :
+        yield ite # Returns control and waits next call.
+        ite = ite + 1
+    global data_written
+    if data_written == False:
+        # Write data
+        print("write data")
+        io.write_data('../../data/output/out7.txt', environment)
+        imageio.mimsave('../../data/output/out7.gif', images, fps=3)
+        data_written = True</code></pre>
 <p>Before running the code, issue the following magic command in
 the console of Spyder so that rather than the plot being directed
 to the plots pane (where animation does not work), it is directed
@@ -137,11 +151,13 @@ to a pop-up window:</p>
 <p>If you want to revert this change so that plots are added to
 the plot plane again issue the following magic command:</p>
 <pre>%matplotlib inline</pre>
-<p>The Keyword Yield (yield) is used to pass the value of the
-variable "a" back from the function gen_function whilst continuing
-to run the while loop in it. The "# Write data" code block is
-included in gen_function and runs only once carry_on is equal to
-False.</p>
+<p>The keyword 'yield' is used to pass the value of the
+variable "ite" back from the function gen_function whilst
+continuing to run the while loop in it. The "# Write data" code
+block is included in gen_function and runs only once after the
+model has stopped.</p>
+<p>Commit your code to your local repository and assuming you
+are using GitHub - push your changes to GitHub.</p>
 
 <h2 id="3">3. Code and Model Review</h2>
 <p>Nearly all our code is now in functions and organised into
@@ -159,59 +175,37 @@ model, this is incomplete/insufficient. The ability to be able to
 stop and restart a model can be useful and is often called check
 pointing. For reproducibility, so that a run of n iterations
 followed by a further m iterations would produce the same results
-as a run of m + n iterations, it would be sensible to make use of
-the random.getstate() and random.setstate(state) methods.</p>
+as a run of m + n iterations, the random.getstate() and
+random.setstate(state) methods could be used to checkpoint
+random.</p>
 <p>The simple agents in the model are not learning or adapting
 their behaviour based on interaction or the state of the
-environment. So, it is more random than anything else, and
-observing complex, adaptive/emergent behaviour from this model
-should not be expected.</p>
+environment. So, the model is mostly random, so observing complex,
+adaptive/emergent behaviour from this model should not be
+expected.</p>
 <p>Whilst the model has been framed as an ecological model, the
 agents could represent other things, they don't necessarily have
 to communicate by sharing resources, they could share something
 else, and they don't have to eat the environment.</p>
-<p>Developing a more sophisticated model could be fun and the
-practise could help develop your programming skills.</p>
 <p>Some things that might make the model more realistic are:</p>
 <ul>
 <li>To have less resource in the environment that can be eaten
 by the agents, and model this resource as vegetation that
 grows.</li>
 <li>Have those agents that are successful at finding resources get
-stronger/more able and replicating and those unsuccessful get
-weaker/less able and dying.</li>
-<li>Dependency relationships could be modelled.</li>
-<li>Different types of agent could be incorporated. The next step
-for a more natural ecological model is to introduce a predator.
-</li>
+stronger/more able and replicate and those unsuccessful get
+weaker/less able and die.</li>
+<li>Including predator agents that hunt/eat the other agents.</li>
 </ul>
 
-<h2 id="4">4. Coding Tasks</h2>
+<h2 id="4">4. Further Assignment 1 Coding Tasks</h2>
 <p>Complete the following tasks for your portfolio.</p>
 <p>Write docstrings and comments in your code to help clarify what
 it is doing.</p>
 <p>Alter the stopping condition so that the model stops when the
 average agent store is greater than 80.</p>
-<p>To output animations in the
-<a href="https://en.wikipedia.org/wiki/GIF">GIF image format</a>,
-add the following import statement:
-<pre><code class="language-python">from matplotlib.animation import PillowWriter</code></pre>
-<p>And add the following code after the plt.show() line:</p>
-<pre><code class="language-python"># Write out the animation as a GIF
-animation.save('../../data/output/out.gif', writer=PillowWriter(fps=3))
-</code></pre>
-<p>The fps argument is the number of frames per second.</p>
-<p>Note that in writing out the animation as a GIF, the other
-output seems to be written out twice. Write some code to ensure
-the text output is only written once. (Hint: declare and use
-another global boolean variable.)</p>
-<p>For your portfolio, attempt one of the following:</p>
-<ul>
-<li>Include preditor agents.<li>
-<li>Model agent breeding.</li>
-<li>Initialise the environment with fewer resources that may
-gradually accumulate as well as being eaten.</li>
-</ul>
+<p>Commit your code to your local repository and assuming you
+are using GitHub - push your changes to GitHub.</p>
 
 </div>
 <footer>
