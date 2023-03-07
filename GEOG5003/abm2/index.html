@@ -117,7 +117,7 @@ rn 0.7837985890347726
 y1 61
 ssd 25
 distance 5.0
-distance 5.0</pre></code>
+distance 5.0</pre>
 
 <h2 id="2">2. Using Lists</h2>
 <p>Rather than handle each coordinate individually, they are going
@@ -132,12 +132,12 @@ directory called "abm2". Open Spyder and use "save as" to save
 your "model.py" file into the abm2 directory. Then, towards the
 top of the file (below the import statements and setting of the
 random seed) add the following:</p>
-<pre># Create a list to store agents
-agents = []</pre>
+<pre><code class="language-python"># Create a list to store agents
+agents = []</pre></code>
 <p>Now to add coordinates to this list: First add one pair after
 initialising y0 and x0, by adding the following:
 </p>
-<pre>agents.append([x0,y0]) # Append to the list agents</pre>
+<pre><code class="language-python">agents.append([x0,y0]) # Append to the list agents</pre></code>
 <p>Notice the extra square brackets, which add the coordinates as
 a list which is then appended to the agents list. So agents[0][0]
 is the x coordinate of the first coordinate pair in the agents

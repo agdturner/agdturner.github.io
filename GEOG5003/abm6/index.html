@@ -77,8 +77,10 @@ and add an attribute for storing the shares as follows:</p>
     self.agents = agents
     self.i = i
     self.environment = environment
-    self.x = random.randint(0, 99)
-    self.y = random.randint(0, 99)
+    tnc = int(n_cols / 3)
+    self.x = random.randint(tnc - 1, (2 * tnc) - 1)
+    tnr = int(n_rows / 3)
+    self.y = random.randint(tnr - 1, (2 * tnr) - 1)
     self.store = 0
     self.store_shares = 0</code></pre>
 <p>Change model.py so that the agents list is passed as a

@@ -204,8 +204,10 @@ None.
 """
 self.i = i
 self.environment = environment
-self.x = random.randint(n_cols/3 - 1, 2 * n_cols / 3)
-self.y = random.randint(n_rows/3 - 1, 2 * n_rows / 3)
+tnc = int(n_cols / 3)
+self.x = random.randint(tnc - 1, (2 * tnc) - 1)
+tnr = int(n_rows / 3)
+self.y = random.randint(tnr - 1, (2 * tnr) - 1)
 self.store = 0</code></pre>
 <p>Change model.py so that environment is passed in correctly as
 agents are initialised.</p>
