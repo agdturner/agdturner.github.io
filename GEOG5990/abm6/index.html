@@ -191,11 +191,12 @@ plt.savefig(filename)
 plt.show()
 plt.close()
 images.append(imageio.v2.imread(filename))</code></pre>
-<p>The code will now create plots, save these to png format files
-and show them and then close them. Then it reloads the file and
-appends the image to the images list.</p>
+<p>The code will now: create plots; save these as images to png
+format files; show and close them rapidly; then reload the png
+format file using imageio and append the image to the images
+list.</p>
 <p>After the end of the Model loop the images can be turned into
-a gif animation using the following:</p>
+an animated gif file using the following:</p>
 <pre><code class="language-python">imageio.mimsave('../../data/output/out.gif', images, fps=3)</code></pre>
 <p>The parameter fps is the number of frames that are shown per
 second.</p>
@@ -217,7 +218,7 @@ are using GitHub - push your changes to GitHub.</p>
 <div>
 <p><a id="next" class="nav" href="../exceptions/index.html">Next: Exceptions</a></p>
 </div>
-<p>Date last modified: 2023-03-06.</p>
+<p>Date last modified: 2023-03-07.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
