@@ -32,43 +32,15 @@ DOM is fully loaded. -->
 <h1>Programming</h1>
 <h2 id="1">1. Introduction</h2>
 <p>
-<a href="https://en.wikipedia.org/wiki/Computer_programming">Computer programming</a>
-(coding) is about instructing computing machines (computers) to
-carry out tasks where data is typically input, processed and
-output.</p>
-<p>Contemporary desktop and laptop computers typically have a
-keyboard and mouse for user input, a visual display screen,
-smaller amounts of faster more volatile data storage (memory), and
-larger amounts of more persistent data storage (disk) that
-is organised using a
-<a href="https://en.wikipedia.org/wiki/File_system">file system</a>.
-Computers may have inbuilt or perpherally connected devices such
-as microphones and cameras, and the screen may be a touch screen.
-Networked computers can typically communicate using standard
-<a href="https://en.wikipedia.org/wiki/Internet">internet</a> protocols.
-The basic functioning of a computer is handled by an 
-<a href="https://en.wikipedia.org/wiki/Operating_system">operating system</a>
- upon which additional 
-<a href="https://en.wikipedia.org/wiki/Software">software</a>
- can be installed, including software that interprets 
-<a href="https://en.wikipedia.org/wiki/Programming_language">programming language</a>
- source code - a human readable form of computer instructions.
-</p>
-<p>Programming can be done visually by arranging and connecting
-pre-built components into executable workflows. However, this
-course is about programming using text based command instructions
-that have a formal syntax. Some computer languages look similar,
-some look very different. This course is mostly based on the
-<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python programming language</a> (Python).
+<a href="https://en.wikipedia.org/wiki/Computer_programming">Computer programming</a> (coding) is the process of designing and building an executable computer program - a set of instruction that are fetched and executed sequentially.</p>
+<p>Contemporary desktop and laptop computers typically have a keyboard and mouse for user input, a visual display screen, smaller amounts of faster more volatile data storage (memory), and larger amounts of more persistent data storage (disk) that is organised using a <a href="https://en.wikipedia.org/wiki/File_system">File System</a>. Computers may have inbuilt or perpherally connected devices such as microphones and cameras, and the screen may be a touch screen. Networked computers can typically communicate using standard <a href="https://en.wikipedia.org/wiki/Internet">Internet</a> protocols. The basic functioning of a computer is handled by an <a href="https://en.wikipedia.org/wiki/Operating_system">Operating System</a> upon which additional <a href="https://en.wikipedia.org/wiki/Software">Software</a> can be installed, including software that interprets <a href="https://en.wikipedia.org/wiki/Programming_language">Programming Language</a> source code into machine instructions.</p>
+<p>Programming can be done visually by arranging and connecting pre-built components into executable workflows. However, this course is about programming using text based command instructions that have a formal syntax. Some computer languages look similar, some look very different. This course is mostly based on the <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python programming language</a> (Python).
 <h2 id="2">2. Data</h2>
 
-<h3 id="2.1">2.1 Binary Bits and Bytes</h3>
-<p>In most modern computers, data is encoded in a binary form
-where the smallest units called bits are in one of two possible
-states: 0 or 1.</p>
-<p>Typically computers work with fixed size collections of bits
-called
-<a href="https://en.wikipedia.org/wiki/Byte">bytes</a>.
+<h3 id="2.1">2.1 Bits and Bytes</h3>
+
+<p>In most modern computers, data is encoded in binary: the smallest unit is a <a href="https://en.wikipedia.org/wiki/Bit">bit</a> which is in one of two possible states: 0 or 1.</p>
+<p>Typically computers work with fixed size collections of bits called <a href="https://en.wikipedia.org/wiki/Byte">bytes</a>.
 The more bits there are in a byte, the more different unique
 combinations or arrangements of bits there can be. With each added
 bit, there are double the number of combinations. So, with 2
@@ -79,9 +51,9 @@ bits there are 8 combinations [000, 001, 010, 100, 011, 101, 110,
 <p>7 bits in a byte allows for (128 combinations) which is
 suffient to represent all the letters in the English alphabet in
 both lower and upper case, the ten numeric digits 0 to 9, and
-64 other symbols. 7 bit bytes is the basis of
+64 other symbols.</p>
 
-<a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> - a commonly used data encoding which is the basis of some text file formats.</p>
+<p>7 bit bytes is the basis of <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> - a data encoding which is the basis of some text file formats.</p>
 <p><a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> is another commonly used encoding. As of Unicode format version 15.0, there are 149,186 characters that are uniquely encoded, including various alphabets, mathematical symbols and emojis. Unicode uses between 1 and 4 bytes of length 8 for encoding.</p>
 <p>Commonly, there are multiples of 8 bits in a byte, but there
 can be any number.</p>
@@ -90,7 +62,7 @@ can be any number.</p>
 
 <p>Data stored in a file is often stored in standard <a href="https://en.wikipedia.org/wiki/File_format">file format</a> - typically based on a versioned specification which details what encodings are used and how the data is organised.</p>
 <p>Some file formats use different encodings in different parts to make the data more usable and require less storage space.</p>
-<p>Often the suffix of a filename indicates the file format, for example the file format of a file named "index.html" is expected to be in <a href="https://en.wikipedia.org/wiki/HTML">HTML</a> format. Some file formats contain an identifying code (known as a <a href="https://en.wikipedia.org/wiki/File_format#Magic_number">magic number</a> at the start indicating the file format.</p>
+<p>Often the suffix of a filename indicates the file format, for example the file format of a file named "index.html" is expected to be in <a href="https://en.wikipedia.org/wiki/HTML">HTML</a> format. Some file formats contain an identifying code (known as a <a href="https://en.wikipedia.org/wiki/File_format#Magic_number">magic number</a> typically at the start of the file.</p>
 <h3 id="2.3">2.3 Integers and Floating Point</h3>
 <p>Each integer number in a range is typically represented using a
 single byte with a length sufficient to represent all those
@@ -105,9 +77,9 @@ within any part of the range varies. In general, the density is
 greater towards the centre of the range which with standard
 floating point numbers is zero.</p>
 
-<p><a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Floating point arithmetic</a> has been standardised. The result of a calculation is rounded to the nearest value in the range. So, sometimes a calculation is accurate, other times it is rounded either up or down. It is important to be aware that there can be significant error in this standardised arithmetic.</p>
-<p><a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Single precision floating point format</a> is a standard encoding that uses 32 bits per number.</p>
-<p><a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Double precision floating point format</a> is a standard encoding that uses 64 bits per number.</p>
+<p><a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Floating point arithmetic</a> has been standardised. The result of a calculation is rounded to the nearest value in the range. So, in some instances a calculation is accurate, other times it is rounded either up or down. It is important to be aware that there can be significant error in this standardised arithmetic.</p>
+<p><a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Single precision floating point</a> is a standard encoding that uses 32 bits per number.</p>
+<p><a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Double precision floating point</a> is a standard encoding that uses 64 bits per number.</p>
 <h2 id="3">3. Learning to Program</h2>
 <p>Learning to program takes time and energy. It involves
 developing and strengthening neural networks in your brain. It is
