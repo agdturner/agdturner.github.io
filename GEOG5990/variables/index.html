@@ -31,8 +31,8 @@ DOM is fully loaded. -->
 <div>
 <h1>Variables</h1>
 <h2 id="1">1. Introduction</h2>
-<p>Python <a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">variables</a> are a combination of an identifying label (a name) and a value - either a primitive or a more complex object.</p>
-<p>Variables work a bit differently depending on whether they are primitives or objects. The main difference is to do with whether the variable is duplicated when it is passed into a function as a parameter (known as 'pass by value') or whether a reference or pointer is passed in which refers to the value of the variable (known as 'pass by reference').</p>
+<p>Python <a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">variables</a> are a combination of an identifier (a name) and a value - either a primitive or a more complex object.</p>
+<p>When passed as parameters into functions, variables are handled differently depending on whether they are primitives or more complex objects. The main difference is to do with whether the variable is duplicated when it is passed into the function as a parameter (known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value">Call By Value</a>') or whether a shared object is passed in (known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing">Call By Sharing</a>').</p>
 <h2 id="2">2. Variables Types</h2>
 In Python, variable names can be reused to refer to different types of primitive or object. This is known as 'dynamic typing'. It allows for a variable to be initialised with a value of one type and then later to be assigned a value of a different type. The function 'type()' in the<a href="https://docs.python.org/3/library/builtins.html">builtins module</a> can be used to get the type of a variable. For example, the following code initialises a variable named 'x' to have the Integer value '1', then sets it again to have the String value "1". After each assignment the type of the variable is printed.</p>
 <pre><code class="language-python"># Set x = 1 and print the type of x")
