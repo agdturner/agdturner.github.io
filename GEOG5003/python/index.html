@@ -30,10 +30,10 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Python</h1>
-<h2 id="1.">1.. Introduction</h2>
+<h2 id="1">1. Introduction</h2>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> is a popular and powerful high-level programming language supported and developed by the <a href="https://www.python.org/psf/">Python Software Foundation</a> - an organisation with a mission to promote, protect, and advance the language, and support and facilitate the growth of a diverse and international community of python programmers.</p>
-<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> and various Python source code interpreters are freely available in source and binary forms for all major platforms from the <a href="https://www.python.org/">Python Website</a>, and these may be freely distributed. Python interpreters translate Python source code into machine instructions that work at a much lower level. The need for interpretation is what classifies Python as a high-level language.</p><p>The <a href="https://www.python.org/">Python Website</a> contains distributions of and pointers to many Free and Open Source third party Python source code libraries, tools, and additional documentation.</p><p>A particularly useful page for beginners is the <a href="https://docs.python.org/3/reference/">Python 3 Language Reference</a>.</p>
-<h2 id="2.">2.. Python 3</h2>
+<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> and various Python source code interpreters are freely available in source and binary forms for all major platforms from the <a href="https://www.python.org/">Python Website</a>, and these may be freely distributed. Python interpreters translate Python source code into machine instructions that work at a much lower level. The need for interpretation is what classifies Python as a high-level language.</p><p>The <a href="https://www.python.org/">Python Website</a> contains distributions of and pointers to many third party Python libraries, tools, and additional documentation.</p><p>A particularly useful page for beginners is the <a href="https://docs.python.org/3/reference/">Python 3 Language Reference</a>.</p>
+<h2 id="2">2. Python 3</h2>
 <p>Python 3 was first released in 2008. For several years both
 Python 2 and Python 3 were developed and supported, but eventually
 in January 2020 development and maintenance of Python 2 ceased.
@@ -59,15 +59,8 @@ For each major incremental Python 3 release there is a
 <li><a href="https://docs.python.org/3/whatsnew/3.10.html">Whatsnew Python 3.10</a></li>
 <li><a href="https://docs.python.org/3/whatsnew/3.11.html">Whatsnew Python 3.11</a></li>
 </ul>
-<p>On these webpages, changes are marked against numbered Python Enhancement Proposals (PEPs). PEPs allow the community of Python users to look ahead and see what might change and get involved in language development. PEPs have their own website:<a href="https://peps.python.org/">Python Enhancement Proposal Website</a>
-</p>
-<p>As with all programming languages, python evolves through
-versions. As well as adding new things, some things may change
-from one version to the next - which can necessitate changes in
-third party code. There are few changes to the Application
-Programming Interface (API) - the syntax, names, and details of
-function inputs and outputs that are not backwards compatible,
-but there are occasionally some.</p>
+<p>On these webpages, changes are marked against numbered Python Enhancement Proposals (PEPs). PEPs allow the community of Python users to look ahead and see what might change and get involved in language development. PEPs have their own website: <a href="https://peps.python.org/">Python Enhancement Proposal Website</a></p>
+<p>As with all programming languages, Python evolves through versions. As well as adding new things (such as new kinds of expression and new functions), things may also change from one version to the next. Though there are few <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">Application Programming Interface</a> (API) changes - changes to the syntax, names, and details of function inputs and outputs that are not <a href="https://en.wikipedia.org/wiki/Backward_compatibility">backward compatible</a>.</p>
 <p>New language features will not work with older interpreters,
 and code tested with older interpreters might not necessarily
 work the same as before with newer interpreters - due to API
@@ -83,7 +76,7 @@ package code and make it available via PyPI.</p>
 
 <p>The<a href="https://docs.python.org/3/tutorial">Python Tutorial</a> is a good place to start learning Python. In your private study time, you might like to make your way through that learning material too.</p>
 <p>Running Python code in different ways...</p>
-<h2 id="3.">3.. Running Python</h2>
+<h2 id="3">3. Running Python</h2>
 <p>Python instructions also known as commands or statements, can be entered one at a time at a <a href="https://en.wikipedia.org/wiki/Command-line_interface">command-line interface</a> or passed in a file.</p>
 <p>Check if there is a version of Python on your <a href="https://en.wikipedia.org/wiki/PATH_(variable)">PATH</a> by running a Terminal or Command Window and entering the following at the prompt:</p>
 <pre>python --version</pre>
@@ -91,7 +84,7 @@ package code and make it available via PyPI.</p>
 <p><a href="https://www.anaconda.com/">Anaconda</a> is a data science platform. It contains: conda - an environment manager; a Python interpretter; some commonly used third party Python packages; and, some useful additional tools. It is available at the University of Leeds via AppsAnywhere using machines on campus or remotely using a Windows Virtual Desktop which can be accessed via the following URL:<p>
 <p><a href="https://wvd.leeds.ac.uk">https://wvd.leeds.ac.uk</a></p>
 <p>You can also download and install Anaconda on your own device. If you do this, then choosing the default options should avoid interfering with any other version of Python already installed on your system. By default, Anaconda installs into your user home directory.</p>
-<h3 id="3.1.">3.1.. Python REPL</h3>
+<h3 id="3.1">3.1. Python REPL</h3>
 <h4>3.1.1. Hello World</h4>
 <p>Open an Anaconda Prompt. On Windows the prompt should look
 something like:</p>
@@ -303,7 +296,7 @@ examples of these shortly...</p>
 <p>Python does not have a special symbol to end a statement like
 many other languages do.</p>
 
-<h3 id="4.3.">4.3.. Comments</h3>
+<h3 id="4.3">4.3. Comments</h3>
 <p>The # symbol is the start of a comment.</p>
 <pre>
 # This entire line is a comment
@@ -384,12 +377,9 @@ worry about what these other things do for now.</p>
 some operator module functions (e.g. +, -, *, /, %)</p>
 
 <h3 id="4.6">4.6. Identifiers and Keywords</h3>
-<p>Identifiers are names of variables, functions, classes,
-modules and packages.</p>
-<p>Keywords are reserved words - terms that can't be used for
-identifiers (e.g. else, for, if, import).</p>
-<p>Attempting to use them as variable names typically results in
-syntax errors. Enter the following at the python prompt:</p>
+<p>Identifiers are names of variables, functions, classes, modules and packages.</p>
+<p><a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">Python Keywords</a> (keywords) are reserved words - terms that can't be used for identifiers.</p>
+<p>Attempting to <a href="https://en.wikipedia.org/wiki/Name_binding">use them</a> as variable names typically results in <a href="https://en.wikipedia.org/wiki/Syntax_error">syntax errors</a>. Enter the following at the Python prompt:</p>
 <pre>if = 2</pre>
 <p>This should result in:</p>
 <pre>File "<stdin>", line 1
@@ -397,7 +387,7 @@ syntax errors. Enter the following at the python prompt:</p>
        ^
 SyntaxError: invalid syntax</pre>
 <p>Notice that the syntax error is pointing at the equals sign
-'='. This is because the python interpreter is expecting a
+'='. This is because the Python interpreter is expecting a
 conditional expression after the keyword 'if'. The error has come
 about because of the attempt to use a keyword as a variable name.
 </p>
@@ -469,7 +459,7 @@ the file in the python command. That path can be absolute (from
 the base of the file system) or relative (from the current
 directory.</p>
 
-<h2 id="6.">6.. Jupyter Notebook</h2>
+<h2 id="6">6. Jupyter Notebook</h2>
 <p><a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html">Jupyter Notebook</a>, is a REPL based system that embeds code into a document containing other information: text, images, data, and links. Code is entered in cells which when run present outputs within the document which is displayed in a Web browser (unless ouputs are configured to appear in separatewindows). Jupyter Notebook is useful as code can be described in detail and distributed with associated data and visualizations.</p>
 <p>Jupyter Notebook comes bundled with Anaconda and can be downloaded separately from:<a href="https://jupyter.org/">Jupyter</a>.</p>
 <p>At the Anaconda Prompt change to a directory where you can
@@ -508,7 +498,7 @@ about Python environment management. First though, let's explore
 running Python in other ways... Before launching into that,
 consider if you should take a short break...</p>
 
-<h2 id="7.">7.. Integrated Development Environments</h2>
+<h2 id="7">7. Integrated Development Environments</h2>
 <p><a href="https://en.wikipedia.org/wiki/Integrated_development_environment">Integrated Development Environments</a>(IDEs) are software tools used to make writing code and developing software easier. This section introduces <a href="https://docs.python.org/3/library/idle.html">IDLE</a> and <a href="https://www.spyder-ide.org/">Spyder</a>- IDEs that come with <a href="https://www.anaconda.com/">Anaconda</a>.</p>
 <h3 id="7.1">7.1. IDLE</h3>
 <p>Python comes with IDLE - an Integrated Development and Learning

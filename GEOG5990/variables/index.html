@@ -31,30 +31,10 @@ DOM is fully loaded. -->
 <div>
 <h1>Variables</h1>
 <h2 id="1">1. Introduction</h2>
-<p>Python variables are a combination of an identifying label (a
-name) and a value - either a primitive or a more complex object
-(the object may be comprised of multiple primitive variables and
-other objects).</p>
-<p>Variables work a bit differently depending on whether they are
-primitives or objects. The main difference is to do with whether
-the variable is duplicated when it is passed into a function as a
-parameter (known as 'pass by value') or whether a reference or
-pointer is passed in which refers to the value of the variable
-(known as 'pass by reference').</p>
-
-<h2 id="2">2. Variables/types</h2>
-In Python, variable labels/names can be reused to refer to
-different types of value. This is known as dynamic typing. It
-allows for a variable to be initialised with one type of value and
-then later to be assigned a different type of value. The function
-'type()' in the
-(<a href="https://docs.python.org/3/library/builtins.html">
-builtins</a> module)
-can be used to test and reporting the type of a variable. For
-example, the following code initialises a variable called x to
-have the Integer value 1, then sets it again to have the String
-value "1", after each assignment the type of the variable is
-printed.</p>
+<p>Python <a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">variables</a> are a combination of an identifying label (a name) and a value - either a primitive or a more complex object.</p>
+<p>Variables work a bit differently depending on whether they are primitives or objects. The main difference is to do with whether the variable is duplicated when it is passed into a function as a parameter (known as 'pass by value') or whether a reference or pointer is passed in which refers to the value of the variable (known as 'pass by reference').</p>
+<h2 id="2">2. Variables Types</h2>
+In Python, variable names can be reused to refer to different types of primitive or object. This is known as 'dynamic typing'. It allows for a variable to be initialised with a value of one type and then later to be assigned a value of a different type. The function 'type()' in the<a href="https://docs.python.org/3/library/builtins.html">builtins module</a> can be used to get the type of a variable. For example, the following code initialises a variable named 'x' to have the Integer value '1', then sets it again to have the String value "1". After each assignment the type of the variable is printed.</p>
 <pre><code class="language-python"># Set x = 1 and print the type of x")
 x = 1
 print(type(x))
@@ -64,31 +44,15 @@ print(type(x))</code></pre>
 <pre>&lt;class 'int'&gt;
 &lt;class 'str'&gt;</pre>
 <p>Again, try this yourself.</p>
-<p>In declarative programming languages, the type of a variable
-is declared. If the language is statically typed, then the
-variable is not permitted to change type. In python, the type of
-a variable is not declared, and variable labels can be reassigned
-to refer to different types of thing. The main benefits of this
-are that code can be more succinct and application programming
-interfaces can be more stable. However, with dynamic typing it is
-easier to accidentally re-use a variable name, it can make
-debugging code harder, and it can make developing tools to help
-write code harder. Testing the type of a variable can help
-mitigate some of the issues, but doing this a lot makes code
-overly verbose and inefficient.</p>
 
+<p>In declarative programming languages, the type of a variable is declared. If the language is statically typed, then the variable is not permitted to change type. In Python, the type of a variable is not declared, and can change hence Python is known as being 'dynamically typed'. The main benefits of this are that code can be more succinct and <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">APIs</a> can be more stable. However, with dynamic typing it is easier to accidentally re-use a variable name, it can make<a href="https://en.wikipedia.org/wiki/Debugging">debugging</a> code harder, and it can make developing tools to help write code harder. Testing the type of a variable can help mitigate these things, but testing the type of things a lot makes code verbose and inefficient.</p>
 <h3 id="2.1">2.1. Primitives</h3>
-<p>The four primitive variable types in python are: Integers,
-Floats, Strings, and Booleans. Integers are whole numbers. Floats
-are a special subset of fractions. Strings are essentially blocks
-of text. Booleans are True or False and also equate to 0 or 1.</p>
-<p>Integers are virtually unbounded in python although there is
+<p>The four primitive variable types in Python are: Integers, Floats, Strings, and Booleans. Integers are whole numbers. Floats are <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Double-precision Floating-point</a> numbers - a special subset of fractions. Strings are essentially blocks of text (or sequences of single character length Strings). Booleans are True or False and also equate to 0 or 1.</p>
+<p>Integers are virtually unbounded in Python although there is
 limit to the size of an Integer that a system can handle related
 to the amount of memory available.</p>
-<p>Floats have a Maximum Value and a Minimum Normal Value
-(smallest number &gt; 0). These can be ascertained from the
-<a href="https://docs.python.org/3/library/sys.html">sys module</a>
-and can also be set to postive or negative infinity:</a>
+
+<p>Floats have a Maximum Value and a Minimum Normal Value (smallest number &gt; 0). These can be ascertained from the<a href="https://docs.python.org/3/library/sys.html">Python Sys Module</a> (sys). There are Float values for positive and negative infinity:</p>
 <pre><code class="language-python">import sys
 
 # Exploring Float max and min values.
@@ -131,43 +95,43 @@ d 9.9792015476736e+291
 max + d/2 1.7976931348623157e+308
 max + d inf
 min2 2.2250754194454158e-293</pre>
-<p>Float is very useful, but programmers must bear in mind
-the approximate nature of calculations with these numbers.</p>
-<p>The standard library has two very useful number types that
-provide more calculation precision and can represent many more
-rational numbers:</p>
+<p>Float is very useful, but it is important to consider the
+approximate nature of calculations with these numbers.</p>
+
+<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> has two additional and very useful number types that allow for more calculation precision than Float. These are:</p>
 <ul>
 <li><a href="https://docs.python.org/3/library/decimal.html">decimal</a></li>
 <li><a href="https://docs.python.org/3/library/fractions.html">fractions</a></li>
 </ul>
 <p>Strings can be assigned using; double or single quotes, and the
-str() constructor function (which can for example create a String
-from an Integer. Strings can be compared and checked for equality.
-Consider the following code:</p>
+constructor function str() (which can for example create a String
+from an Integer). Strings can be compared and checked for
+equality using the operator '=='. Consider and run the following
+code:</p>
 <pre><code class="language-python">s = "A"
 s2 = "a"
 s3 = "B"
-print(s == s)  # True
-print(s == s2) # False (case sensitive)
-print(s == s3) # False
-print(s > s2)  # False
-print(s < s2)  # True
-print(str(3))  # 3
+print(s == s)  # Prints True
+print(s == s2) # Prints False (case sensitive)
+print(s == s3) # Prints False
+print(s > s2)  # Prints False
+print(s < s2)  # Prints True
+print(str(3))  # Prints 3
 </code></pre>
-<p>Some code to explore Boolean:</p>
+<p>Consider and run the following code to explore Boolean:</p>
 <pre><code class="language-python">t = True
 f = False
-print("t == t", t == t)             # True
-print("f == f", f == f)             # True
-print("t == 1", t == 1)             # True
-print("f == 0", f == 0)             # True
-print("t != f", t != f)             # True
-print("not t", not t)               # False
-print("not f", not f)               # True
-print("t and f", t and f)           # False
-print("t and not f", t and not f)   # True
-print("t or f", t or f)             # True
-print("not (t or f)", not (t or f)) # False</code></pre>
+print("t == t", t == t)             # Prints True
+print("f == f", f == f)             # Prints True
+print("t == 1", t == 1)             # Prints True
+print("f == 0", f == 0)             # Prints True
+print("t != f", t != f)             # Prints True
+print("not t", not t)               # Prints False
+print("not f", not f)               # Prints True
+print("t and f", t and f)           # Prints False
+print("t and not f", t and not f)   # Prints True
+print("t or f", t or f)             # Prints True
+print("not (t or f)", not (t or f)) # Prints False</code></pre>
 
 <h3>2.2. Objects</h3>
 <p>The following code sets the variable x to be 1 and y to equal
@@ -201,9 +165,8 @@ the same.</p>
 containing the Integer 1 (and whatever else was appended to it).
 Have a play around to help this make sense.</p>
 
-<h2 id="3">3. Functions, Variable Scope and the Global Keyword</h2>
-<p>The scope of a variable is from where in the code it can be
-accessed. The keyword 'global' can modify the scope.</p>
+<h2 id="3">3. Variable Scope and the Global Keyword</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)">scope</a> of a variable is from where in the code it can be accessed. The <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">keyword</a> 'global' can modify the scope.</p>
 <p>Consider the following code:</p>
 <pre><code class="language-python">x = 1
 if x == 1:
