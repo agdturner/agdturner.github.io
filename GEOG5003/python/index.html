@@ -297,12 +297,22 @@ print(x) # Print out the value of x
 </pre>
 
 <p>Between triple quotes everything is a comment. There are two types of triple quote, those using single quotation marks, and those using double quotation marks.</p>
-<p>Triple double quotes '"""' are used for <a href="https://peps.python.org/pep-0257/#what-is-a-docstring">docstrings</a> - a form of source documentation that will be detailed later in the course.</p>
-<p>Triple single quotes "'''" are useful for commenting out sections of code when <a href="https://en.wikipedia.org/wiki/Debugging">debugging</a>.</p>
+<p>Triple double quotes are used for <a href="https://peps.python.org/pep-0257/#what-is-a-docstring">docstrings</a> - a form of source documentation that will be detailed later in the course.</p>
+<p>Triple single quotes are useful for commenting out sections of code when <a href="https://en.wikipedia.org/wiki/Debugging">debugging</a>.</p>
 <pre>
+'''
+This is between triple single quotes and is a comment
+'''
+
 """
-This is between triple quotes and is a comment.
+This is between triple double quotes and is a comment.
 """
+
+'''
+"""
+This is both between triple single and double quotes and is a comment.
+"""
+'''
 </pre>
 <p>Comments are to help make code easier for humans to read and
 understand. It can be helpful to refer to other information
@@ -323,7 +333,7 @@ print(y)
 # Calculate x to the power of y
 x ** y
 </pre>
-<p>Indentation is syntax in python. Indentation refers to the
+<p>Indentation is syntax in Python. Indentation refers to the
 blank space that precedes expressions on a line. (Blank space is
 sometimes called 'white space' - as code backgrounds were normally
 white in colour). It is good to be consistent with indentation and
@@ -339,39 +349,36 @@ if x > y: # This line has the same indent as the comment above.
     print(x) # This line is indented one standard step further.
 print("done") # This line is indented to the previous level.
 </pre>
-<p>In the code above, if the variable x is greater than the
-variable y, then the value of x is printed. If the variable x has
-not been initialised, then there will be an error:</p>
+<p>In the code above, if the variable 'x' is greater than the
+variable 'y', then the value of 'x' is printed. If the variable
+'x' has not been initialised, then there will be an error:</p>
 <pre>Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'x' is not defined</pre>
-<p>The function print() is a function of the builtin module that
-is loaded by default. Read the the help for it, enter:
-</p>
-<pre>help(print)</pre>
 
+<p>The function 'print()' is a function of the <a href="https://docs.python.org/3/library/builtins.html#module-builtins">buitlin module</a> that is loaded by default. Read the the help for it, enter:</p>
+<pre>help(print)</pre>
 <h3 id="4.5">4.5. Delimiters, Literals and Operators</h3>
-<p>Delimiters separate bits of code and can also act as operators.
-The following are delimiters in python:</p>
+<p>Delimiters in code separate and help organise things. The  following are <a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters">Python Delimiters</a>:</p>
 <pre>(       )       [       ]       {       }
 ,       :       .       ;       @       =       ->
 +=      -=      *=      /=      //=     %=      @=
 &=      |=      ^=      >>=     <<=     **=</pre>
-<p>The various types of bracket are parentheses '()',
+<p>The various types of bracket are paired: parentheses '()',
 square brackets '[]' and curly brackets '{}' also known as braces.
-A lot of code uses brackets. Each open bracket must be matched
-with a closing bracket. Failure to match brackets correctly can
-cause confusion. Commas ',', colons ':', dots '.' and
-semicolons ';' are also commonly used delimeters in code. Don't
-worry about what these other things do for now.</p>
+A lot of code uses brackets. Each open bracket must be paired
+with a closing bracket. Failure to pair brackets correctly is
+problematic and is a common reason for confusion. Commas ',',
+colons ':', dots '.' and semicolons ';' are also commonly used
+delimeters in code. Details of these other delimiters are omitted
+for the time being, but some are also operators.</p>
 <p>Literals are specific numerical or text values.</p>
-<p>Operators are sequences of symbols that are shorthand for
-some operator module functions (e.g. +, -, *, /, %)</p>
 
+<p>Operators are sequences of symbols that are shorthand for<a href="https://docs.python.org/3/library/operator.html">operator module</a> functions (e.g. +, -, *, /, %)</p>
 <h3 id="4.6">4.6. Identifiers and Keywords</h3>
 <p>Identifiers are names of variables, functions, classes, modules and packages.</p>
 <p><a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">Python Keywords</a> (keywords) are reserved words - terms that can't be used for identifiers.</p>
-<p>Attempting to <a href="https://en.wikipedia.org/wiki/Name_binding">use them</a> as variable names typically results in <a href="https://en.wikipedia.org/wiki/Syntax_error">syntax errors</a>. Enter the following at the Python prompt:</p>
+<p>Attempting to <a href="https://en.wikipedia.org/wiki/Name_binding">use</a> a keyword as variable names typically results in a <a href="https://en.wikipedia.org/wiki/Syntax_error">syntax error</a>. Enter the following at the Python prompt:</p>
 <pre>if = 2</pre>
 <p>This should result in:</p>
 <pre>File "<stdin>", line 1
@@ -423,7 +430,7 @@ as in the last snippet.</p>
 <pre>print("Hello World")</pre>
 <p>Save the file with the name "HelloWorld.py". Open an Anaconda
 Prompt. Change to the directory where you saved the file
-(path_to_directory) using:</p>
+'path_to_directory' using:</p>
 <pre>cd path_to_directory</pre>
 <p>Run the file using:</p>
 <pre>python HelloWorld.py</pre>
@@ -431,29 +438,27 @@ Prompt. Change to the directory where you saved the file
 <pre>Hello World</pre>
 <p>If your file is on a different drive in Windows, then you
 may have to switch to the drive before changing to the directory
-within the drive. To change from drive C: to drive M: in Windows,
-enter the following at the prompt:</p>
+within the drive. To change from drive 'C:' to drive 'M:' in
+Windows, enter the following at the prompt:</p>
 <pre>M:</pre>
-<p>To change back again to C:, enter the following at the prompt:
-</p>
+<p>To change back again to 'C:', enter the following at the
+prompt:</p>
 <pre>C:</pre>
 <p>For code in files, the statements are executed from top to
 bottom, but the flow may call functions which may themselves call
-other functions. We will learn how to define functions later, but
-let us learn about calling functions soon and understand that when
-the last command of the function is executed, then the
-interpreter returns to where the function was called.</p>
-<p>Try creating another file adding some python commands and
-running it.</p>
-<p>It is not necessary to run the files of python code from the
-directory in which the file is located. You can provide a path to
-the file in the python command. That path can be absolute (from
+other functions. The interpreter returns to the line of code after
+a function call once the function has been executed.</p>
+<p>Try creating another file, add some Python commands and run it.
+</p>
+<p>It is not necessary to run files of Python code from the
+directory in which the file is located. A path to the file can be
+given in the Python command. That path can be absolute (from
 the base of the file system) or relative (from the current
 directory.</p>
 
 <h2 id="6">6. Jupyter Notebook</h2>
-<p><a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html">Jupyter Notebook</a>, is a REPL based system that embeds code into a document containing other information: text, images, data, and links. Code is entered in cells which when run present outputs within the document which is displayed in a Web browser (unless ouputs are configured to appear in separatewindows). Jupyter Notebook is useful as code can be described in detail and distributed with associated data and visualizations.</p>
-<p>Jupyter Notebook comes bundled with Anaconda and can be downloaded separately from:<a href="https://jupyter.org/">Jupyter</a>.</p>
+<p><a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html">Jupyter Notebook</a>, is a <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> like system that embeds code into a document containing other information: text, images, data, and links. Code is entered in cells which when run present outputs within the document which is displayed in a Web browser (unless ouputs are configured to appear in separate windows).</p>
+<p>Jupyter Notebook comes bundled with Anaconda and can be downloaded separately from:<a href="https://jupyter.org/about">Jupyter</a>.</p>
 <p>At the Anaconda Prompt change to a directory where you can
 write new files and enter:</p>
 <pre>jupyter notbook</pre>

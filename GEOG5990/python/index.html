@@ -297,12 +297,22 @@ print(x) # Print out the value of x
 </pre>
 
 <p>Between triple quotes everything is a comment. There are two types of triple quote, those using single quotation marks, and those using double quotation marks.</p>
-<p>Triple double quotes '"""' are used for <a href="https://peps.python.org/pep-0257/#what-is-a-docstring">docstrings</a> - a form of source documentation that will be detailed later in the course.</p>
-<p>Triple single quotes "'''" are useful for commenting out sections of code when <a href="https://en.wikipedia.org/wiki/Debugging">debugging</a>.</p>
+<p>Triple double quotes are used for <a href="https://peps.python.org/pep-0257/#what-is-a-docstring">docstrings</a> - a form of source documentation that will be detailed later in the course.</p>
+<p>Triple single quotes are useful for commenting out sections of code when <a href="https://en.wikipedia.org/wiki/Debugging">debugging</a>.</p>
 <pre>
+'''
+This is between triple single quotes and is a comment
+'''
+
 """
-This is between triple quotes and is a comment.
+This is between triple double quotes and is a comment.
 """
+
+'''
+"""
+This is both between triple single and double quotes and is a comment.
+"""
+'''
 </pre>
 <p>Comments are to help make code easier for humans to read and
 understand. It can be helpful to refer to other information
@@ -323,7 +333,7 @@ print(y)
 # Calculate x to the power of y
 x ** y
 </pre>
-<p>Indentation is syntax in python. Indentation refers to the
+<p>Indentation is syntax in Python. Indentation refers to the
 blank space that precedes expressions on a line. (Blank space is
 sometimes called 'white space' - as code backgrounds were normally
 white in colour). It is good to be consistent with indentation and
@@ -339,35 +349,32 @@ if x > y: # This line has the same indent as the comment above.
     print(x) # This line is indented one standard step further.
 print("done") # This line is indented to the previous level.
 </pre>
-<p>In the code above, if the variable x is greater than the
-variable y, then the value of x is printed. If the variable x has
-not been initialised, then there will be an error:</p>
+<p>In the code above, if the variable 'x' is greater than the
+variable 'y', then the value of 'x' is printed. If the variable
+'x' has not been initialised, then there will be an error:</p>
 <pre>Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'x' is not defined</pre>
-<p>The function print() is a function of the builtin module that
-is loaded by default. Read the the help for it, enter:
-</p>
-<pre>help(print)</pre>
 
+<p>The function 'print()' is a function of the <a href="https://docs.python.org/3/library/builtins.html#module-builtins">buitlin module</a> that is loaded by default. Read the the help for it, enter:</p>
+<pre>help(print)</pre>
 <h3 id="4.5">4.5. Delimiters, Literals and Operators</h3>
-<p>Delimiters separate bits of code and can also act as operators.
-The following are delimiters in python:</p>
+<p>Delimiters in code separate and help organise things. The  following are <a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters">Python Delimiters</a>:</p>
 <pre>(       )       [       ]       {       }
 ,       :       .       ;       @       =       ->
 +=      -=      *=      /=      //=     %=      @=
 &=      |=      ^=      >>=     <<=     **=</pre>
-<p>The various types of bracket are parentheses '()',
+<p>The various types of bracket are paired: parentheses '()',
 square brackets '[]' and curly brackets '{}' also known as braces.
-A lot of code uses brackets. Each open bracket must be matched
-with a closing bracket. Failure to match brackets correctly can
-cause confusion. Commas ',', colons ':', dots '.' and
-semicolons ';' are also commonly used delimeters in code. Don't
-worry about what these other things do for now.</p>
+A lot of code uses brackets. Each open bracket must be paired
+with a closing bracket. Failure to pair brackets correctly is
+problematic and is a common reason for confusion. Commas ',',
+colons ':', dots '.' and semicolons ';' are also commonly used
+delimeters in code. Details of these other delimiters are omitted
+for the time being, but some are also operators.</p>
 <p>Literals are specific numerical or text values.</p>
-<p>Operators are sequences of symbols that are shorthand for
-some operator module functions (e.g. +, -, *, /, %)</p>
 
+<p>Operators are sequences of symbols that are shorthand for<a href="https://docs.python.org/3/library/operator.html">operator module</a> functions (e.g. +, -, *, /, %)</p>
 <h3 id="4.6">4.6. Identifiers and Keywords</h3>
 <p>Identifiers are names of variables, functions, classes, modules and packages.</p>
 <p><a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">Python Keywords</a> (keywords) are reserved words - terms that can't be used for identifiers.</p>
