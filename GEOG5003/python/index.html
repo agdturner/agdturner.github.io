@@ -89,7 +89,7 @@ PyPI.</p>
 <p>Open an Anaconda Prompt. On Windows the prompt should look
 something like:</p>
 <pre>(base) C:\></pre>
-<p>Here, "(base)" is the activated Python environment and "C:" is
+<p>Here, 'base' is the activated Python environment and 'C:\' is
 the current drive and directory. Enter:</p>
 <pre>python --version</pre>
 <p>This should inform you about the version of Python that came
@@ -159,7 +159,7 @@ the power of'. Enter:<p>
 
 <p>This demonstrates that these types of calculations are approximations - ones that use <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">floating point arithmetic</a> which rounds to the nearest value that can be represented in a specific way.</p>
 <h3 id="3.2">3.2. Loading Modules and Using Functions</h3>
-<p>Mathematical operators can also be accessed via functions that reside in the <a href="https://docs.python.org/3/library/operator.html">Python Operator Module</a></p>
+<p>Mathematical operators can also be accessed via functions that reside in the <a href="https://docs.python.org/3/library/operator.html">operator module</a></p>
 <p>Enter:</p>
 <pre>operator.add(2, 3)</pre>
 <p>You should see the following error message:</p>
@@ -167,7 +167,7 @@ the power of'. Enter:<p>
   File "<stdin>", line 1, in <module>
 NameError: name 'operator' is not defined</pre>
 <p>The error is that the interpreter does not know about the
-Operator Module. Notice the similarity with this error message
+operator module. Notice the similarity with this error message
 and the divide by zero error message.</p>
 <p>Enter:</p>
 <pre>dir()</pre>
@@ -181,33 +181,33 @@ start and end parentheses.</p>
 <p>The list is alphabetically ordered and you can tell it is a
 list as it starts with an open square bracket '[' and ends with
 a closing square bracket ']', and each element is separated with a
-comma ','. In the list are the modules that the current python
-environment has access to and from which functionality can be
-used.</p>
+comma ','. In the list are module identifiers that the current
+Python environment has access to (and from which functionality can
+be used directly).</p>
 <p>Enter:</p
 <pre>import operator</pre>
 <p>This imports or loads the operator module so that it's
-functionality can be accessed/used.</p>
+functionality can be accessed.</p>
 <p>Enter:</p>
 <pre>dir()</pre>
-<p>Now, you should see the operator module in the list.</p>
+<p>You should see the operator module in the list.</p>
 <p>Enter:</p>
 <pre>operator.add(2, 3)</pre>
 <p>Now, you should not get the error encountered before the
 operator module was imported, but a result.</p>
-<p>The dot '.' in this command is an operator called the dot
-operator. It instructs the python interpretter to look inside the
+<p>The dot '.' in this command is an operator called the 'dot
+operator'. It instructs the python interpretter to look inside the
 thing on the left (of the dot) to find the thing on the right
 (of the dot). So, the expression looks inside the operator module
-for the add function, and passes into the add function two
-parameters in the given order. The add function returns the result
-of summing these two numbers, and the result is displayed.</p>
+for the function 'add', and passes into the it two parameters in
+the given order. The function returns the result of summing these
+two numbers, and the result is displayed.</p>
 <p>To list the functions in the operator module, enter:</p>
 <pre>dir(operator)</pre>
 <p>It is quite a long list!</p>
 <p>Notice that there are numerous functions that have a name
 starting and ending with a double underscore '__'. These are not
-meant to be called directly, but they can be.</p>
+normally called directly, but they can be.</p>
 <p>Enter:</p>
 <pre>operator.__add__(2, 3)</pre>
 <p>Python does not exert access control on variables and
@@ -215,7 +215,8 @@ functions. A naming convention is used to indicate to users
 whether a variable or function is meant to be accessed from
 outside the module. Underscores (_) and double underscores (__) at
 the start and/or end of identifiers have a special meaning in
-python.</p>
+Python. As a general rule, you should not modify anything with
+these in their name.</p>
 <p>Have a play and use some other functions from the operator
 module.</p>
 
