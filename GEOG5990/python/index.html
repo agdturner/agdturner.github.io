@@ -258,15 +258,17 @@ about how it must be written.</p>
 <p>If a statement or expression is syntactically incorrect, and the Python interpreter attempts to interpret it, a <a href="https://en.wikipedia.org/wiki/Syntax_error">syntax error</a> gets raised.</p>
 <p>At the python prompt enter:</p>
 <pre>x=</pre>
-<p>You should get the following syntax error:</p>
+
+<p>You should get the following <a href="https://docs.python.org/3/library/exceptions.html#SyntaxError">Python SyntaxError</a>:</p>
 <pre>
 File "<stdin>", line 1
     x =
        ^
 SyntaxError: invalid syntax
 </pre>
-<p>Notice how this attempts to indicate where the syntax error is.
-Essentially, the issue with this code is that the expression is
+<p>Notice how this attempts to indicate where the syntax error
+is.</p>
+<p>Essentially, the issue with this code is that the expression is
 incomplete: There should be something on the right of the equals
 sign '='.</p>
 <p>One of the key skills in coding is learning to read and
@@ -274,7 +276,7 @@ understand error messages.</p>
 
 <h3 id="4.2">4.2. Statements</h3>
 <p>Multiple statements on a single line are separated with
-semicolons (;). At the python prompt enter:</p>
+semicolons ';'. At the python prompt enter:</p>
 <pre>y=1;x=y;print(x)</pre>
 <p>The output should be:</p>
 <pre>1</pre>
@@ -378,7 +380,7 @@ for the time being, but some are also operators.</p>
 <h3 id="4.6">4.6. Identifiers and Keywords</h3>
 <p>Identifiers are names of variables, functions, classes, modules and packages.</p>
 <p><a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">Python Keywords</a> (keywords) are reserved words - terms that can't be used for identifiers.</p>
-<p>Attempting to <a href="https://en.wikipedia.org/wiki/Name_binding">use them</a> as variable names typically results in <a href="https://en.wikipedia.org/wiki/Syntax_error">syntax errors</a>. Enter the following at the Python prompt:</p>
+<p>Attempting to <a href="https://en.wikipedia.org/wiki/Name_binding">use</a> a keyword as variable names typically results in a <a href="https://en.wikipedia.org/wiki/Syntax_error">syntax error</a>. Enter the following at the Python prompt:</p>
 <pre>if = 2</pre>
 <p>This should result in:</p>
 <pre>File "<stdin>", line 1
@@ -430,7 +432,7 @@ as in the last snippet.</p>
 <pre>print("Hello World")</pre>
 <p>Save the file with the name "HelloWorld.py". Open an Anaconda
 Prompt. Change to the directory where you saved the file
-(path_to_directory) using:</p>
+'path_to_directory' using:</p>
 <pre>cd path_to_directory</pre>
 <p>Run the file using:</p>
 <pre>python HelloWorld.py</pre>
@@ -438,32 +440,30 @@ Prompt. Change to the directory where you saved the file
 <pre>Hello World</pre>
 <p>If your file is on a different drive in Windows, then you
 may have to switch to the drive before changing to the directory
-within the drive. To change from drive C: to drive M: in Windows,
-enter the following at the prompt:</p>
+within the drive. To change from drive 'C:' to drive 'M:' in
+Windows, enter the following at the prompt:</p>
 <pre>M:</pre>
-<p>To change back again to C:, enter the following at the prompt:
-</p>
+<p>To change back again to 'C:', enter the following at the
+prompt:</p>
 <pre>C:</pre>
 <p>For code in files, the statements are executed from top to
 bottom, but the flow may call functions which may themselves call
-other functions. We will learn how to define functions later, but
-let us learn about calling functions soon and understand that when
-the last command of the function is executed, then the
-interpreter returns to where the function was called.</p>
-<p>Try creating another file adding some python commands and
-running it.</p>
-<p>It is not necessary to run the files of python code from the
-directory in which the file is located. You can provide a path to
-the file in the python command. That path can be absolute (from
+other functions. The interpreter returns to the line of code after
+a function call once the function has been executed.</p>
+<p>Try creating another file, add some Python commands and run it.
+</p>
+<p>It is not necessary to run files of Python code from the
+directory in which the file is located. A path to the file can be
+given in the Python command. That path can be absolute (from
 the base of the file system) or relative (from the current
 directory.</p>
 
 <h2 id="6">6. Jupyter Notebook</h2>
-<p><a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html">Jupyter Notebook</a>, is a REPL based system that embeds code into a document containing other information: text, images, data, and links. Code is entered in cells which when run present outputs within the document which is displayed in a Web browser (unless ouputs are configured to appear in separatewindows). Jupyter Notebook is useful as code can be described in detail and distributed with associated data and visualizations.</p>
-<p>Jupyter Notebook comes bundled with Anaconda and can be downloaded separately from:<a href="https://jupyter.org/">Jupyter</a>.</p>
-<p>At the Anaconda Prompt change to a directory where you can
+<p><a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html">Jupyter Notebook</a>, is a <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> like system that embeds code into a document containing other information: text, images, data, and links. Code is entered in cells which when run present outputs within the document which is displayed in a Web browser (unless ouputs are configured to appear in separate windows).</p>
+<p>Jupyter Notebook comes bundled with Anaconda and can be downloaded separately from:<a href="https://jupyter.org/about">Jupyter</a>.</p>
+<p>At the Anaconda prompt change to a directory where you can
 write new files and enter:</p>
-<pre>jupyter notbook</pre>
+<pre>jupyter notebook</pre>
 <p>Some messages should appear in the Command Window and a Web
 browser tab should open with the Jupyter Notebook Interface.</p>
 <p>From the New Button drop down list of the Jupyter Notebook
@@ -479,31 +479,17 @@ like shown in the following image:</p>
 <pre>print("Hello World")</pre>
 <p>You should see something like:</p>
 <img src="../../resources/python/jupyter3.png" alt="Jupyter Notebook Interface 3" />
-<p>Entire programs can be entered into cells as can
-<a href="https://www.markdownguide.org/basic-syntax/">markdown</a>
-.</p>
-<p>Because Jupyter Notebooks runs in the browser, it can utilise
-<a href="https://en.wikipedia.org/wiki/JavaScript">Javascript</a>
-- a programming language that all widely used modern Web browsers
-work with. Leveraging Javascript and Python allows for the
-generation of some Web based interactive maps. In Section 9, there
-is a further exercise using Jupyter Notebooks to this end. First
-we learn about setting up Python environments and installing
-Python packages - as a good way to get interactive maps working in
-a Jupyter Notebook is to make use of additional packages that are
-not included with Anaconda and prior to modifying a Python
-environment by installing Python packages, it is good to know
-about Python environment management. First though, let's explore
-running Python in other ways... Before launching into that,
-consider if you should take a short break...</p>
 
+<p>Entire programs can be entered into cells as can <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>.</p>
+<p>Because a Jupyter Notebook application runs in a Web browser, it can utilise <a href="https://en.wikipedia.org/wiki/Javascript">JavaScript</a> - a programming language that all widely used modern Web browsers can run. Leveraging JavaScript and Python allows for the generation of some Web based interactive maps. In <a href="#9">Section 9</a>, there is a practical exercise about this. Prior to attempting this, it is important to learn about setting up Python environments and installing Python packages. First though, let's explore running Python code in some other ways...</p>
 <h2 id="7">7. Integrated Development Environments</h2>
 <p><a href="https://en.wikipedia.org/wiki/Integrated_development_environment">Integrated Development Environments</a>(IDEs) are software tools used to make writing code and developing software easier. This section introduces <a href="https://docs.python.org/3/library/idle.html">IDLE</a> and <a href="https://www.spyder-ide.org/">Spyder</a>- IDEs that come with <a href="https://www.anaconda.com/">Anaconda</a>.</p>
 <h3 id="7.1">7.1. IDLE</h3>
 <p>Python comes with IDLE - an Integrated Development and Learning
-Environment. IDLE has an editor window, and a console window for
+Environment. The IDLE application has an 'editor window' for
+editing files of Python commands, and a 'console window' for
 entering REPL commands and displaying output. At the Anaconda
-Prompt enter:</p>
+prompt enter:</p>
 <pre>idle</pre>
 <p>This should open up the IDLE console window that should look
 something like the image below:</p>
@@ -514,36 +500,30 @@ Choose:</p>
 <p>Open your HelloWorld.py file. It should open the file in an
 editor window that looks something like:</p>
 <img src="../../resources/python/idle2.png" alt="The IDLE file editor window interface" />
-<p>Notice again that like Jupyter Notebook, the code appearing in
+<p>Notice that as with a Jupyter Notebook, the code appearing in
 the IDLE editor window is styled.</a>
 <p>The editor window has other menu options. Select:</p>
 <pre>Run -> Run Module</pre>
 <p>This should run the HelloWorld.py file, and output to the
 console in the other window which should appear something like:</p>
 <img src="../../resources/python/idle3.png" alt="The IDLE interface having run the Hello World program" />
-<p><a href="https://docs.python.org/3/library/idle.html">
-IDLE Documentation</a>.</p>
-<p>IDLE is an Integrated Development Environment (IDE) that comes
-with Python.</p>
-<p>Close down IDLE.<p>
 
+<p><a href="https://docs.python.org/3/library/idle.html">IDLE</a> is an IDE that comes with Python.</p>);
+<p>Close down the instance of IDLE that is running.<p>
 <h3 id="7.2">7.2. Spyder</h3>
-<p>Spyder (the Scientific PYthon Development EnviRonment) is a
-more sophisticated IDE that comes with Anaconda and can be
-downloaded from the
-<a href="https://www.spyder-ide.org/">Spyder Website</a>.
+<p><a href="https://www.spyder-ide.org/">Spyder</a> - the Scientific PYthon Development EnviRonment, is currently more sophisticated IDE that comes with Anaconda.</p>
 <p>From the Anaconda Prompt enter:</p>
 <pre>spyder</pre>
 <p>It may take a couple of minutes to load, when you should see
 something like this:</p>
 <img src="../../resources/python/spyder1.png" alt="The Spyder interface" />
-<p>The pane to the left is the editor pane. The pane to the top
-right is the inspector pane. The pane to the bottom right is the
-console pane.</p>
-<p>From the menus, choose:</p>
+<p>The pane to the left is the 'editor pane'. The pane to the top
+right is the 'inspector pane'. The pane to the bottom right is the
+'console pane'.</p>
+<p>From the menu, choose:</p>
 <pre>File -> Open...</pre>
-<p>Open your HelloWorld.py file which should appear in the editor
-pane. From the menus, choose:</p>
+<p>Open your 'HelloWorld.py' file which should appear in the
+editor pane. From the menu, choose:</p>
 <pre>Run -> Run</pre>
 <p>If a popup box appears choose the default and this should run
 your program and output should apear in the console like in the
@@ -552,15 +532,12 @@ following image:</p>
 World program successfully run" />
 <p>Use the editor and add the following in line 2:</p>
 <pre>x = y</pre>
-<p>Try to run the file again. You should get an error. There
-should also be a mark against the code on line 2 on the left and
-on the right of the editor pane. Try hovering your mouse over the
-mark on the left. You should see something similar to the image
-below:</p>
-<img src="../../resources/python/spyder3.png" alt="The Spyder interface showing an error." />
-<p><a href="https://docs.spyder-ide.org/current/index.html">
-Spyder Documentation</a></p>
 
+<p>Try to run the file again. You should get a <a href="https://docs.python.org/3/library/exceptions.html#NameError">Python NameError</a>. There should also be marks against the code on line 2 on the left and right of the editor pane. Hover your mouse cursor over the mark on the left. You should see something similar to the image below:</p>
+<img src="../../resources/python/spyder3.png"
+alt="The Spyder interface showing an error." />
+
+<p>Have a look at the latest <a href="https://docs.spyder-ide.org/current/index.html">Spyder Documentation</a></p>
 <h3 id="7.3">7.3 Other IDEs</h3>
 <p>There are other IDEs that support Python code development. If
 you are already familiar with an IDE that supports Python code
@@ -577,68 +554,48 @@ for
 </p>
 
 <h2 id="8">8. QGIS Desktop Python Console</h2>
-<p>Geographical Information System (GIS) software are used to
-create, manage, process, model, visualise and serve geographical
-data and information. <a href="https://www.qgis.org/">QGIS</a>,
-also called Quantum GIS, is Free and Open Source Software, there
-is a thriving developer and user community, and QGIS Desktop
-provides a Python Application Program Interface (API). QGIS is
-mostly written in mixture of
-<a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a>
-and Python and there are both server and client software. QGIS
-Desktop is the client software which can be controlled via a
-Graphical User Interface (GUI). The GUI has a Menu, Panels and
-Toolbars. Load QGIS Desktop via AppsAnywhere or download, install
-and run it on your own device. Downloads are available from:</p>
-<p><a href="https://www.qgis.org/">https://www.qgis.org/</a></p>
-<p>As QGIS loads, a splash screen should appear, then when fully
-loaded the GUI should appear. From the GUI Menu select:</p>
+<p><a href="https://en.wikipedia.org/wiki/Geographic_information_system">Geographical Information System (GIS)</a> software are used to create, manage, process, model, visualise and distribute geographical data and information.<a href="https://qgis.org/">QGIS</a> Desktop is GIS software that is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">free and open source</a>, there is currently a thriving developer and user community and a Python <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">API</a>. QGIS is mostly written in mixture of <a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> and Python and there is both Desktop and Server software that to some extent can be automatedusing Python APIs.</p>
+<p>QGIS Desktop is often controlled via a <a href="https://en.wikipedia.org/wiki/Graphical_user_interface">GUI</a>. The GUI has a Menu, Panels and Toolbars. Load QGIS Desktop via 'AppsAnywhere' or download, install and run it on your own device.</p>
+<p>As QGIS Desktop software loads, a splash screen should appear. When fully loaded the GUI should appear.</p>
+From the GUI Menu select:</p>
 <pre>Plugins > Python Console</pre>
 <p>You should see something like:</p>
-<img src="../../resources/python/qgis1.png" alt="QGIS Python Console basic interface" />
-<p>There are 5 buttons, a display area and a Python Prompt:</p>
+<img src="../../resources/python/qgis1.png" alt="QGIS Desktop Python Console basic interface" />
+<p>There are 5 buttons, a display area and a Python prompt:</p>
 <pre>>>></pre>
-<p>At the Python Prompt enter:</p>
+<p>At the Python prompt enter:</p>
 <pre>dir()</pre>
 <p>A considerable amount of functionality should be listed in the
 display area of the Python Console.</p>
-<p>To list the functionality of the QGIS interface, enter:</p>
+<p>To list the functionality of the QGIS Desktop interface,
+enter:</p>
 <pre>dir(iface)</pre>
-<p>The QGIS Python API allows us to access all the functionality
-in the GUI programatically, gives greater control in data loading
-and processing, and allows us to use additional functionality
-available in the Python environment provided. The following is a
-key reference:</p>
 
-<p><a href="https://qgis.org/pyqgis/">QGIS Python API Documentation</a></p>
-<p>In the Python Console, locate and action the Show Editor
-Button. The Editor should appear on the right of the Python
-Console.</p>
+<p><a href="https://qgis.org/pyqgis/">PyQGIS</a> allows us to access all the functionality accessible via the QGIS Desktop GUI programatically, and gives greater control in data loading and processing. It also allows us to develop and use additional functionality including functionality available in the Python environment provided.</p>
+<p>In the QGIS Desktop Python console, locate and action the
+'Show Editor' button. The 'editor panel' should appear on the
+right of the console.</p>
 <p>Download
 <a href="../../resources/python/QGIS1.py">QGIS1.py</a> - a Python
 source code file written to be run in the QGIS Desktop Python
-Console. Read the source code, and run the program following the
-instructions that are in the multi-line comment at the top of
+console. Read the source code, and run the program following the
+instructions that are in the multi-line comment at the top of the
 source code. (An outline of what to expect is provided in that
-multi-line comment too.)</p>
+multi-line comment.)</p>
 <p>The import statements are at the top (which is good practise).
 Code is organised into code blocks with comments that outline what
 each code block does (also good practise). The import statements
-start with the keyword "from" which details from which package the
-specified modules are imported. In the code there are some For
-Loops which start with the keyword "for". The first of these
-iterates over the fields in a layer. The others iterate over the
-features in a layer. Iteration simply means going through a
-collection of things one at a time.</p>
-<p>The program accesses both attribute and geometry from a layer,
-and adds data into the QGIS Desktop GUI display. Once the program
-has run the QGIS interface should look something like:
+start with the keyword 'from' which details from which package the
+specified modules are imported.</p>
+
+<p>The code contains some <a href="https://en.wikipedia.org/wiki/For_loop">for loops</a> which start with the keyword 'for'. The first of these iterates over the 'fields' in a 'layer'. The others iterate over the 'features' in a 'layer'. (Iteration simply means going through a collection of things one at a time.)</p>
+<p>The program accesses both attribute and geometry data from a layer, and adds data into the QGIS Desktop GUI display.</p>
+<p>Once the program has run the QGIS Desktop GUI should look something like:</p>
 <img src="../../resources/python/qgis2.png" alt="QGIS Python
 Console after having run QGISExample.py" />
 </p>
-<p>QGIS Desktop Plugins can be written in both C++ and Python.
-This course does not cover these things, but here are some
-relevant links:
+<p>QGIS Desktop Plugins can be written in both C++ and Python. For
+details see the following:
 </p>
 <ul>
 <li><a href="https://www.qgis.org/en/site/getinvolved/development/development.html">
