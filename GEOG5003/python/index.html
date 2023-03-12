@@ -86,7 +86,7 @@ PyPI.</p>
 <p>You can also download and install Anaconda on your own device. If you do this, then choose the default options to avoid interfering with any other version of Python already installed on your system. By default, Anaconda installs into your user home directory.</p>
 <h3 id="3.1">3.1. Python REPL</h3>
 <h4>3.1.1. Hello World</h4>
-<p>Open an Anaconda Prompt. On Windows the prompt should look
+<p>Open an Anaconda prompt. On Windows the prompt should look
 something like:</p>
 <pre>(base) C:\></pre>
 <p>Here, 'base' is the activated Python environment and 'C:\' is
@@ -95,7 +95,7 @@ the current drive and directory. Enter:</p>
 <p>This should inform you about the version of Python that came
 with Anaconda. Enter:</p>
 <pre>python</pre>
-<p>You should arrive at the 'Python Prompt' that looks something
+<p>You should arrive at the 'Python prompt' that looks something
 like:</p>
 <pre>>>></pre>
 
@@ -105,7 +105,7 @@ like:</p>
 <pre>Hello World</pre>
 
 <h4 id="3.1.2">3.1.2. Numerical calculations</h4>
-<p>The Python Prompt can be used for some basic calculations.
+<p>The Python prompt can be used for some basic calculations.
 Enter:</p>
 <pre>2 + 3</pre>
 <p>You should see the result of adding the number 2 to the number
@@ -143,7 +143,7 @@ length. Enter:</p>
 times more digits. This takes significantly longer to compute in
 this way. Enter:</p>
 <pre>len(str(2 ** 10000000))</pre>
-<p>While waiting for an answer, open another Anaconda Prompt to
+<p>While waiting for an answer, open another Anaconda prompt to
 look at some small numbers close to zero. Enter:
 <pre>1 / 10</pre>
 <pre>1 / 100</pre>
@@ -159,7 +159,7 @@ the power of'. Enter:<p>
 
 <p>This demonstrates that these types of calculations are approximations - ones that use <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">floating point arithmetic</a> which rounds to the nearest value that can be represented in a specific way.</p>
 <h3 id="3.2">3.2. Loading Modules and Using Functions</h3>
-<p>Mathematical operators can also be accessed via functions that reside in the <a href="https://docs.python.org/3/library/operator.html">operator module</a></p>
+<p>Mathematical operators can also be accessed via functions that reside in the <a href="https://docs.python.org/3/library/operator.html">operator module</a>.</p>
 <p>Enter:</p>
 <pre>operator.add(2, 3)</pre>
 <p>You should see the following error message:</p>
@@ -213,7 +213,7 @@ normally called directly, but they can be.</p>
 <p>Python does not exert access control on variables and
 functions. A naming convention is used to indicate to users
 whether a variable or function is meant to be accessed from
-outside the module. Underscores (_) and double underscores (__) at
+outside the module. Underscores '_' and double underscores '__' at
 the start and/or end of identifiers have a special meaning in
 Python. As a general rule, you should not modify anything with
 these in their name.</p>
@@ -222,20 +222,20 @@ module.</p>
 
 <h3 id="3.3">3.3. The Help System</h3>
 <a href="https://docs.python.org/3/library/functions.html#help"></a>
-<p>At the Python Prompt, enter:</p>
+<p>At the Python prompt, enter:</p>
 <pre>help(operator.add)</pre>
 <p>This prints out some information about how to use the operator
 module add function.</p>
 <p>Enter the following to enter the help system:</p>
 <pre>help()</pre>
-<p>The prompt should change to the 'Help Prompt' and look like:</p>
+<p>The prompt should change to the 'Help prompt' and look like:</p>
 <pre>help> </pre>
 <p>Read what is printed.</p>
 <p>Enter:</p>
 <pre>modules</pre>
 <p>It may take a few minutes to report a list of available
 modules.</p>
-<p>At the Help Prompt enter:</p>
+<p>At the Help prompt enter:</p>
 <pre>operator</pre>
 <p>This should display the start of the help documentation for the
 operator module. Press the &lt;enter&gt; key to see the next line
@@ -244,7 +244,7 @@ documentation should stream to the screen. The &lt;space&gt; bar
 key streams the documentation a page at a time. The &lt;q&gt; key
 quits and should return you to the prompt.</p>
 <p>Have a look at some documentation for other modules.</p>
-<p>To exit the help system and return you to the Python Prompt,
+<p>To exit the help system and return you to the Python prompt,
 enter:</p>
 <pre>q</pre>
 <p>Before learning how to run a file of Python commands, let us
@@ -431,7 +431,7 @@ as in the last snippet.</p>
 <p>Create a new ASCII text file, add to it the following line:</p>
 <pre>print("Hello World")</pre>
 <p>Save the file with the name "HelloWorld.py". Open an Anaconda
-Prompt. Change to the directory where you saved the file
+prompt. Change to the directory where you saved the file
 'path_to_directory' using:</p>
 <pre>cd path_to_directory</pre>
 <p>Run the file using:</p>
@@ -512,7 +512,7 @@ console in the other window which should appear something like:</p>
 <p>Close down the instance of IDLE that is running.<p>
 <h3 id="7.2">7.2. Spyder</h3>
 <p><a href="https://www.spyder-ide.org/">Spyder</a> - the Scientific PYthon Development EnviRonment, is currently more sophisticated IDE that comes with Anaconda.</p>
-<p>From the Anaconda Prompt enter:</p>
+<p>From the Anaconda prompt enter:</p>
 <pre>spyder</pre>
 <p>It may take a couple of minutes to load, when you should see
 something like this:</p>
