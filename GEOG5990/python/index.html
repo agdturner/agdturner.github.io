@@ -159,7 +159,7 @@ the power of'. Enter:<p>
 
 <p>This demonstrates that these types of calculations are approximations - ones that use <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">floating point arithmetic</a> which rounds to the nearest value that can be represented in a specific way.</p>
 <h3 id="3.2">3.2. Loading Modules and Using Functions</h3>
-<p>Mathematical operators can also be accessed via functions that reside in the <a href="https://docs.python.org/3/library/operator.html">operator module</a>.</p>
+<p>Mathematical operators can also be accessed via functions that reside in the <a href="https://docs.python.org/3/library/operator.html">operator</a> module.</p>
 <p>Enter:</p>
 <pre>operator.add(2, 3)</pre>
 <p>You should see the following error message:</p>
@@ -256,10 +256,10 @@ about how it must be written.</p>
 
 <h3 id="4.1">4.1. Syntax Errors</h3>
 <p>If a statement or expression is syntactically incorrect, and the Python interpreter attempts to interpret it, a <a href="https://en.wikipedia.org/wiki/Syntax_error">syntax error</a> gets raised.</p>
-<p>At the python prompt enter:</p>
+<p>At the Python prompt enter:</p>
 <pre>x=</pre>
 
-<p>You should get the following <a href="https://docs.python.org/3/library/exceptions.html#SyntaxError">Python SyntaxError</a>:</p>
+<p>You should get the following <a href="https://docs.python.org/3/library/exceptions.html#SyntaxError">SyntaxError</a>:</p>
 <pre>
 File "<stdin>", line 1
     x =
@@ -358,7 +358,7 @@ variable 'y', then the value of 'x' is printed. If the variable
   File "<stdin>", line 1, in <module>
 NameError: name 'x' is not defined</pre>
 
-<p>The function 'print()' is a function of the <a href="https://docs.python.org/3/library/builtins.html#module-builtins">buitlin module</a> that is loaded by default. Read the the help for it, enter:</p>
+<p>The function <a href="https://docs.python.org/3/library/functions.html#func-str">print()</a> is a function of the <a href="https://docs.python.org/3/library/builtins.html">builtins</a> module that is loaded by default. Read the the help for it. Enter:</p>
 <pre>help(print)</pre>
 <h3 id="4.5">4.5. Delimiters, Literals and Operators</h3>
 <p>Delimiters in code separate and help organise things. The  following are <a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters">Python Delimiters</a>:</p>
@@ -376,10 +376,10 @@ delimeters in code. Details of these other delimiters are omitted
 for the time being, but some are also operators.</p>
 <p>Literals are specific numerical or text values.</p>
 
-<p>Operators are sequences of symbols that are shorthand for<a href="https://docs.python.org/3/library/operator.html">operator module</a> functions (e.g. +, -, *, /, %)</p>
+<p>Operators are sequences of symbols that are shorthand for<a href="https://docs.python.org/3/library/operator.html">operator</a> module functions (e.g. +, -, *, /, %)</p>
 <h3 id="4.6">4.6. Identifiers and Keywords</h3>
 <p>Identifiers are names of variables, functions, classes, modules and packages.</p>
-<p><a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">Python Keywords</a> (keywords) are reserved words - terms that can't be used for identifiers.</p>
+<p>A <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">Python keyword</a> is a reserved word - a term that can't be used for an identifier.</p>
 <p>Attempting to <a href="https://en.wikipedia.org/wiki/Name_binding">use</a> a keyword as variable names typically results in a <a href="https://en.wikipedia.org/wiki/Syntax_error">syntax error</a>. Enter the following at the Python prompt:</p>
 <pre>if = 2</pre>
 <p>This should result in:</p>
@@ -533,7 +533,7 @@ World program successfully run" />
 <p>Use the editor and add the following in line 2:</p>
 <pre>x = y</pre>
 
-<p>Try to run the file again. You should get a <a href="https://docs.python.org/3/library/exceptions.html#NameError">Python NameError</a>. There should also be marks against the code on line 2 on the left and right of the editor pane. Hover your mouse cursor over the mark on the left. You should see something similar to the image below:</p>
+<p>Try to run the file again. It should raise a <a href="https://docs.python.org/3/library/exceptions.html#NameError">NameError</a> and there should be marks against the code on line 2 on the left and right of the editor pane. Hover your mouse cursor over the mark on the left. You should see something similar to the image below:</p>
 <img src="../../resources/python/spyder3.png"
 alt="The Spyder interface showing an error." />
 

@@ -31,23 +31,11 @@ DOM is fully loaded. -->
 <div>
 <h1>Variables</h1>
 <h2 id="1">1. Introduction</h2>
-<p>Python <a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">variables</a> are a combination of an identifier (a name) and a value - either a primitive or a more complex object.</p>
-<p>When passed as parameters into functions, variables are handled differently depending on whether they are primitives or more complex objects. The main difference is to do with whether the variable is duplicated when it is passed into the function as a parameter (known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value">Call By Value</a>') or whether a shared object is passed in (known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing">Call By Sharing</a>').</p>
-<h2 id="2">2. Variables Types</h2>
-In Python, variable names can be reused to refer to different types of value. The function 'type()' in the <a href="https://docs.python.org/3/library/builtins.html">builtins module</a> can be used to get the type of a variable. For example, the following code initialises a variable named 'x' to have the Integer value '1', then assigns the name x to a String value "1". After each assignment the type of the variable is printed.</p>
-<pre><code class="language-python"># Set x = 1 and print the type of x")
-x = 1
-print(type(x))
-x = "1"
-print(type(x))</code></pre>
-<p>The output from running this code is:</p>
-<pre>&lt;class 'int'&gt;
-&lt;class 'str'&gt;</pre>
-<p>Again, try this yourself.</p>
-
-<p>In declarative programming languages, the type of a variable is declared and this typically prevents the name being assigned to a value not of that type. In Python, the type of a variable is not declared. The main benefit of this is that <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">APIs</a> can be more stable. However, without type safety, it is easier to make mistakes and accidentally re-use a variable name. Not fixing types for identifiers also makes <a href="https://en.wikipedia.org/wiki/Debugging">debugging</a> code harder, and it can make developing tools to help write code harder. Being able to test the type of a variable helps mitigate these things, but adding code to test the type of variables a lot is cumbersome and it makes code a lot less succinct and can make it significantly less efficient.</p>
-<h3 id="2.1">2.1. Primitives</h3>
-<p>The four primitive variable types in Python are: Integers, Floats, Strings, and Booleans.</p><p>Integers are whole numbers and are unbounded in Python. The largest Integer that can be used is constrained only by the ammount of available memory.</p><p>Floats are <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Double-precision Floating-point</a> numbers - a special subset of fractions. Floats have a 'Maximum Value' and a 'Minimum Normal Value' (smallest number &gt; 0). These can be ascertained from the<a href="https://docs.python.org/3/library/sys.html">Python Sys Module</a> (sys). There are Float values for positive and negative infinity:</p>
+<p><a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">Variables</a> are a combination of an identifier (a name) and a value.</p>
+<h2 id="2">2. Python Variables</h2>
+<p>In Python, the 'type' of a variable does not have to be declared. The type is effectively inferred by the value of the variable (if it needs to be).</p>
+<p>Identifiers in Python can be reassigned, so a variable name can be reused to refer to a different type of thing, it does not even have to be a variable! A benefit of this is that <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">APIs</a> can be more stable (as there is no need to specify exactly what types of things are input and output from functions). A downside is that, it is easier to make mistakes and  accidentally re-use an identifier with unintended consequences.
+<p>The four primitive variable types in Python are: Integers, Floats, Strings, and Booleans.</p><p>Integers are whole numbers and are unbounded in Python. The largest Integer that can be used is constrained only by the amount of available memory.</p><p>Floats are <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Double-precision Floating-point</a> numbers - a special subset of fractions. These have a 'Maximum Value' and a 'Minimum Normal Value' (smallest number &gt; 0) which can be ascertained from the <a href="https://docs.python.org/3/library/sys.html">sys</a> module. There are Float values for positive and negative infinity. Consider and run the following code:</p>
 <pre><code class="language-python">import sys
 
 # Exploring Float max and min values.
@@ -92,13 +80,8 @@ max + d inf
 min2 2.2250754194454158e-293</pre>
 
 <p>Float is very useful, but it is important to bear in mind the approximate nature of <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Floating Point Arithmetic</a> which can result in significant calculation error.</p>
-<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> has two modules that provide for more accurate arithmetic:<a href="https://docs.python.org/3/library/decimal.html">Python Decimal Module</a>; <a href="https://docs.python.org/3/library/fractions.html">Python Fractions Module</a>.</p>
-<p>Strings are essentially blocks of text (or sequences of
-single character length Strings). Strings can be assigned using;
-double or single quotes, and the constructor function str()
-(which can for example create a String from an Integer). Strings
-can be compared and checked for equality using the operator '=='.
-Consider and run the following code:</p>
+<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> has two modules that provide for more accurate arithmetic: <a href="https://docs.python.org/3/library/decimal.html">decimal</a>; <a href="https://docs.python.org/3/library/fractions.html">fractions</a>.</p>
+<p>Strings are essentially blocks of text (or sequences of single character length Strings). Strings can be assigned using; double or single quotes, or the constructor function <a href="https://docs.python.org/3/library/functions.html#func-str">str()</a> (which can for example create a String from an Integer). Strings can be compared and checked for equality using the operator '=='. Consider and run the following code:</p>
 <pre><code class="language-python">s = "A"
 s2 = "a"
 s3 = "B"
@@ -111,7 +94,7 @@ print(str(3))  # Prints 3
 </code></pre>
 <p>Booleans are 'True' or 'False' and also equate to '0' or '1'.
 </p>
-<p>Consider and run the following code to explore Boolean:</p>
+<p>Consider and run the following code:</p>
 <pre><code class="language-python">t = True
 f = False
 print("t == t", t == t)             # Prints True
@@ -126,20 +109,22 @@ print("t and not f", t and not f)   # Prints True
 print("t or f", t or f)             # Prints True
 print("not (t or f)", not (t or f)) # Prints False</code></pre>
 
-<h3>2.2. Objects</h3>
-<p>Any variable that is not of a primitive type is a more complex
-object. A list is not a primitive type. The following code
-creates a list variable, assigns a new identifier to that list,
-appends a primitive value to the list, then prints out the list
-using one of the identifiers.</p>
-<pre><code class="language-python">
-a = [] # Assign a to equal a new empty List.
-b = a  # Set b to equal a
-a.append(1) # Append the Integer 1 to the List a
-print(b) # Prints [1]
-</code></pre>
+<p>More complex objects have state given by multiple primitives
+variables. Objects can also be comprised of multiple other
+objects as defined by a class.</p>
 
-<h2 id="3">3. Variable Scope and the Global Keyword</h2>
+<p>The type of any object can be got using the function <a href="https://docs.python.org/3/library/functions.html#type">type()</a> from the <a href="https://docs.python.org/3/library/builtins.html">builtins</a> module. Consider and run the following code that initialises a variable named 'x' with the Integer value '1', then prints out the type of the variable 'x', then reassigns 'x' to have a String value, then again prints out the type of the variable 'x'.</p>
+<pre><code class="language-python"># Set x = 1 and print the type of x")
+x = 1
+print(type(x)) # Prints &lt;class 'int'&gt;
+x = "1"
+print(type(x)) # Prints &lt;class 'str'&gt;</code></pre>
+<p>The output from running this code is:</p>
+<pre>&lt;class 'int'&gt;
+&lt;class 'str'&gt;</pre>
+
+<h2 id="3">3. Functions, Variable Scope and the Global Keyword</h2>
+<p>When passed as parameters into functions, variables are handled differently depending on their type. Primitives are duplicated when passed into the function as a parameter (known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value">Call By Value</a>'). Non-primitves are shared when passed into the function (known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing">Call By Sharing</a>').</p>
 <p>The <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)">scope</a> of a variable is from where in the code it can be accessed. The <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">keyword</a> 'global' can modify the scope.</p>
 <p>Consider the following:</p>
 <pre><code class="language-python">x = 1
@@ -156,6 +141,7 @@ print(y)</code></pre>
 <pre>NameError: name 'y' is not defined</pre>
 <p>This is because y does not get initialised and so cannot be
 passed into the print function.</p>
+
 <p>Consider the following code:</p>
 <pre><code class="language-python">x = 1
 def my_function():
@@ -192,12 +178,9 @@ print("c", x)</code></pre>
 <pre>a 1
 b 2
 c 2</pre>
-<p>Try the code yourself and play around to test your
-understanding.</p>
 
-<p>More details about Python <a href="https://en.wikipedia.org/wiki/Function_(computer_programming)">functions</a> is provided <a href="../functions#9">Functions</a>...</p>
 <h2 id="4">4. Deleting variables</h2>
-<p>Variables can be deleted using the keyword 'del' followed by the name of the variable or a <a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">Tuple</a> of variables to delete.</p>
+<p>Variables can be deleted using the keyword 'del' followed by the name of the variable or a <a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">tuple</a> of variables to delete.</p>
 <p>Deleting variables can free up resources that can be used by
 other things. The following code snippets shows how to initialise
 a variable called and then delete it:<p>
