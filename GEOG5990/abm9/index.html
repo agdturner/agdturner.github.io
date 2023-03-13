@@ -30,14 +30,40 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Agent Based Model Part 9</h1>
-<h2 id="1">1. Recap</h2>");
+<h2 id="1">1. Introduction and Preparation</h2>
+<p>This practical is about using some data in an HTML file Table
+to initialise part of the model.</p>
+<p>In your local code repository src directory duplicate your abm8
+directory and call the new directory "abm9".</p>
+
+<h2 id="2">2. Parsing an HTML File<h2>
+<p><a href="../../resources/abm9/data.html">The HTML to parse</a>.</p>
+<p>Have a look at the source code for the file by either opening
+it in a text editor or viewing the source in your Web browser.</p>
+<!--
+<p>The Python code used to generate data.html:
+<a href="../../resources/abm9/data.py">data.py</a>.</p>
+-->
+<p>Add the following import statements to 'model.py':</p>
+<pre><code class="language-python">import requests
+import bs4</code></pre>
+<p>Add the following prior to initialising the agents</p>
+
+<pre><code class="language-python">
+r = requests.get('agdturner.github.io/resources/abm9/data.html', verify=False)
+content = r.text
+soup = bs4.BeautifulSoup(content, 'html.parser')
+td_ys = soup.find_all(attrs={"class" : "y"})
+td_xs = soup.find_all(attrs={"class" : "x"})
+print(td_ys)
+print(td_xs)</code></pre>
 
 </div>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../assignments/index.html">Next: Assignments</a></p>
 </div>
-<p>Date last modified: 2023-03-12.</p>
+<p>Date last modified: 2023-03-13.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
