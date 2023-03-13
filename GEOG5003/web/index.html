@@ -31,38 +31,20 @@ DOM is fully loaded. -->
 <div>
 <h1>Web</h1>
 <h2 id="1">1. Introduction</h2>
-<p>The Internet is an international network of addressable
-machines that communicate using the
-<a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">
-Internet protocol suite, commonly known as TCP/IP</a>. The World
-Wide Web (Web) is a set of interlinked data or documents within
-the Internet. The Web has a client-server architecture. The key
-element of a client-server system is the socket.</p>
-<p>In this section of the course...</p>
-
-<h2>2. Sockets, Ports, Addresses and Protocols</h2>
-<p>Sockets are connections between machines which streams can be
-connected to to transfer data (messages). The normal operation is
-for a client to contact a server using an address and a port
-number.</p>
-<p>The client and server are programs and may be running on the
-same machine. Anyway, if the server is listening to a port, then
-when contact occurs, it generates a standard socket connected at
-the other end to the client socket.</p>
-<p>In Python, to open a socket to a server from a client, the
-following code can be used:</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Internet">Internet</a> is an international network of addressable machines that communicate using the <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">Internet protocol suite</a> commonly known as 'TCP/IP'. The <a href="https://en.wikipedia.org/wiki/World_Wide_Web">World Wide Web</a> (Web) is a set of interlinked data or documents within the Internet. Connections are made between data and documents  via connections between different machines on the internet  that host and serve the documents and data.</p>
+<p>This section of the course provides some details of how the Web works...</p>
+<h2 id="2">2. Network Sockets, Port Numbers, Addresses and Protocols</h2>
+<p>A '<a href="https://en.wikipedia.org/wiki/Network_socket">network socket</a>' connects machines so that data can be sent and recieved between them across a network. The normal operation is for a client to contact a server to open the socket for data transfer.</p>
+<p>In Python, to open a network socket and send some data, the following code can be used:</p>
 <pre><code class="language-python">import socket
 
 socket_1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socket_1.connect(("localhost", 5555)) # Address tuple
 
 socket_1.send(bytes("hello world", encoding="UTF-8"))</code></pre>
-<p>In this code, the connection is to "localhost" - the local
-machine. The port number for the connection is 5555. The bytes
-representing "hello world" in a unicode String are sent.</p>
-<p>The following code sets up a server socket to listen on the
-same port, the server code is set to receive 30 bytes of data and
-then print this after converting the bytes to a String:</p>
+
+<p>In this code: the connection is to 'localhost' - the local machine; the '<a href="https://en.wikipedia.org/wiki/Port_(computer_networking)">port number</a>' for the connection is 5555; and, the bytes representing "hello world" in a unicode String are sent.</p>
+<p>The following code sets up a server socket to listen on the same port, the server code is set to receive 30 bytes of data and then print this after converting the bytes to a String:</p>
 <pre><code class="language-python">import socket
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -72,60 +54,19 @@ serversocket.listen()
 b = socket_2.recv(30)
 print(str(b))
 </code></pre>
-<p>Web applications typically open multiple sockets to different
-clients, and one server can serve multiple clients at once. Data
-transfers are normally initiated following a communication
+
+<p>Web applications typically open multiple network sockets and
+data transfers are normally initiated following a communication
 protocol.</p>
-<p>Most computers use TCP/IP when communicating with network nodes
-and other destination computers on the internet. The Internet
-Protocol (IP) is used to split data into small chunks called
-"packets" and address them to a specific destination computer. The
-Transport Control Protocol (TCP) routes packets and ensures they
-reach and are reassembled at the destination.</p>
-<p>Ports are numerical handles which individual software
-applications associate with. The computer directs input from the
-associated port to the specific software. The first 1024 ports are
-allocated to specific purposes and protocols.</p>
-<p>IP addresses are codes uniques to each networked machine. The
-Domain Name Service (DNS) is a mapping from these codes to a Web
-address or host name which is often easier to remember.</p>
-<p>If you want to set up client/server software using sockets, you
-should avoid specifying ports already in use and liaise with you
-local IT team that are likely monitoring network activity for
-suspicious behaviour.</p>
 
+<p>Most computers use <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP</a> when communicating on the Internet. The Internet Protocol (IP) is used to split data into small chunks called "packets" and address them to a specific destination computer. The Transport Control Protocol (TCP) routes packets, and ensures they reach and are reassembled at the destination.</p>
+<p>Ports are numerical handles which individual software applications associate with. The computer directs input from the associated port to the specific software. The first 1024 ports are allocated to specific purposes and protocols.</p>
+<p>IP addresses are codes uniques to each networked machine. The Domain Name Service (DNS) is a mapping from these codes to a Web address (or host name which is often easier to remember).</p>
+<p>To set up client/server software using sockets, it is best to avoid specifying ports already in use and liaise with your local IT team that are likely monitoring network activity for suspicious behaviour.</p>
 <h2 id="3">3. The World Wide Web</h2>
-<p>The World Wide Web (Web) is a client-server system using port
-80 and some particular hyper-text communication protocols
-<a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">
-HTTP</a>/
-<a href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a>. When a
-server gets a request it is usually to send out a Web page - a
-file stored in a directory on the server and referenced via a
-<a href="https://en.wikipedia.org/wiki/URL">
-Uniform Resource Locator (URL)</a>.
-The URL comprises: a method for locating information, e.g. "HTTP",
-"HTTPS", "FTP"; a case sensitive host name, e.g. "www.w3.org"; a
-case sensitive path to the file on that server, e.g.
-"/People/Berners-Lee/Overview.html"; and, sometimes a port number
-to connect to (by default, HTTP connects to port 80 and HTTPS
-connects to port 443. Different delimeters are used to separate
-parts of the URL, a complete example marked up as a hyperlink is:
-<a href="https://www.w3.org:443/People/Berners-Lee/Overview.html">
-https://www.w3.org:443/People/Berners-Lee/Overview.html</a>
-
+<p>The World Wide Web (Web) is a client-server system using port 80 and the hyper-text communication protocols:<a href="https://en.wikipedia.org/wiki/HTTP">HTTP</a> and <a href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a>. When a server gets a request it is usually to send out a Web page - a file stored in a directory on the server and referred to via a <a href="https://en.wikipedia.org/wiki/URL">URL</a>. The URL comprises: a protocol identifier e.g. "HTTP", "HTTPS", "FTP"; a case sensitive host name, e.g. "www.w3.org"; a case sensitive path to the file on that server, e.g. "/People/Berners-Lee/Overview.html"; and, sometimes a port number to connect to (by default, HTTP connects to port 80 and HTTPS connects to port 443. Different delimeters are used to separate parts of the URL, a complete example marked up as a hyperlink is: <a href="https://www.w3.org:443/People/Berners-Lee/Overview.html">https://www.w3.org:443/People/Berners-Lee/Overview.html</a></p>
 <h3 id="3.1">3.1. Web Pages</h3>
-<p>Web pages consist of text that is displayed and tags that are
-not. The tags are formatting details and references to other files
-like images or scripts that can provide style information, record
-user interaction and/or make the page dynamic and interactive. The
-tags are referred to as
-<a href="https://en.wikipedia.org/wiki/HTML">
-HyperText Markup Language (HTML)</a>.
-<p>HTML files are text files typically saved with the filename
-suffix ".html" (and sometimes ".htm"). Note that if the filename
-is missing from the URL, by default, many servers will send a file
-named "index.html".<p>
+<p>Web pages consist of text that is displayed and tags that are not. The tags are formatting details and references to other files like images or scripts that can provide style information, record user interaction and/or make the page dynamic and interactive. The tags are referred to as <a href="https://en.wikipedia.org/wiki/HTML">HTML</a>. HTML files are text files typically saved with the filename suffix ".html" (and sometimes ".htm"). (If the filename is missing from the URL, by default, many servers will send a file named "index.html" if it exists.<p>
 <p>A basic webpage:</p>
 <pre><code>&lt;!DOCTYPE html>
 &lt;HTML lang="en-GB">
@@ -171,16 +112,8 @@ accessibility for the disabled has to be a major design driver.
 </p>
 
 <h3 id="3.3">3.3. Processing Web Pages</h3>
-<p>Web pages can be retrieved by issuing HTTP requests. In Python
-a good option for this is the
-<a href="https://requests.readthedocs.io/">requests library</a>
-that comes with Anaconda.</p>
-<p>Once the content of a Web page has been retrieved a helpful
-library for parsing the HTML is
-<a href="https://beautiful-soup-4.readthedocs.io/">
-Beautiful Soup</a></p>
-
-
+<p>Web pages can be retrieved by issuing HTTP requests. In Python a good option for this is the <a href="https://requests.readthedocs.io/">Requests library</a> that comes with Anaconda.</p>
+<p>Once the content of a Web page has been retrieved a helpful library for parsing the HTML is the <a href="https://beautiful-soup-4.readthedocs.io/">Beautiful Soup library</a></p>
 </div>
 <footer>
 <div>
