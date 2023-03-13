@@ -34,7 +34,7 @@ DOM is fully loaded. -->
 <p>Python <a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">variables</a> are a combination of an identifier (a name) and a value - either a primitive or a more complex object.</p>
 <p>When passed as parameters into functions, variables are handled differently depending on whether they are primitives or more complex objects. The main difference is to do with whether the variable is duplicated when it is passed into the function as a parameter (known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value">Call By Value</a>') or whether a shared object is passed in (known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing">Call By Sharing</a>').</p>
 <h2 id="2">2. Variables Types</h2>
-In Python, variable names can be reused to refer to different types of value. The function 'type()' in the<a href="https://docs.python.org/3/library/builtins.html">builtins module</a> can be used to get the type of a variable. For example, the following code initialises a variable named 'x' to have the Integer value '1', then assigns the name x to a String value "1". After each assignment the type of the variable is printed.</p>
+In Python, variable names can be reused to refer to different types of value. The function 'type()' in the <a href="https://docs.python.org/3/library/builtins.html">builtins module</a> can be used to get the type of a variable. For example, the following code initialises a variable named 'x' to have the Integer value '1', then assigns the name x to a String value "1". After each assignment the type of the variable is printed.</p>
 <pre><code class="language-python"># Set x = 1 and print the type of x")
 x = 1
 print(type(x))
@@ -45,13 +45,9 @@ print(type(x))</code></pre>
 &lt;class 'str'&gt;</pre>
 <p>Again, try this yourself.</p>
 
-<p>In declarative programming languages, the type of a variable is declared and this typically prevents the name being assigned to a value not of that type. In Python, the type of a variable is not declared. The main benefit of this is that <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">APIs</a> can be more stable. However, without type safety, it is easier to make mistakes and accidentally re-use a variable name. It can also make<a href="https://en.wikipedia.org/wiki/Debugging">debugging</a> code harder, and it can make developing tools to help write code harder. Being able to test the type of a variable helps mitigate these things, but adding code to test the type of variables a lot is cumbersome and it makes code a lot less succinct and can make it significantly less efficient.</p>
+<p>In declarative programming languages, the type of a variable is declared and this typically prevents the name being assigned to a value not of that type. In Python, the type of a variable is not declared. The main benefit of this is that <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">APIs</a> can be more stable. However, without type safety, it is easier to make mistakes and accidentally re-use a variable name. Not fixing types for identifiers also makes <a href="https://en.wikipedia.org/wiki/Debugging">debugging</a> code harder, and it can make developing tools to help write code harder. Being able to test the type of a variable helps mitigate these things, but adding code to test the type of variables a lot is cumbersome and it makes code a lot less succinct and can make it significantly less efficient.</p>
 <h3 id="2.1">2.1. Primitives</h3>
-<p>The four primitive variable types in Python are: Integers, Floats, Strings, and Booleans. Integers are whole numbers. Floats are <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Double-precision Floating-point</a> numbers - a special subset of fractions. Strings are essentially blocks of text (or sequences of single character length Strings). Booleans are True or False and also equate to 0 or 1.</p>
-<p>Integers are virtually unbounded in Python. The limit for the
-largest number is based on the available memory.</p>
-
-<p>Floats have a 'Maximum Value' and a 'Minimum Normal Value' (smallest number &gt; 0). These can be ascertained from the<a href="https://docs.python.org/3/library/sys.html">Python Sys Module</a> (sys). There are Float values for positive and negative infinity:</p>
+<p>The four primitive variable types in Python are: Integers, Floats, Strings, and Booleans.</p><p>Integers are whole numbers and are unbounded in Python. The largest Integer that can be used is constrained only by the ammount of available memory.</p><p>Floats are <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Double-precision Floating-point</a> numbers - a special subset of fractions. Floats have a 'Maximum Value' and a 'Minimum Normal Value' (smallest number &gt; 0). These can be ascertained from the<a href="https://docs.python.org/3/library/sys.html">Python Sys Module</a> (sys). There are Float values for positive and negative infinity:</p>
 <pre><code class="language-python">import sys
 
 # Exploring Float max and min values.
@@ -97,11 +93,12 @@ min2 2.2250754194454158e-293</pre>
 
 <p>Float is very useful, but it is important to bear in mind the approximate nature of <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Floating Point Arithmetic</a> which can result in significant calculation error.</p>
 <p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> has two modules that provide for more accurate arithmetic:<a href="https://docs.python.org/3/library/decimal.html">Python Decimal Module</a>; <a href="https://docs.python.org/3/library/fractions.html">Python Fractions Module</a>.</p>
-<p>Strings can be assigned using; double or single quotes, and the
-constructor function str() (which can for example create a String
-from an Integer). Strings can be compared and checked for
-equality using the operator '=='. Consider and run the following
-code:</p>
+<p>Strings are essentially blocks of text (or sequences of
+single character length Strings). Strings can be assigned using;
+double or single quotes, and the constructor function str()
+(which can for example create a String from an Integer). Strings
+can be compared and checked for equality using the operator '=='.
+Consider and run the following code:</p>
 <pre><code class="language-python">s = "A"
 s2 = "a"
 s3 = "B"
@@ -112,6 +109,8 @@ print(s > s2)  # Prints False
 print(s < s2)  # Prints True
 print(str(3))  # Prints 3
 </code></pre>
+<p>Booleans are 'True' or 'False' and also equate to '0' or '1'.
+</p>
 <p>Consider and run the following code to explore Boolean:</p>
 <pre><code class="language-python">t = True
 f = False
