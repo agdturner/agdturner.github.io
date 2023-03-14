@@ -5,8 +5,8 @@ body {
 
 /* button */
 button {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: grey;
 }
 
 /* hovered over button */
