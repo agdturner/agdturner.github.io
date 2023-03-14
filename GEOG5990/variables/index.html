@@ -81,7 +81,7 @@ min2 2.2250754194454158e-293</pre>
 
 <p>Float is very useful, but it is important to bear in mind the approximate nature of <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Floating Point Arithmetic</a> which can result in significant calculation error.</p>
 <p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> has two modules that provide for more accurate arithmetic: <a href="https://docs.python.org/3/library/decimal.html">decimal</a>; <a href="https://docs.python.org/3/library/fractions.html">fractions</a>.</p>
-<p>Strings are essentially blocks of text (or sequences of single character length Strings). Strings can be assigned using; double or single quotes, or the constructor function <a href="https://docs.python.org/3/library/functions.html#func-str">str()</a> (which can for example create a String from an Integer). Strings can be compared and checked for equality using the operator '=='. Consider and run the following code:</p>
+<p>Strings are essentially blocks of text (or sequences of single character length Strings). Strings can be assigned using; double or single quotes, or the constructor function <a href="https://docs.python.org/3/library/functions.html#func-str">str</a> (which can for example create a String from an Integer). Strings can be compared and checked for equality using the operator '=='. Consider and run the following code:</p>
 <pre><code class="language-python">s = "A"
 s2 = "a"
 s3 = "B"
@@ -113,7 +113,7 @@ print("not (t or f)", not (t or f)) # Prints False</code></pre>
 variables. Objects can also be comprised of multiple other
 objects as defined by a class.</p>
 
-<p>The type of any object can be got using the function <a href="https://docs.python.org/3/library/functions.html#type">type()</a> from the <a href="https://docs.python.org/3/library/builtins.html">builtins</a> module. Consider and run the following code that initialises a variable named 'x' with the Integer value '1', then prints out the type of the variable 'x', then reassigns 'x' to have a String value, then again prints out the type of the variable 'x'.</p>
+<p>The type of any object can be got using the function <a href="https://docs.python.org/3/library/functions.html#type">type</a> from the <a href="https://docs.python.org/3/library/builtins.html">builtins</a> module. Consider and run the following code that initialises a variable named 'x' with the Integer value '1', then prints out the type of the variable 'x', then reassigns 'x' to have a String value, then again prints out the type of the variable 'x'.</p>
 <pre><code class="language-python"># Set x = 1 and print the type of x")
 x = 1
 print(type(x)) # Prints &lt;class 'int'&gt;
@@ -180,7 +180,7 @@ b 2
 c 2</pre>
 
 <h2 id="4">4. Deleting variables</h2>
-<p>Variables can be deleted using the keyword 'del' followed by the name of the variable or a <a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">tuple</a> of variables to delete.</p>
+<p>Variables can be deleted using the keyword 'del' followed by the name of the variable or a <a href="https://docs.python.org/3/library/stdtypes.html#tuples">tuple</a> of variables to delete.</p>
 <p>Deleting variables can free up resources that can be used by
 other things. The following code snippets shows how to initialise
 a variable called and then delete it:<p>
