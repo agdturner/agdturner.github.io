@@ -71,14 +71,14 @@ to the local machine you are using by following the
 <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">
 GitHub Clone a Repository Tutorial</a>.</p>
 <p>If you have followed correctly, you should now have a
-hello-world local git repository cloned from a hello-world
+'hello-world' local git repository cloned from a 'hello-world'
 remote repository on GitHub.</p>
 <p>Now to practice making changes and keeping things synchronised:
 First, make a change in the local hello-world repository, commit
 the change, and then push the change to the remote repository on
 GitHub:<p>
 <ol>
-<li>Open your local copy of README.md in a text editor, make a
+<li>Open your local copy of 'README.md' in a text editor, make a
 change (for example, add a line of text) and save the file.</li>
 <li>Open the git client command line interface and change to
 the local repository directory.</li>
@@ -92,67 +92,67 @@ git push</pre>
 </ol>
 <p>There are alternative ways to do this, but this way is
 recommended.</p>
-<p>Now, check on GitHub that the README.md file has changed. You
-may need to reload the page in order to see the change.</p>
+<p>Now, check on GitHub that the 'README.md' file there is
+updated. You may need to reload the page in order to see the
+change.</p>
 <p>Next, change the file on the remote GitHub repository using the
 browser and commit the change there: To edit the README click on
-the Edit Button which looks like a pen (in dark mode it looks
+the 'Edit Button' which looks like a pen (in dark mode it looks
 like the following where the button is identified with a red
 elipse:
 <img src="../resources/github/edit.png"  alt="GitHub README edit
-button" />), then click on the "Commit changes" button which
-should save the changes.</p>
-<p>At this stage the remote repository is "ahead" of the local
-repository which is "behind". To synchronize, we can pull the
-committed remote repository change to the local repository: In the
-git bash tool in the repository directory directory enter:</p>
+button" />). Once you have finished editing, action the
+'Commit changes' button to save the changes.</p>
+<p>The remote repository is now 'ahead' of the local repository
+(which is 'behind'). To synchronize, pull the committed remote
+repository changes to the local repository: In the git bash tool
+in the repository directory directory enter:</p>
 <pre>git pull</pre>
 <p>You should see confirmation of this pulling the remote
 repository changes to the local repository.</p>
-<p>There is a lot to learn with a versioning system and with
-having multiple clones of repositories. Indeed there is a lot to
-GitHub that we are not going to learn about and use in this
-course. We are not going to learn about forking repositories,
-creating branches, creating issues and resolving these by
-submitting and accepting pull requests. These are all key steps in
+<p>There is a lot to GitHub that we are not going to use or learn
+about in this course including: forking repositories, creating
+branches, creating issues, resolving issues by submitting and
+accepting 'pull requests'. These are all commonly taken steps in
 collaborating on shared code bases in the GitHub ecosystem which
-is typically what a lot of team programming involves nowadays.</p>
-<p>Something you may have to learn about is to deal with merge
-conflicts. This is when changes have been made to the same file
+is typically what a lot of team programming involves.</p>
+<p>Something you may have to learn about is to deal with 'merge
+conflicts'. This is when changes have been made to the same file
 and in the same places such that the act of sychronizing the
 repositories now requires decisions to be made about which
 changes to keep. Let us deal with that in an ad hoc manner if and
 when it happens.</p>
 <p>One of the main benefits of using git or a similar repository
-like system is that all changes are recorded and versioned,so it
+like system is that all changes are recorded and versioned, so it
 is possible to reset to an earlier version should this be desired,
-and this takes the difficulty away from doing this yourself.</p>
+and this takes the difficulty away from doing all this in a more
+manual way.</p>
 
 <h2 id="3">3. Python Code Repository Setup</h3>
 <p>Create a new repository on GitHub which will be your code
 repository for this course, call it something simple (you can
-rename it later), include a README and in the '.gitignore' section
-choose the python option. Spend some time to
+rename it later), include a README, and in the '.gitignore'
+section choose the 'python' option. Spend some time to
 <a href="https://choosealicense.com/">choose a license</a> and
 select this from the options available. There are a few different
-kinds. You are advised to choose an open source license and not
-write your own from scratch. The license is a legal document that
-states terms of use, modification and redistribution and provides
-a disclaimer to indemnify you if something goes wrong.</p>
+kinds of license. You are advised to choose an open source license
+and not write your own from scratch. The license is a legal
+document that states terms of use, modification and redistribution
+and provides a disclaimer to indemnify you if something goes
+wrong.</p>
 <p>Clone your new repository so you have a local repository set
-up as was done with the hello-world repository. Create a new
-folder/directory in the new repository called test.
-Start Spyder; add a python command to the file that opens by
-default and save this into your test directory. Add and Commit
-changes to the local repository and push the changes to the remote
-GitHub repository like you did with the hello-world repository.
-Finally check the new file appears on GitHub.</p>
+up as was done with the 'hello-world' repository. Create a new
+folder/directory in the new repository called 'test'.
+Start Spyder; add a python command and save the code in a file in
+the newly created 'test' directory. Add and commit changes to the
+local repository and push the changes to the remote repository
+as was done with the 'hello-world' repository. Check the new file
+appears on GitHub.</p>
 <p>Run the new Python file you have created. A directory named
-__pycache__ might appear in the test directory with python source
-code file. This contains interpreted files generated by the
-python interpretter. The '.gitignore' settings for python will not
-push this directory contents to GitHub - which is what we want.
-</p>
+__pycache__ might appear in the test directory. This contains
+interpreted files generated by the Python interpreter. The GitHub
+'.gitignore' settings for Python will not push this directory
+contents to GitHub - which is what is wanted.</p>
 
 <h2 id="4">4. GitHub Pages</h2>
 <p>Create another repository on GitHub - your GitHub Pages
@@ -167,11 +167,9 @@ distraction, but it is important to be aware of current
 programming practice and hopefully you will realise the benefits
 during the course as you become more familiar with programming and
 using git/GitHub.</p>
-<p>There is a lot more to GitHub than has been covered here, but
-having understood and practised creating repositories, cloning,
-pulling, committing and pushing you are ready to return to
-learning more about the python language and develop a repository
-of python code.</p>
+<p>As mentioned, there is a lot more to GitHub than has been
+covered here. Practised creating repositories, cloning, pulling,
+committing and pushing is something is good for now.</p>
 <p>If you have decided against using GitHub, then consider
 using
 <a href="https://about.gitlab.com/">GitLab</a>;
