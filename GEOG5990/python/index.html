@@ -103,37 +103,39 @@ Enter:</p>
 <p>You should see the result of adding the number 2 to the number
 3:</p>
 <pre>5</pre>
-<p>The plus symbol '+' in this instance acts as an addition
-operator. For multiplication use the asterix '*' symbol, try
-multiplying two numbers.</p>
-<p>For division use the forward slash '/' symbol. Divide 3 by 2.
-Notice that the result is not an integer. In some languages the
-result of dividing by an integer will be an integer, but not in
-Python 3.</p>
-<p>Try to evaluate the following:</p>
+
+<p>The plus symbol '+' in this instance acts as an addition operator. This is a '<a href="https://docs.python.org/3/library/stdtypes.html">Built-in Type</a>' operator that works with specific types of variables. Multiplication can be done similarly using an asterix '*' symbol; and division can be done using the forward slash '/' symbol.<p>
+<p>Dividing '3' by '2' in this way results not in an integer, but
+in '1.5'. In some programming languages dividing by an integer
+will result in an integer. Indeed this used to be the case in an
+old version of Python!</p>
+
+<p>Trying to evaluate a division by zero results in a <a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError">ZeroDivisionError</a>.<p>
+<p>Try multiplying and dividing some numbers, and try the
+following division:</p>")
 <pre>1 / 0</pre>
-<p>You should get an Error message:</p>
+<p>Which should result in:</p>
 <pre>
 Traceback (most recent call last):
   File "&lt;stdin>", line 1, in <module>
 ZeroDivisionError: division by zero
 </pre>
 
-<p>A<a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError">ZeroDivisionError</a> is one of many<a href="https://docs.python.org/3/library/exceptions.html">Python built-in exceptions</a>. Exceptions are 'raised' in particular circumstances.</p>
-<p>Try some integer calculations. Enter:</p>
+<p>A<a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError">ZeroDivisionError</a> is one of many <a href="https://docs.python.org/3/library/exceptions.html">Python built-in exceptions</a>. Exceptions are 'raised' in particular circumstances and often errors are reported similarly, so it is good to get familiar with this as you are likely to see this sort of thing a lot and be able to interpret what it is.</p>
+<p>Try some more calculations. Calculates '2' to the power of
+'64':</p>
 <pre>2 ** 64</pre>
-<p>This calculates '2' to the power of '64' - an integer number
-with twenty digits. Enter:</p>
+<p>The result is an integer with twenty digits. Try:</p>
 <pre>2 ** 1000000</pre>
-<p>An integer with 301,030 digits. It may take noticeably longer
-to compute and display this.</p>
+<p>The result is an integer with '301,030' digits. It may take
+noticeably longer to compute and display this number...</p>
 
-<p>One way to calculate how many digits there are is to pass the  result into the function <a href="https://docs.python.org/3/library/functions.html#func-str">str</a> and to pass the result of this into the function<a href="https://docs.python.org/3/library/functions.html#len">len</a>. Enter the following which does this and prints the answer:</p>
+<p>One way to calculate how many digits there are is to pass the  result into the <a href="https://docs.python.org/3/library/functions.html#func-str">str</a> function and to pass the result of this into the <a href="https://docs.python.org/3/library/functions.html#len">len</a>function as follows:</p>
 <pre>len(str(2 ** 1000000))</pre>
 <p>Notice how things are passed into the two functions.</p>
-<p>Increasing the power raised to by a further multiple of 10
-should give 10 times more digits and might take significantly
-longer to compute in this way. Enter:</p>
+<p>Increasing the power raised to by a further multiple of ten
+should give ten times more digits and might take over ten longer
+to compute. try it:</p>
 <pre>len(str(2 ** 10000000))</pre>
 <p>While waiting for an answer, open another Anaconda prompt to
 look at some small numbers close to zero. Enter:
@@ -145,20 +147,20 @@ look at some small numbers close to zero. Enter:
 <p>Notice how the format of the number printed out changes with
 the last command. '1e-05 ' is '0.00001' in scientific notation
 where the letter 'e' stands for 'multiply by 10 raised to
-the power of'. Enter:<p>
+the power of'. Try:<p>
 <pre>1/(2**1074)</pre>
-<p>Which results in:</p>
+<p>Which should result in:</p>
 <pre>5e-324</pre>
-<p>Enter:<p>
+<p>Try:<p>
 <pre>1/(2**1075)</pre>
-<p>Which results in:</p>
+<p>Which should result in:</p>
 <pre>0.0</pre>
 <p>The result is rounded down to 0.0 as this is the nearest Float
 value to the true value!</p>
 
 
 <h3 id="3.2">3.2. Loading Modules and Using Functions</h3>
-<p>The mathematical symbols like '+' and '*' are shorthand for functions that reside in the <a href="https://docs.python.org/3/library/operator.html">operator</a> module.</p>
+<p>Some mathematical operators are built-in as delimiters. Others can be found in the , but they are  '+' and '*' are shorthand for functions that reside in the <a href="https://docs.python.org/3/library/operator.html">operator</a> module.</p>
 <p>Enter:</p>
 <pre>operator.add(2, 3)</pre>
 
@@ -172,7 +174,9 @@ imported.</p>
 <pre>dir()</pre>
 
 <p>This runs (or calls) the function '<a href="https://docs.python.org/3/library/functions.html#dir">dir</a>'. Function calls are easy to spot as after the function name there are start and end parentheses. In this function call the function is passed no arguments - as there is nothing between the start and end parentheses. The output is a list of names in the current local scope:</p>
-<pre>['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__']</pre>
+<pre>['__annotations__', '__builtins__', '__doc__', '__loader__',
+'__name__', '__package__', '__spec__']</pre>
+
 <p>The list is alphabetically ordered. You can tell it is a list
 as it starts with an open square bracket '[' and ends with
 a closing square bracket ']', and each item is separated with a
@@ -584,7 +588,11 @@ print("done") # This line is indented to the previous level.
 <p>In the code above, if the variable 'x' is greater than thevariable 'y', then the value of 'x' is printed. If either of the variables 'x' or 'y' has not been initialised, then a <a href="https://docs.python.org/3/library/exceptions.html#NameError">NameError</a> will be raised.</p>
 <h3 id="4.5">4.5. Delimiters, Literals and Operators</h3>
 <p>Delimiters in code separate and help organise things. The  following are <a href="https://docs.python.org/3/reference/lexical_analysis.html#delimiters">Python delimiters</a>:</p>
-<pre>(       )       [       ]       {       }       ,       :       .       ;       @       =       ->       +=      -=      *=      /=      //=     %=      @=       &=      |=      ^=      >>=     <<=     **=</pre>
+<pre>(       )       [       ]       {       }      :
+.       ;       @       =       ->      +=     -=
+*=      /=      //=     %=      @=      &=     |=
+^=      >>=     <<=     **=</pre>
+
 <p>The various types of bracket are paired - each open bracket
 must be paired with a closing bracket: parentheses '()'; square
 brackets '[]'; and, curly brackets '{}' also known as braces.</p>
@@ -932,7 +940,7 @@ myenv               M:\GEOG5990\envs\myenv</pre>
 <li><a href="https://readthedocs.org/projects/pip/">pip</a></li>
 <li><a href="https://pypi.org/project/ipykernel/">ipykernel</a></li>
 <li><a href="https://pypi.org/project/PyQt5">PyQt5</a></li>
-<li><a href="https://pypi.org/project/spyder-kernels/">spyder-kernels</li>
+<li><a href="https://pypi.org/project/spyder-kernels/">spyder-kernels</a></li>
 </ul>
 <p>Enter:</p>
 <pre>conda install -c conda-forge contextily fiona folium geopandas pip pysal ipykernel spyder spyder-kernels=2.2</pre>

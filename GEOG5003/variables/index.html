@@ -33,9 +33,9 @@ DOM is fully loaded. -->
 <h2 id="1">1. Introduction</h2>
 <p><a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">Variables</a> are a combination of an identifier (a name) and a value.</p>
 <h2 id="2">2. Python Variables</h2>
-<p>In Python, the 'type' of a variable does not have to be declared. The type is effectively inferred by the value of the variable (if it needs to be).</p>
-<p>Identifiers in Python can be reassigned, so a variable name can be reused to refer to a different type of thing, it does not even have to be a variable! A benefit of this is that <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">APIs</a> can be more stable (as there is no need to specify exactly what types of things are input and output from functions). A downside is that, it is easier to make mistakes and  accidentally re-use an identifier with unintended consequences.
-<p>The four primitive variable types in Python are: Integers, Floats, Strings, and Booleans.</p><p>Integers are whole numbers and are unbounded in Python. The largest Integer that can be used is constrained only by the amount of available memory.</p><p>Floats are <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Double-precision Floating-point</a> numbers - a special subset of fractions. These have a 'Maximum Value' and a 'Minimum Normal Value' (smallest number &gt; 0) which can be ascertained from the <a href="https://docs.python.org/3/library/sys.html">sys</a> module. There are Float values for positive and negative infinity. Consider and run the following code:</p>
+<p>In Python, the 'type' of a variable does not have to be declared - it is effectively inferred by the value of the variable (if it needs to be).</p>
+<p>In Python, identifiers such as variable names can be reassigned. A benefit of this is that <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">APIs</a> can be more stable (as there is no need to specify exactly what types of things are input and output from functions). A downside is that, it is easier to make mistakes and  accidentally re-use an identifier with unintended consequences.
+<p>The four primitive variable types in Python are: Integers, Floats, Strings, and Booleans:</p><p>Integers are whole numbers and are unbounded in Python. The largest Integer is constrained by <a href="https://en.wikipedia.org/wiki/Computer_memory">memory</a> availability.</p><p>Floats are standard <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Double-precision Floating-point</a> numbers - a special subset of fractions. These have a 'Maximum Value' and a 'Minimum Normal Value' (smallest number &gt; 0) which can be ascertained from the <a href="https://docs.python.org/3/library/sys.html">sys</a> module. There are Float values for positive and negative infinity. Consider and run the following code:</p>
 <pre><code class="language-python">import sys
 
 # Exploring Float max and min values.
@@ -79,9 +79,9 @@ max + d/2 1.7976931348623157e+308
 max + d inf
 min2 2.2250754194454158e-293</pre>
 
-<p>Float is very useful, but it is important to bear in mind the approximate nature of <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Floating Point Arithmetic</a> which can result in significant calculation error.</p>
-<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> has two modules that provide for more accurate arithmetic: <a href="https://docs.python.org/3/library/decimal.html">decimal</a>; <a href="https://docs.python.org/3/library/fractions.html">fractions</a>.</p>
-<p>Strings are essentially blocks of text (or sequences of single character length Strings). Strings can be assigned using; double or single quotes, or the constructor function <a href="https://docs.python.org/3/library/functions.html#func-str">str</a> (which can for example create a String from an Integer). Strings can be compared and checked for equality using the operator '=='. Consider and run the following code:</p>
+<p>Float is very useful for approximate numerical calculations. Do keep in mind that <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Floating Point Arithmetic</a> is approximate - so calculations that use it are not necessarily accurate.</p>
+<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> has two modules that support more arithmetic accuracy: <a href="https://docs.python.org/3/library/decimal.html">decimal</a>; and, <a href="https://docs.python.org/3/library/fractions.html">fractions</a>.</p>
+<p>Strings are essentially blocks of text (which are sequences of single character length Strings). Strings can be assigned using; double or single quotes, or the constructor function <a href="https://docs.python.org/3/library/functions.html#func-str">str</a> (which can for example create a String from an Integer). Strings can be compared and checked for equality using the operator '=='. Consider and run the following code:</p>
 <pre><code class="language-python">s = "A"
 s2 = "a"
 s3 = "B"
@@ -132,14 +132,14 @@ if x == 1:
     y = 2
 print(y) # Prints 2</code></pre>
 
-<p>The code in the <a href="https://docs.python.org/3/reference/compound_stmts.html#if">If Statement</a> is executed as the condition 'x == 1' evaluates as 'True'. If the condition were to evaluate as 'False', then the interpreter would skip to the end of the statement, as in the following code:</p>
+<p>The code in the <a href="https://docs.python.org/3/reference/compound_stmts.html#if">if statement</a> is executed as the condition 'x == 1' evaluates as 'True'. If the condition were to evaluate as 'False', then the interpreter would skip to the end of the if statement, as happens running the following code:</p>
 <pre><code class="language-python">x = 1
 if x == 0:
     y = 2
 print(y)</code></pre>
-<p>That results in:</p>
+<p>Which results in:</p>
 <pre>NameError: name 'y' is not defined</pre>
-<p>This is because y does not get initialised and so cannot be
+<p>This is because 'y' does not get initialised and so cannot be
 passed into the print function.</p>
 
 <p>Consider the following code:</p>
@@ -181,9 +181,9 @@ c 2</pre>
 
 <h2 id="4">4. Deleting variables</h2>
 <p>Variables can be deleted using the keyword 'del' followed by the name of the variable or a <a href="https://docs.python.org/3/library/stdtypes.html#tuples">tuple</a> of variables to delete.</p>
-<p>Deleting variables can free up resources that can be used by
-other things. The following code snippets shows how to initialise
-a variable called and then delete it:<p>
+<p>Deleting variables can free up memory for other things. The
+following code snippets shows how to initialise and delete
+variables:<p>
 <pre><code class="language-python">a = 1
 del a # <-- deletes a
 #print(a) # <-- Would result in: NameError: name 'a' is not defined.
