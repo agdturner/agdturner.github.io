@@ -31,31 +31,40 @@ DOM is fully loaded. -->
 <div>
 <h1>Branching</h1>
 <h2 id="1">1. Introduction</h2>
+<p>Branching controls the flow of a program. In this section we
+will look at a couple of ways of branching in Python. The main way
+uses an 'if' statement and a new way uses a 'match' statement.</p>
 
-<p>Branching is to do with the flow of a program. At a branching,
-the program either goes one way or another. In this section we
-will look at a couple of main ways of branching.</p>
-
-<h2 id="2">2. If, Else and Elif</h2>
-
-<p>The If Statement provides a means to branch based upon a
-condition which evaluates to either True or False as in the
-following example.</p>
+<h2 id="2">2. If</h2>
+<p>The<a href="https://docs.python.org/3/reference/compound_stmts.html#if">if statement</a> is a 'compound' statement (comprises groups of other statements) that provides a means to branch based upon a condition which evaluates to either 'True' or 'False'. Consider the following example:</p>
 <pre><code class="language-python"># A simple If Statement
 day_of_week = 5
 day = "Weekday"
 if day_of_week >= 6:
-    day = "Weekend"</code></pre>
-<p>An Else clause branches into two distinct paths which become
-one again at the end of the compound statement as in the
+    day = "Weekend"
+print(day)</code></pre>
+<p>The if statement condition evaluates as False, so the result
+is:</p>
+<pre>Weekday</pre>
+<p>Changing the code slightly to:</p>
+<pre><code class="language-python"># A simple If Statement
+day_of_week = 6
+day = "Weekday"
+if day_of_week >= 6:
+    day = "Weekend"
+print(day)</code></pre>
+<p>Results in:</p>
+<pre>Weekend</pre>
+<p>An 'else' clause branches into two distinct paths which become
+one again at the end of the compound if statement as in the
 following example.</p>
 <pre><code class="language-python"># An If-else Statement
 if day_of_week < 6:
     day = "Weekday"
 else:
     day = "Weekend"</code></pre>
-<p>One or many Elif clauses can also be inserted between an If and
-Else clause. Elif is a short for 'else if'. Consider the following
+<p>One or many 'elif' clauses can also be inserted between if and
+else clauses. Elif is short for 'else if'. Consider the following
 example:</p>
 <pre><code class="language-python"># An If-elif-else Statement
 if day_of_week == 1:
@@ -71,16 +80,12 @@ elif day_of_week == 5:
 else:
     day = "Weekend"</code></pre>
 <p>It can be argued that it is better to store a dictionary to
-look up the day from the day_of_week, but a simple mlook up does
+look up the day from the day_of_week, but a simple look up does
 not branch, and more code can be inserted in any of the clauses,
-so this can be more than a sort of look up.</p>
+so this can do more than just look up a value from a key.</p>
 
-<h2 id="3">3. Match-case</h2>
-
-<p>Since Python 3.10 there is also a Match-case statement which
-can simplify long If-elif compound statements. The following
-example shows the equivalent of the If-elif-else example from the
-end of previous section:</p>
+<h2 id="3">3. Match</h2>
+<p>Since Python 3.10 there is also a <a href="https://docs.python.org/3/reference/compound_stmts.html#the-match-statement">match</a> statement which can simplify if statements with many elif clauses as a 'match-case' statement. The following example shows the equivalent of the example from the end of previous section:</p>
 <pre><code class="language-python">
 day_of_week = 5
 match day_of_week:
@@ -98,11 +103,10 @@ match day_of_week:
         day = "Weekend"
 </code></pre>
 <p>The final case is a catch all case using the anonymous variable
-which matches anything.</p>
-<p>The Math-case statement offers more than a syntactic variation
-of Else-elif-else compound statements, as containers and other
-objects can be matched against. Examples of these can be found in
-the relevant PEPS:</p>
+'_' which matches anything.</p>
+<p>The match-case statement offers more than a syntactic
+variation, as containers and other objects can be matched.
+Examples of these and further details can be found in the relevant PEPS:</p>
 <ul>
 <li><a href="https://peps.python.org/pep-0634/">PEP 634, Structural Pattern Matching: Specification</a></li>
 <li><a href="https://peps.python.org/pep-0635/">PEP 635, Structural Pattern Matching: Motivation and Rationale</a></li>
