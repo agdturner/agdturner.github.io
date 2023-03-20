@@ -36,10 +36,10 @@ will look at a couple of ways of branching in Python. The main way
 uses an 'if' statement and a new way uses a 'match' statement.</p>
 
 <h2 id="2">2. If</h2>
-<p>The<a href="https://docs.python.org/3/reference/compound_stmts.html#if">if statement</a> is a 'compound' statement (comprises groups of other statements) that provides a means to branch based upon a condition which evaluates to either 'True' or 'False'. Consider the following example:</p>
-<pre><code class="language-python"># A simple If Statement
-day_of_week = 5
+<p>The <a href="https://docs.python.org/3/reference/compound_stmts.html#if">if statement</a> is a 'compound' statement (comprises groups of other statements) that provides a means to branch based upon a condition which evaluates to either 'True' or 'False'. Consider the following example:</p>
+<pre><code class="language-python">day_of_week = 5
 day = "Weekday"
+# A simple If Statement
 if day_of_week >= 6:
     day = "Weekend"
 print(day)</code></pre>
@@ -47,8 +47,8 @@ print(day)</code></pre>
 is:</p>
 <pre>Weekday</pre>
 <p>Changing the code slightly to:</p>
-<pre><code class="language-python"># A simple If Statement
-day_of_week = 6
+<pre><code class="language-python">day_of_week = 6
+# A simple If Statement
 day = "Weekday"
 if day_of_week >= 6:
     day = "Weekend"
@@ -58,15 +58,18 @@ print(day)</code></pre>
 <p>An 'else' clause branches into two distinct paths which become
 one again at the end of the compound if statement as in the
 following example.</p>
-<pre><code class="language-python"># An If-else Statement
+<pre><code class="language-python">day_of_week = 5
+# An If-else Statement
 if day_of_week < 6:
     day = "Weekday"
 else:
-    day = "Weekend"</code></pre>
+    day = "Weekend"
+print(day) # <-- Prints Weekday</code></pre>
 <p>One or many 'elif' clauses can also be inserted between if and
 else clauses. Elif is short for 'else if'. Consider the following
 example:</p>
-<pre><code class="language-python"># An If-elif-else Statement
+<pre><code class="language-python">day_of_week = 5
+# An If-elif-else Statement
 if day_of_week == 1:
     day = "Monday"
 elif day_of_week == 2:
@@ -78,7 +81,8 @@ elif day_of_week == 4:
 elif day_of_week == 5:
     day = "Friday"
 else:
-    day = "Weekend"</code></pre>
+    day = "Weekend"
+print(day) # <-- Prints Friday</code></pre>
 <p>It can be argued that it is better to store a dictionary to
 look up the day from the day_of_week, but a simple look up does
 not branch, and more code can be inserted in any of the clauses,
@@ -86,8 +90,7 @@ so this can do more than just look up a value from a key.</p>
 
 <h2 id="3">3. Match</h2>
 <p>Since Python 3.10 there is also a <a href="https://docs.python.org/3/reference/compound_stmts.html#the-match-statement">match</a> statement which can simplify if statements with many elif clauses as a 'match-case' statement. The following example shows the equivalent of the example from the end of previous section:</p>
-<pre><code class="language-python">
-day_of_week = 5
+<pre><code class="language-python">day_of_week = 5
 match day_of_week:
     case 1:
         day = "Monday"
@@ -101,7 +104,7 @@ match day_of_week:
         day = "Friday"
     case _:
         day = "Weekend"
-</code></pre>
+print(day) # <-- Prints Friday</code></pre>
 <p>The final case is a catch all case using the anonymous variable
 '_' which matches anything.</p>
 <p>The match-case statement offers more than a syntactic
