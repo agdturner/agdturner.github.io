@@ -31,20 +31,25 @@ DOM is fully loaded. -->
 <div>
 <h1>Containers</h1>
 <h2 id="1">1. Introduction</h2>
-<p>Data structures types in Python include: sequences (strings,
-tuples, ranges, lists, arrays, ...), sets and dictionaries.
-Similar data structures are available in other high level
-languages, but they may be called different things. Some of these
-data structures are 'mutable' - can be changed once they have been
-created, others are 'immutable' - cannot be changed once they have
-been created (although these may contain things which themselves
-can be changed). Some are ordered, or can be ordered, and others
-are unordered.</p>
+<p>There are various containers for data in Python including:
+sequence objects (bytes, bytearrays, strings, tuples, ranges,
+lists, arrays), sets and dictionaries. Similar data structures are
+available in other high level languages, but they may be called
+different things. Some of these data structures are 'mutable' -
+can be changed once they have been created, others are 'immutable'
+- cannot be changed once they have been created (although these
+may contain things which themselves can be changed). Some are
+ordered, or can be ordered, and others are unordered. A dictionary
+ius a mapping of keys to values. In this part of the course we
+introduce each in a bitmore detail.</p>
 
 <h2 id="2">2. Sequences</h2>
-<p>A sequence is a particular class of object. The following are commonly used sequences: bytes, strings, tuples, ranges, lists, arrays.</p>
-<p><a href="https://docs.python.org/3/library/stdtypes.html#bytes">Bytes</a> are sequences of integers with values of 0 or 1.</p>
-<h3 id="2.1">2.1. Strings</h3>
+<p>A sequence is a particular class of object. The following are perhaps more commonly used sequences: strings, tuples, ranges, and lists.</p>
+<h3 id="2.1">2.1. Bytes and Bytearray</h3>
+<p>A <a href="https://docs.python.org/3/library/stdtypes.html#bytes">byte</a> is an immutable sequence of integers in the range [0, 255]. </p>
+<p>A <a href="https://docs.python.org/3/library/stdtypes.html#bytearray">bytearray</a> is a mutable sequence of integers in the range [0, 255].</p>
+<p>These are worth knowing about, but are not used directly in this course, so details are omitted.</p>
+<h3 id="2.2">2.2. Strings</h3>
 <p><a href="https://docs.python.org/3/library/stdtypes.html#textseq">Strings</a> are immutable sequences of <a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> points. Unlike some other high level languages, Python does not have a primitive type for individual characters. As strings are immutable: parts of a string cannot be replaced with parts of another string. Instead of changing a string, a new one has to be created. This is a somewhat subtle difference, but it does mean that processing with strings can be inefficient. Strings can be created by encapsulating text in single or double quotation marks, or using the function <a href="https://docs.python.org/3/library/functions.html#func-str">str</a> which allows strings to be constructed from other types of object. Multiline strings are either encapsulated by triple single quotes or triple double quotes.</p>
 <p>Strings may contain quotation marks. If a string is
 encapsulated using single quotes, then in order to contain single
@@ -64,11 +69,11 @@ s4 = 'string encapsulated with single quotes and containing double "quotes"'
 s5 = "string encapsulated with double quotes and containing double "quotes""
 s6 = 'string encapsulated with single quotes and containing single 'quotes''
 s7 = str(s0) # A string constructed from another string
-print(s7)
+print(s7) # < prints this is a string
 s8 = str(s0[8:]) # A string constructed from a slice of another string
-print(s8)
+print(s8) # <-- Prints a string
 s9 = "strings " + "can be " + "concatenated using '+'"
-print(s9)</code></pre>
+print(s9) # <-- Prints strings can be concatenated using '+'</code></pre>
 <p>A backslash can also ensure the continuation of a line.
 For example:</p>
 <pre><code class="language-python">print('''This is \
@@ -77,21 +82,22 @@ This is a second.''')</code></pre>
 <p>Produces:</p>
 <pre>This is all one line.
 This is a second.</pre>
-<p>However, a comment cannot be added at the end of a line that is
-continued in this way. So, running the following:</p>
-<pre><code class="language-python">print('''This is \ # Not a comment, but is
+<p>The symbol '#' can be included in a string. Source code
+comments are only comments provided they are not in the string.
+So, running the following:</p>
+<pre><code class="language-python">print('''This is \ # Not a comment
 all one line.''')</code></pre>
-<p>Everything becomes art of the string and this is the result:
-</p>
+<p>Results in:</p>
 <pre>This is \ # Not a comment
 all one line.</pre>
-<p>It is though possible to have comments using concatenation:</p>
-<pre><code class="language-python">print("This is " + # This comment works fine!
+<p>It is sometimes easier to use concatenation in order to add
+source code comments:</p>
+<pre><code class="language-python">print("This is " + # A comment
 "all one line.")
 print("This is a second")</code></pre>
-<p>produces:</p>
-<pre>This is a second.
-This is all one line.</pre>
+<pResults in:</p>
+<pre>This is all one line.
+This is a second.</pre>
 <p>The string class contains many useful
 <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">
 methods</a> for processing strings. (Methods being functions
@@ -112,7 +118,7 @@ of spaces, tabs and/or newlines).</p>
 <p>Search and replace is a common string operation as is finding
 out if a string starts or ends with a particular string.</p>
 
-<h3 id="2.2">2.2. Tuples</h3>
+<h3 id="2.3">2.3. Tuples</h3>
 A <a href="https://docs.python.org/3/library/stdtypes.html#tuples">tuple</a> is an immutable sequence that can be added to and nested. Like strings, once created the items cannot be substituted  and their order cannot be changed - although they may themselves contain items that can be modified. Tuples are  commonly used to return a sequence of things from functions. Functions can only return one thing, but that thing can be a tuple that effectively packs a sequence of things together. Consider the following code where there is some packing and unpacking of a tuple:</p>
 <pre><code class="language-python">a = () # A new empty tuple
 print(len(a)) # <-- Prints 0
@@ -136,7 +142,7 @@ while b < 10:
 print(b)</code></pre>
 
 <p>The <a href="https://docs.python.org/3/reference/compound_stmts.html#while">while statement</a> is a loop with an expression that is evaluated each time around the loop. While this expression 'b < 10' evaluates as 'True' the loop continues to run, when it evaluates as 'False', the program continues by executing the next line after the loop. Notice in the example how things are packed and unpacked in the tuples. Such packing/unpacking is is not common in other languages (currently).</p>
-<h3 id="2.3">2.3. Ranges</h3>
+<h3 id="2.4">2.4. Ranges</h3>
 <p><a href="https://docs.python.org/3/library/stdtypes.html#ranges">Ranges</a> are a special type of immutable sequence created as follows:</p>
 <pre><code class="language-python">range(start, stop, step) # start and step are optional and default to 0 and 1 repectively</code></pre>
 <p>The parameters: start, stop and step should be Integers. The
@@ -169,7 +175,7 @@ print(a.count(6)) # Print the count of items equal to 6 in a.
 b = (True, False)
 print(any(b)) # Print if any of the items in b are True.</code></pre>
 
-<h3 id="2.4">2.4. Lists</h3>
+<h3 id="2.5">2.5. Lists</h3>
 <p><a href="https://docs.python.org/3/library/stdtypes.html#lists">Lists</a> are the mutable form of tuples. Lists have an order, different types of thing can be stored in them, things can be appended, inserted and removed from them. The elements within a list can be reordered and there are various methods that help with this.</p>
 <p>Lists are initialised with square brackets or using the
 constructor that can take in some other container as an argument.
@@ -257,7 +263,7 @@ arguments:</p>
 sys.argv[1] is "arg1", sys.argv[2] is "arg2" and sys.argv[3] is
 "arg3".</p>
 
-<h3 id="2.5">2.5. Arrays</h3>
+<h3 id="2.6">2.6. Arrays</h3>
 <p><a href="https://docs.python.org/3/library/array.html">Arrays</a> are for storing and processing large collections of things of the same type. Typically those things are numbers. An array is like a list but it cannot be used to store anything, it can only store things of a specific type.</p>
 <p>The following creates an array containing signed Integers and inserts a new Integer value into the array. The attempts to insert a Float into the array which results in a <a href="https://docs.python.org/3/library/array.html">TypeError</a>:</p>
 <pre><code class="language-python">import array
@@ -296,7 +302,7 @@ Python documentation tutorial about data structures</a>.
 <div>
 <p><a id="next" class="nav" href="../branching/index.html">Next: Branching</a></p>
 </div>
-<p>Date last modified: 2023-03-18.</p>
+<p>Date last modified: 2023-03-20.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
