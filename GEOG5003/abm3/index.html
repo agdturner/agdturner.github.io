@@ -30,7 +30,7 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Agent Based Model Part 3</h1>
-<h2 id="1">1. Recap</h2>
+<h2 id="1">1. Recap and preparation</h2>
 <p>Your ABM code should look something like the following:</p>
 <pre><code class="language-python">import random
 import math
@@ -113,51 +113,46 @@ distance 5.0</pre>
 <img src="../../resources/abm2/Figure_1.png" alt="ABM2 Output Plot" />
 <p>Some of the print statements in the code presented above have
 been 'commented out' - turned into comments. This reduces the
-amount of text output in the console to a less noisey and more
-informative level. Most of the print statements were for testing
-things were working, so really they are no longer needed and
-could be deleted, but it is probably best to leave them in there
-for the time being... Printing out a lot to the console slows
-down the program execution, so if large amounts of output are to
+amount of text output in the console. Most of the print statements
+were for testing things worked as expected and are no longer so
+useful. Printing out a lot of infomration to the console slows
+down the program execution. If large amounts of output are to
 be generated, this is best written to a file which is generally
-much faster than displaying it. All the text output in the console
-is a print of the agent coordinates before and then after a single
-move.</p>
+much faster than displaying it. The text output gives the agent
+coordinates before and then after a single move.</p>
 <p>In your local code repository src directory create a new
 directory called "abm3". Open Spyder and use "save as" to save
 your "model.py" file into the abm3 directory.</p>
 
 <h2 id="2">2. Distance Calculations</h2>
-
-<h3 id="2.1">2.1 Define a Function</h3>
+<h3 id="2.1">2.1. Define a Function</h3>
 <p>Change the distance calculation code into a function called
 get_distance: Use the def keyword and specify four input
 parameters (x0, y0, x1, y1). Recall that the function declaration
-ends with a colon ':'. The code of the function must be indented.
-Return the distance calculated as the last statement of the
-function using the keyword 'return' followed by the name of the
-variable. After the function write a statement to call it and
+ends with a colon ':', and the code of the function must be
+indented. Return the distance calculated as the last statement of
+the function using the keyword 'return' followed by the name of
+the variable that is the distance. After the function write a statement to call it and
 print out the distance returned.</p>
 <p>Run the code to test it works</p>
 <p>If your code calculates the square root in two ways, then
-simplify it by removing one of these ways. You may want to
-simplify the code in other ways too...</p>
-<p>Change the comment that describes the function into a
-docstring. Clarify what the inputs and outputs are in the
-docstring.</p>
+simplify it by removing one of these ways. Consider simplifying
+your code in other ways too...</p>
 
-<h3 id="2.2">2.2 Calculate the maximum distance</h3>
-<p>Imagine a two dimensional matrix of distances where each
-distance is the distance between the cooridnate for a row and the
-coordinate for a column. If all the coordinates for the rows and
-columns are the same and in the same order, then the matrix is
-symetrical about a diagonal where all the distances are zero.</p>
+<p>Change the comment that describes the function into a <a href="https://peps.python.org/pep-0257/#what-is-a-docstring">docstring</a> and clarify what the function inputs and outputs are.</p>
+<h3 id="2.2">2.2. Calculate the maximum distance</h3>
+<p>Imagine a two dimensional matrix with the sequence of agents
+along each dimension and the distances between them in the matrix.
+The matrix is symmetrical about a diagonal where all the distances
+are zero.</p>
 <p>The maximum distance between any two agents is the maximum
 distance in this matrix. Nested loops can be used to calculate it.
 An outer loop to go through all the agents, and an inner
-loop to go through all agents. Within the inner loop we can use
-the function get_distance() to calculate the distance between a
-pair of coordinates, and the max() function to calculate the
+loop to go through all agents. Within the inner loop the
+get_distance function can be used to calculate the distance
+between agents, and the
+<a href="https://docs.python.org/3/library/functions.html#max">
+builtin max function</a> can be used to calculate the
 maximum distance encountered yet. Some code for doing this is as
 follows:</p>
 <pre><code class="language-python">max_distance = 0 # Initialise max_distance
@@ -172,10 +167,8 @@ output. In calculating the maximum distance, you should see that
 some zero distances are calculated. These will either be where an
 agent is located at the same place as another agent, or where the
 calculation is for the same agent.</p>
-<p>Recall that there are two main ways to iterate over the items
-in a list. As above, and alternatively using the list indexes. It
-is common to use range() to get a sequence of indexes, and the
-looping can also be done as follows:</p>
+
+<p>Recall that there are two main ways to iterate over the items in a list. As above, and alternatively using list indexes. The following does the same calculation, and uses the <a href="https://docs.python.org/3/library/stdtypes.html#ranges">range function</a> to get a sequence of indexes:</p>
 <pre><code class="language-python">max_distance = 0
 for i in range(len(agents)):
     a = agents[i]
@@ -185,17 +178,11 @@ for i in range(len(agents)):
         print("distance between", a, b, distance)
         max_distance = max(max_distance, distance)
         print("max_distance", max_distance)</code></pre>
-<p>Notice that this code uses variables i and j for the indexes
-given sequencially by range(), and len() is used to get the length
-of the agents list. (Also, as len(agents) is the same as n_agents,
-we could alternatively be using n_agents as a parameter for the
-range function. This would save a calculation and be slightly more
-efficient. As the length of the agents list is something that we
-may want to change, keep using len(agents) for now...</p>
-<p>Define a function called get_max_distance that uses the
-above code and returns the max_distance. This is like the exercise
-of defining get_distance(). It is good to practise turning code
-into functions as it is a key programming skill.</p>
+
+<p>Note that this code uses variables 'i' and 'j' for the indexes, and the <a href="https://docs.python.org/3/library/functions.html#len">len function</a> is used to get the length of the agents list. ('len(agents)' is the same as 'n_agents', and could be used instead, but the length of the agents list is something that may change, so keep using 'len(agents)' for now.)</p>
+<p>Define a function called 'get_max_distance' that uses the
+above code and returns the maximum distance between all the
+agents.</p>
 <p>Your get_distance function should look something like the
 following:</p>
 <pre><code class="language-python">def get_distance(x0, y0, x1, y1):
@@ -223,62 +210,51 @@ following:</p>
     dy = y0 - y1
     # Return the Sum the squared differences square rooted.
     return ((dx * dx) + (dy * dy)) ** 0.5</code></pre>
-<p>Use your get_max_distance function to calculate the maximum
+<p>Use your 'get_max_distance' function to calculate the maximum
 distance between all the agents just after they have been
-initialised. You may encounter:</p>
-<pre>NameError: name 'get_max_distance' is not defined</pre>
-<p>Recall that the Python interpreter needs to have read a
-function definition before the function is called. So, if you
-encounter this error, then rearrange your code so that the
-function is defined before it is called.</p>
+initialised.</p>
 
+If a <a href="https://docs.python.org/3/library/exceptions.html#NameError">NameError</a> is raised indicating that 'get_max_distance' is not defined, then recall that the Python interpreter needs to have read a function definition before it can be called. So, rearrange your code so that the function is defined before it is called.</p>
 <h2 id="3">3. Timing</h2>
-<p>This section is about using the time module to report timings
-and explore the efficiency of different adaptions of the code.</p>
+<p>This section is about using the <a href="https://docs.python.org/3/library/time.html">time module</a> to report timings and explore code efficiency.</p>
 <p>Add the following import statement along with the others
 towards the top of the source code:</p>
 <pre>import time</pre>
 <p>Before calculating the maximum distance between the initialised
 agents add the following line:</p>
 <pre>start = time.perf_counter()</pre>
-<p>This sets the variable start to a time variable which is the
+<p>This sets the variable 'start' to a time variable which is the
 number of second since the computer was last rebooted. After
-calculating the maximum distance add the following:</p>
+calculating the maximum distance add the following code to
+calculate and report a time interval:</p>
 <pre>end = time.perf_counter()
 print("Time taken to calculate maximum distance", end - start, "seconds")</pre>
-<p>This should calculate and report a time interval. So, run
-your program and check the time taken to calculate maximum
-distance. It could report 0.0 seconds for 10 agents. This does not
-mean that the processing took no time, but it was very quick and
-closer to zero milliseconds than one. (There is a higher temporal
-resolution timer perf_counter_ns() that could be used, but we have no need for it.)</p>
-<p>We are going to explore two things:</p>
+<p>Run your program and check the time taken to calculate maximum
+distance. (It could report '0.0' seconds for 10 agents. This does
+not mean that the processing took no time, but that it was very
+quick and closer to zero milliseconds than one.)</p>
+<p>The plan is to explore the following two things:</p>
 <ol>
-<li>How does the processing time scale as n_agents increases?</li>
-<li>Other potentially more optimal ways of calculating the
-maximum distance between agents.
+<li>How does the processing time scale as 'n_agents' increases?
 </li>
+<li>Other potentially more optimal ways of calculating the
+maximum distance between agents.</li>
 </ol>
-<p>Begin with the first of these things:</p>
-<ul>
-<li>Save your source code file with a new name, for example
-"timing.py".</li>
-<li>Increase n_agents to 500 and run the program again. Notice
-that the plotting is a little delayed and printing out the agents
-now clutters the text output. (Printing is slow and can effect
-timing significantly - much more so than writing results to a
-file. Typically anything to do with display is slow compared with
-reading and writing data, and numerical data processing.)</li>
-<li>Comment out the printing of the agents and the code for
-plotting agents.</li>
-<li>Run again, it should now be easy to see the time taken to
-calculate the maximum distance between agents, which is expected
-to be a fraction of a second.</li>
-<li>Run again and compare the timing. It is likely to vary a bit
-from one run to another. (The amount of computation is the same,
-but timings depend also on what else the system is doing.
-Processing is generally slower if the system is busy.)</li>
-<li>Adapt your code to:
+<p>Save your source code file with a new name, for example
+"timing.py". Increase 'n_agents' to 500 and run the program again.
+Notice that the plotting is a little delayed and printing out the
+agents now clutters the text output.</p>
+<p>As printing and plotting are slow and can effect timings
+significantly, comment out the code for printing agents and the
+code for plotting agents.</p>
+<p>Run your program again. It should now be easy to see the time
+taken to calculate the maximum distance between agents, which is
+expected to take a fraction of a second.</p>
+<p>Run again and compare the timing. It is expected to vary a bit
+from one run to another. The amount of computation is the same,
+but timings of this sort vary. Timings are typically longer if the
+computer is busier with other things.</li>
+<li>Adapt your code:
 <ol>
 <li>Create a loop to run for a range of n_agents.</li>
 <li>Create a list to store the store the timing results.</li>
@@ -288,13 +264,9 @@ Processing is generally slower if the system is busy.)</li>
 <li>Experiment with your range function to get an interesting
 plot.</li>
 </ul>
-<p>Recall that when learning to code, it is helpful to think about
-and experiment with how to do something working systematically.
-So, give this coding challenge a try: Spend at least 10 minutes
-puzzling over it. If you manage to complete it within this time,
-then great, if not, then don't worry.</p>
-<p>Once you have given this a try, then compare your efforts
-with
+<p>Spend at least 10 minutes trying to do this coding. If you
+manage to do it within this time, then great, if not, then don't
+worry. Having tried, compare your efforts with
 <a href="../../resources/abm3/timing1.py">this solution</a> that
 produces the following results:</p>
 <pre>Maximum distance between all the agents 133.64505228402584
@@ -317,10 +289,10 @@ Maximum distance between all the agents 140.0071426749364
 Time taken to calculate maximum distance 11.068045900014113</pre>
 <p><img src="../../resources/abm3/Figure_1.png"
 alt="A graph of time (y axis) and n_agents (x axis)" /></p>
-<p>Let's now attempt to optimise the calculation of
-max_distance(): Modify your code so that n_agents = 3, and add the
-following print statement to the inner loop of get_max_distance():
-</p>
+<p>Attempt to optimise the calculation of the maximum distance
+between all the agents as follows: Modify your code so that
+'n_agents = 3', and add the following print statement to the
+inner loop of the 'get_max_distance' function:</p>
 <pre>print("i", i, "j", j)</pre>
 <p>Run the code and you should see the following printed in the
 text output:</p>
@@ -333,31 +305,29 @@ i 1 j 2
 i 2 j 0
 i 2 j 1
 i 2 j 2</pre>
-<li>Change what is in the inner loop of get_max_distance() to be
-within an If Statement that is only run when i does not equals j
-using the Not Equals operator '!='. The if statement will look
-like:</p>
+
+<p>Change what is in the inner loop of the 'get_max_distance' function to be within an <a href="https://docs.python.org/3/reference/compound_stmts.html#if">if statement</a> that is only run when 'i' does not equal 'j' using the operator '!='. The if statement will look like:</p>
 <pre><code class="language-python">if i != j:</code></pre>
-Run the program again and you
-should see the following printed in the text output:</li>
+<p>Run the program again and you should see the following in the
+console output:</p>
 <pre>i 0 j 1
 i 0 j 2
 i 1 j 0
 i 1 j 2
 i 2 j 0
 i 2 j 1</pre>
-<p>Compare the output with the previous run. There is less output
+<p>Compare the output with the previous run. There is less output,
 as when the indexes are the same, the calculations are skipped.
 </p>
-<p>Comment out the print statement and run the code for 1000
-agents. Compare the processing time with/without the if statement.
-</p>
-<p>The timing with the If Statement is about the same. It may be
-slower - as calculating whether on not to do the calculation is
-about as much computation as doing the calculation.</p>
-<p>Modify the code again so that n_agents = 3, the print statement
-that was commented out is not commented out again, and so that the
-operator in the If Statement is a Less Than '@lt;' operator):</p>
+<p>Comment out the print statement and run the code for
+'n_agents = 1000'. Compare the processing time with/without the
+'if statement'.</p>
+<p>The timing should be about the same because calculating whether
+or not to do the calculation is about as much computation as doing
+the calculation!</p>
+<p>Modify the code again so that: 'n_agents = 3'; the print
+statement that was commented out is no longer commented out; and,
+so that the operator in the if statement is a '@lt;'):</p>
 <pre><code class="language-python">if i < j:</code></pre>
 <p>Run the program again and you should get the following output:
 </p>
@@ -366,16 +336,16 @@ i 0 j 2
 i 1 j 2</pre>
 <p>Understand that the maximum distance can be calculated by
 finding the maximum distance between the coordinates as indexed.
-It may help you understand if you run for n_agents = 5 or 10.</p>
-<p>Comment out the print statement and record timings again for
-n_agents = 1000. You should get the same max_distance result
+It may help you understand if you run for 'n_agents = 5' or
+'n_agents = 10'.</p>
+<p>Comment out the print statement again and record timings again
+for 'n_agents = 1000'. You should get the same max_distance result
 calculated previously, but the processing time should be roughly
 half.</p>
-<p>There is a faster way which involves modifying the loops and
-removing the If Statement. Can you work out how to do it? (Hint:
-Change the range function of the inner For Loop to begin at
-i + 1).
-</p>
+<p>An even faster way involves modifying the loops and removing
+the if statement. Can you work out how to do it? (Hint:
+Change the range function of the inner for loop to start at index
+i + 1).</p>
 <p>Once you've given this a try, compare your answer with
 <a href="../../resources/abm3/timing2.py">this one</a> in which
 the code has been simplified a little and the following graph of
