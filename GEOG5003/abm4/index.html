@@ -101,10 +101,10 @@ method in the Agent class as follows:</p>
         + ", y=" + str(self.y) + ")"</pre></code>
 
 <p>Note that this returns a string which includes the name of the class and details of the 'x' and 'y' variable attributes which are transformed by the <a href="https://docs.python.org/3/library/functions.html#func-str">builtin function str</a> to be Strings.</p>
-<p>Run model.py again and the print statement should now result in
+<p>Run 'model.py' again and the print statement should result in
 the following:</p>
 <pre>Agent(x=49, y=97)</pre>
-<p>Change the "# Initialise agents" code section in model.py to:
+<p>Change the '# Initialise agents' code block in 'model.py' to:
 </p>
 <pre><code class="language-python"># Initialise agents
 agents = []
@@ -138,38 +138,42 @@ Traceback (most recent call last):
     distance = get_distance(a[0], a[1], b[0], b[1])
 
 TypeError: 'Agent' object is not subscriptable</pre>
-<p>The agents list is initialised, but the print function does not
-use the __str__ method to get a String representation of the
-agents when printing the list.</p>
-<p>The error is a consequence of the things stored in the agents
-list no longer being lists, but instantiated Agent objects.</p>
+<p>The list 'agents' is initialised, but the print function does
+not use the '__str__' method to get string representations when
+printing the list.</p>
+
+<p>The <a href="https://docs.python.org/3/library/exceptions.html#TypeError">TypeError</a> is a consequence of the 'agents' list no longer containing lists, but instantiated Agent objects.</p>
 <p>Add the following method to the Agent class to get the print
-function to print String representations of agents when printing
-the agents list:</p>
+function to print string representations when printing the agents
+list:</p>
 <pre><code class="language-python">def __repr__(self):
     return str(self)</code></pre>
-<p>Like the method __str__(), the method __repr__() overrides from
-the 'type metaclass', (for details see:
-<a href="https://docs.python.org/3/library/functions.html#repr">
-repr()</a>).</p>
-<p>To prevent the error, it is necessary to refer to the
-attributes of the agents as from the class definition and not to
-items in lists (as agents are no longer lists, but are instances
-of the class Agent). So, change the following line of code in
-the get_max_distance() function:</p>
+
+<p>Like the method '__str__', the method '__repr__' overrides from the 'type' metaclass, (for details see: <a href="https://docs.python.org/3/library/functions.html#repr">repr</a>.</p>
+<p>To avoid raising the TypeError exception, it is necessary to
+refer to the attributes of the agents as from the class definition
+and not to items in lists (as agents are no longer lists, but are
+instances of the class Agent). So, change the following line of
+code in the 'get_max_distance()' function:</p>
 <pre><code class="language-python">distance = get_distance(a[0], a[1], b[0], b[1])</code></pre>
 <p>To be:</p>
 <pre><code class="language-python">distance = get_distance(a.x, a.y, b.x, by)</code></pre>
 <p>Examine the code change and appreciate that there is no longer
 a need to remember which item in the list refers to a particular
 coordinate.</p>
-<p>Everywhere else in the model.py that was referring to a
+<p>Everywhere else in the 'model.py' that was referring to a
 coordinate from the agents list is to be changed similarly. Run
-model.py to see where the next error is raised.</p>
-<p>In the code "agents[i][0]" should be changed to "agents[i].x";
-and, "agents[i][1]" should be changed to "agents[i].y". Make a
-further change in the code block that plots agents, changing:
-</p>
+'model.py' to see where the next TypeError is raised.</p>
+<p>In the code change:</p>
+<pre><code class="language-python">agents[i][0]</code></pre>
+<p>To:</p>
+<pre><code class="language-python">agents[i].x</code></pre>
+<p>And change:</p>
+<pre><code class="language-python">agents[i][1]"</code></pre>
+<p>To:</p>
+<pre><code class="language-python">agents[i].y</code></pre>
+<p>Make a further change in the code block that plots agents,
+changing:</p>
 <pre><code class="language-python"># Plot the coordinate with the largest x red
 lx = max(agents, key=operator.itemgetter(0))
 plt.scatter(lx[0], lx[1], color='red')
@@ -196,38 +200,37 @@ plt.scatter(ly.x, ly.y, color='yellow')
 sy = min(agents, key=operator.attrgetter('y'))
 plt.scatter(sy.x, sy.y, color='green')</code></pre>
 <p>Hopefully, you understand these changes and your program runs
-without error and produces the same output as previously when you
-have made all the changes.</p>
+without raising exceptions and produces the same output as
+previously.</p>
 <p>Commit your code to your local repository and assuming you are
 using GitHub - push your changes to GitHub.</p>
 
 <h2 id="3">3. Separation of Concerns</h2>
-<p>Define a method called move in the Agent class as follows:</p>
+<p>Define a method called 'move' in the Agent class as follows:
+</p>
 <pre><code class="language-python">def move(self, x_min, y_min, x_max, y_max):</code></pre>
-<p>Cut the code from the "# Move agents" loop that moves an agent
-and insert it into the body of the new move method. Replace all
-the instances of "agents[i]" with "self". Where the code was cut
+<p>Cut the code that moves an individual agent from 'model.py' and
+paste it into the body of the new 'move' method. Replace:
+"agents[i]" with "self" in the method. Where the code was cut
 from, add the following to call the move method:</p>
 <pre><code class="language-python">agents[i].move(x_min, y_min, x_max, y_max)</code></pre>
-<p>In the Agent class, the move method has a parameter called
-self, but this is not a parameter that is passed in. That self is
-not passed in, is a difference between a method and a function in
-python. Normally when calling a function the number of parameters
+<p>Note that in the Agent class, the 'move' method has a parameter
+called 'self', but this is not a parameter that is passed in.
+Normally when calling a function the number of parameters
 matches, but for methods (functions in a class) there is this
 additional parameter that is not passed in and that is the first
 parameter.</p>
 <p>Run the program and it should produce the same results as
 previously. The Agent class code now deals with the details of
-how agents move, and the model.py code details when they do.
-This is a reasonable separation of concerns for the model being
-developed.</p>
+how an agent moves, and 'model.py' actions when they do. This is a
+reasonable separation of concerns.</p>
 
 <h2 id="4">4. Give each agent a unique name</h2>
 <p>It is possible that two Agent class instances will be located
 at the same coordinates at some iteration of the model, and it
 would be helpful to distinguish them.</p>
-<p>Add a docstring and a parameter to the constructor method of
-Agent so that the method is as follows:</p>
+
+<p>Add a <a href="https://peps.python.org/pep-0257/#what-is-a-docstring">docstring</a> and a parameter to the '__init__' constructor method of Agent so that the method is as follows:</p>
 <pre><code class="language-python">def __init__(self, i):
 """
 The constructor method.
@@ -246,19 +249,20 @@ self.i = i
 self.x = random.randint(0, 99)
 self.y = random.randint(0, 99)
 pass</code></pre>
-<p>Run model.py and you should get the following error:</p>
+<p>Run 'model.py' and you should get the following error:</p>
 <pre>Traceback (most recent call last):
 
-  File "\abm4\model.py", line 91, in <module>
+  File "\abm4\model.py", line 91, in &amp;module>
     agents.append(agentframework.Agent())
 
 TypeError: __init__() missing 1 required positional argument: 'i'</pre>
-<p>The error message is that an expected argument is missing at
-the line that is calling for the construction of an Agent
-instance. Change model.py to pass in the missing argument 'i'. Run
-the program again and the error should not be encountered.</p>
-<p>Modify the Agent class __str__ method so it additionally
-returns the unique characteristic of each Agent in the String.</p>
+<p>The TypeError is indicating that an expected argument is
+missing in the call that creates the Agent instance. Change
+'model.py' to pass in the missing argument 'i'. Make sure that 'i'
+is passed in in the correct position. Run the program again and
+the TypeError should not be raised.</p>
+<p>Modify the Agent class '__str__' method so it additionally
+returns the unique characteristic of each Agent 'i'.</p>
 <p>Commit your code to your local repository and assuming you are
 using GitHub - push your changes to GitHub.</p>
 
