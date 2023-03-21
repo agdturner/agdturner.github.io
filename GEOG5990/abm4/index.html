@@ -30,49 +30,49 @@ DOM is fully loaded. -->
 </header>
 <div>
 <h1>Agent Based Model Part 4</h1>
-<h2 id="1">1. Introduction</h2>
-<p>Currently, agents is a list of lists. The lists agents
-contains have two items - the coordinates defining each agent's
-location. More items could be added to each list - items
-representing additional agent characteristics. However, the longer
-a list becomes, the harder it gets to remember what index is
-associated with what type of item and the easier it is to get
-confused and make mistakes.</p>
-<p>Defining a class for agents provides a way to name agent
-characteristics and define functionality as methods that
-particularly apply to an agent instance.</p>
-<p>The agents list will be changed to contain objects which are
-instances of an Agent class (agents). The Agent class will be
-defined in a different file from model.py.</p>
+<h2 id="1">1. Recap and preparation</h2>
+<p>Currently, 'agents' is a list that contains lists of two items
+(an x coordinate and a y coordinate). More items could be added
+to the lists to representing additional agent characteristics.
+However, the longer the lists become, the harder it is to remember
+what is stored in each index and the easier it is to make a
+mistake.</p>
+<p>Defining an Agent class provides a way to name agent
+characteristics and refer to them by name rather than by a list
+index. This will make the code a lot easier to read and
+understand. The Agent class will be defined in a different file
+from 'model.py' so the program code going forwards will be in
+multiple files.</p>
 <p>In your local code repository src directory create a new
-directory called "abm4". Open Spyder and use "save as" to save
-your "model.py" file from abm3 into the abm4 directory.</p>
+directory called "abm4". Open Spyder and use 'save as' to save
+your 'model.py' file from abm3 into the abm4 directory.</p>
 
 <h2 id="2">2. Agent class definition</h2>
 <p>Create a new file in the abm4 directory named
-"agentframework.py", and add a class definition for an Agent class
+'agentframework.py', and add a class definition for an Agent class
 in it as follows:</p>
 <pre><code class="language-python">class Agent():
     pass</code></pre>
 <p>The keyword 'pass' ensures the code is syntactically correct
 and will run.</p>
-<p>In the model.py file reduce n_iterations to 10, and add the
+<p>In 'model.py' reduce n_iterations to 10, and add the
 following import statement:</p>
 <pre><code class="language-python">import agentframework as af</code></pre>
-<p>Note that this imports the agentframework module which is to be
-referred to by the abbreviation 'af'.</p>
-<p>At the start of the "# Initialise agents" code block, add the
-following lines:</p>
+<p>Note that this imports the agentframework module from
+'agentframework.py' which is to be referred to by the abbreviation
+'af'.</p>
+<p>At the start of the '# Initialise agents' code block, add the
+following:</p>
 <pre><code class="language-python">a = af.Agent()
 print("type(a)", type(a))</code></pre>
-<p>Run model.py and examine the output. It should contain the
+<p>Run 'model.py' and examine the output. It should contain the
 following line:</p>
 <pre>type(a) <class 'agentframework.Agent'></pre>
 <p>This indicates that an instance of the class Agent as defined
 in the agentframework module was successfully created.</p>
 <p>Add a constructor method to the Agent class that initialises
-x and y variable attributes to be random Integers between 0 and 99
-as follows:</p>
+'x' and 'y' variable attributes to be random Integers in the range
+[0, 99]:</p>
 <pre><code class="language-python">import random
 
 class Agent:
@@ -81,28 +81,26 @@ class Agent:
         self.y = random.randint(0, 99)</code></pre>
 <p>Note that for this to work, it was necessary to import the
 random module.</p>
-<p>In model.py, add a statement to print the agent that was
+<p>In 'model.py', add a statement to print the agent that was
 instantiated, and run the program again.</p>
 <p>The new print statement should produce output that looks like
 the following:</p>
 <pre>&lt;agentframework.Agent object at 0x00000249AEA21D88&gt;</pre>
 <p>The last part of your print statement will probably be
-different to '0x00000249AEA21D88' and if you run the program
-again, it will likely be different again. This String is a memory
-address identifying where the object is stored in the memory of
-the computer and is not something to be concerned about.</p>
+different to '0x00000249AEA21D88' and if you run your program
+again, it will likely be different again. Recall that this string
+is a memory address identifying where the object is stored in the
+memory of the computer.</p>
 <p>When printing an Agent instance, it would be better if
 something more informative was output. The best way to do this
-is to override the __str__ method which comes from the 'type
-metaclass' that all classes inherit from by default. Define the
-method __str__() in (i.e. indented in) the Agent class as
-follows:</p>
+is to override the '__str__' method which comes from the 'type'
+metaclass that all classes inherit from by default. Define the
+method in the Agent class as follows:</p>
 <pre><code class="language-python">def __str__(self):
     return self.__class__.__name__ + "(x=" + str(self.x) \
         + ", y=" + str(self.y) + ")"</pre></code>
-<p>Note that this returns a String which includes the name of the
-class and details of the x and y variable attributes which are
-transformed by the builtin function str() to be Strings.</p>
+
+<p>Note that this returns a string which includes the name of the class and details of the 'x' and 'y' variable attributes which are transformed by the <a href="https://docs.python.org/3/library/functions.html#func-str">builtin function str</a> to be Strings.</p>
 <p>Run model.py again and the print statement should now result in
 the following:</p>
 <pre>Agent(x=49, y=97)</pre>

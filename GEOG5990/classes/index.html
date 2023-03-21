@@ -224,12 +224,7 @@ as follows:</p>
 The Python Library Documentation Chapter on Functions Section on Property</a>.</p>
 
 <h2 id="5">5. Customisation</h2>
-This __str__ method can be overriden to help the print function to
-represent the instance of a class as a String. By default the
-memory address of the class instance is printed, but rarely is
-this of any use. The following allows for Agent instances to print
-their coordinates and for a Goat the String also includes details
-of the hungry attribute:
+<p>By default, when printing an object using the <a href="https://docs.python.org/3/library/functions.html#print">print function</a>, the memory address of the object is printed, but rarely is this useful. The '__str__' method can be overriden to provide a more useful string representation of an object, for example:</p>
 <pre><code class="language-python">class Agent():
     def __init__(self, x, y):
         self.x = x
