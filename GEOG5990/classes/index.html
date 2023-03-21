@@ -32,108 +32,109 @@ DOM is fully loaded. -->
 <h1>Classes</h1>
 <h2 id="1">1. Introduction</h2>
 <p>Classes are templates for making objects. Objects are instances
-of the class that defines them. So, there can be many objects that
-are instances of a class. The class defines the attributes an
-objects can have, and the functionality the class instances can
-call. In python, the functions defined in a class are known as
-methods and the type of an object is the class that defines it.
-</p>
-<p>In python, classes can be embedded throughout programs,
+of the 'class' that defines them. There can be many objects that
+are instances of a class, like there are many individual people
+that are humans. Classes define the attributes and functionality
+of objects. In Python, the functions defined in a class are known
+as 'methods' and the 'type' of an object is the class that defines
+it.</p>
+<p>Python class definitions can be embedded throughout programs,
 but it is considered good practice to organise classes in
-modules.</p>
+'modules'.</p>
 <p>Modules are source code files, the name of the module is given
 by the filename which should be a short word all in lowercase.
 Modules are commonly stored in a directory alongside the main
 script that is run. If they are simply placed in the same
 directory as the script that is run, then there can be name
 collisions with modules in the standard library and this is best
-avoided.</p>
+avoided. It is good to organise code into modules as this makes
+it more reusable, and having lots of code in one file becomes
+cumbersome. (Details on modules is provided after the next ABM
+practical.)</p>
 <p>The name of a class should start with a capital letter and be
-in CamelCase (with capitalised letters of each word making up the
-name of the class). It is helpful to organise code into modules as
-this makes the code more reusable. Having all your code in one
-file soon becomes cumbersome.</p>
+in 'CamelCase' (with no spaces and mostly in lower case except for
+capitalised first letters for each word).</p>
 
 <h2 id="2">2. Class Definitions, Constructors, Attributes and Methods</h2>
 <p>A class is defined using the keyword 'class' followed by the
 name of the class, parentheses, and a colon, for example:</p>
-<pre>class Agent():</pre>
-<p>A single or multiple other class names can be added in the
-parentheses to declare parent classes that the class is to inherit
-from. If there is multipl inheritance, then each class inherited
-from is separated by a comma. Class inheritence is described in
-<a href="#3">Section 3</a>.</p>
-<p>In python, as mentioned, functions inside classes are called
-methods. A class in python has one and only one constructor method
-named __init__. The constuctor method is used to initialise
-attributes of an instance when it is constructed. A default
-parameter, by convention called 'self' is always first parameter.
-This effectively refers to a generic instance of the class and is
-used within the class to define and refer to attributes and
-methods of the class. For example, instances of the following
-Agent class are instantiated with x and y variables that are
-initially set to be zero:</p>
+<pre><code class="language-python">class Agent():</code></pre>
+<p>Class names separated by commas can be added in the parentheses
+to declare parent classes that the class inherits from. Class
+inheritence is detailed further in <a href="#3">Section 3</a>.</p>
+<p>As mentioned, in Python, functions inside classes are called
+'methods'. A class in Python has one and only one constructor
+method named '__init__'. The constuctor method is used to
+initialise attributes of an instance when it is constructed. A
+default parameter, by convention called 'self' is always first
+parameter. This 'self' parameter effectively refers to a generic
+instance of the class and is used within the class to define and
+refer to attributes and methods of the class. For example,
+instances of the following 'Agent' class are instantiated with 'x'
+and 'y' attribute variables that are initially set to be zero:</p>
 <pre><code class="language-python">class Agent():
     def __init__(self):
         self.x = 0
         self.y = 0</code></pre>
-<p>Suppose this class was in a file named "agentframework.py" -
-and so in a module named "agentframework", it could be
-instantiated as follows:<p>
+<p>Suppose this class was in a file named 'agentframework.py' -
+and so in a module named 'agentframework', it could be
+instantiated from a script in the same directory as
+'agentframework.py' as follows:<p>
 <pre><code class="language-python">import agentframework
 a = agentframework.Agent()</code></pre>
-<p>And the x and y variables could then be accessed using the dot
-operator from as follows:</p>
+<p>And the 'x' and 'y' aatribute variables of 'a' - the instance
+of the class could then be accessed using the dot operator '.' as
+follows:</p>
 <pre><code class="language-python">print(a.x) # <-- Prints the value of a.x
 print(a.y) # <-- Prints the value of a.y
 a.x = 3 # <-- Sets the values of a.x to be 3
 a.y = a.y + 1 # <-- Increases the value of a.y by 1</code></pre>
 <p>A class constructor method may accept multiple arguments. For
-example, the initial values for x and y could be passed in and
-used to initialise the attributes x and y of the instance as
+example, the initial values for 'x' and 'y' could be passed in as
 follows:</p>
 <pre><code class="language-python">class Agent():
     def __init__(self, x, y):
         self.x = x
         self.y = y</code></pre>
-<p>When instantiating an instance of this Agents class, it is
+<p>When instantiating an instance of this Agent class, it is
 necessary to pass in two argument as the constructor method does
 not set defaults of these values. The following code will
 instantiate an Agent object using the latest class definition
 above:</p>
 <pre><code class="language-python">import agents
 a = agents.Agent(0, 0)</code></pre>
-<p>The parameters x and y can be given default values making it
-optional as to whether these are supplied, by changing the
-constructor method as follows:</p>
+<p>The parameters 'x' and 'y' do not have to have names
+corresponding to the attributes, and they can be given default
+values making it optional as to whether these are supplied, by
+changing the constructor method as follows:</p>
 <pre><code class="language-python">class Agent():
     def __init__(self, x = 0, y = 0):
         self.x = x
         self.y = y</code></pre>
 
 <h2 id="3">3. Inheritance</h2>
-<p>In python, all classes inherit (attributes and methods) from
-the type metaclass. A metaclass can be thought of as a factory for
-producing classes.</p>
-<p>The classes from which a class inherits are known as super
-classes, and the classes that inherit from another class are known
-as subclasses.</p>
+<p>In Python, all classes inherit (attributes and methods) from
+the 'type' metaclass. A 'metaclass' can be thought of as a factory
+for producing classes.</p>
+<p>The classes from which a class inherits are known as 'super
+classes', and the classes that inherit from another class are
+known as 'subclasses'.</p>
 <p>Inheritance is heirarchical and allows for things in common to
 multiple classes to be stored in a super class avoiding having
 to define attributes and methods repeatedly in subclasses. Those
 attributes and methods in a superclass are accessible directly
 from subclasses.</p>
-<p>Methods can be overridden by defining a method with the same
+<p>Methods can be 'overridden' by defining a method with the same
 name as the superclass method. The function super() can be used,
 to access an overriden method. In this way an overridden method
 can access the superclass method that it is overriding as shown in
-an example below.<p>
-<p>Python supports multiple inheritance where a subclass may
+the example below.<p>
+<p>Python supports 'multiple inheritance' where a subclass may
 inherit from multiple superclasses. To do this, the classes being
-inherited from are listed in the class definition - each separated
-by a comma.</p>
-<p>The following defines Goat and Wolf as classes that inherit
-from the Agent class:</p>
+inherited from are specified in the class definition, each
+separated by a comma.</p>
+<p>The following defines 'Goat' and 'Wolf' as classes that inherit
+from the 'Agent' class:</p>
 <pre><code class="language-python">class Agent():
     def __init__(self, x, y):
         self.x = x
@@ -148,26 +149,25 @@ class Wolf(Agent):
     def __init__(self, x, y, pack):
         super().__init__(x, y)
         self.pack = pack</code></pre>
-<p>The constructors methods of the Goat and Wolf classes call the
+<p>The constructor methods of the Goat and Wolf classes call the
 superclass constructor method. Each instance of Goat would be
-instantiated with the attribute self.hungry equal to True. Each
-instance of Wolf is given a parameter called pack when
+instantiated with the attribute 'self.hungry' equal to 'True'.
+Each instance of Wolf is given a parameter called 'pack' when
 constructed. This is a variable which is assigned to the
-respective attribute. In this example, pack could be a identifier
-for a pack that the instance is part of, or it could be a list of
-references or something else.</p>
-<p>Inheritance allows for a class (A) to be extended to create
-different subclasses, and a further class to be defined as the
-subclass of multiple of the subclasses of A. In such a case, there
-is an order in the way inheritence works and how methods get
+attribute with the same name. In this example, 'pack' could be a
+identifier or a list or something else.</p>
+<p>Inheritance allows for a class (call it 'A') to be extended to
+create different subclasses, and a further class to be defined as
+the subclass of multiple of the subclasses of A. In such a case,
+there is an order in the way inheritence works and how methods get
 overridden. For more details of this see:
 <a href="https://docs.python.org/3/tutorial/classes.html#multiple-inheritance">
 The Python Tutorial on Classes Section on Multiple Inheritance</a>.</p>
 
 <h2 id="4">4. Access Control</h2>
-<p>Python does not have a way to declare the accessibility of
-variables or functions/methods as is common in other languages.
-</p>
+<p>Python does not have an direct way to declare the access level
+or control access to variables or functions/methods as is common
+in other languages.</p>
 <p>Instead there is a naming convention which is that variables
 that have a name starting with an underscore and functions
 starting with a double underscore are not to be accessed directly
