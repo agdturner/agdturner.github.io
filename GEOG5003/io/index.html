@@ -122,30 +122,11 @@ with open("a.out", 'w') as f:
         f.write(line)</code></pre>
 
 <h3 id="2.4">2.4. File formats</h3>
-<p>All files are binary files, but some binary files are known as
-text files which are typically delimited into lines using a
-newline character. To read other types of binary file, it is
-helpful to know details of the format. Usually this is given in a
-file format specification that details the structure of the file,
-and byte lengths and directions. This course focuses just on
-reading and writing text files. These text files are typically
-small and we are not overly concerned with optimising for memory
-and efficiency.</p>
-<p>Details about handling generic binary data considered a
-distraction and are intentionally omitted. However, it is
-important to know that using text file formats for storing data
-that is mostly numerical can be many times less inefficent
-compared with a well designed binary format.<p>
-<p>In terms of text file formats, there are several types of
-commonly used text file formats.</p>
-
+<p>File formats were briefly introduced in <a href="../programming/index.html#2.2">Programming Section 2.2</a>.</p>
+<p>All files are binary files, but some binary files are known as 'text files' - the encoding is generally recognised as text. Text files are typically delimited into lines by a  'newline' code which in Python is '\n'. File formats are usually defined in a file format specification that details the structure of the file. In this section a number of text file formats are described.</p>
 <h4 id="2.3.1">2.3.1. CSV Format</h4>
-<p>CSV files are comma separated variable files. The variables
-may be numeric or Strings. There can be a complication if String
-variables also contain commas when the entire String is usually
-enclosed in quotation marks, and again there are difficulties if
-quotation marks or apostrophes are in the Strings.</p>
-
+<p><a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV format</a> files are text files of comma separated values. The values are text, but this text might represent numbers. If a value contains a comma then the value is usually enclosed in quotation marks. If the value also contains quotation marks or newline then there can be difficulty parsing the file.</p>
+<p>The Python standard library <a href="https://docs.python.org/3/library/csv.html">csv module</a> helps with reading and writing CSV format files.</p>
 <h4 id="2.3.2">2.3.2. JSON Format</h4>
 <p>JSON was originally designed to capture JavaScript objects. It
 stored data as text attribute and value pairs. Values can include
