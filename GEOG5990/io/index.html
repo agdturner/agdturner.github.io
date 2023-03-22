@@ -31,7 +31,7 @@ DOM is fully loaded. -->
 <div>
 <h1>Input and Output</h1>
 <h2 id="1">1. Introduction</h2>
-<p>The Python standard library <a href="https://docs.python.org/3/library/io.html">io module</a> provides the main facilities for dealing with various types of input and output. The <a href="https://docs.python.org/3/library/builtins.html">builtins module</a> functions: <a href="https://docs.python.org/3/library/functions.html#input">input</a> and <a href="https://docs.python.org/3/library/functions.html#input">open</a> are keys for input of different kinds. Numerous other standard library modules help with different types of input and output, including delaing with specific file formats. The following are useful standard libraries in this respect:</p>
+<p>The Python standard library <a href="https://docs.python.org/3/library/io.html">io module</a> provides the main facilities for dealing with input and output (IO). Numerous other standard library modules have  functionality for dealing with specific aspects and types of IO, including:</p>
 <a href="https://docs.python.org/3/library/fileinput.html">fileinput</a>,
 <a href="https://docs.python.org/3/library/os.html">os</a>,
 <a href="https://docs.python.org/3/library/pathlib.html">pathlib</a>,
@@ -43,16 +43,16 @@ DOM is fully loaded. -->
 <a href="https://docs.python.org/3/library/internet.html">internet</a>,
 <a href="https://docs.python.org/3/library/tempfile.html">tempfile</a>, and
 <a href="https://docs.python.org/3/library/shutil.html">shutil</a>.
-There are also various third party libraries that make it easy to
-read and write data in specific file formats.</p>
+There are also various third party libraries with useful
+functionality for read and writing data in specific file formats
+and processing data on the Web.</p>
 
-<h2 id="2">2. Standard IO</h2>
-<h3 id="2.1">2.1. Standard Input</h3>
+<h2 id="2">2. Standard Input</h2>
 <p>The builtins module <a href="https://docs.python.org/3/library/functions.html#input">input function</a> reads input from the standard input 'stdin' which is usually the keyboard. This continues until the &lt;ENTER&gt; (or &lt;RETURN&gt;) key is pressed. The function returns a string (without a newline character). A string provided as a parameter is displayed to prompt user input. Run the following at the Python prompt and enter  some keyboard input:</p>
 <pre><code class="language-python">n_agents = input("Enter n_agents (a number between 10 and 100) and press the &lt;ENTER&gt; or &lt;RETURN&gt; key:")
 print("The input detected is:", n_agents)</code></pre>
 
-<h3 id="2.2">2.2. Streams</h3>
+<h2 id="3">3. Streams</h2>
 <p>The builtins module function <a href="https://docs.python.org/3/library/functions.html#print">print</a> writes to the standard output 'stdout' which is usually the screen.</p>
 <p>Stdin and stdout are streams - flows of data. Standard error
 'stderr' is also a stream - one where error messages go. Like
@@ -74,7 +74,8 @@ could be used:</p>
 <p>The stdout of one program can be piped to the stdin of another
 program using the pipe symbol '|'.</p>
 
-<h3 id="2.3">2.3. Open</h3>
+<p>The <a href="https://docs.python.org/3/library/functions.html#print">print function</a> also includes an option to direct stout to a file. That file has to be open in order for the writing to be successful and the open file should be closed to ensure all the data gets written. Typically reading and writing files uses 'buffers' that read or write a certain number of bytes in one go which is done for efficiency reasons. Closing a file that  is being written to forces a flush of any partially filled buffer. There is an option in the print function to force a flush which can also sometimes be useful...</p>
+<h2 id="4">4. Reading and Writing Files Part 1</h2>
 <p>The following code uses the builtins module function <a href="https://docs.python.org/3/library/functions.html#input">open</a> to open a file in the current directory called 'a.in' and reads this one line at a time streaming the output to the screen before then closing the file:</p>
 <pre><code class="language-python">f = open("a.in")
 for line in f:
@@ -83,9 +84,15 @@ f.close()</code></pre>
 
 <p>The <a href="https://docs.python.org/3/c-api/file.html">File Object</a> returned from the above <a href="https://docs.python.org/3/library/functions.html#input">open</a> function call 'f' is best closed once it is read by calling it's 'close' method as done on line 4 of the code snippet. After this line is executed, 'f' becomes unusuable. Closing releases system resources and is recommended as good practice altough code will work without doing that.</p>
 <p>An alternative where a 'close' method call is not necessary uses the keyword 'with'. The following does effectively the same as the previous snippet:</p>
-<pre><code class="language-python">with open("a.in") as f:
-    for line in f:
-        print(line)</code></pre>
+      <pre><code class="language-python">with open("a.in") as f:
+          for line in f:
+              print(line)</code></pre>
+      <p>This saves having to close the file, but it is awkward this
+      way to read several files simultaneously.</p>
+<p>The standard library
+                    <a href="https://docs.python.org/3/library/fileinput.html">
+                    fileinput module</a>
+                    helps with reading multiple files simultaneously.</p>
 
 <p>The <a href-"https://docs.python.org/3/library/io.html#io.IOBase.readlines">readlines method</p> can read some or all lines of a file into a list of strings (each item being a line of the file. Whilst this can be convenient, if a file is large and not everything is wanted, then this can use a lot of memory and risks a <a href="https://docs.python.org/3/library/exceptions.html#MemoryError">MemoryError</a> being raised. So, often it is better to parse a file in portions, such as line by line. Parsing might involve processing or simply storing parts or all of the line in  one or more variables.</p>
 <p>Files are opened for writing in a similar way. Writing to
@@ -109,7 +116,7 @@ to a file requires different preparation to reading from a file.
 Open Function as detailed in
 <a href="https://docs.python.org/3/library/functions.html#open">
 The Python Documentation Functions Chapter Open Section</a></p>
-<p>Again and alternative using the keyword 'with' that does not
+<p>Again an alternative using the keyword 'with' that does not
 require closing the file is:</p>
 <pre><code class="language-python"># Create something to write
 a = []
@@ -121,17 +128,14 @@ with open("a.out", 'w') as f:
     for line in a:
         f.write(line)</code></pre>
 
-<h3 id="2.4">2.4. File formats</h3>
+<h2 id="5">5. File formats</h2>
 <p>File formats were briefly introduced in <a href="../programming/index.html#2.2">Programming Section 2.2</a>.</p>
-<p>All files are binary files, but some binary files are known as 'text files' - the encoding is generally recognised as text. Text files are typically delimited into lines by a  'newline' code which in Python is '\n'. File formats are usually defined in a file format specification that details the structure of the file. In this section a number of text file formats are described.</p>
-<h4 id="2.3.1">2.3.1. CSV Format</h4>
+<p>All files are binary files, but some binary files are known as 'text files' - the encoding is generally recognised as text. Text files are typically delimited into lines by a  'newline' code which in Python is '\n'. File formats are usually defined in a file format specification that details the structure of the file. In this section three types of text file formats are described (CSV, JSON and Markup).</p>
+<h3 id="5.1">5.1. CSV</h3>
 <p><a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV format</a> files are text files of comma separated values. The values are text, but this text might represent numbers. If a value contains a comma then the value is usually enclosed in quotation marks. If the value also contains quotation marks or newline then there can be difficulty parsing the file.</p>
-<p>The Python standard library <a href="https://docs.python.org/3/library/csv.html">csv module</a> helps with reading and writing CSV format files.</p>
-<h4 id="2.3.2">2.3.2. JSON Format</h4>
-<p>JSON was originally designed to capture JavaScript objects. It
-stored data as text attribute and value pairs. Values can include
-more complex entities made up of further attribute-value pairs.
-Here is an example of some GeoJSON data:</p>
+<h3 id="5.2">5.2. JSON</h3>
+<p><a href="https://en.wikipedia.org/wiki/JSON">JavaScript Object Notation</a> (JSON) is an open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and arrays (or other serializable values.</p>
+<p>Here is an example of some <a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON</a> data:</p>
 <pre>GeoJSON example
 {
     "type": "FeatureCollection",
@@ -147,32 +151,13 @@ Here is an example of some GeoJSON data:</p>
     }]
 }</pre>
 
-<h4 id="2.3.3">2.3.3. Markup</h4>
-<p>Markup is essentially tags and content. Tags often note the
-ontological context of the data, making the value have meaning:
-that is determining its semantic content. Examples formats
-include: HTML (HyperText Markup Language); and, XML (Extensible
-Markup Language). Tags can be nested to give information about the
-content. Style information can be embedded about how to portray
-the data, but this is better kept separate. XML is extensible in
-that new tags can be added to extend the langauge in what are
-known as profiles. There are lots of standard profiles of XML for
-different kinds of information including
-<a href="http://www.opengeospatial.org/standards/gml">
-Geographical Markup Language (GML)</a> - a standard developed by
-the Open Geospatial Consortium.</p>
-
-<h3 id="2.4">2.4. Reading and Writing Data-Text Files</h3>
-<p>Because it is easy to forget to close an open file, it has
-become good practice to set up a Context Manager using the With
-Keyword (with), which temporarily deals with how some code runs.
-The following code closes the opened file automatically. The file
-is read line by line as before, but each line is parsed. First,
-the line is split into a sequence using the comma symbol (,) as a
-delimeter that separates each item in the sequence, then each of
-the items get parsed, which in this case involves using them to
-generate Float numbers and storing them in a list. The stored list
-of Float numbers is then stored in another list called data:</p>
+<h3 id="5.3">5.3. Markup</h3>
+<p>Markup is essentially tags and content. Tags often note the ontological context of the content helping define it's  meaning. Tags can be nested. Examples formats include: <a href="https://en.wikipedia.org/wiki/HTML">HTML</a>; and, <a href="https://en.wikipedia.org/wiki/XML">XML</a>. Style information can be embedded about how to portray the data, but this is better kept separate. XML is extensible in that new tags can be added to extend the langauge in what are known as profiles. There are lots of standard profiles of XML for different kinds of information including <a href="https://en.wikipedia.org/wiki/Geography_Markup_Language">GML</a> the XML grammar defined by the Open Geospatial Consortium (OGC) to express geographical features.</p>
+<h2 id="6">6. Reading and Writing Files Part 2</h2>
+<p>The following code reads a file line by line, parsing each line
+by splitting it using a comma and converting each part into a
+Float which is appended to a list which is then appended to
+another list called 'data':</p>
 <pre><code class="language-python">with open("data.txt") as f:
 data = []
 for line in f:
@@ -182,28 +167,8 @@ for line in f:
         data_line.append(float(word))
     data.append(data_line)
 print(data)</code></pre>
-</p>
-<p>Multiple files can be open for reading and writing at any time,
-but this does not work with the Context Manager. For more
-information about reading and writing multiple files see:
-<a href="https://docs.python.org/3/library/fileinput.html">
-fileinput</a></p>
-<p>The Print Function also includes an option to direct stout to a
-file too. That file has to be open in order for the writing to be
-successful and the open file should be closed before the program
-exits. Failure to do so may result in some things not being
-flushed into the file due to buffering (where a buffer is filled
-first before data is appended to a file for efficiency. Closing a
-file forces a flush. There is though an option in the Print
-Function to force a flush each time which can be useful if
-something else is check for data that might otherwise be sitting
-in a buffer...</p>
 
-<h4 id="2.4.1">2.4.1. CSV Module</h4>
-<p>It is easier to read and write CSV format files using functions
-written specifically to do this from the CSV Module (csv).
-</p>
-<p>The following is an example of reading data using csv:</p>
+<p>It is easier to read and write CSV format files using functions from the Python standard library <a href="https://docs.python.org/3/reference/simple_stmts.html#continue">csv module</a> written specifically to do this. The following is an example of reading some numeric data:</p>
 <pre><code class="language-python">import csv
 f = open('data.csv', newline='')
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
@@ -211,10 +176,11 @@ for row in reader: # A list of rows
     for value in row: # A list of value
         print(value) # Floats
 f.close()</code></pre>
-<p>The keyword argument (kwarg) quoting=csv.QUOTE_NONNUMERIC not
+<p>The keyword argument 'quoting=csv.QUOTE_NONNUMERIC' not
 only puts quotation marks around non numeric data, but also
 converts some number formats into Floats.</p>
-<p>The following is an example of writing data using csv:</p>
+<p>The following is an example of using the csv module to write
+data:</p>
 <pre><code class="language-python">import csv
 f = open('data.csv', 'w', newline='')
 writer = csv.writer(f, delimiter=' ')
@@ -222,10 +188,10 @@ for row in data:
     writer.writerow(row) # List of values.
 f.close()</code></pre>
 <p>The optional delimiter kwarg specified here delimits using
-a space instead of the default comma.</p>
+a space ' ' instead of the default comma ',', so this would
+actually not generate CSV format data!</p>
 
-<h4 id="2.4.2">2.4.2. JSON Module</h4>
-<p>The following code can be used to read a JSON file:</p>
+<p>The following code uses the Python standard library <a href="https://docs.python.org/3/library/json.html">json module</a> to read a JSON file:</p>
 <pre><code class="language-python">import json
 f = open('data.json')
 data = json.load(f)
@@ -237,8 +203,9 @@ f = open('data.json', 'w')
 json.dump(data, f)
 f.close()</code></pre>
 
-<h4 id="2.4.3">2.4.3. Serialisation/Deserialisation</h4>
-<p>Serialisation is the converting of program data into data
+<p>The Python standard library for processing HTML and XML is:<a href="https://docs.python.org/3/library/markup.html">markup</a>, but the third party <a href="https://beautiful-soup-4.readthedocs.io/en/latest/">Beautiful Soup</a> library is arguably easier to use and is what is used later in the course.</p>
+<h2 id="7">7. Serialisation/Deserialisation</h2>
+ <p>Serialisation is the converting of program data into data
 stored typically in a file. Deserialisation is the opposite
 process that converts data back into working code. Essentially
 any Python object can be serialised and later deserialised. For
@@ -246,15 +213,7 @@ details on how to do this, see:
 <a href="https://docs.python.org/3/library/pickle.html">pickle</a>
 </p>
 
-<h4 id="2.4.4">2.4.4. Handling HTML/XML</h4>
-<p>The Python standard library for processing HTML and XML is:
-<a href="https://docs.python.org/3/library/markup.html">
-markup</a>, but there are often better third party tools for
-dealing with these types of data. Later in the course we will use
-<a href="https://beautiful-soup-4.readthedocs.io/en/latest/">
-Beautiful Soup</a> - a Python library for pulling data out of HTML
-and XML files.
-
+<h2 id="8">8. OS and File Systems</h2>
 <h3 id="3">3. OS and File Systems</h3>
 <p>The OS Module
 (<a href="https://docs.python.org/3/library/os.html">os</a>)
