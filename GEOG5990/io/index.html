@@ -31,12 +31,7 @@ DOM is fully loaded. -->
 <div>
 <h1>Input and Output</h1>
 <h2 id="1">1. Introduction</h2>
-<p>There are numerous functions to help with Input and Output
-(IO), including the Builtin Module functions:
-<a href="https://docs.python.org/3/library/functions.html#input">input</a>
-and
-<a href="https://docs.python.org/3/library/functions.html#open">open</a>,
-and those in the following standard library modules:
+<p>The Python standard library <a href="https://docs.python.org/3/library/io.html">io module</a> provides the main facilities for dealing with various types of input and output. The <a href="https://docs.python.org/3/library/builtins.html">builtins module</a> functions: <a href="https://docs.python.org/3/library/functions.html#input">input</a> and <a href="https://docs.python.org/3/library/functions.html#input">open</a> are keys for input of different kinds. Numerous other standard library modules help with different types of input and output, including delaing with specific file formats. The following are useful standard libraries in this respect:</p>
 <a href="https://docs.python.org/3/library/fileinput.html">fileinput</a>,
 <a href="https://docs.python.org/3/library/os.html">os</a>,
 <a href="https://docs.python.org/3/library/pathlib.html">pathlib</a>,
@@ -51,36 +46,28 @@ and those in the following standard library modules:
 There are also various third party libraries that make it easy to
 read and write data in specific file formats.</p>
 
-<h2 id="2">2. Builtins and Standard IO</h2>
-
+<h2 id="2">2. Standard IO</h2>
 <h3 id="2.1">2.1. Standard Input</h3>
-<p>The builtin module function input() reads input from the
-Standard Input (stdin) which is usually the keyboard. This
-continues until the &lt;ENTER&gt; (or &lt;RETURN&gt;) key is
-pressed. The function returns a String (without a newline
-character). A String provided as a parameter is displayed to
-prompt user input. Run the following and enter some keyboard
-input:</p>
-<pre><code class="language-python">n_agents = input("Key in a positive integer between 10 and 100 to set the"
-+ " number of agents then press the &lt;ENTER&gt; or &lt;RETURN&gt; key:")
+<p>The builtins module <a href="https://docs.python.org/3/library/functions.html#input">input function</a> reads input from the standard input 'stdin' which is usually the keyboard. This continues until the &lt;ENTER&gt; (or &lt;RETURN&gt;) key is pressed. The function returns a string (without a newline character). A string provided as a parameter is displayed to prompt user input. Run the following at the Python prompt and enter  some keyboard input:</p>
+<pre><code class="language-python">n_agents = input("Enter n_agents (a number between 10 and 100) and press the &lt;ENTER&gt; or &lt;RETURN&gt; key:")
 print("The input detected is:", n_agents)</code></pre>
 
 <h3 id="2.2">2.2. Streams</h3>
-<p>The builtin module function print() writes to the Standard
-Output (stdout) which is usually the screen.</p>
-<p>Stdin and stdout are streams - flows of data. Standard Error
-(stderr) is also a stream - one where error messages go. Like
+<p>The builtins module function <a href="https://docs.python.org/3/library/functions.html#print">print</a> writes to the standard output 'stdout' which is usually the screen.</p>
+<p>Stdin and stdout are streams - flows of data. Standard error
+'stderr' is also a stream - one where error messages go. Like
 stdout, stderr is usually written to the screen by default.</p>
 <p>The streams stdin and stdout can be redirected to come from a
 file (in the case of stdin), or go to a file (in the case of
 stdout). From the Anaconda Prompt the following will stream data
-from stdin.txt into a.py as it runs:</p>
+from 'stdin.txt' into 'a.py' as it runs:</p>
 <pre>python a.py &lt; stdin.txt</pre>
-<p>The following will send output from running a.py into stdout.txt:</p>
+<p>The following will send output from running 'a.py' into
+'stdout.txt':</p>
 <pre>python a.py &gt; stdout.txt</pre>
-<p>This would overwrite stdout.txt if it already existed. To
-append to the end of any existing stdout.txt, the following could
-be used:</p>
+<p>This would overwrite 'stdout.txt' if it already existed. To
+append to the end of any existing 'stdout.txt', the following
+could be used:</p>
 <pre>python a.py &gt;&gt; stdout.txt</pre>
 <p>To stream data in and out, the following can be used:</p>
 <pre>python a.py &lt; stdin.txt &gt; stdout.txt</pre>
@@ -88,23 +75,20 @@ be used:</p>
 program using the pipe symbol '|'.</p>
 
 <h3 id="2.3">2.3. Open</h3>
-<p>The following code uses the Builtin Module function open() to open a
-file in the current directory called "a.in" and reads this
-one line at a time streaming the output to the screen before then
-closing the file:</p>
+<p>The following code uses the builtins module function <a href="https://docs.python.org/3/library/functions.html#input">open</a> to open a file in the current directory called 'a.in' and reads this one line at a time streaming the output to the screen before then closing the file:</p>
 <pre><code class="language-python">f = open("a.in")
 for line in f:
     print(line)
 f.close()</code></pre>
-<p>The Close Function closes the file and releases resources.</p>
-<p>There are helpful functions to read all lines of a file into a
-list which is sometimes preferable. However, if a file is large
-and not everything is wanted, then this can be expensive and can
-use up more than the amount of memory available resulting in a
-<a href="https://docs.python.org/3/library/exceptions.html#MemoryError">
-MemoryError</a>. So, often it is better to parse a file in
-portions, such as line by line.</p>
-<p>Files are also opened for writing in a similar way. Writing to
+
+<p>The <a href="https://docs.python.org/3/c-api/file.html">File Object</a> returned from the above <a href="https://docs.python.org/3/library/functions.html#input">open</a> function call 'f' is best closed once it is read by calling it's 'close' method as done on line 4 of the code snippet. After this line is executed, 'f' becomes unusuable. Closing releases system resources and is recommended as good practice altough code will work without doing that.</p>
+<p>An alternative where a 'close' method call is not necessary uses the keyword 'with'. The following does effectively the same as the previous snippet:</p>
+<pre><code class="language-python">with open("a.in") as f:
+    for line in f:
+        print(line)</code></pre>
+
+<p>The <a href-"https://docs.python.org/3/library/io.html#io.IOBase.readlines">readlines method</p> can read some or all lines of a file into a list of strings (each item being a line of the file. Whilst this can be convenient, if a file is large and not everything is wanted, then this can use a lot of memory and risks a <a href="https://docs.python.org/3/library/exceptions.html#MemoryError">MemoryError</a> being raised. So, often it is better to parse a file in portions, such as line by line. Parsing might involve processing or simply storing parts or all of the line in  one or more variables.</p>
+<p>Files are opened for writing in a similar way. Writing to
 a file can be done as follows:</p>
 <pre><code class="language-python"># Create something to write
 a = []
@@ -112,7 +96,7 @@ for i in range(10):
     a.append("Coding is fun!");
 # Open a file for writing
 f = open("a.out", 'w')
-# Write lines to the file
+# Write a to the file
 for line in a:
     f.write(line)
 # Close the file
@@ -125,6 +109,17 @@ to a file requires different preparation to reading from a file.
 Open Function as detailed in
 <a href="https://docs.python.org/3/library/functions.html#open">
 The Python Documentation Functions Chapter Open Section</a></p>
+<p>Again and alternative using the keyword 'with' that does not
+require closing the file is:</p>
+<pre><code class="language-python"># Create something to write
+a = []
+for i in range(10):
+    a.append("Coding is fun!");
+# Write a to file
+with open("a.out", 'w') as f:
+    # Write a to the file
+    for line in a:
+        f.write(line)</code></pre>
 
 <h3 id="2.4">2.4. File formats</h3>
 <p>All files are binary files, but some binary files are known as
@@ -324,7 +319,7 @@ glob</a> - for pattern hunting in files and directories.</p>
 <div>
 <p><a id="next" class="nav" href="../abm5/index.html">Next: ABM5</a></p>
 </div>
-<p>Date last modified: 2023-03-21.</p>
+<p>Date last modified: 2023-03-22.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
