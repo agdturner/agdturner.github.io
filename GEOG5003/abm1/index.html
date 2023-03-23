@@ -31,37 +31,27 @@ DOM is fully loaded. -->
 <div>
 <h1>Agent Based Model Part 1</h1>
 <h2 id="1">1. Introduction</h2>
-<p>In a series of practicals you are going to develop a simple spatial <a href="https://en.wikipedia.org/wiki/Agent-based_model">Agent Based Model</a> (ABM). Developing such models is useful in social and ecological sciences in studying behaviour and emergence in complex systems.</p>
-<p>The ABM will represent individual 'agents' with varying
-characteristics including their spatial location. The model will
-run iteratively such that individual agents will each get to act
-in each simulation step or iteration of the model which represents
-the passage of time.</p>
-<p>The implemention will have:</p>
-<ul>
-<li><em>Model code</em> that deals with user interaction, sets up
-and activates the model, checks for stopping conditions, and
-manages model inputs and outputs.</li>
-<li><em>Agent code</em>, which is used to define agents and their
-actions, and record their state. Agents will have some behaviours
-conditioned by what is happening around them in a local
-neighbourhood.</li>
-<li><em>Environment code</em>, which represents the place in which
-agents act and interact, and may constrain elements of agent
-actions and interactions.</li>
-</ul>
+<p>In a series of practicals you are aiming to develop a simple spatial <a href="https://en.wikipedia.org/wiki/Agent-based_model">Agent Based Model</a> (ABM). This type of model is useful for studying behaviour and emergence in complex systems.</p>
+<p>The ABM will represent individual 'agents' which will have
+varying characteristics. The model will run iteratively such that
+each agent will do things in simulation steps (iterations of the
+model) which represent the passage of time. What the agents do
+will change their characteristics, possibly the characteristics
+of other agents, and possibly the attributes of the spatial
+environment in which the agents can move.</p>
 
-<p>In building an ABM, you will practise:</p>
+<p>In building an ABM, you will put theory into practise and learn
+about:</p>
 <ul>
-<li>testing and debugging</li>
-<li>using 'for loops' and conditional 'if statements'</li>
-<li>defining functions and classes</li>
-<li>reading and writing data</li>
-<li>organising code into modules</li>
-<li>developing a simple GUI</li>
-<li>scraping and processing data from the Web</li>
+<li>testing and debugging;</li>
+<li>using 'for loops' and conditional 'if statements';/li>
+<li>defining functions and classes;</li>
+<li>reading and writing data;</li>
+<li>organising code into modules;</li>
+<li>developing a simple GUI; and,</li>
+<li>scraping and processing data from the Web.</li>
 </ul>
-<p>The agents will have simplistic behaviour and the model will be
+<p>The agents will have simple behaviour and the model will be
 very abstract. Nevertheless, hopefully, it will be clear how you
 can develop it into something more realistic and useful.</p>
 <p>The 'environment' will be initialised with data read from a
@@ -69,11 +59,17 @@ file. The 'model' simulation will be visualised as an animation.
 Additional outputs from the model will be saved in files.</p>
 
 <h2 id="2">2. Getting started</h2>
-<p>The first step is to represent two agents in two dimensional
-spatial locations given by cartesian coordinates ('x' and 'y'),
-get them to move randomly and calculate the distance between
-them.</p>
-<p>The algorithm for this practical:</p>
+<p>Initially two agents are going to be represented in two
+dimensional spatial locations given by cartesian coordinates:
+(x0, y0) and (x1, y1). They will start at the same location and
+move randomly one step. Some code will be written to calculate
+the distance between the two agents. The way this is done by
+following the instructions is imperfect. The code will be
+refactored and rewritten in subsequent practicals so it is more
+useful and makes use of more advanced ways that you will learn
+more about in due course.</p>
+<p>The algorithm for this practical that we are going to
+implement can be written as follows:</p>
 <pre># Initialise variable x0
 # Initialise variable y0
 # Change x0 and y0 randomly
@@ -85,8 +81,8 @@ them.</p>
 <p>In your local code repository create a new directory called
 'src' and within this create a new directory called 'abm1'.</p>
 <p>Open Spyder and save the file as 'model.py' in the 'abm1'
-directory</p>
-<p>Copy the algorithm for the practical and paste it in.</li>
+directory.</p>
+<p>Copy the algorithm above and paste it into the file.</li>
 <p>Add a line after the line "# Initialise a variable x0" to
 initialise a variable 'x0' with the value '0' and print this
 out:</p>
@@ -99,16 +95,17 @@ should be:</p>
 <p>Note that two parameters are passed into the <a href="https://docs.python.org/3/library/functions.html#print">print</a> function. These are printed out sequentially with a space delimiter by default.</p>
 <p>Do the same for variable 'y0'.</p>
 <h2 id="3">3. Randomly changing values</h2>
-<p>The Python standard library <a href="https://docs.python.org/3/library/random.html">random</a> module implements pseudo-random number generators for various distributions and provides a way to change variable  values randomly. To use the module it has to be imported. Towards the top of your source code file add the following import statement:</p>
+<p>The Python standard library <a href="https://docs.python.org/3/library/random.html">random</a> module implements pseudo-random number generators for various distributions and provides a way to change variable  values randomly. To use the module it has to be imported. Towards the top of 'model.py' add the following import statement:</p>
 <pre><code class="language-python">import random</code></pre>
-<p>Import statements are best placed at the top of files as this
-makes them easy to find.</p>
+<p>It is good practice to organise import statements at the top
+of files as this makes them easy to find and reduces
+inefficiencies of importing things multiple times.</p>
 
-<p>An <a href="https://docs.python.org/3/reference/compound_stmts.html#if">if statement</a> is going to be used to increase or decrease 'x0' based on  the value obtained from a call to the function <a href="https://docs.python.org/3/library/random.html#random.random">random</a> from the random module. First obtain and print a pseudo-random number in the range [0, 1) as follows:</p>
+<p>An <a href="https://docs.python.org/3/reference/compound_stmts.html#if">if statement</a> is going to be used to increase or decrease 'x0' based on  the value obtained from a call to the function <a href="https://docs.python.org/3/library/random.html#random.random">random</a>. First obtain and print a pseudo-random number in the range [0, 1) as follows:</p>
 <pre><code class="language-python">rn = random.random()
 print(rn)</code></pre>
 
-<p>Run your program a few times to observe that the value of 'rn' varies randomly.</p><p>What is happening is that the start of the pseudo-random sequence used to generate numbers randomly is being set from the computer clock time which is continually changing.</p><p>If the value 'rn' is less that '0.5' increase 'x0' by '1', otherwise decrease 'x0' by '1':</p>
+<p>Run your program a few times to observe that the value of 'rn' varies randomly.</p><p>What is happening, is that the start (seed) of pseudo-random sequence used to generate numbers randomly is being set from the computer clock time (which moves on incrementally at a high frequency.</p><p>If the value 'rn' is less that '0.5' increase 'x0' by '1', otherwise decrease 'x0' by '1':</p>
 <pre><code class="language-python">if rn < 0.5:
     x0 = x0 + 1
 else:
@@ -118,9 +115,9 @@ print("x0", x0)</pre>
 <p>Run your program a few times to observe that sometimes the
 value of 'x0' increases and sometimes it decreases and this
 corresponds to the value of 'rn'.</p>
-<p>When testing code, it is undesireable to have different results
-each time. So, it is better to 'set the seed' of random. After the
-import statements add the following:</p>
+<p>When testing code, it is usually undesireable to have different
+results each time. So, it is better to 'set the seed' of random.
+After the import statements add the following:</p>
 <pre><code class="language-python"># Set the pseudo-random seed for reproducibility
 random.seed(0)</code></pre>
 <p>When you run the program, you should get the following output:
@@ -130,11 +127,10 @@ y0 0
 rn 0.8444218515250481
 b False
 x0 - 1 </pre>
-<p>For differnet results pass in a different value into the 'seed'
-function.</p>
-<p>Repeat what is done to modify the value of 'x0' to modify the
-value of 'y0'. Repeat what has been done for 'x0' and 'y0' to do
-similarly to 'x1' and 'y1'.</p>
+<p>For different results pass in a different value into the 'seed'
+function (e.g. random.seed(1)).</p>
+<p>Similarly modify the value of 'y0'. The similarly modify
+'x1' and 'y1'.</p>
 
 <h2 id="4">4. Calculate the Euclidean distance</h2>
 <p>Use the <a href = "https://en.wikipedia.org/wiki/Pythagorean_theorem">Pythogorean theorem</a> to calculate the distance between the cartesian coordinates (x0, y0) and (x1, y1). The algorithm is:</p>
@@ -143,31 +139,31 @@ similarly to 'x1' and 'y1'.</p>
 # Square the differences and add the squares
 # Calculate the square root</pre>
 <p>At the end of your source code set: 'x0' and 'y0' to equal '0';
-x1 to equal 3, and y1 to equal 4. Then add the algorithm above
-into your source code and try to calculate the distance between
-the cartesian coordinates(0, 0) and(3, 4). You can use the symbol
-'**' to raise a number to the power of another number. So, raising
-a number to the power of '0.5' calculates the square root.
+'x1' to equal '3', and 'y1' to equal '4'. Then add the algorithm
+above into your source code and try to calculate the distance
+between the cartesian coordinates(0, 0) and (3, 4). The symbol
+'**' can be used to raise a number to the power of another number.
+So, raising a number to the power of '0.5' calculates the square
+root.
 
-(Alternatively, import the Python standard library <a href="https://docs.python.org/3/library/math.html">math</a> module and use the <a href = "https://docs.python.org/3/library/math.html#math.sqrt">sqrt</a> function).</p>
+(Alternatively, import the standard library <a href="https://docs.python.org/3/library/math.html">math module</a> and use the <a href = "https://docs.python.org/3/library/math.html#math.sqrt">sqrt</a> function). The expected distance between (0, 0) and(3, 4) is 5.</p>
 <h2 id="5">5. Review, commit and look ahead</h2>
-<p>If you managed to develop the code and get it running and
-producing the correct answer, then great. Do not worry if you
-did not get it working but gave it a try.</p>
-<p>There is a lot of repetition in the code. If '(x0, y0)' are the
-coordinates for 'agent_0' and '(x1, y1)' are the coordinates for
-'agent_1'. The code currently initialises agent_0 and agent_1
-at the same coordinates. These agents only move once each.<p>
+<p>If you managed to develop code that produces the correct
+answer, then great. Do not worry if you did not get it working but
+gave it a try.</p>
+<p>There is a lot of repetition in the code. These agents only
+move once each, but if we were to repeat the steps by duplicating
+sections of code there would be even more code repetition.<p>
 <p>Add and commit to your local git repository and assuming you
 are using GitHub - push your changes to GitHub.</p>
 
-<p>In the next ABM practical: Coordinate pairs will be stored as lists, <a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loops</a> will be used to create and move more agents more times,  and the model will be visualised.</p>
+<p>In the next ABM practical: Each pair of coordinates will be stored in a container, <a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loops</a> will be used to create and move more agents, and the model will be visualised.</p>
 </div>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../containers/index.html">Next: Containers</a></p>
 </div>
-<p>Date last modified: 2023-03-22.</p>
+<p>Date last modified: 2023-03-23.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

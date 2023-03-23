@@ -191,7 +191,7 @@ f.close()</code></pre>
 a space ' ' instead of the default comma ',', so this would
 actually not generate CSV format data!</p>
 
-<p>The following code uses the Python standard library <a href="https://docs.python.org/3/library/json.html">json module</a> to read a JSON file:</p>
+<p>The following code uses the standard library <a href="https://docs.python.org/3/library/json.html">json module</a> to read a JSON file:</p>
 <pre><code class="language-python">import json
 f = open('data.json')
 data = json.load(f)
@@ -203,63 +203,53 @@ f = open('data.json', 'w')
 json.dump(data, f)
 f.close()</code></pre>
 
-<p>The Python standard library for processing HTML and XML is:<a href="https://docs.python.org/3/library/markup.html">markup</a>, but the third party <a href="https://beautiful-soup-4.readthedocs.io/en/latest/">Beautiful Soup</a> library is arguably easier to use and is what is used later in the course.</p>
+<p>The standard library for processing HTML and XML is:<a href="https://docs.python.org/3/library/markup.html">markup</a>, but the third party <a href="https://beautiful-soup-4.readthedocs.io/en/latest/">Beautiful Soup</a> package is arguably easier to use, and is used later in the course to parse some HTML.</p>
 <h2 id="7">7. Serialisation/Deserialisation</h2>
- <p>Serialisation is the converting of program data into data
+ <p>Serialisation is the conversion of program data into data
 stored typically in a file. Deserialisation is the opposite
 process that converts data back into working code. Essentially
 any Python object can be serialised and later deserialised. For
-details on how to do this, see:
-<a href="https://docs.python.org/3/library/pickle.html">pickle</a>
+details on how to do this, see the standard library
+<a href="https://docs.python.org/3/library/pickle.html">
+pickle module</a>
 </p>
 
 <h2 id="8">8. OS and File Systems</h2>
 <h3 id="3">3. OS and File Systems</h3>
-<p>The OS Module
-(<a href="https://docs.python.org/3/library/os.html">os</a>)
-allows for interaction with the underlying Operating System (OS),
-including environment variable manipulation and file system
-navigation.</p>
-<p>Environment variables are variables at the OS level. For
-example, PATH is a variable which details how the OS looks for
-programs. The mapping object "os.environ" allows for accessing
-environment information from a Python program. For example, the
-following will print the PATH:</p>
+<p>The standard library
+(<a href="https://docs.python.org/3/library/os.html">os module</a>)
+allows for interaction with the underlying computer operating
+system (OS), including 'environment variable' manipulation and
+file system navigation.</p>
+
+<p>Environment variables are variables at the OS level. The mapping object '<a href="https://docs.python.org/3/library/os.html#os.environ">os.environ</a>' allows for accessing environment information from a Python program. For example, the following will print the <a href="https://en.wikipedia.org/wiki/PATH_(variable)">PATH</a>:</p>
 <pre><code class="language-python">import os
 print(os.environ["PATH"])</code></pre>
-<p>For more info on getting and setting OS environment variables,
-see:
-<a href="https://docs.python.org/3/library/os.html#os.environ">
-os.environ</a></p>
-<p>There are various os functions for working with the underlying
-file system. For example the following will print a list of
-every file and directory in the current working directory:</p>
-<pre>print os.listdir(path='.')</pre>
-<p>A standard library for dealing with file paths is:
+<p>And the following will print a list of every file and directory
+in the current working directory:</p>
+<pre><code class="language-python">print os.listdir(path='.')</code></pre>
+<p>The standard library
 <a href="https://docs.python.org/3/library/pathlib.html">
-pathlib</a>. To get information about files and directories
-(including file sizes and modification times), see:
-<a href="https://docs.python.org/3/library/pathlib.html#Path.stat">
-pathlib#Path.stat</a>. To set file permissions and ownership, see:
-<a href="https://docs.python.org/3/library/pathlib.html#chmod">
-pathlib#chmod</a> and
-<a href="https://docs.python.org/3/library/pathlib.html#chown">
-pathlib#chown</a>.
-</p>
-<p>Some other useful standard Python IO libraries are:
+pathlib module</a>
+helps with handling file paths and managing file systems</p>
+<p>The standard library
 <a href="https://docs.python.org/3/library/tempfile.html">
-tempfile</a> - for generating temporary files and directories;
+tempfile module</a> is useful for creating temporary files.</p>
+<p>The standard library
 <a href="https://docs.python.org/3/library/shutil.html">
-shutil</a> - for copying files and directory structures;
+shutil module</a> is useful for copying files and directory
+structures.</p>
+<p>The standard library
 <a href="https://docs.python.org/3/library/glob.html">
-glob</a> - for pattern hunting in files and directories.</p>
+glob module</a> is useful for pattern hunting in files and
+directories.</p>
 
 </div>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../abm5/index.html">Next: ABM5</a></p>
 </div>
-<p>Date last modified: 2023-03-22.</p>
+<p>Date last modified: 2023-03-23.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

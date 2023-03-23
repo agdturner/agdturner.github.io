@@ -120,11 +120,11 @@ ssd 25
 distance 5.0
 distance 5.0</pre>
 <p>In your local code repository src directory create a new
-directory called "abm2". Open Spyder and use "save as" to save
-your "model.py" file into the abm2 directory.</p>
+directory called 'abm2'. Open Spyder and save 'model.py' into the
+'abm2' directory.</p>
 
 <h2 id="2">2. Using Lists</h2>
-<p>Rather than handle each coordinate for each agent individually, they coordinates for each agent are now going to be stored in<a href="https://docs.python.org/3/library/stdtypes.html#lists">lists</a> of length 2, with the first item being their 'x' coordinate, and the second item being their 'y' cordinate. Each agent  is also going to be stored in a list.<p>
+<p>Rather than handle coordinates for each agent individually, the coordinates for each agent are now going to be stored in<a href="https://docs.python.org/3/library/stdtypes.html#lists">lists</a> of length 2, with the first item being an 'x' coordinate, and the second item being a 'y' cordinate. All agents  are also going to be stored in a list.<p>
 <p>The code is also going to be reorganised so that the agents are created in a <a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loop</a>, and there will be a second for loop to adjust the  coordinates (move the agents).<p>
 <p>Towards the top of the file (below the import statements and
 setting of the random seed) add the following to create a new
@@ -135,17 +135,17 @@ agents = []</pre></code>
 initialising 'y0' and 'x0', by adding the following:
 </p>
 <pre><code class="language-python">agents.append([x0,y0]) # Append to the list agents</pre></code>
-<p>Notice the extra square brackets, which appends the
-coordinates in a list to the agents list. So 'agents[0][0]'
-is the x coordinate of the first agent in the agents list and
-'agents[0][1]' is the y coordinate of the first coordinate
-pair in the agents list.</p>
+<p>Note that '[x0,y0]' creates a list containing 'x0' and 'y0',
+and the 'append' function adds this list to the agents list. After
+doing this, 'agents[0][0]' is the 'x' coordinate of the first
+agent in the agents list and 'agents[0][1]' is the 'y' coordinate
+of the first agent in the agents list.</p>
 <p>Go through and replace all the other uses of 'x0' with indexed
 list references, i.e. 'agents[0][0]' and 'y0' with 'agents[0][1]'
 (uses - not the initial assignments). Check your code still runs.
 </p>
 <p>The code that creates the first agent and adds this to the
-agents list is as follows:</p>
+agents list should be as follows:</p>
 <pre><code class="language-python"># Initialise variable x0
 x0 = random.randint(0, 99)
 print("x0", x0)
@@ -153,7 +153,7 @@ print("x0", x0)
 y0 = random.randint(0, 99)
 print("y0", y0)
 agents.append([x0, y0])</code></pre>
-<p>In essence the variables 'x0' and 'y0' are only created for
+<p>Note that the variables 'x0' and 'y0' are only created for
 this initialisation. Can you think of a way to reduce this code
 and do the initialition more succinctly?</p>
 
@@ -183,11 +183,12 @@ the 'show()' command.</p>
 <h2 id="4">4. Using Loops</h2>
 <p>This section guides you through restructuring your code so that agent initialisation (for all agents) happens first, and moving (for all agents) happens second. There will be loops for each of these things and for plotting all the agents.</p>
 <p>To prepare yourself, review your code. In doing so, it might help to insert some blank lines to separate different parts of it, and to add more comments to help you understand what it is doing. Once you have done that, commit your code to your local repository and assuming you are using GitHub - push your changes to GitHub.</p>
-<p>Comment out the code for initialising and changing the coordinates of the second agent, and replace the code that creates a the first agent as follows: After the line of code that initialises the agent list: add a variable called 'n_agents' and set this equal to '10'. Then create a <a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loop</a> that uses n_agents to create 10 agents. The code you want is:</p>
+<p>Comment out the code for initialising and changing the coordinates of the second agent. After the line of code that initialises the agent list add a variable called 'n_agents' and set this equal to '10'. Then create a <a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loop</a> that uses n_agents to create 10 agents. The code you want is:</p>
 <pre><code class="language-python">n_agents = 10
 for i in range(n_agents):
     agents.append([random.randint(0, 99), random.randint(0, 99)])</code></pre>
 <p>Check that your program still runs.</p>
+<p>You no longer want any code that initialises other agents.</p>
 
 <p>Use another for loop to move all 10 agents. And use another for loop to plot all 10 agents black. Hopefully, there is still a red coloured dot which gives the location of the agent with the largest x coordinate.</p>
 <p>Add and commit to your local git repository and assuming you are using GitHub - push your changes to GitHub.</p>
@@ -201,21 +202,25 @@ are using GitHub - push your changes to GitHub.</p>
 <h2 id="6">6. Code Review and Looking Forward</h2>
 <p>If you managed to complete all parts, then it should be
 straight forward to modify your code to run for different numbers
-of agent. If you didn't, then don't worry, at the start of the
-next ABM practical some code that does everything is provided.</p>
+of agent. Have a try and also think about how you would get the
+agents to move multiple times.</p>
+<p>If you got stuck, then don't worry, look ahead to the start of
+the next ABM practical where some code that does everything is
+provided.</p>
 <p>Next we will look in more detail about functions and how to
-document them. Then in the next ABM practical the distance
-calculation code, which is currently really just a test case, will
-be changed into a function. The next practical will include an
-exercise involving timing code for different numbers of agents.
-</p>
+document them. Then in the next ABM practical: a loop will be
+created to simulate movement of the agents multiple times; and the
+distance calculation code, which is currently just a test case,
+will be changed into a function. Most of the next practical will
+be an exercise involving calculating the maximum distance between
+agents and timing code to optimise this.</p>
 
 </div>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../functions/index.html">Next: Functions</a></p>
 </div>
-<p>Date last modified: 2023-03-22.</p>
+<p>Date last modified: 2023-03-23.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
