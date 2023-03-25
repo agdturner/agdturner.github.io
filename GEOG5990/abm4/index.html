@@ -31,22 +31,21 @@ DOM is fully loaded. -->
 <div>
 <h1>Agent Based Model Part 4</h1>
 <h2 id="1">1. Recap and preparation</h2>
-<p>Currently, 'agents' is a list that contains lists of two items:
-an x coordinate; and, a y coordinate. More items could be added
+<p>Currently, 'agents' is a list that contains lists of two items;
+an x-coordinate, and a y-coordinate. More items could be added
 to the lists to representing additional agent characteristics.
 However, the longer the lists become, the harder it is to remember
-what is stored in each index and the easier it is to make a
-mistake.</p>
+what is stored in each index and the more confusing code gets.</p>
 <p>Defining an Agent class provides a way to name agent
 characteristics and refer to them by name rather than by a list
-index. This makes code easier to read and understand. The Agent
-class will be defined in a different file from 'model.py' so the
-program code going forwards will be in multiple files.</p>
+index. The Agent class will be defined in a different file from
+'model.py' so the program code going forwards will be in multiple
+files.</p>
 <p>In your local code repository src directory create a new
 directory called "abm4". Open Spyder and use 'save as' to save
 your 'model.py' file from abm3 into the abm4 directory.</p>
 
-<h2 id="2">2. Agent class definition</h2>
+<h2 id="2">2. Define an Agent class</h2>
 <p>Create a new file in the abm4 directory named
 'agentframework.py', and add a class definition for an Agent class
 in it as follows:</p>
@@ -54,12 +53,11 @@ in it as follows:</p>
     pass</code></pre>
 <p>The keyword 'pass' ensures the code is syntactically correct
 and will run.</p>
-<p>In 'model.py' reduce n_iterations to 10, and add the
+<p>In 'model.py' reduce 'n_iterations' to 10, and add the
 following import statement:</p>
 <pre><code class="language-python">import agentframework as af</code></pre>
-<p>Note that this imports the agentframework module from
-'agentframework.py' which is to be referred to by the abbreviation
-'af'.</p>
+<p>Note that this imports the agentframework module as loaded from
+'agentframework.py' which is to be referred to by 'af'.</p>
 <p>At the start of the '# Initialise agents' code block, add the
 following:</p>
 <pre><code class="language-python">a = af.Agent()
@@ -70,26 +68,25 @@ following line:</p>
 <p>This indicates that an instance of the class Agent as defined
 in the agentframework module was successfully created.</p>
 <p>Add a constructor method to the Agent class that initialises
-'x' and 'y' variable attributes to be random Integers in the range
-[0, 99]:</p>
+'x' and 'y' variable attributes to be random integers in the range
+[0, 99]. The code in 'agentframework.py' should be:</p>
 <pre><code class="language-python">import random
 
 class Agent:
     def __init__(self):
         self.x = random.randint(0, 99)
         self.y = random.randint(0, 99)</code></pre>
-<p>Note that for this to work, it was necessary to import the
-random module.</p>
+
+<p>Note that the <a href="https://docs.python.org/3/library/random.html">random module</a>is imported as this is used in the Agent constructor '__init__' method.</p>
 <p>In 'model.py', add a statement to print the agent that was
-instantiated, and run the program again.</p>
-<p>The new print statement should produce output that looks like
-the following:</p>
+instantiated, and run the program again. Text along the lines of
+the following should be in the output:</p>
 <pre>&lt;agentframework.Agent object at 0x00000249AEA21D88&gt;</pre>
-<p>The last part of your print statement will probably be
-different to '0x00000249AEA21D88' and if you run your program
-again, it will likely be different again. Recall that this string
-is a memory address identifying where the object is stored in the
-memory of the computer.</p>
+<p>The last part of this will almost certainly be different to
+'0x00000249AEA21D88' and if you run your program again, it will
+likely be different again. Recall that this string is a memory
+address identifying where the object is stored in the memory of
+the computer.</p>
 <p>When printing an Agent instance, it would be better if
 something more informative was output. The best way to do this
 is to override the '__str__' method which comes from the 'type'
@@ -99,7 +96,7 @@ method in the Agent class as follows:</p>
     return self.__class__.__name__ + "(x=" + str(self.x) \
         + ", y=" + str(self.y) + ")"</pre></code>
 
-<p>Note that this returns a string which includes the name of the class and details of the 'x' and 'y' variable attributes which are transformed by the <a href="https://docs.python.org/3/library/functions.html#func-str">builtin function str</a> to be Strings.</p>
+<p>Note that this returns a string which includes the name of the class and details of the 'x' and 'y' variable attributes which are transformed by the builtins module <a href="https://docs.python.org/3/library/functions.html#func-str">str function</a> to be strings.</p>
 <p>Run 'model.py' again and the print statement should result in
 the following:</p>
 <pre>Agent(x=49, y=97)</pre>
@@ -112,10 +109,9 @@ for i in range(n_agents):
     agents.append(af.Agent())
     print(agents[i])
 print(agents)</code></pre>
-<p>Run model.py and you should get similar output to the
+<p>Run 'model.py' and you should get similar output to the
 following (in the error report, the file paths will probably be
-different, and the line numbers might be different if your code
-is not exactly the same):</p>
+different, and the line numbers might be different):</p>
 <pre>Check this is equal to 5: 5.0
 Agent(x=49, y=97)
 Agent(x=53, y=5)
@@ -141,25 +137,22 @@ TypeError: 'Agent' object is not subscriptable</pre>
 not use the '__str__' method to get string representations when
 printing the list.</p>
 
-<p>The <a href="https://docs.python.org/3/library/exceptions.html#TypeError">TypeError</a> is a consequence of the 'agents' list no longer containing lists, but instantiated Agent objects.</p>
+<p>The <a href="https://docs.python.org/3/library/exceptions.html#TypeError">TypeError</a> is a consequence of the 'agents' list no longer containing lists, but instantiated Agent objects, and some parts of the code are still written as though each agent is a list and not an instance of the Agent class.</p>
 <p>Add the following method to the Agent class to get the print
 function to print string representations when printing the agents
 list:</p>
 <pre><code class="language-python">def __repr__(self):
     return str(self)</code></pre>
 
-<p>Like the method '__str__', the method '__repr__' overrides from the 'type' metaclass, (for details see: <a href="https://docs.python.org/3/library/functions.html#repr">repr</a>.</p>
+<p>Like the '__str__' method, the '__repr__' method overrides from the 'type' metaclass, (for details see: <a href="https://docs.python.org/3/library/functions.html#repr">repr</a>.</p>
 <p>To avoid raising the TypeError exception, it is necessary to
-refer to the attributes of the agents as from the class definition
-and not to items in lists (as agents are no longer lists, but are
-instances of the class Agent). So, change the following line of
-code in the 'get_max_distance()' function:</p>
+refer to the class attributes and not list items (as agents are
+no longer lists, but are instances of the class Agent). So, change
+the following line of code in the 'get_max_distance()' function:</p>
 <pre><code class="language-python">distance = get_distance(a[0], a[1], b[0], b[1])</code></pre>
 <p>To be:</p>
 <pre><code class="language-python">distance = get_distance(a.x, a.y, b.x, by)</code></pre>
-<p>Examine the code change and appreciate that there is no longer
-a need to remember which item in the list refers to a particular
-coordinate.</p>
+<p>Appreciate that this is easier to read and understand.</p>
 <p>Everywhere else in the 'model.py' that was referring to a
 coordinate from the agents list is to be changed similarly. Run
 'model.py' to see where the next TypeError is raised.</p>
@@ -225,9 +218,8 @@ how an agent moves, and 'model.py' actions when they do. This is a
 reasonable separation of concerns.</p>
 
 <h2 id="4">4. Give each agent a unique name</h2>
-<p>It is possible that two Agent class instances will be located
-at the same coordinates at some iteration of the model, and it
-would be helpful to distinguish them.</p>
+<p>It is possible that two agents will be located at the same
+coordinates, and it would be helpful to distinguish them.</p>
 
 <p>Add a <a href="https://peps.python.org/pep-0257/#what-is-a-docstring">docstring</a> and a parameter to the '__init__' constructor method of Agent so that the method is as follows:</p>
 <pre><code class="language-python">def __init__(self, i):
@@ -257,8 +249,9 @@ pass</code></pre>
 TypeError: __init__() missing 1 required positional argument: 'i'</pre>
 <p>The TypeError is indicating that an expected argument is
 missing in the call that creates the Agent instance. Change
-'model.py' to pass in the missing argument 'i'. Make sure that 'i'
-is passed in in the correct position. Run the program again and
+'model.py' to pass in the missing argument 'i'. Make sure the
+positional arguments are in a correspodiong order in the method
+call and in the method definition. Run the program again and
 the TypeError should not be raised.</p>
 <p>Modify the Agent class '__str__' method so it additionally
 returns the unique characteristic of each Agent 'i'.</p>
@@ -270,7 +263,7 @@ using GitHub - push your changes to GitHub.</p>
 <div>
 <p><a id="next" class="nav" href="../io/index.html">Next: IO</a></p>
 </div>
-<p>Date last modified: 2023-03-24.</p>
+<p>Date last modified: 2023-03-25.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
