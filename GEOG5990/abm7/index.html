@@ -89,7 +89,7 @@ variables and add a random stopping condition as follows:</p>
 <pre><code class="language-python">def update(frames):
     # Model loop
     global carry_on
-    #for ite in range(n_iterations):
+    #for ite in range(1, n_iterations + 1):
     print("Iteration", frames)
     # Move agents
     print("Move and eat")
@@ -130,7 +130,7 @@ variables and add a random stopping condition as follows:</p>
 <pre><code class="language-python">def gen_function():
     global ite
     global carry_on #Not actually needed as we're not assigning, but clearer
-    while (ite < n_iterations) & (carry_on) :
+    while (ite <= n_iterations) & (carry_on) :
         yield ite # Returns control and waits next call.
         ite = ite + 1
     global data_written
@@ -162,37 +162,45 @@ modules.</p>
 <p>The essence of a Spatial Agent Based Model is now working.
 Typically such models either run in a loop until some condition is
 reached, or for a predefined number of iterations. At the moment
-n_iterations is the maximum number of iterations the model will
+'n_iterations' is the maximum number of iterations the model will
 run for, but there is a stopping condition that is likely to occur
-randomly before this is reached if the n_iterations is set to 10
+randomly before this is reached if 'n_iterations' is set to 10
 or more.</p>
 <p>As yet, the model cannot be re-started. Although some
 information is written to file that could be used to restart the
 model, this is incomplete/insufficient. The ability to be able to
-stop and restart a model can be useful and is often called check
-pointing. For reproducibility, so that a run of n iterations
-followed by a further m iterations would produce the same results
-as a run of m + n iterations, the random.getstate() and
-random.setstate(state) methods could be used to checkpoint
+stop and restart a model can be useful and is often called 'check
+pointing'. For reproducibility, so that a run of 'n' iterations
+followed by a further 'm' iterations would produce the same results
+as a run of 'm + n' iterations, the 'random.getstate()' and
+'random.setstate(state)' methods could be used to checkpoint
 random.</p>
 <p>The simple agents in the model are not learning or adapting
 their behaviour based on interaction or the state of the
-environment. So, the model is mostly random, so observing complex,
+environment. The model is mostly random, so observing complex,
 adaptive/emergent behaviour from this model should not be
 expected.</p>
 <p>Whilst the model has been framed as an ecological model, the
 agents could represent other things, they don't necessarily have
 to communicate by sharing resources, they could share something
-else, and they don't have to eat the environment.</p>
-<p>Some things that might make the model more realistic are:</p>
+else, and they don't have to 'eat' the environment.</p>
+<p>Some things that should make the model a more realistic
+ecological model are:</p>
 <ul>
-<li>To have less resource in the environment that can be eaten
-by the agents, and model this resource as vegetation that
-grows.</li>
+<li>To have less resource that can be eaten by the agents, and
+model this resource as vegetation that grows.</li>
+<li>Have movement cost energy/store and for this to relate to how
+much store an agent has and a varying cost of movement based on
+the environment terrain. Grazing agents may then 'favour'
+movement that looks to be worth the effort.</li>
 <li>Have those agents that are successful at finding resources get
-stronger/more able and replicate and those unsuccessful get
-weaker/less able and die.</li>
-<li>Including predator agents that hunt/eat the other agents.</li>
+stronger/more able to move and replicate and those unsuccessful
+get weaker/less able and die.</li>
+<li>Include predator agents that hunt/eat the other agents as
+prey. A lot of complication can be added with this as predators
+might work collectively to hunt and prey may behave collectively
+for safety. Predators might have advantage in some types of places
+and prey may learn this and stay away from those places.</li>
 </ul>
 
 <h2 id="4">4. Further Assignment 1 Coding Task</h2>
@@ -206,7 +214,7 @@ are using GitHub - push your changes to GitHub.</p>
 <div>
 <p><a id="next" class="nav" href="../gui/index.html">Next: GUI</a></p>
 </div>
-<p>Date last modified: 2023-03-25.</p>
+<p>Date last modified: 2023-03-26.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
