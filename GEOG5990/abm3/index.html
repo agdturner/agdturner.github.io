@@ -412,15 +412,15 @@ changed to move them a number of times. After initialising
 'n_agents', initialise a variable called 'n_iterations' and set it
 equal to 1000.</p>
 
-<p>Create a new outer <a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loop</a> to loop through moving agents n_iteration times. An outer loop is wanted rather than an inner loop as in each iteration agents are to move in turn rather than each agent  taking all their turns before any others.</p>
+<p>Create a new outer <a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loop</a> to loop through moving agents n_iteration times. An outer loop is wanted rather than an inner loop as in each iteration agents are to move in turn rather than each agent taking all their turns before any others. This outer loop is the 'main simulation loop'. Add a comment to identify it as such.</p>
 <p>The agents move randomly, and the more of them there are, the
 more spread out they are likely to become.</p>
 <p>Edge effects are important to consider in geographical data
 analysis and modelling. The agents currently have a theoretically
-infinite two dimensional (2D) area to move in. We want to restrict
-agents to move in a more constrained area. Constrain agents to a
-rectangluar area by limiting the x and y coordinates using the
-following code blocks:</p>
+infinite two dimensional (2D) area to move in. To make things more
+manageable, movement will be restricted to a rectangular area by
+limiting the x and y coordinates using the following code
+blocks:</p>
 <pre><code class="language-python"># Variables for constraining movement.
 # The minimum x coordinate.
 x_min = 0
@@ -454,7 +454,7 @@ are using GitHub - push your changes to GitHub.</p>
 <div>
 <p><a id="next" class="nav" href="../classes/index.html">Next: Classes</a></p>
 </div>
-<p>Date last modified: 2023-03-26.</p>
+<p>Date last modified: 2023-03-27.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

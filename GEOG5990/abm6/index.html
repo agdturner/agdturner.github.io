@@ -33,13 +33,12 @@ DOM is fully loaded. -->
 <h2 id="1">1. Introduction and Preparation</h2>
 <p>To get the agents communicating they need a way to refer to
 each other. Those agents that are within a given distance are
-going to share some resource.
-</p>
+going to share some resource.</p>
 <p>In your local code repository src directory create a new
-directory called "abm6". Open Spyder and use "save as" to save
-your "model.py" into this directory. Create a new directory called
-"my_modules" in abm6 and use "save as" to save your
-"agentframework.py" and "io.py" files there.</p>
+directory called 'abm6'. Open Spyder and use 'save as' to save
+your 'model.py' into this directory. Create a new directory called
+'my_modules' in 'abm6' and use 'save as' to save your
+'agentframework.py' and 'io.py' files there.</p>
 
 <h2 id="2">2. Sharing</h2>
 <p>Each agent is going to share their store equally amongst all
@@ -83,19 +82,20 @@ and add an attribute for storing the shares as follows:</p>
     self.y = random.randint(tnr - 1, (2 * tnr) - 1)
     self.store = 0
     self.store_shares = 0</code></pre>
-<p>Change model.py so that the agents list is passed as a
-parameter as agents are initialised.</p>
+<p>Change 'model.py' so that 'agents' is passed as a parameter as
+'agents' itself is initialised.</p>
 <p>Test your code works and that from one agent you can access
 other agents by printing out one agent from another agent.</p>
-<p>In agentframework.py we are going to want to use the
-get_distance function, and we want to avoid cyclic imports. Create
-a new file called geometry.py in the my_modules directory, and
-move the get_distance method from model.py to it. Add an import
-statement for geometry in model.py and change where the function
-is called by referring to the new module and by using the
-dot operator. (In other words change "get_distance" to
-"geometry.get_distance").</p>
-<p>Import the geometry module into agentframework and add the
+<p>The plan is to use the 'get_distance' function in
+'agentframework.py' and avoid cyclic imports. One way to do this
+is to abstract the 'get_distance' function to a new module. Create
+a new file called 'geometry.py' in the 'my_modules' directory, and
+move the 'get_distance' method from 'model.py' to it. Add an
+import statement for the new geometry module in 'model.py' and
+change the function call to look for the function in the new
+geometry module by using the dot operator. (In other words change
+'get_distance' to 'geometry.get_distance').</p>
+<p>Import the geometry module into 'agentframework.py' and add the
 following method:</p>
 <pre><code class="language-python">def share(self, neighbourhood):
     # Create a list of agents in neighbourhood
@@ -113,17 +113,18 @@ following method:</p>
     # Add shares to store_shares
     for i in neighbours:
         self.agents[i].store_shares += shares</code></pre>
-<p>This code is using the fact that self.i will be the same as the
-index of an agent in the agents list. In the first For Loop the
-distance between self and each agent in the agents lists
-(including itself) is calculated and if this is less than the
-neighbourhood parameter that is passed in, then the index of the
-agent from the agents list is stored in the neighbours list. The
-attribute self.store is then divided into shares and added to the
-store_shares attribute of all neighbours.</p>
-<p>Replace the model loop in the model.py file with the following:
-</p>
-<pre><code class="language-python"># Model loop
+<p>This code is using the fact that 'self.i' will be the same as
+the index of an agent in the 'agents' list. In the first for loop
+of the 'share' function the distance between 'self' and each agent
+in the agents list is calculated and if this is less than
+'neighbourhood' (a parameter that is passed in), then the index of
+the agent from the agents list is stored in the 'neighbours' list.
+The attribute 'self.store' is then divided into 'shares' and added
+to the 'store_shares' attribute of all the agents with indexes in
+'neighbours'.</p>
+<p>Replace the 'main simulation loop' in 'model.py' file with the
+following:</p>
+<pre><code class="language-python"># Main simulation loop
 for ite in range(1, n_iterations + 1):
     print("Iteration", ite)
     # Move agents
@@ -150,29 +151,27 @@ for ite in range(1, n_iterations + 1):
     sum_e = sum_environment()
     print("sum_environment", sum_e)
     print("total resource", (sum_as + sum_e))</code></pre>
-<p>Run model.py and interpret the output. Add more print
+<p>Run 'model.py' and interpret the output. Add more print
 statements to gain a clear understanding of how the code works.
 </p>
 
-<h2 id="4">4. Organise model.py</h2>
-<p>Ensure all import statements are together at the top. Move all
-code that is not in functions to be within the following If
-Statement at the end of the file:</p>
+<h2 id="3">3. Organise module code</h2>
+<p>Move all code in each 'my_modules' module that is not in
+functions to be within if statement like the following
+at the end of the file:</p>
 <pre><code class="language-python">if __name__ == '__main__':</code></pre>
-<p>If model.py is the file that is run, then the code in this If
-Statement is run.</p>
-<p>Any code in my_modules that you do not want run when the
-modules are loaded can go in the same If Statments in those files.
-</p>
+<p>Recall that this isolates this code so it is only run if that
+file is the one run and not when the module is imported.</p>
 <p>Make sure to test that your code still produces the same
 results.</p>
 
-<h2 id="3">3. Output images and generate an animated Gif</h2>
-<p>Add the following import statements with the import statements
-in the model.py file:</p>
+<h2 id="4">4. Output images and generate an animated Gif</h2>
+<p>Add the following import statements to the 'model.py' placing
+these with the other import statements as the first executable
+statements in the code:</p>
 <pre><code class="language-python">import imageio
 import os</code></pre>
-<p>Before the Model loop add the following code:
+<p>Before the main simulation loop add the following code:
 <pre><code class="language-python"># Create directory to write images to.
     try:
         os.makedirs('../../data/output/images/')
@@ -183,8 +182,8 @@ import os</code></pre>
     global ite
     ite = 1
     images = []</code></pre>
-<p>Indent the plotting so that this occurs within the Model loop
-and replace the following line:</p>
+<p>Indent the plotting so that this occurs within the main
+simulation loop and replace the following line:</p>
 <pre><code class="language-python">plot.show()</code></pre>
 <p>With:</p>
 <pre><code class="language-python">filename = '../../data/output/images/image' + str(ite) + '.png'
@@ -193,19 +192,19 @@ plt.savefig(filename)
 plt.show()
 plt.close()
 images.append(imageio.imread(filename))</code></pre>
-<p>The code will now: create plots; save these as images to png
-format files; show and close them rapidly; then reload the png
-format file using imageio and append the image to the images
-list.</p>
-<p>After the end of the Model loop the images can be turned into
-an animated gif file using the following:</p>
+<p>This code should: create plots; save these as images in PNG
+format files; show and close them rapidly; then reload the PNG
+format file and append the image to the images list.</p>
+<p>After the end of the main simulation loop the images can be
+turned into an animated GIF format file using the following:</p>
 <pre><code class="language-python">imageio.mimsave('../../data/output/out.gif', images, fps=3)</code></pre>
-<p>The parameter fps is the number of frames that are shown per
+<p>The parameter 'fps' is the number of frames that are shown per
 second.</p>
-<p>Commit your code to your local repository and assuming you
-are using GitHub - push your changes to GitHub.</p>
+<p>Once you have this working. Commit your code to your local
+repository and assuming you are using GitHub - push your changes
+to GitHub.</p>
 
-<h2 id="4">4. Further Assignment 1 Coding Tasks</h2>
+<h2 id="5">5. Further Assignment 1 Coding Tasks</h2>
 <p>Create some more variable results by randomly setting the
 'store' of each agent in initialisation to be a value in the range
 [0, 99].</p>
@@ -220,7 +219,7 @@ are using GitHub - push your changes to GitHub.</p>
 <div>
 <p><a id="next" class="nav" href="../exceptions/index.html">Next: Exceptions</a></p>
 </div>
-<p>Date last modified: 2023-03-26.</p>
+<p>Date last modified: 2023-03-27.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
