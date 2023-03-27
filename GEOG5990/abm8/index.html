@@ -31,32 +31,35 @@ DOM is fully loaded. -->
 <div>
 <h1>Agent Based Model Practical 8</h1>
 <h2 id="1">1. Introduction and Preparation</h2>
-<p>This practical is about adding a Graphical User Interface.</p>
-<p>In your local code repository src directory duplicate your abm7
-directory and call the new directory "abm8".</p>
+<p>This practical is about adding a Graphical User Interface
+(GUI).</p>
+<p>In your local code repository 'src' directory duplicate your
+'abm7' directory and call the new directory 'abm8'.</p>
 
 <h2 id="2">2. Setting up Tkinter</h2>
-<p>Matplotlib has different "backends" that allow it to render
+<p>Matplotlib has different 'backends' that allow it to render
 graphics in different ways. As the GUI will be developed using
 tkinter, it is necessary to change the matplotlib backend by
-adding the following at the top of your model.py file before
-any other matplotlib imports:</p>
+adding the following at the top of 'model.py' before any other
+matplotlib imports:</p>
 <pre><code class="language-python">import matplotlib
 matplotlib.use('TkAgg')</code></pre>
 <p>In Spyder, go to:</p>
 <pre>Tools > Preferences > IPython console > Graphics tab</pre>
-<p>And select "Tkinter" from the "Backend" drop down list. Click
-"ok". Then select:
+<p>Select 'Tkinter' from the 'Backend' drop down list. Click
+'ok'. Then select:
 <pre>File > Restart</pre>
-<p>save your files and restart Spyder.</p>
+<p>Save your files if prompted.</p>
 
 <h2 id="3">3. Organising the GUI</h2>
-<p>Add the following function run():</p>
+<p>Add the following function to 'model.py':</p>
 <pre><code class="language-python">def run(canvas):
     animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
     animation.new_frame_seq()
     canvas.draw()</code></pre>
-<p>Replace the following line in the main If Statement:</p>
+<p>Add the following import statement to 'model.py':</p>
+<pre><code class="language-python">import tkinter as tk</code></pre>
+<p>In 'model.py' replace the following line (not the line in the new run function):</p>
 <pre><code class="language-python">animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)</code></pre>
 <p>With:</p>
 <pre><code class="language-python"># GUI
@@ -84,8 +87,8 @@ tk.mainloop()</code></pre>
     root.destroy()
     #sys.exit(0)</code></pre>
 <p>Now if the window in which the animation runs is closed, the
-program exit and exiting the program is also added as a menu
-option in the GUI.</p>
+program should exit and exiting the program is also added as a
+menu option in the GUI.</p>
 <p>Run the program.</p>
 <p>Commit your code to your local repository and assuming you
 are using GitHub - push your changes to GitHub.</p>

@@ -33,8 +33,8 @@ DOM is fully loaded. -->
 <h2 id="1">1. Introduction and Preparation</h2>
 <p>This practical is about using some data in an HTML file Table
 to initialise part of the model.</p>
-<p>In your local code repository src directory duplicate your abm8
-directory and call the new directory "abm9".</p>
+<p>In your local code repository 'src' directory duplicate your
+'abm8' directory as 'abm9'.</p>
 
 <h2 id="2">2. Parsing an HTML File</h2>
 <p><a href="../../resources/abm9/data.html">The HTML to parse</a>.</p>
@@ -51,8 +51,8 @@ import bs4</code></pre>
 <pre><code class="language-python">
 # Initialise agents
 
-url = agdturner.github.io/resources/abm9/data.html
-r = requests.get('agdturner.github.io/resources/abm9/data.html', verify=False)
+url = 'https://agdturner.github.io/resources/abm9/data.html'
+r = requests.get(url, verify=False)
 content = r.text
 soup = bs4.BeautifulSoup(content, 'html.parser')
 td_ys = soup.find_all(attrs={"class" : "y"})
@@ -67,7 +67,7 @@ for i in range(n_agents):
     agents.append(af.Agent(agents, i, environment, n_rows, n_cols, x, y))
     print(agents[i].agents[i])</code></pre>
 
-<p>Change the __init__ function in 'agentframework.py' to:</p>");
+<p>Change the '__init__' function in 'agentframework.py' to:</p>");
 <pre><code class="language-python">def __init__(self, agents, i, environment, n_rows, n_cols, x = None, y = None):
 """
 The constructor method.

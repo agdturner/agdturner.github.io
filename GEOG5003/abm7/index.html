@@ -31,18 +31,18 @@ DOM is fully loaded. -->
 <div>
 <h1>Agent Based Model Practical 7</h1>
 <h2 id="1">1. Introduction and Preparation</h2>
-<p>In this practical we make use of matplotlibs FuncAnimation to
-animate the model in a separate window. Also, some stopping
-conditions will be added to halt the model and exit.</p>
-<p>In your local code repository src directory duplicate your abm6
-directory and call the new directory "abm7".</p>
+<p>In this practical
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.animation.FuncAnimation.html">
+matplotlib.animation.FuncAnimation</a>
+will be used to animate the model in a separate window. Some
+stopping conditions will be added to halt the model and exit.</p>
+<p>In your local code repository 'src' directory duplicate your
+'abm6' directory and call the new directory 'abm7'.</p>
 
 <h2 id="2">2. Animation</h2>
-<p>Open the new model.py file from the abm7 directory in
+<p>Open the new 'model.py' file from the 'abm7' directory in
 Spyder.</p>
-<p>A matplotlib animation requires us to have a figure that is
-cleared and redrawn, and to make use of the animation module. Add
-the following import statement:</p>
+<p>Add the following import statement:</p>
 <pre><code class="language-python">import matplotlib.animation as anim</code></pre>
 <p>After initialising agents add the following code block:</p>
 <pre><code class="language-python"># Animate
@@ -52,11 +52,9 @@ ax = fig.add_axes([0, 0, 1, 1])
 carry_on = True
 data_written = False
 animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)</code></pre>
-<p>Change the plotting code block into a function plot()
-defined where the other functions are defined. Add a line to clear
-fig at the start of the function and at the end of the function
-return fig. Rather than pass ite into the function set it as a
-global variable. The following is what is wanted:</p>
+<p>Define a new function called 'plot' to contain the 'Plot
+agents' code. Add a line to clear fig at the start of the function
+and specify 'ite' as a global variable before it is used:</p>
 <pre><code class="language-python">def plot():
 fig.clear()
 plt.ylim(y_min, y_max)
@@ -80,12 +78,12 @@ global ite
 filename = '../../data/output/images/image' + str(ite) + '.png'
 plt.savefig(filename)
 images.append(imageio.imread(filename))
-plt.show
-return fig</code></pre>
-<p>Change the model loop code block into a function called update
-that has a parameter called frames. At the end of this call the
-function plot(). Set the variables carry_on and ite as global
-variables and add a random stopping condition as follows:</p>
+plt.show</code></pre>
+<p>Change the 'main simulation loop' code block into a function
+called 'update' that has a parameter called 'frames'. At the end
+of this call the 'plot' function. Set the variables 'carry_on'
+and 'ite' as global variables and add a random stopping condition
+as follows:</p>
 <pre><code class="language-python">def update(frames):
     # Model loop
     global carry_on
@@ -126,10 +124,10 @@ variables and add a random stopping condition as follows:</p>
 
     # Plot
     plot()</code></pre>
-<p>Define a function gen_function() as follows:</p>
+<p>Define a function called 'gen_function' as follows:</p>
 <pre><code class="language-python">def gen_function():
     global ite
-    global carry_on #Not actually needed as we're not assigning, but clearer
+    global carry_on
     while (ite <= n_iterations) & (carry_on) :
         yield ite # Returns control and waits next call.
         ite = ite + 1
@@ -141,40 +139,35 @@ variables and add a random stopping condition as follows:</p>
         imageio.mimsave('../../data/output/out7.gif', images, fps=3)
         data_written = True</code></pre>
 <p>Before running the code, issue the following magic command in
-the console of Spyder so that rather than the plot being directed
+the Spyder console so that rather than the plot being directed
 to the plots pane (where animation does not work), it is directed
 to a pop-up window:</p>
 <pre>%matplotlib qt</pre>
 <p>If you want to revert this change so that plots are added to
 the plot plane again issue the following magic command:</p>
 <pre>%matplotlib inline</pre>
-<p>The keyword 'yield' is used to pass the value of the
-variable "ite" back from the function gen_function whilst
-continuing to run the while loop in it. The "# Write data" code
-block is included in gen_function and runs only once after the
-model has stopped.</p>
+<p>The keyword 'yield' is used to pass the value of the variable
+'ite' back from 'gen_function' whilst continuing to run the while
+loop. The '# Write data' code block is included in 'gen_function'
+and runs only once after the model has stopped.</p>
 <p>Commit your code to your local repository and assuming you
 are using GitHub - push your changes to GitHub.</p>
 
 <h2 id="3">3. Code and Model Review</h2>
-<p>Nearly all our code is now in functions and organised into
+<p>Most of your code should now be in functions and organised into
 modules.</p>
-<p>The essence of a Spatial Agent Based Model is now working.
-Typically such models either run in a loop until some condition is
-reached, or for a predefined number of iterations. At the moment
-'n_iterations' is the maximum number of iterations the model will
-run for, but there is a stopping condition that is likely to occur
-randomly before this is reached if 'n_iterations' is set to 10
-or more.</p>
-<p>As yet, the model cannot be re-started. Although some
-information is written to file that could be used to restart the
-model, this is incomplete/insufficient. The ability to be able to
-stop and restart a model can be useful and is often called 'check
-pointing'. For reproducibility, so that a run of 'n' iterations
-followed by a further 'm' iterations would produce the same results
-as a run of 'm + n' iterations, the 'random.getstate()' and
-'random.setstate(state)' methods could be used to checkpoint
-random.</p>
+<p>The model simulation runs in a loop until some condition is
+reached, or until a predefined number of iterations 'n_iterations'
+is reached.</p>
+<p>As yet, the model cannot be re-started. Some data is written to
+file that could be used to restart the model, but this is
+incomplete/insufficient. The ability to be able to stop and
+restart a model can be useful and is often called 'check
+pointing'. It would be good if the model could be run for 'n'
+iterations and then run for a further 'm' iterations and for this
+to produce the same results as a run of 'm + n' iterations. The
+'random.getstate()' and 'random.setstate(state)' methods could be
+used to checkpoint random to help get this to work.</p>
 <p>The simple agents in the model are not learning or adapting
 their behaviour based on interaction or the state of the
 environment. The model is mostly random, so observing complex,
@@ -184,23 +177,15 @@ expected.</p>
 agents could represent other things, they don't necessarily have
 to communicate by sharing resources, they could share something
 else, and they don't have to 'eat' the environment.</p>
-<p>Some things that should make the model a more realistic
-ecological model are:</p>
+<p>Some ideas for a more realistic ecological model are:</p>
 <ul>
 <li>To have less resource that can be eaten by the agents, and
 model this resource as vegetation that grows.</li>
-<li>Have movement cost energy/store and for this to relate to how
-much store an agent has and a varying cost of movement based on
-the environment terrain. Grazing agents may then 'favour'
-movement that looks to be worth the effort.</li>
-<li>Have those agents that are successful at finding resources get
-stronger/more able to move and replicate and those unsuccessful
-get weaker/less able and die.</li>
+<li>Make movement cost some amount of store.</li>
+<li>Have those agents that are successful at finding resources
+replicate and those unsuccessful die.</li>
 <li>Include predator agents that hunt/eat the other agents as
-prey. A lot of complication can be added with this as predators
-might work collectively to hunt and prey may behave collectively
-for safety. Predators might have advantage in some types of places
-and prey may learn this and stay away from those places.</li>
+prey.</li>
 </ul>
 
 <h2 id="4">4. Further Assignment 1 Coding Task</h2>
