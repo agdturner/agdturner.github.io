@@ -83,6 +83,7 @@ tk.mainloop()</code></pre>
     # Write data
     print("write data")
     io.write_data('../../data/output/out.txt', environment)
+    imageio.mimsave('../../data/output/out.gif', images, fps=3)
 
 def exiting():
     """
@@ -91,12 +92,38 @@ def exiting():
     root.quit()
     root.destroy()
     #sys.exit(0)</code></pre>
+<p>Change the 'gen_function' from:</p>
+<pre><code class="language-python">def gen_function():
+    global ite
+    global carry_on
+    while (ite <= n_iterations) & (carry_on) :
+        yield ite # Returns control and waits next call.
+        ite = ite + 1
+    global data_written
+    if data_written == False:
+        # Write data
+        print("write data")
+        io.write_data('../../data/output/out.txt', environment)
+        imageio.mimsave('../../data/output/out.gif', images, fps=3)
+        data_written = True</code></pre>
+<p>To:</p>
+<pre><code class="language-python">def gen_function():
+    global ite
+    global carry_on
+    while (ite <= n_iterations) & (carry_on) :
+        yield ite # Returns control and waits next call.
+        ite = ite + 1
+    global data_written
+    if data_written == False:
+        # Set the Write data menu to normal.
+        menu_0.entryconfig("Write data", state="normal")
+        data_written = True</code></pre>
 <p>Now if the window in which the animation runs is closed, the
 program should exit and exiting the program is also added as a
 menu option in the GUI.</p>
-<p>The 'output' function is unnecessary as the output is by the
-'gen_function', but this shows another way to acheive the writing
-using a GUI menu option.</p>
+<p>The 'output' function now deals with writing the outputs and
+this becomes actionable from the GUI once the simulation has run.
+</p>
 <p>Run the program.</p>
 <p>Commit your code to your local repository and assuming you
 are using GitHub - push your changes to GitHub.</p>
