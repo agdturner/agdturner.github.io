@@ -78,8 +78,13 @@ menu_0.entryconfig("Write data", state="disabled")
 # Exit if the window is closed.
 root.protocol('WM_DELETE_WINDOW', exiting)
 tk.mainloop()</code></pre>
-<p>Add the following function:</p>
-<pre><code class="language-python">def exiting():
+<p>Add the following functions to 'model.py':</p>
+<pre><code class="language-python">def output():
+    # Write data
+    print("write data")
+    io.write_data('../../data/output/out.txt', environment)
+
+def exiting():
     """
     Exit the program.
     """
@@ -89,6 +94,9 @@ tk.mainloop()</code></pre>
 <p>Now if the window in which the animation runs is closed, the
 program should exit and exiting the program is also added as a
 menu option in the GUI.</p>
+<p>The 'output' function is unnecessary as the output is by the
+'gen_function', but this shows another way to acheive the writing
+using a GUI menu option.</p>
 <p>Run the program.</p>
 <p>Commit your code to your local repository and assuming you
 are using GitHub - push your changes to GitHub.</p>
