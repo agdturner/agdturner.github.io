@@ -207,7 +207,7 @@ self.x = random.randint(tnc - 1, (2 * tnc) - 1)
 tnr = int(n_rows / 3)
 self.y = random.randint(tnr - 1, (2 * tnr) - 1)
 self.store = 0</code></pre>
-<p>Change 'model.py' so that environment is passed in correctly as
+<p>Change model.py so that environment is passed in correctly as
 agents are initialised.</p>
 <p>In the Agent class define the following method:</p>
 <pre><code class="language-python">def eat(self):
@@ -257,11 +257,8 @@ all the agents.</p>
 <p>Print out these sums and check that the total amount of
 resource and store in the system is not changing after each
 iteration of the model.</p>
-<p>In 'io.py' define a function 'write_data' to write out the
-values of environment to a file in the same format as it was read
-in. Pass into the function two positional arguments, the file path
-for the file to be written and 'environment' which is the data to
-write out. Call this function after the main simulation loop.</p>
+<p>Define a function to write out the values of environment to a
+file and call this function after the main model loop.</p>
 <!--
 <p>Set some of the model parameters towards the start of
 the program using keyboard input such like:</p>
@@ -284,7 +281,7 @@ more store... Write a comment in your source code about this.</p>
 <div>
 <p><a id="next" class="nav" href="../modules/index.html">Next: Modules</a></p>
 </div>
-<p>Date last modified: 2023-03-28.</p>
+<p>Date last modified: 2023-03-29.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
