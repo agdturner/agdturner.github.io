@@ -74,7 +74,7 @@ details about how to package code and make it available via PyPI.
 <p>First, check if there is a version of Python already on your <a href="https://en.wikipedia.org/wiki/PATH_(variable)">PATH</a> by running a 'Terminal' or 'Command Window' and entering the following at the prompt:</p>
 <pre>python --version</pre>
 <p>If 'python' cannot be found, then it is most likely that Python is not installed. If a version of Python is available, then the version of it should be reported.</p>
-<p><a href="https://www.anaconda.com/">Anaconda</a> is a data science platform. It contains:<a href="https://docs.conda.io/">Conda</a> - an environment manager; a Python interpreter; some commonly used third party Python packages; and, some useful additional tools. It is available at the University of Leeds via 'AppsAnywhere' using machines on campus or the 'Academic' <a href="https://wvd.leeds.ac.uk">University Windows Virtual Desktop.</a>
+<p><a href="https://www.anaconda.com/">Anaconda</a> is a data science platform. It contains: <a href="https://docs.conda.io/">Conda</a> - an environment manager; a Python interpreter; some commonly used third party Python packages; and, some useful additional tools. It is available at the University of Leeds via 'AppsAnywhere' using machines on campus or the 'Academic' <a href="https://wvd.leeds.ac.uk">University Windows Virtual Desktop.</a>
 <p>Anaconda can also be download and installed. If you choose to do this, then it is recommended to select the default install options to avoid interfering with any other version of Python already installed. By default, Anaconda installs into the user home directory.</p>
 <h3 id="3.1">3.1. Python REPL</h3>
 <h4>3.1.1. Hello World</h4>
@@ -121,7 +121,7 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 </pre>
 
-<p>A<a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError">ZeroDivisionError</a> is an <a href="https://docs.python.org/3/library/exceptions.html">exception</a> that is 'raised' in particular circumstances. It is good to get familiar with reading details of these that are typically printed to the console as a key part of Python programming is about interpreting these.</p>
+<p>A <a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError">ZeroDivisionError</a> is an <a href="https://docs.python.org/3/library/exceptions.html">exception</a> that is 'raised' in particular circumstances. It is good to get familiar with reading details of these that are typically printed to the console as a key part of Python programming is about interpreting these.</p>
 <p>Try some more calculations. Calculates '2' to the power of
 '64':</p>
 <pre>2 ** 64</pre>
@@ -130,7 +130,7 @@ ZeroDivisionError: division by zero
 <p>The result is an integer with '301,030' digits. It may take
 noticeably longer to compute and display this number...</p>
 
-<p>One way to calculate how many digits there are is to pass the  result into the <a href="https://docs.python.org/3/library/functions.html#func-str">str</a> function and to pass the result of this into the <a href="https://docs.python.org/3/library/functions.html#len">len</a>function as follows:</p>
+<p>One way to calculate how many digits there are is to pass the  result into the <a href="https://docs.python.org/3/library/functions.html#func-str">str</a> function and to pass the result of this into the <a href="https://docs.python.org/3/library/functions.html#len">len</a> function as follows:</p>
 <pre>len(str(2 ** 1000000))</pre>
 <p>Notice how things are passed into the two functions.</p>
 <p>Increasing the power raised to by a further multiple of ten
@@ -211,7 +211,7 @@ whether a variable or function is meant to be accessed from
 outside the module. Underscores '_' and double underscores '__' at
 the start and/or end of identifiers have a special meaning in
 Python. As a general rule, you should not modify anything with
-these in their name.</p>
+these in their name directly.</p>
 <p>Have a play and use some other functions from the operator
 module.</p>
 
@@ -635,7 +635,7 @@ is the same code, but coloured to make different things in the
 code easier to identify:</p>
 <pre><code class="language-python">x = 0
 y = 1
-# if x is greater than y, then print x
+# if x is greater than y, then print x, else print y.
 if x > y:
     print("x", x)
 else:
@@ -767,7 +767,7 @@ for
 </p>
 
 <h2 id="8">8. QGIS Desktop Python Console</h2>
-<p><a href="https://en.wikipedia.org/wiki/Geographic_information_system">Geographical Information System</a> (GIS) software are used to create, manage, process, model, visualise and distribute geographical data and information.<a href="https://qgis.org/">QGIS</a> is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">free and open source</a> GIS software. It has a thriving developer and user community and a Python <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">API</a>. QGIS is mostly written in mixture of <a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> and Python and there is are distinct client and server software. The operation of both these can be automated using Python.</p>
+<p><a href="https://en.wikipedia.org/wiki/Geographic_information_system">Geographical Information System</a> (GIS) software are used to create, manage, process, model, visualise and distribute geographical data and information. <a href="https://qgis.org/">QGIS</a> is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">free and open source</a> GIS software. It has a thriving developer and user community and a Python <a href="https://en.wikipedia.org/wiki/Application_Programming_Interface">API</a>. QGIS is mostly written in mixture of <a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> and Python and there is are distinct client and server software. The operation of both these can be automated using Python.</p>
 <p>QGIS Server is geared for serving out data. QGIS Desktop is both a client that can consume data that is served out and a general desktop application for processing geographical data. QGIS Desktop is often controlled by users via a <a href="https://en.wikipedia.org/wiki/Graphical_user_interface">GUI</a> with a menu, panels and toolbars. Load QGIS Desktop via AppsAnywhere or download, install and run it on your own device.</p>
 <p>As QGIS Desktop software loads, a splash screen should appear. When fully loaded the GUI should appear.</p>
 From the GUI Menu select:</p>
