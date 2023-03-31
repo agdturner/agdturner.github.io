@@ -124,7 +124,7 @@ print(type(x)) # Prints &lt;class 'str'&gt;</code></pre>
 &lt;class 'str'&gt;</pre>
 
 <h2 id="3">3. Functions, Variable Scope and the Global Keyword</h2>
-<p>When passed as parameters into functions, variables are handled differently depending on their type. Primitives are duplicated when passed into the function as a parameter (known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value">Call By Value</a>'). Non-primitves are shared when passed into the function (known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing">Call By Sharing</a>').</p>
+<p>When passed as parameters into functions, variables are shared this is technically known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing">Call By Sharing</a>'. If a variable is a primitive object then effectively a new variable is created within the function which is distinct from the variable outwith the function but that has the same value which is technically known as '<a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value">Call By Value</a>.</p>
 <p>The <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)">scope</a> of a variable is from where in the code it can be accessed. The <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">keyword</a> 'global' can modify the scope.</p>
 <p>Consider the following:</p>
 <pre><code class="language-python">x = 1
@@ -196,7 +196,7 @@ del(b, c) # <-- Deletes b and c.</code></pre>
 <div>
 <p><a id="next" class="nav" href="../github/index.html">Next: GitHub</a></p>
 </div>
-<p>Date last modified: 2023-03-29.</p>
+<p>Date last modified: 2023-03-31.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

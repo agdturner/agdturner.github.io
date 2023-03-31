@@ -76,13 +76,13 @@ program using the pipe symbol '|'.</p>
 
 <p>The <a href="https://docs.python.org/3/library/functions.html#print">print function</a> also includes an option to direct stout to a file. That file has to be open in order for the writing to be successful and the open file should be closed to ensure all the data gets written. Typically reading and writing files uses 'buffers' that read or write a certain number of bytes in one go which is done for efficiency reasons. Closing a file that  is being written to forces a flush of any partially filled buffer. There is an option in the print function to force a flush which can also sometimes be useful...</p>
 <h2 id="4">4. Reading and Writing Files Part 1</h2>
-<p>The following code uses the builtins module function <a href="https://docs.python.org/3/library/functions.html#input">open</a> to open a file in the current directory called 'a.in' and reads this one line at a time streaming the output to the screen before then closing the file:</p>
+<p>The following code uses the builtins module function <a href="https://docs.python.org/3/library/functions.html#open">open</a> to open a file in the current directory called 'a.in' and reads this one line at a time streaming the output to the screen before then closing the file:</p>
 <pre><code class="language-python">f = open("a.in")
 for line in f:
     print(line)
 f.close()</code></pre>
 
-<p>The <a href="https://docs.python.org/3/c-api/file.html">File Object</a> returned from the above <a href="https://docs.python.org/3/library/functions.html#input">open</a> function call 'f' is best closed once it is read by calling it's 'close' method as done on line 4 of the code snippet. After this line is executed, 'f' becomes unusuable. Closing releases system resources and is recommended as good practice altough code will work without doing that.</p>
+<p>The <a href="https://docs.python.org/3/c-api/file.html">File Object</a> returned from the above <a href="https://docs.python.org/3/library/functions.html#open">open</a> function call 'f' is best closed once it is read by calling it's 'close' method as done on line 4 of the code snippet. After this line is executed, 'f' becomes unusuable. Closing releases system resources and is recommended as good practice altough code will work without doing that.</p>
 <p>An alternative where a 'close' method call is not necessary uses the keyword 'with'. The following does effectively the same as the previous snippet:</p>
       <pre><code class="language-python">with open("a.in") as f:
           for line in f:
@@ -249,7 +249,7 @@ directories.</p>
 <div>
 <p><a id="next" class="nav" href="../abm5/index.html">Next: ABM5</a></p>
 </div>
-<p>Date last modified: 2023-03-29.</p>
+<p>Date last modified: 2023-03-31.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
