@@ -31,50 +31,147 @@ DOM is fully loaded. -->
 <div>
 <h1>GUI</h1>
 <h2 id="1">1. Introduction</h2>
-<p>A <a href="https://en.wikipedia.org/wiki/Graphical_user_interface">Graphical User Interface</a> (GUI) is typically comprised of rectangular windows containing panels and a menu. Panels can contain data displays which can be made interactive, and widgets (buttons, sliders, dials, text boxes and other things a user might interact with). There is often a menu (or 'menu bar') typically along the top of a GUI window with menus and 'menu items' that drop down and form cascading lists when the menu is used.</p>
-<p>A GUI is event based, where some thread of the program is typically looping and waiting for events to fire as a result of user interaction typically via a keyboard or mouse.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Graphical_user_interface">Graphical User Interface</a> (GUI) is typically comprised of rectangular windows containing panels and a menu bar. Panels can contain data displays which can be made interactive, and widgets (buttons, sliders, dials, text boxes and other things a user might interact with). The menu bar is typically along the top of a GUI window with cascading drop down menus that appear if the menu is somehow selected.</p>
+<p>Most programs with a GUI have a thread that 'listens' for interaction and then changes variables and calls functions depending on the interaction with the GUI typically through keyboard or mouse actions. This is usually regarded as a form of 'event-based' programming.</p>
 <p>The Python standard library package and module for GUI development is <a href="https://docs.python.org/3/library/tkinter.html">tkinter</a> for which there is some <a href="https://docs.python.org/3/library/tk.html">additional reference documentation.</a>.</p>
 <!--
 <p>There are various third party library alternatives, including:
 <a href="https://www.wxpython.org/">wxpython</a></p>
 -->
 
-<p>In Python, GUI events are facilitated by 'callbacks' - where a
-function is passed to another function, with the expectation that
-(depending on conditions) the function will be run. This involves
-registering a function with a GUI component, so that when the
-GUI component is actioned, the registered function is called.</p>
+<p>In tkinter, 'callbacks' are used to register a function with a
+GUI component, so that when the GUI component is actioned, the
+registered function is called. A callback is a function passed to
+another function, with the expectation that (depending on
+conditions) the function will be run. </p>
 
 <h2 id="2">2. Getting Started with tkinter</h2>
-<p>The following code sets up a simple canvas for a GUI and a
-main loop that waits for interactions with it:</p>
-<pre><code class="language-python">import tkinter
+<p>The following code sets up a main window called 'root', a
+'Label' called 'label', a 'Button' to modify the label text via
+the 'increment' function and a 'Button' to exit the program via
+the 'exiting' function:</p>
+<pre><code class="language-python">import tkinter as tk
 
-root = tkinter.Tk() # Main window.
+def increment():
+    global i
+    i = i + 1
+    label.config(text=str(i))
 
-c = tkinter.Canvas(root, width=200, height=200)
-c.pack() # Layout
-c.create_rectangle(0, 0, 200, 200, fill="blue")
+def exiting():
+    """
+    Exit the program.
+    """
+    root.quit()
+    root.destroy()
+    #sys.exit(0)
 
-tkinter.mainloop() # Wait for interactions.</code></pre>
-<p>The following defines a function called 'run' and registers
-this to be executed a GUI menu command is actioned.</p>
-<pre><code class="language-python">import tkinter
-def run():
-    pass
+# Create the tkinter window
+root = tk.Tk()
+i = 0
+# Create a Label widget
+label = tk.Label(root, text=str(i))
+# Create a Button widget and link this with the increment function
+increment_button = tk.Button(root, text="Increment", command=increment)
+# Create a Button widget and link this with the exiting function
+exit_button = tk.Button(root, text="Exit", command=exiting)
 
-# Menu elements
-root = tkinter.Tk()
-menu_bar = tkinter.Menu(root)
+# Pack widgets so they are visible.
+label.pack()
+increment_button.pack()
+exit_button.pack()
+
+# Start the GUI
+root.mainloop()</code></pre>
+
+<h3 id="2.1">2.1. TTK</h3>
+<p>A slightly different look is provided by a more recent "themed"
+toolkit. The following does the same, but uses 'ttk' for the
+widgets:</p>
+<pre><code class="language-python">import tkinter as tk
+import tkinter.ttk as ttk
+
+def increment():
+    global i
+    i = i + 1
+    label.config(text=str(i))
+
+def exiting():
+    """
+    Exit the program.
+    """
+    root.quit()
+    root.destroy()
+    #sys.exit(0)
+
+# Create the tkinter window
+root = tk.Tk()
+i = 0
+# Create a Label widget
+label = ttk.Label(root, text=str(i))
+# Create a Button widget and link this with the increment function
+increment_button = ttk.Button(root, text="Increment", command=increment)
+# Create a Button widget and link this with the exiting function
+exit_button = ttk.Button(root, text="Exit", command=exiting)
+
+# Pack widgets so they are visible.
+label.pack()
+increment_button.pack()
+exit_button.pack()
+
+# Start the GUI
+root.mainloop()</code></pre>
+
+<h3 id="2.2">2.2. Menus</h3>
+<p>The following builds on the example and sets up a menu and also
+add a section so that if the window is closed, then the program
+exits.</p>
+<pre><code class="language-python">import tkinter as tk
+import tkinter.ttk as ttk
+
+def increment():
+    global i
+    i = i + 1
+    label.config(text=str(i))
+
+def exiting():
+    """
+    Exit the program.
+    """
+    root.quit()
+    root.destroy()
+    #sys.exit(0)
+
+# Create the tkinter window
+root = tk.Tk()
+
+# Create a menu bar
+menu_bar = tk.Menu(root)
 root.config(menu=menu_bar)
-model_menu = tkinter.Menu(menu_bar)
-menu_bar.add_cascade(label="Model", menu=model_menu)
-model_menu.add_command(label="Run model", command=run)
+increment_menu = tk.Menu(menu_bar)
+menu_bar.add_cascade(label="Options", menu=increment_menu)
+increment_menu.add_command(label="Increment", command=increment)
+exit_menu = tk.Menu(menu_bar)
+menu_bar.add_cascade(label="Exit", menu=exit_menu)
+exit_menu.add_command(label="Exit", command=exiting)
 
-tkinter.mainloop() # Wait for interactions.</code></pre>
-<p>The run function does nothing currently, but try this code
-yourself and print something in the run function to check it
-works.</p>
+i = 0
+# Create a Label widget
+label = ttk.Label(root, text=str(i))
+# Create a Button widget and link this with the increment function
+increment_button = ttk.Button(root, text="Increment", command=increment)
+# Create a Button widget and link this with the exiting function
+exit_button = ttk.Button(root, text="Exit", command=exiting)
+
+# Pack widgets so they are visible.
+label.pack()
+increment_button.pack()
+exit_button.pack()
+
+# Exit if the window is closed.
+root.protocol('WM_DELETE_WINDOW', exiting)
+
+# Start the GUI
+root.mainloop()</code></pre>
 
 <h2 id="3">3. GUI Design and Development</h2>
 <p>There are various important things to consider in designing a
@@ -96,7 +193,7 @@ to action them.</p>
 <div>
 <p><a id="next" class="nav" href="../abm8/index.html">Next: ABM8</a></p>
 </div>
-<p>Date last modified: 2023-04-03.</p>
+<p>Date last modified: 2023-04-08.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
