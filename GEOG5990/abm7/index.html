@@ -78,7 +78,7 @@ global ite
 filename = '../../data/output/images/image' + str(ite) + '.png'
 plt.savefig(filename)
 images.append(imageio.imread(filename))
-plt.show</code></pre>
+plt.show()</code></pre>
 <p>Change the 'main simulation loop' code block into a function
 called 'update' that has a parameter called 'frames'. At the end
 of this call the 'plot' function. Specify 'carry_on' as a global
@@ -134,8 +134,8 @@ variable and add a random stopping condition as follows:</p>
     if data_written == False:
         # Write data
         print("write data")
-        io.write_data('../../data/output/out7.txt', environment)
-        imageio.mimsave('../../data/output/out7.gif', images, fps=3)
+        io.write_data('../../data/output/out.txt', environment)
+        imageio.mimsave('../../data/output/out.gif', images, fps=3)
         data_written = True</code></pre>
 <p>Before running the code, issue the following magic command in
 the Spyder console so that rather than the plot being directed
@@ -145,10 +145,8 @@ to a pop-up window:</p>
 <p>If you want to revert this change so that plots are added to
 the plot plane again issue the following magic command:</p>
 <pre>%matplotlib inline</pre>
-<p>The keyword 'yield' is used to pass the value of the variable
-'ite' back from 'gen_function' whilst continuing to run the while
-loop. The '# Write data' code block is included in 'gen_function'
-and runs only once after the model has stopped.</p>
+
+<p>The keyword '<a href="https://docs.python.org/3/reference/simple_stmts.html#yield">yield</a>' is used to pass the value of the variable 'ite' back from 'gen_function' whilst continuing to run the while loop. The '# Write data' code block is included in 'gen_function' and runs only once after the model has stopped.</p>
 <p>Commit your code to your local repository and assuming you
 are using GitHub - push your changes to GitHub.</p>
 
@@ -198,7 +196,7 @@ are using GitHub - push your changes to GitHub.</p>
 <div>
 <p><a id="next" class="nav" href="../gui/index.html">Next: GUI</a></p>
 </div>
-<p>Date last modified: 2023-04-08.</p>
+<p>Date last modified: 2023-04-13.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

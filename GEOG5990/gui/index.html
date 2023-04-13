@@ -122,8 +122,8 @@ exit_button.pack()
 root.mainloop()</code></pre>
 
 <h3 id="2.2">2.2. Menus</h3>
-<p>The following builds on the example and sets up a menu and also
-add a section so that if the window is closed, then the program
+<p>The following builds on the example setting up a menu and also
+configuring so that if the window is closed, then the program
 exits.</p>
 <pre><code class="language-python">import tkinter as tk
 import tkinter.ttk as ttk
@@ -173,7 +173,149 @@ root.protocol('WM_DELETE_WINDOW', exiting)
 # Start the GUI
 root.mainloop()</code></pre>
 
-<h2 id="3">3. GUI Design and Development</h2>
+<h2 id="3">3. Example scale or slider widget</h2>
+<p>The following sets up a scale or slider widget so that the user
+can move the slider to change the power used to dynamically scale
+a small raster data set.</p>
+<pre><code class="language-python">import tkinter as tk
+import tkinter.ttk as ttk
+import csv
+import matplotlib
+import matplotlib.pyplot as plt
+
+def read_data(path):
+    """
+
+
+    Parameters
+    ----------
+    path : String
+        Path of the file to be read. The file is expected to be a rectangular
+        2D CSV format data with numerical values.
+
+    Returns
+    -------
+    data : List of lists
+        The data in row major order.
+
+    """
+    f = open(path)
+    data = []
+    for line in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):
+        row = []
+        for value in line:
+            row.append(value)
+        data.append(row)
+    f.close()
+    #print(data)
+    return data
+
+def plot(p):
+    """
+    Redraws the canvas if there is a new power.
+
+    Parameters
+    ----------
+    p : int
+        The power to raise values to.
+
+    Returns
+    -------
+    None.
+
+    """
+    global p0
+    if p0 != p:
+        figure.clear()
+        #print(p)
+        data_p = []
+        #data.reverse()
+        for row in data:
+            row_p = []
+            for val in row:
+               row_p.append(val ** p)
+            data_p.append(row_p)
+        plt.imshow(data_p)
+        plt.show()
+        p0 = p
+        canvas.draw()
+
+def exiting():
+    """
+    Exit the program.
+    """
+    root.quit()
+    root.destroy()
+    """
+    Exit the program.
+    """
+    root.quit()
+    try:
+        root.destroy()
+    except Exception:
+        # Prevents reporting of a harmless Tcl error message:
+        # "TclError: can't invoke "destroy" command: application has been destroyed"
+        pass
+
+def update(x):
+    """
+    Updates scale_label and canvas.
+
+    Parameters
+    ----------
+    x : str.
+        Number.
+
+    Returns
+    -------
+    None.
+
+    """
+    #print(x)
+    #print(type(x))
+    #print(scale.get())
+    #print(int(float(scale.get())))
+    # Integerise p
+    p = int(float(scale.get()))
+    scale_label.config(text='power=' + str(p))
+    plot(p)
+
+# Initialise figure
+figure = matplotlib.pyplot.figure(figsize=(7, 7))
+#ax = figure.add_axes([0, 0, 1, 1])
+
+# Initialise data
+data = read_data('../../data/input/in.txt')
+
+# Initialise p0
+p0 = None
+
+# Create the tkinter window
+root = tk.Tk()
+
+# Create a canvas to display the figure
+canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(figure, master=root)
+canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+
+# Create a scale
+scale = ttk.Scale(root, from_=1, to=10, command=update)
+scale.pack()
+
+# Create a Label widget to display scale value
+scale_label = ttk.Label(root, text='Move the scale slider to choose a power and see an image.')
+scale_label.pack()
+
+# Create a Button widget and link this with the exiting function
+exit_button = ttk.Button(root, text="Exit", command=exiting)
+exit_button.pack()
+
+# Exit if the window is closed.
+root.protocol('WM_DELETE_WINDOW', exiting)
+
+# Start the GUI
+root.mainloop()</code></pre>
+
+<h2 id="4">4. GUI Design and Development</h2>
 <p>There are various important things to consider in designing a
 GUI. Firstly, who are the users and what are the common things
 they are going to want to do? What are they already familiar with?
@@ -193,7 +335,7 @@ to action them.</p>
 <div>
 <p><a id="next" class="nav" href="../abm8/index.html">Next: ABM8</a></p>
 </div>
-<p>Date last modified: 2023-04-08.</p>
+<p>Date last modified: 2023-04-13.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
