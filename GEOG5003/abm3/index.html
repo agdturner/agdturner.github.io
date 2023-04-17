@@ -369,24 +369,26 @@ infinite.</p>
 all the agents and record timings of how long it takes to
 calculate both the maximum and minimum distances using the two
 different functions.</p>
-<p>Change your code so that it calculates both the minimum and
-maximum distances in a single function and returns the result in
-a Tuple. If you have not done so, change the code so that the
-maximum and minumum distances are calculated using the same set of
-nested loops. You should find that this is significantly quicker
-than calculating all the distances twice. Write a brief document
-about the timings, save it and commit this to your repository
-along with your code.</p>
+<p>Develop a function that calculates both the minimum and
+maximum distances using a single set of nested loops and returns
+the result in a tuple. You should find that it is significantly
+quicker to calculate both the maximum and minimum this way rather
+than looping through things and calculating the distances twice.
+Write a brief document about the timings to show that calculating
+both the minimum and maximum distances using a single set of
+nested loops is more efficient. Commit this document to your
+repository along with your code.</p>
 <p>As well as the maximum and minimum distance, you might want to
 calculate other statistics, such as the average distance.</p>
 <p>The
 <a href="https://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a>
 average can be calculated with one run through the data. To
 calculate the
-<a href="https://en.wikipedia.org/wiki/Standard_deviation">standard deviation</a>,
-it is first necessary to know the arithmetic mean. So, it is
-necessary in calculating the standard deviation to iterate over
-the data values a second time. The
+<a href="https://en.wikipedia.org/wiki/Standard_deviation">standard deviation</a>
+of distances, it is first necessary to know the arithmetic mean.
+So, it is necessary in calculating the standard deviation to
+iterate over the data values at least twice, once to calculate the
+mean and again to sum some difference of values from the mean. The
 <a href="https://en.wikipedia.org/wiki/Median">median</a>
 and
 <a hre="https://en.wikipedia.org/wiki/Mode_(statistics)">mode</a>
