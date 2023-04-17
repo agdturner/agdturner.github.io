@@ -48,18 +48,24 @@ Got:
 ***Test Failed*** 1 failures.</pre>
 
 <h2 id="3">3. Unit Tests</h2>
-<p>Unit testing aims to reduce software development risks, time, and costs. In test driven development, the tests are written before the functional code. When the code passes the tests, if the tests have good enough coverage, then the functionality is successfully implemented.</p>
-<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> comes with <a href="https://docs.python.org/3/library/unittest.html">unittest</a> a module providing tools for constructing and running tests.</p>
-<p>It is best to separate testing code from functional code so
+<p>Unit testing aims to reduce software development risks, time,
+and costs. In test driven development, the tests are written
+before the functional code. When the code passes the tests, if the
+tests have good enough coverage, then the functionality is
+successfully implemented.</p>
+<p>It can be good to separate testing code from functional code so
 that testing code does not have to be distributed with functional
 code. In some software development the overall size of the testing
-code is huge compared to the functional code and this separation
-is helpful. Organising this is simply a matter of packaging code
-and having a separate test package. Usually the structure of the
-test package is the same as the main code package structure.</p>
+code is huge compared to the functional code, so separating this
+out allows for distributions to be smaller. Organising this is
+involves packaging code to have a separate test package. Usually,
+the structure of the test package is the same as the main code
+package structure making the tests for specific modules, classes
+and functions to be easily found and updated.</p>
 
-<p>To understand how to implement a unittest consider the following example. The functional code is in 'calculator.py', the module contains a simple class called 'Real' which has a single method called 'add'. The idea is that this method will add up numbers and may perhaps do this more accurately than using the standard add operator by utilsing <a href="https://docs.python.org/3/library/decimal.html">decimal</a>.</p>
-<p>Save <a href="../../resources/testing/calculator.py">calculator.py</a> and <a href="../../resources/testing/test.py">test.py</a>in the same directory, inspect the code and run 'test.py'. This is another case of learning by example. For more details, see: <a href="https://docs.python.org/3/library/unittest.html">unittest</a>.</p>
+<p>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> comes with <a href="https://docs.python.org/3/library/unittest.html">unittest</a> a module providing tools for constructing and running tests.</p>
+<p>Consider the following example. The functional code is in 'calculator.py', the module contains a single function 'add' which adds up numbers provided as arguments and does this using <a href="https://docs.python.org/3/library/decimal.html">decimal</a> to more accurately do this.</p>
+<p>Save <a href="../../resources/testing/calculator.py">calculator.py</a> and <a href="../../resources/testing/test.py">test.py</a> in the same directory, inspect the code and run 'test.py'. For more details about developing unit tests in Python, see: <a href="https://docs.python.org/3/library/unittest.html">unittest</a>.</p>
 </div>
 <footer>
 <div>
