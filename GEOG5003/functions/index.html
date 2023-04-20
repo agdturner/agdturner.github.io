@@ -31,7 +31,7 @@ DOM is fully loaded. -->
 <div>
 <h1>Functions</h1>
 <h2 id="1">1. Introduction</h2>
-<p>Functions are a key part of many programming languages. These are reusable code blocks that are called and which return. In calling the function typically parameters can be passed in. A function return may contain objects or values that  can be assigned to variables and in returning<a href="https://docs.python.org/3/library/functions.html#built-in-funcs">Python Built-in Functions</a> are available as part of the <a href="https://docs.python.org/3/library/builtins.html">builtins module</a> Functions from modules in the <a href="https://docs.python.org/3/library/">standard library</a> are made available using <a href="https://docs.python.org/3/reference/simple_stmts.html#import">import statements</a>.</p>
+<p>Functions are a key part of many programming languages. These are reusable code blocks that are called and which return. In calling the function typically parameters can be passed in. A function return may contain objects or values that  can be assigned to variables and in returning <a href="https://docs.python.org/3/library/functions.html#built-in-funcs">Python Built-in Functions</a> are available as part of the <a href="https://docs.python.org/3/library/builtins.html">builtins module</a> Functions from modules in the <a href="https://docs.python.org/3/library/">standard library</a> are made available using <a href="https://docs.python.org/3/reference/simple_stmts.html#import">import</a> statements.</p>
 Python functions are defined in a code block that begins with a definition or 'function declaration', and is followed by a set of indented statements. The function declaration uses the keyword 'def' which is followed by the name of the function. After the function name, there are parenthesis which may be empty or may contain a tuple of 'parameters' also called 'arguments' - names for things passed into the function. The function declaration ends with a colon ':'. The following gives the general form:</p>
 <pre><code class="language-python">def function_name(arg_0, arg_1):
     # Function statements</code></pre>
@@ -415,8 +415,8 @@ for mark in marks:
 other tasks to be done whilst waiting for an event to happen.</p>
 
 <h3 id="4.4">4.4. Partial</h3>
-<p><a href="https://docs.python.org/3/library/functools.html?highlight=partial#functools.partial">
-Functools partial allows for arguments of a function to be set
+<p>Functools <a href="https://docs.python.org/3/library/functools.html?highlight=partial#functools.partial">
+partial</a> allows for arguments of a function to be set
 partially. For example:</p>
 <pre><code class="language-python">from functools import partial
 
@@ -470,26 +470,16 @@ function or module the following will display the docstring:</p>
 <pre>help(x)</pre>
 <p>The docstring can also be printed using:</p>
 <pre>print(x.__doc__)</pre>
-<p><a href="https://docs.python.org/3/library/doctest.html">
-PyDoc</a> is the documentation system distributed with Python.
-It supports the generation of a webpage from documentation, and
-can be run from the Anaconda Prompt using:</p>
-<pre>pydoc -w filename</pre>
-<p>Where the filename is missing the ".py" part.</p>
-<p>There are other tools for helping to generate documentation,
-including
-<a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>, which
-comes with Anaconda.</p>
 
 <h2 id="6">6. Next</h2>
-<p>Apply some of this to develop your Agent Based Model...</p>
+<p>Refactoring the Agent Based Model code to use functions...</p>
 
 </div>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../abm3/index.html">Next: ABM3</a></p>
 </div>
-<p>Date last modified: 2023-04-17.</p>
+<p>Date last modified: 2023-04-20.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

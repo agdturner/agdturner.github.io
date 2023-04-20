@@ -48,12 +48,12 @@ functionality for read and writing data in specific file formats
 and processing data on the Web.</p>
 
 <h2 id="2">2. Standard Input</h2>
-<p>The builtins module <a href="https://docs.python.org/3/library/functions.html#input">input function</a> reads input from the standard input 'stdin' which is usually the keyboard. This continues until the &lt;ENTER&gt; (or &lt;RETURN&gt;) key is pressed. The function returns a string (without a newline character). A string provided as a parameter is displayed to prompt user input. Run the following at the Python prompt and enter  some keyboard input:</p>
+<p>The builtins module <a href="https://docs.python.org/3/library/functions.html#input">input</a> function reads input from the standard input 'stdin' which is usually the keyboard. This continues until the &lt;ENTER&gt; (or &lt;RETURN&gt;) key is pressed. The function returns a string (without a newline character). A string provided as a parameter is displayed to prompt user input. Run the following at the Python prompt and enter  some keyboard input:</p>
 <pre><code class="language-python">n_agents = input("Enter n_agents (a number between 10 and 100) and press the &lt;ENTER&gt; or &lt;RETURN&gt; key:")
 print("The input detected is:", n_agents)</code></pre>
 
 <h2 id="3">3. Streams</h2>
-<p>The builtins module function <a href="https://docs.python.org/3/library/functions.html#print">print</a> writes to the standard output 'stdout' which is usually the screen.</p>
+<p>The builtins module <a href="https://docs.python.org/3/library/functions.html#print">print</a> function writes to the standard output 'stdout' which is usually the terminal/console/screen.</p>
 <p>Stdin and stdout are streams - flows of data. Standard error
 'stderr' is also a stream - one where error messages go. Like
 stdout, stderr is usually written to the screen by default.</p>
@@ -74,9 +74,9 @@ could be used:</p>
 <p>The stdout of one program can be piped to the stdin of another
 program using the pipe symbol '|'.</p>
 
-<p>The <a href="https://docs.python.org/3/library/functions.html#print">print function</a> also includes an option to direct stout to a file. That file has to be open in order for the writing to be successful and the open file should be closed to ensure all the data gets written. Typically reading and writing files uses 'buffers' that read or write a certain number of bytes in one go which is done for efficiency reasons. Closing a file that  is being written to forces a flush of any partially filled buffer. There is an option in the print function to force a flush which can also sometimes be useful...</p>
+<p>The <a href="https://docs.python.org/3/library/functions.html#print">print</a> function also includes an option to direct stout to a file. That file has to be open in order for the writing to be successful and the open file should be closed to ensure all the data gets written. Typically reading and writing files uses 'buffers' that read or write a certain number of bytes in one go which is more efficient. Closing a file that  is being written to forces a flush of any partially filled buffer. There is an option in the print function to force a flush which can also sometimes be useful...</p>
 <h2 id="4">4. Reading and Writing Files Part 1</h2>
-<p>The following code uses the builtins module function <a href="https://docs.python.org/3/library/functions.html#open">open</a> to open a file in the current directory called 'a.in' and reads this one line at a time streaming the output to the screen before then closing the file:</p>
+<p>The following code uses the builtins module <a href="https://docs.python.org/3/library/functions.html#open">open</a> function to open a file in the current directory called 'a.in' and read the file one line at a time streaming the output to the screen before then closing the file:</p>
 <pre><code class="language-python">f = open("a.in")
 for line in f:
     print(line)
@@ -84,16 +84,15 @@ f.close()</code></pre>
 
 <p>The <a href="https://docs.python.org/3/c-api/file.html">File Object</a> returned from the above <a href="https://docs.python.org/3/library/functions.html#open">open</a> function call 'f' is best closed once it is read by calling it's 'close' method as done on line 4 of the code snippet. After this line is executed, 'f' becomes unusuable. Closing releases system resources and is recommended as good practice altough code will work without doing that.</p>
 <p>An alternative where a 'close' method call is not necessary uses the keyword 'with'. The following does effectively the same as the previous snippet:</p>
-      <pre><code class="language-python">with open("a.in") as f:
-          for line in f:
-              print(line)</code></pre>
-      <p>This saves having to close the file, but it is awkward this
-      way to read several files simultaneously.</p>
+<pre><code class="language-python">with open("a.in") as f:
+    for line in f:
+        print(line)</code></pre>
+<p>This saves having to close the file, but it is awkward this
+way to read several files simultaneously.</p>
 <p>The standard library
-                    <a href="https://docs.python.org/3/library/fileinput.html">
-                    fileinput module</a>
-                    helps with reading multiple files simultaneously.</p>
-
+<a href="https://docs.python.org/3/library/fileinput.html">
+fileinput module</a>
+helps with reading multiple files simultaneously.</p>
 <p>The <a href-"https://docs.python.org/3/library/io.html#io.IOBase.readlines">readlines method</p> can read some or all lines of a file into a list of strings (each item being a line of the file. Whilst this can be convenient, if a file is large and not everything is wanted, then this can use a lot of memory and risks a <a href="https://docs.python.org/3/library/exceptions.html#MemoryError">MemoryError</a> being raised. So, often it is better to parse a file in portions, such as line by line. Parsing might involve processing or simply storing parts or all of the line in  one or more variables.</p>
 <p>Files are opened for writing in a similar way. Writing to
 a file can be done as follows:</p>
@@ -112,11 +111,9 @@ f.close()</code></pre>
 Function which prepares the file a.out to be written to. Writing
 to a file requires different preparation to reading from a file.
 </p>
-<p>There are other optional arguments that can be used with the
-Open Function as detailed in
-<a href="https://docs.python.org/3/library/functions.html#open">
-The Python Documentation Functions Chapter Open Section</a></p>
-<p>Again an alternative using the keyword 'with' that does not
+
+<p>There are other optional arguments that can be used with the <a href="https://docs.python.org/3/library/functions.html#open">open</a> function, follow the link for details...</p>
+<p>An alternative using the keyword 'with' that does not
 require closing the file is:</p>
 <pre><code class="language-python"># Create something to write
 a = []
@@ -249,7 +246,7 @@ directories.</p>
 <div>
 <p><a id="next" class="nav" href="../abm5/index.html">Next: ABM5</a></p>
 </div>
-<p>Date last modified: 2023-04-17.</p>
+<p>Date last modified: 2023-04-20.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

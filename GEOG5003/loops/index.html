@@ -33,7 +33,7 @@ DOM is fully loaded. -->
 <h2 id="1">1. Introduction</h2>
 <p>Python has syntax for '<a href="https://en.wikipedia.org/wiki/While_loop">while loops</a>' and '<a href="https://en.wikipedia.org/wiki/For_loop">for loops</a>'. While loops are typically used to repeat something until  a condition is reached. For loops are typically used to  repeat something a set number of times (or for each thing in a sequence). Let's explore while loops first...</p>
 <h2 id="2">2. While</h2>
-<p>The following provides an example of a <a href="https://docs.python.org/3/reference/compound_stmts.html#while">while statement</a>:</p>
+<p>The following provides an example of a <a href="https://docs.python.org/3/reference/compound_stmts.html#while">while</a> statement:</p>
 <pre><code class="language-python">x = 1
 while (x < 10):
     print(x)
@@ -42,7 +42,7 @@ while (x < 10):
 loop will continue indefinitely. This is sometimes a reason why a
 program fails to terminate when you were expecting it to.</p>
 
-<p>A <a href="https://docs.python.org/3/reference/simple_stmts.html#break">break statement</a> breaks out of a loop which is commonly done when some  other condition is reached. For example, consider the following code:</p>
+<p>A <a href="https://docs.python.org/3/reference/simple_stmts.html#break">break</a> statement breaks out of a loop which is commonly done when some other condition is reached. For example, consider the following code:</p>
 <pre><code class="language-python"># Print the largest number less than 1 million that is divisible by 17
 x = 1000000
 while (x != 0):
@@ -53,7 +53,7 @@ print(x)</code></pre>
 <p>The output of which is:</p>
 <pre>999991</pre>
 
-<p>The <a href="https://docs.python.org/3/reference/simple_stmts.html#continue">continue statement</a> gets the program to return to the start of a loop when a condition is reached:</p>
+<p>The <a href="https://docs.python.org/3/reference/simple_stmts.html#continue">continue</a> statement gets the program to return to the start of a loop when a condition is reached:</p>
 <pre><code class="language-python"># Print odd numbers from 1 to 10
 x = 0
 while x < 10:
@@ -71,7 +71,7 @@ within it is executed when the while condition evaluates as
 the normal end of print statement - a newline - with a space.</p>
 
 <h2 id="3">3. For</h2>
-<p><a href="https://en.wikipedia.org/wiki/For_loop">For loops</a> in Python are used with sequences that are 'iterable'. Iterable means can be gone through one at a time. In the following example, the first time around the <a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loop</a> the variable 'x' is asigned the value '0', the second time around the loop x is assigned the value '1' and so on:</p>
+<p><a href="https://en.wikipedia.org/wiki/For_loop">For loops</a> in Python (<a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loop</a>) are used with sequences that are 'iterable'. Iterable means can be gone through one at a time. In the following example, the first time around the loop, the variable 'x' is assigned the value '0', the second time around the loop x is assigned the value '1' and so on:</p>
 <pre><code class="language-python">for x in (0,1,2,3,4,5,6,7,8,9):
     print(x)</code></pre>
 
@@ -139,8 +139,8 @@ print(names)</code></pre>
 <p>It would though probably be better to simply reinitialise
 'names' as an empty list.</p>
 
-<p>As with a while loop, an 'else' clause can be added to for loop and is executed once the loop completes, or not at all if there is a <a href="https://docs.python.org/3/reference/simple_stmts.html#break">break statement</a> that terminates the loop before the last iteration completes.<p>
-Also, a <a href="https://docs.python.org/3/reference/simple_stmts.html#continue">continue statement</a> can be used to skip to the start of the next loop iteration in the same way as in a while loop.</p>
+<p>As with a while loop, an 'else' clause can be added to for loop and is executed once the loop completes, or not at all if there is a <a href="https://docs.python.org/3/reference/simple_stmts.html#break">break</a> statement that terminates the loop before the last iteration completes.<p>
+Also, a <a href="https://docs.python.org/3/reference/simple_stmts.html#continue">continue</a> statement can be used to skip to the start of the next loop iteration in the same way as in a while loop.</p>
 <h2 id="4">4. Nesting loops</h2>
 <p>In spatial analysis it is common to want to go through two dimensional (2D) raster data or tables of values. One way to do this is to nest for loops. Consider the following code which goes through all the rows in 'data' and for each 'row', goes through the values (one for each 'column'):</p>
 <pre><code class="language-python">data = [
@@ -165,11 +165,10 @@ for row in range(len(data)):
         print(data[row][col], end=" ")
     print()</code></pre>
 
-<p>Recall that the <a href="https://docs.python.org/3/library/functions.html#len">function len</a>, when passed a sequence as a paramater, returns the length of the sequence, and the <a href="https://docs.python.org/3/library/stdtypes.html#ranges">function range</a> turns an Integer argument into a sequence starting from '0' and ending with one less than that argument stepping by 1.</p>
-<p>When processing raster data like this, it is reasonably common
-to mistakenly get rows and columns the wrong way around. This can
-be hard to spot if the data has the same number of rows and
-columns.</p>
+<p>Recall that the <a href="https://docs.python.org/3/library/functions.html#len">len</a> function, when passed a sequence as a parameter, returns the length of the sequence, and the <a href="https://docs.python.org/3/library/stdtypes.html#ranges">range</a> function turns an Integer argument into a sequence starting from '0' and ending with one less than that argument stepping by 1.</p>
+<p>When processing raster data like this, care is needed not to
+get rows and columns mixed up. This is easier to do if the data
+have the same number of rows and columns!</p>
 
 <h2 id="5">5. Moving Window Algorithms</h2>
 <p>These are commonly used in image processing and for surface
@@ -207,16 +206,15 @@ for row in range(1, len(data) - 1):
 32 33 34 35</pre>
 
 <h2 id="6">6. Next</h2>
-<p>Let us apply what we have learned about Containers, Branching
-and Looping to simplify and extend your Agent Based Modelling
-code.</p>
+<p>Use containers, branches and loops to simplify and extend the
+Agent Based Model code.</p>
 
 </div>
 <footer>
 <div>
 <p><a id="next" class="nav" href="../abm2/index.html">Next: ABM2</a></p>
 </div>
-<p>Date last modified: 2023-04-17.</p>
+<p>Date last modified: 2023-04-20.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
