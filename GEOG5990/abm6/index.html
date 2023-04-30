@@ -31,9 +31,10 @@ DOM is fully loaded. -->
 <div>
 <h1>Agent Based Model Practical 6</h1>
 <h2 id="1">1. Introduction and Preparation</h2>
-<p>To get agents communicating they need a way to refer to
-each other. Those agents that are within a given distance are
-going to share some resource.</p>
+<p>To get agents communicating they need a way to refer to each
+other. Code is going to be developed so that those agents that are
+within a given distance are going to share some of their store.
+</p>
 <p>In your local code repository 'src' directory create a new
 directory called 'abm6'. Open Spyder and use 'save as' to save
 your 'model.py' into this directory. Create a new directory called
@@ -49,8 +50,9 @@ agents within a given distance. The algorithm is as follows:</p>
 <p>In order to share resources so that the order in which agents
 are processed is irrelevant, there is a need to distinguish those
 resources to be shared with those that have been shared.</p>
-<p>Change the Agent contructor function to include the agents list
-and add an attribute for storing the shares as follows:</p>
+<p>Change the Agent contructor to include 'agents' in the
+parameters, store this as a variable, and add an attribute for
+storing the shares 'store_shares' so it is as follows:</p>
 <pre><code class="language-python">def __init__(self, agents, i, environment, n_rows, n_cols):
     """
     The constructor method.
@@ -82,19 +84,22 @@ and add an attribute for storing the shares as follows:</p>
     self.y = random.randint(tnr - 1, (2 * tnr) - 1)
     self.store = 0
     self.store_shares = 0</code></pre>
-<p>Change 'model.py' so that 'agents' is passed as a parameter as
-'agents' itself is initialised.</p>
+<p>Change 'model.py' so that 'agents' is passed as a parameter in
+the code that constructs each inidivual Agent class instance.</p>
 <p>Test your code works and that from one agent you can access
-other agents by printing out one agent from another agent.</p>
-<p>The plan is to use the 'get_distance' function in
-'agentframework.py' and avoid cyclic imports. One way to do this
-is to abstract the 'get_distance' function to a new module. Create
-a new file called 'geometry.py' in the 'my_modules' directory, and
-move the 'get_distance' method from 'model.py' to it. Add an
-import statement for the new geometry module in 'model.py' and
-change the function call to look for the function in the new
-geometry module by using the dot operator. (In other words change
-'get_distance' to 'geometry.get_distance').</p>
+another agent by printing out one agent from another agent. For
+example after all the agents are initialised try printing the
+agent with i equal to 1 from the agent with i equal to 0:</p>
+<pre><code class="language-python">print(agents[0].agents[1])</code></pre>
+<p>A way to use the 'get_distance' function in 'agentframework.py'
+and avoid cyclic imports is to move the 'get_distance'
+function to a new module. Create a new file called 'geometry.py'
+in the 'my_modules' directory, and move the 'get_distance' method
+from 'model.py' to it. Add an import statement for the new
+geometry module in 'model.py' and change the function call to look
+for the function in the new geometry module by using the dot
+operator. (In other words change 'get_distance' to
+'geometry.get_distance').</p>
 <p>Import the geometry module into 'agentframework.py' and add the
 following method:</p>
 <pre><code class="language-python">def share(self, neighbourhood):
@@ -219,7 +224,7 @@ are using GitHub - push your changes to GitHub.</p>
 <div>
 <p><a id="next" class="nav" href="../exceptions/index.html">Next: Exceptions</a></p>
 </div>
-<p>Date last modified: 2023-04-24.</p>
+<p>Date last modified: 2023-04-30.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>

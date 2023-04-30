@@ -89,14 +89,15 @@ AttributeError: module 'io' has no attribute 'read_data'</pre>
 <p>This is somewhat confusing as the new 'io' module has a
 function called 'read_data'! The exception is raised because
 there is a name collision. There is an 'io' standard library
-module which does not have an attribute names 'read_data', and it
-is the standard library module called 'io' that is imported.</p>
-<p>To deal with this issue, either the non-standard library 'io'
-module needs to be renamed, or it needs to be packaged which
-involves creating a directory and moving 'io.py' into it. In the
-'abm5' directory, create a directory called 'my_modules' and move
-both 'io.py' and 'agentframework.py' into it. Change the
-respective import statements in 'model.py' to be:</p>
+module which does not have an attribute named 'read_data'. It is
+the standard library module called 'io' that is being imported!
+</p>
+<p>Either the non-standard library 'io' module needs to be
+renamed, or it needs to be packaged - which involves creating a
+directory and moving 'io.py' into it. Packaging is the recommended
+way forward. In the 'abm5' directory, create a directory called
+'my_modules' and move both 'io.py' and 'agentframework.py' into
+it. Change the respective import statements in 'model.py' to be:</p>
 <pre><code class="language-python">import my_modules.agentframework as af
 import my_modules.io as io</code></pre>
 <p>Run 'model.py' and it should now run without the error. (If you
@@ -282,7 +283,7 @@ more store... Write a comment in your source code about this.</p>
 <div>
 <p><a id="next" class="nav" href="../modules/index.html">Next: Modules</a></p>
 </div>
-<p>Date last modified: 2023-04-24.</p>
+<p>Date last modified: 2023-04-30.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
