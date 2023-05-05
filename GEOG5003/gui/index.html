@@ -49,7 +49,8 @@ conditions) the function will be run. </p>
 <p>The following code sets up a main window called 'root', a
 'Label' called 'label', a 'Button' to modify the label text via
 the 'increment' function and a 'Button' to exit the program via
-the 'exiting' function:</p>
+the 'exiting' function. This code is also available in a file:
+<a href="../../resources/gui/gui1.py">gui1.py</a></p>
 <pre><code class="language-python">import tkinter as tk
 
 def increment():
@@ -86,7 +87,8 @@ root.mainloop()</code></pre>
 <h3 id="2.1">2.1. TTK</h3>
 <p>A slightly different look is provided by a more recent "themed"
 toolkit. The following does the same, but uses 'ttk' for the
-widgets:</p>
+widgets. This code is also available in a file:
+<a href="../../resources/gui/gui2.py">gui2.py</a></p>
 <pre><code class="language-python">import tkinter as tk
 import tkinter.ttk as ttk
 
@@ -124,7 +126,8 @@ root.mainloop()</code></pre>
 <h3 id="2.2">2.2. Menus</h3>
 <p>The following builds on the example setting up a menu and also
 configuring so that if the window is closed, then the program
-exits.</p>
+exits. This code is also available in a file:
+<a href="../../resources/gui/gui3.py">gui3.py</a></p>
 <pre><code class="language-python">import tkinter as tk
 import tkinter.ttk as ttk
 
@@ -176,11 +179,13 @@ root.mainloop()</code></pre>
 <h2 id="3">3. Example scale or slider widget</h2>
 <p>The following sets up a scale or slider widget so that the user
 can move the slider to change the power used to dynamically scale
-a small raster data set.</p>
+a small raster data set. This code is also available in a file:
+<a href="../../resources/gui/gui4.py">gui4.py</a></p>
 <pre><code class="language-python">import tkinter as tk
 import tkinter.ttk as ttk
 import csv
 import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 def read_data(path):
@@ -335,7 +340,7 @@ to action them.</p>
 <div>
 <p><a id="next" class="nav" href="../abm8/index.html">Next: ABM8</a></p>
 </div>
-<p>Date last modified: 2023-05-02.</p>
+<p>Date last modified: 2023-05-05.</p>
 <p><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></p>
 </footer>
 </body>
