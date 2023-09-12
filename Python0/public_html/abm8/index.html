@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<HTML lang=en-GB>
+
+<HEAD>
+
+<TITLE>Agent Based Model Practical 8 Page</TITLE>
+<!-- Styling -->
+<!-- href to be populated by the script (once the DOM is fully loaded) -->
+<link id="css" rel="stylesheet" type="text/css" href="" />
+<script src="/scripts/style.js"></script>
+<!-- For styling code -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- href to be populated by the script (once the DOM is fully loaded) -->
+<link id="code_theme" rel="stylesheet" type="text/css" href="" />
+
+</HEAD>
+
+<BODY>
+
+<button id="style_button" onclick="swapStyle()"></button>
+
+<DIV class="navbar">
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</DIV>
+
+<H1>Agent Based Model Practical 8</H1>
+
+<DIV>
+<H2>Contents</H2>
+<UL>
+ <LI><A href="#1">1. Introduction and Preparation</A></LI>
+ <LI><A href="#2">2. Setting up Tkinter</A></LI>
+ <LI><A href="#3">3. Organising the GUI</A></LI>
+</UL>
+</DIV>
+
+<DIV>
+<H2 id="1">1. Introduction and Preparation</H2>
+<P>This practical is about adding a Graphical User Interface (GUI).
+</P>
+<P>In your local code repository 'src' directory duplicate your
+'abm7' directory and call the new directory 'abm8'.
+</P>
+</DIV>
+
+<DIV>
+<H2 id="2">2. Setting up Tkinter</H2>
+<P>Matplotlib has different 'backends' that allow it to render
+graphics in different ways. As the GUI will be developed using
+tkinter, it is necessary to change the matplotlib backend by
+adding the following at the top of 'model.py' before any other
+matplotlib imports:
+</P>
+<pre><code class="language-python">
+matplotlib.use('TkAgg')</code></pre><P>In Spyder, go to:</P>
+<PRE>Tools > Preferences > IPython console > Graphics tab</PRE>
+<P>Select 'Tkinter' from the 'Backend' drop down list. Click 'ok'.
+Then select:
+</P>
+<PRE>File > Restart</PRE>
+<P>Save your files if prompted.</P>
+</DIV>
+
+<DIV>
+<H2 id="3">3. Organising the GUI</H2>
+<P>Add the following function to 'model.py':</P>
+<pre><code class="language-python">
+def run(canvas):
+    animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
+    animation.new_frame_seq()
+    canvas.draw()
+</code></pre><P>Add the following import statement to 'model.py':</P>
+<pre><code class="language-python">
+import tkinter as tk</code></pre><P>In 'model.py' replace the following line (not the line in the
+new run function):
+</P>
+<pre><code class="language-python">
+animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
+</code></pre><P>With:</P>
+<pre><code class="language-python">
+# GUI
+root = tk.Tk()
+root.wm_title("Agent Based Model")
+canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, master=root)
+canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+menu_bar = tk.Menu(root)
+root.config(menu=menu_bar)
+menu_0 = tk.Menu(menu_bar)
+menu_bar.add_cascade(label="Model", menu=menu_0)
+menu_0.add_command(label="Run model", command=lambda: run(canvas))
+menu_0.add_command(label="Write data", command=lambda: output())
+menu_0.add_command(label="Exit", command=lambda: exiting())
+menu_0.entryconfig("Write data", state="disabled")
+# Exit if the window is closed.
+root.protocol('WM_DELETE_WINDOW', exiting)
+tk.mainloop()
+</code></pre><P>Add the following functions to 'model.py':</P>
+<pre><code class="language-python">
+def output():
+    # Write data
+    print("write data")
+    io.write_data('../../data/output/out.txt', environment)
+    imageio.mimsave('../../data/output/out.gif', images, fps=3)
+
+def exiting():
+    """
+    Exit the program.
+    """
+    root.quit()
+    root.destroy()
+    #sys.exit(0)
+</code></pre><P>Change the 'gen_function' from:</P>
+<pre><code class="language-python">
+def gen_function():
+    global ite
+    global carry_on
+    while (ite <= n_iterations) & (carry_on) :
+        yield ite # Returns control and waits next call.
+        ite = ite + 1
+    global data_written
+    if data_written == False:
+        # Write data
+        print("write data")
+        io.write_data('../../data/output/out.txt', environment)
+        imageio.mimsave('../../data/output/out.gif', images, fps=3)
+        data_written = True
+</code></pre><P>To:</P>
+<pre><code class="language-python">
+def gen_function():
+    global ite
+    global carry_on
+    while (ite <= n_iterations) & (carry_on) :
+        yield ite # Returns control and waits next call.
+        ite = ite + 1
+    global data_written
+    if data_written == False:
+        # Set the Write data menu to normal.
+        menu_0.entryconfig("Write data", state="normal")
+        data_written = True
+</code></pre><P>Now if the window in which the animation runs is closed, the
+program should exit and exiting the program is also added as a
+menu option in the GUI.
+</P>
+<P>The 'output' function now deals with writing the outputs and
+this becomes actionable from the GUI once the simulation has
+run.
+</P>
+<P>Run the program.</P>
+<P>Add and commit to your local git repository and assuming you are
+using GitHub - push your changes to GitHub.
+</P>
+</DIV>
+
+<DIV>
+
+<div>
+<p><a id="next" class="nav" href="../web/index.html">Next: Web</a></p>
+</div>
+<P>Date last modified: 2023-09-12</P>
+
+<P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
+
+</DIV>
+
+</BODY>
+
+</HTML>
+

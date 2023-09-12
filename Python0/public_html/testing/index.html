@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<HTML lang=en-GB>
+
+<HEAD>
+
+<TITLE>Testing Page</TITLE>
+<!-- Styling -->
+<!-- href to be populated by the script (once the DOM is fully loaded) -->
+<link id="css" rel="stylesheet" type="text/css" href="" />
+<script src="/scripts/style.js"></script>
+<!-- For styling code -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- href to be populated by the script (once the DOM is fully loaded) -->
+<link id="code_theme" rel="stylesheet" type="text/css" href="" />
+
+</HEAD>
+
+<BODY>
+
+<button id="style_button" onclick="swapStyle()"></button>
+
+<DIV class="navbar">
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</DIV>
+
+<H1>Testing</H1>
+
+<DIV>
+<H2>Contents</H2>
+<UL>
+ <LI><A href="#1">1. Introduction</A></LI>
+ <LI><A href="#2">2. Doctest</A></LI>
+ <LI><A href="#3">3. Unit Tests</A></LI>
+</UL>
+</DIV>
+
+<DIV>
+<H2 id="1">1. Introduction</H2>
+<P>There are a number of different types of testing involved in
+developing software, some key ones are: functionality testing,
+performance testing and usability testing. Functionality testing
+aims to assure that functions behave as expected. Performace
+testing helps to explore the responsiveness, stability,
+scalability, reliability and resource usage of software.
+Usability testing aims to ensure user interfaces are easy to use
+and understand. In
+<a href="../abm3/index.html">ABM3</a>
+there is an exercise in performace testing to optimise a
+function. This section focuses on functionality testing and some
+different ways to do this in Python that goes beyond the use of
+<a href="https://docs.python.org/3/library/functions.html#print">print</a><P>statements which are also fundamental for a lot of testing and
+issue diagnosis. As you should know by now, testing is key to
+developing code and creating reproducible results.
+</DIV>
+
+<DIV>
+<H2 id="2">2. Doctest</H2>
+<P>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> comes with <a href="https://docs.python.org/3/library/doctest.html">doctest</a>a module that can be used to search for text that looks like
+interactive Python sessions, and then executes those sessions to
+verify that they work as shown. Such text is sometimes placed in
+a
+<a href="https://peps.python.org/pep-0257/#what-is-a-docstring">docstring</a> as per the example in 'calculator_doctest.py'.</P>
+<P>Save
+<a href="../../resources/testing/calculator_doctest.py">calculator_doctest.py</a>
+, inspect the code and run it. It should run without reporting
+anything. Try altering "0.3" to "0.30000000000000004" and run
+the file again. The output should be along the following lines:
+</P>
+<PRE>File "calculator_doctest.py", line 25, in __main__.add
+Failed example:
+    add(0.1, 0.1, 0.1)
+Expected:
+    0.30000000000000004
+Got:
+    0.3
+**********************************************************************
+1 items had failures:
+   1 of   2 in __main__.add
+***Test Failed*** 1 failures.
+</PRE>
+</DIV>
+
+<DIV>
+<H2 id="3">3. Unit Tests</H2>
+<P><a href="https://en.wikipedia.org/wiki/Unit_testing">Unit Testing</a>is where individual units of source code - together with
+associated control data, usage procedures, and operating
+procedures - are tested to determine whether they are fit for
+use. It aims to reduce software development risks, time, and
+costs.
+</P>
+<P>In test driven development, the tests are written before the
+functional code. When the code passes the tests, if the tests
+have good enough coverage, then the functionality is
+successfully implemented.
+</P>
+<P>It can be good to separate testing code from functional code so
+that testing code does not have to be distributed with
+functional code. In some software development the overall size
+of the testing code is huge compared to the functional code, so
+separating this out allows for distributions to be smaller.
+Organising this is involves packaging code to have a separate
+test package. Usually, the structure of the test package is the
+same as the main code package structure making the tests for
+specific modules, classes and functions to be easily found and
+updated.
+</P>
+<P>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> comes with <a href="https://docs.python.org/3/library/unittest.html">unittest</a>a module providing tools for constructing and running tests.
+</P>
+<P>Consider the following example. The functional code is in
+'calculator.py', the module contains a single function 'add'
+which adds up numbers provided as Integer or Float
+<a href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex">Numeric Types </a> using <a href="https://docs.python.org/3/library/decimal.html">decimal</a> to avoid some <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">floating-point</a> rounding issues.</P>
+<P>Save
+<a href="../../resources/testing/calculator.py">calculator.py</a>
+and
+<a href="../../resources/testing/test.py">test.py</a>
+in the same directory, inspect the code and run 'test.py'. For
+more details about developing unit tests in Python, see:
+<a href="https://docs.python.org/3/library/unittest.html">unittest</a>.</P>
+</DIV>
+
+
+<DIV>
+
+<div>
+<p><a id="next" class="nav" href="../index/index.html">Next: Index</a></p>
+</div>
+<P>Date last modified: 2023-09-12</P>
+
+<P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
+
+</DIV>
+
+</BODY>
+
+</HTML>
+

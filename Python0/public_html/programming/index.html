@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<HTML lang=en-GB>
+
+<HEAD>
+
+<TITLE>Python0: Introduction to Python Programming Page</TITLE>
+<!-- Styling -->
+<!-- href to be populated by the script (once the DOM is fully loaded) -->
+<link id="css" rel="stylesheet" type="text/css" href="" />
+<script src="/scripts/style.js"></script>
+<!-- For styling code -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- href to be populated by the script (once the DOM is fully loaded) -->
+<link id="code_theme" rel="stylesheet" type="text/css" href="" />
+
+</HEAD>
+
+<BODY>
+
+<button id="style_button" onclick="swapStyle()"></button>
+
+<DIV class="navbar">
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</DIV>
+
+<H1>Python0: Introduction to Python Programming</H1>
+
+<DIV>
+<H2>Contents</H2>
+<UL>
+ <LI><A href="#1">1. Introduction</A></LI>
+ <LI><A href="#2">2. Data</A>
+ <UL>
+  <LI><A href="#2.1">2.1. Bits and Bytes</A></LI>
+  <LI><A href="#2.2">2.2. File Formats</A></LI>
+  <LI><A href="#2.3">2.3. Integers and Floating Point</A></LI>
+ </UL>
+ </LI>
+ <LI><A href="#3">3. Learning to Program</A></LI>
+ <LI><A href="#4">4. Language Evolution, Deprecation and Versions</A></LI>
+</UL>
+</DIV>
+
+<DIV>
+<H2 id="1">1. Introduction</H2>
+<p><a href="https://en.wikipedia.org/wiki/Computer_programming">Computer programming</a> (coding) is the process of designing and building an executable computer program - a set of instruction fetched and executed sequentially.</p>
+<p>Contemporary desktop and laptop computers typically have a <a href="https://en.wikipedia.org/wiki/Computer_keyboard">keyboard</a> and <a href="https://en.wikipedia.org/wiki/Computer_mouse">mouse</a> for user input, a visual display screen (<a href="https://en.wikipedia.org/wiki/Computer_monitor">monitor</a>), smaller amounts of faster more volatile data storage (<a href="https://en.wikipedia.org/wiki/Computer_memory">memory</a>), and larger amounts of more persistent data storage (<a href="https://en.wikipedia.org/wiki/Computer_memory">disk</a> that is organised using a <a href="https://en.wikipedia.org/wiki/File_system">file system</a>. Computers may have inbuilt or perpherally connected devices such as microphones, cameras, and additional data  storage. The monitor may also be an <a href="https://en.wikipedia.org/wiki/Touchscreen">touchscreen</a> for user input. Networked computers typically communicate using standard <a href="https://en.wikipedia.org/wiki/Internet">Internet</a> protocols. The basic functioning of a computer is handled by an <a href="https://en.wikipedia.org/wiki/Operating_system">operating system</a> upon which additional <a href="https://en.wikipedia.org/wiki/Software">software</a> can be installed, including software that can interpret more readable <a href="https://en.wikipedia.org/wiki/Source_code">source code</a> into lower level less readable machine instructions.</p>
+<p>Programming can be done visually by arranging and connecting pre-built components into executable workflows. However, this course is about programming using text based command instructions.</p>
+<DIV>
+<H2 id="2">2. Data</H2>
+<DIV>
+<H3 id="2.1">2.1. Bits and Bytes</H3>
+<P>In most modern computers, data is encoded in binary: the
+smallest unit is a
+<a href="https://en.wikipedia.org/wiki/Bit">bit</a> which encodes one of two possible states, which - for simplicity
+and brevity - are denoted '0' and '1'.
+</P>
+<P>Typically computers work with fixed size collections of bits
+called
+<a href="https://en.wikipedia.org/wiki/Byte">bytes</a>.</P>
+<P>The more bits there are in a byte, the more different unique
+combinations or arrangements of bits there can be. With each
+added bit, there are double the number of combinations. So, with
+2 bits there are 4 possible combinations [00, 01, 10, 11]; with
+3 bits there are 8 combinations [000, 001, 010, 100, 011, 101,
+110, 111]; with 4, 16 combinations; with 5, 32 combination, and
+so on. With each added bit in a byte there are twice as many
+combinations compared to the smaller sizes byte. This doubling
+adds up exponentially and soon provides many combinations...
+</P>
+<P>7 bits in a byte allows for (128 combinations) which is
+sufficient to represent all the letters in the English alphabet
+in both lower and upper case, the ten numeric digits 0 to 9, and
+64 other symbols.
+</P>
+<P>7 bit bytes is the basis of <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> - a data encoding which is used often used for text, and is the
+ basis of a number of different
+<a href="https://en.wikipedia.org/wiki/File_format">file formats</a>.</P>
+<P><a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> is another commonly used encoding. As of Unicode version 15.0,
+there are 149,186 characters that are uniquely encoded,
+including various alphabets, mathematical symbols and emojis.
+Unicode uses between 1 and 4 bytes of length 8 for encoding.
+</P>
+<P>Commonly, there are multiples of 8 bits in a byte, but there can
+be any number.
+</P>
+<DIV>
+<H3 id="2.2">2.2. File Formats</H3>
+<P>Data stored in a file is often stored in a standard <a href="https://en.wikipedia.org/wiki/File_format">file format</a> - typically based on a versioned specification which details
+the encodings used and how data gets arranged.
+</P>
+<P>Some file formats use different encodings in different parts, a
+complication that makes the data more usable and more compact
+- requiring less storage space.
+<P>Often the suffix of a filename indicates the file format, for
+example the file format of a file named "index.html" is expected
+to be
+<a href="https://en.wikipedia.org/wiki/HTML">HTML</a>. Some file formats contain an identifying code (known as a <a href="https://en.wikipedia.org/wiki/File_format#Magic_number">magic number</a> typically at the start of the file which specify the format.
+File format can also be detailed in external
+<a href="https://en.wikipedia.org/wiki/Metadata">metadata</a>.</P>
+<P>File formats are revisited in
+<a href="../io/index.html#5">IO Section 5.</a>
+</P>
+<DIV>
+<H3 id="2.3">2.3. Integers and Floating Point</H3>
+<P>All the integer numbers in a specific range are often
+represented individually using bytes of a length sufficient for
+that range. The encoding will detail how this is done. Usually,
+zero is either in the middle or at the start of the range. If
+the byte size is minimal, to represent integer numbers in a
+wider range, either the byte size must increase, or multiple
+bytes must be used in a more complicated encoding.
+</P>
+<P>Floating point numbers are a subset of fractions typically
+encoded using bytes of length 32 or 64. The density of fractions
+within any part of the range varies. In general, the density is
+greater towards the centre of the range, which with standard
+floating point numbers is zero.
+</P>
+<P><a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Floating point arithmetic</a> is standardised and the result of a calculation gets rounded to
+the nearest value. Most of the time, the standardisation has
+ensured that calculations on different computers are the same,
+but there can be variation. Anyway, for some floating point
+calculations the result is completely accurate and precise,
+other times it is rounded either up or down. It is important to
+be aware that there can be significant error in this
+standardised arithmetic.
+<P><a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Single precision floating point</a> is a standard encoding that uses 32 bit bytes to represent a
+subset of
+<a href="https://en.wikipedia.org/wiki/Rational_number">rational numbers</a>.</P>
+<P><a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Double precision floating point</a> is a standard encoding that uses 64 bit bytes to represent a
+subset of
+<a href="https://en.wikipedia.org/wiki/Rational_number">rational numbers</a>.</P>
+<DIV>
+<H2 id="3">3. Learning to Program</H2>
+<P>Learning to program takes time and energy. It is highly
+recommended that you organise to learn new programming concepts
+when you are well rested and have good concentration. Mistakes
+and misunderstandings are more likely if you are tired or
+distracted.
+</P>
+<P>Take breaks as you learn. They do more than help avoid fatigue
+- they can save a lot more time than they take, and make the
+learning experience more healthy and enjoyable.
+</P>
+<P>Save your work often and use <a href="https://en.wikipedia.org/wiki/Version_control">version control</a> as this avoids losing work and provides a track of progress
+that you and others might find useful.
+</P>
+<P>Once you have a good grip of programming basics, (which you
+should have after this course), good ways to improve your skills
+are by getting involved in
+<a href="https://en.wikipedia.org/wiki/Open-source_software">open source software</a> development projects, reviewing code, writing code, reading
+documentation and doing other programming courses.
+</P>
+<P>Being familiar with one programming language helps in learning
+another. Many concepts are shared and the language syntax and
+workflows are often similar.
+</P>
+<P>Some programming languages are particularly well geared for
+particular types of application. This can be a consequence of
+the language fundamentals, but often it is because something
+similar has already been done with that language.
+</P>
+<P>When given a choice, experienced programmers will often choose
+a language for an implementation because they either know that
+language well - and can envisage what to do, or because they
+know that a particular language is well suited to the task, or
+because they want to learn/try something new/different.
+</P>
+<P>Programming and programming language development are typically
+community activities. It is normal to ask others for help and to
+provide others with help and work collaboratively to develop
+software. There are various online systems that help with this
+including online forums.
+</P>
+<P>Asking for help with programming is a skill. Whilst it may be
+easiest for you to show someone what is happening and talk about
+it. It is often not so easy to arrange an interactive help
+session. Often the best way to get help is to document the issue
+- describe and detail with text and pictures what is happeneing
+and why this is confusing or not what you expect/want to happen.
+Often the act of describing and detailing the issue can help with
+understanding and trying different things which may ultimately
+resolve the issue before you ask for help. Don't see this as
+wasted effort, the more you practise preparing to ask for help,
+the better you should be at it when you do!
+</P>
+<P>Often detailing an issue involves consulting documentation
+and providing information about your environment. Sometimes the
+issue is not that you have done something wrong, but that some
+other code or software is not working as it should, or that the
+way that things are set up to work is somehow causing the issue.
+</P>
+<P>Sometimes the issue is a result of a '<a href="https://en.wikipedia.org/wiki/Software_bug">software bug</a>' - an error, flaw or fault in the design, development, or
+operation that causes incorrect or unexpected things to happen.
+Sometimes issues happen in the same way each time something is
+attempted, other times the fault only sometimes happens. A
+fault that only sometimes happens is known as a '<a href="https://en.wikipedia.org/wiki/Glitch">glitch</a>' and these can be difficult to troubleshoot.</P>
+<P>Often it is worth restarting software or rebooting the
+operating system to attempt to stop unexpected behaviour
+happening. If you start having to do this frequently it becomes
+more of a pain, so that you either want a better work around, or
+for the bug to get fixed.
+</P>
+<P>Reporting a bug is an important activity in software and
+language development. Many bug reports are made openly
+available. A 'known bug' is one that has been reported already.
+This may already be being worked on or be 'resolved' or 'fixed'
+or there may be 'workarounds' - ways of coping.
+</P>
+<P>A new version of software is typically released with one or
+more bug fixes. Sometimes you have to decide when it is worth
+doing the work to change to this later version or whether you
+can cope with a workaround.
+</P>
+<P>Whether you are filing a bug report, or just asking for help,
+often you should aim to provide a minimum working example to
+replicate the bug/issue. And as with all data exchanges, you
+should think carefully before sharing data.
+</P>
+<P>In learning to program, some things you might comprehend
+instantly, other things might take several attempts to grasp or
+fully understand. Some things you might understand, but they
+seem strange. Usually, there is a good reason why something
+works and is written the way it is, but no language is perfect
+and there may well be a better way...
+</P>
+<DIV>
+<H2 id="4">4. Language Evolution, Deprecation and Versions</H2>
+<P>High level computer programming languages like <a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a> and <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> can evolve rapidly. Occasionally new languages are developed.
+Some programming languages are retired or become obsolete, and
+some older versions of languages become unsupported over time.
+The release cadence is how often releases are made. Sometimes
+releases are of different kinds which are supported for
+different periods.
+</P>
+<P>Supporting <a href="https://en.wikipedia.org/wiki/Backward_compatibility">backward compatibility</a> - interoperability with older versions - has both costs and
+benefits. These costs and benefits are weighed up by those
+developing languages that tyically have a process of deciding
+how things change.
+</P>
+<P>Changes that are not backward compatible can create a lot of
+work! It is also discouraging if old code does not work with
+newer language interpreters as this results in reliance on old
+versions which can be problematic and have cyber security
+implications.
+</P>
+<P>Languages compete for users and developers. Often new features
+in one language are implemented in other languages soon after.
+The pace of language evolution is related to the scale of
+investment in resources, and the skill, and design decisions
+taken by the developer community.
+</P>
+<P>As new syntax, new functionality and more efficient ways of
+doing things evolve in a language, some code either becomes
+obsolete, or is best changed to use the new ways. This can
+require considerable effort to retire or update (refactor) code.
+</P>
+<P>Fundamental changes in language syntax are associated with
+major new versions of a language. Minor versions may add new
+language features. Minor-minor version changes are usually
+associated with one or more bug fix.
+</P>
+<P><a href="https://en.wikipedia.org/wiki/Deprecation">Deprecation</a> is a common part of modern high level languages and third party
+software. It is part of a process of phasing things out. Things
+are first marked as deprecated in a version, then in subsequent
+versions the things are removed.
+</P>
+
+<DIV>
+
+<div>
+<p><a id="next" class="nav" href="../python/index.html">Next: Python</a></p>
+</div>
+<P>Date last modified: 2023-09-12</P>
+
+<P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
+
+</DIV>
+
+</BODY>
+
+</HTML>
+

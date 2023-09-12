@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<HTML lang=en-GB>
+
+<HEAD>
+
+<TITLE>Python0: Introduction to Python Programming Page</TITLE>
+<!-- Styling -->
+<!-- href to be populated by the script (once the DOM is fully loaded) -->
+<link id="css" rel="stylesheet" type="text/css" href="" />
+<script src="/scripts/style.js"></script>
+<!-- For styling code -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- href to be populated by the script (once the DOM is fully loaded) -->
+<link id="code_theme" rel="stylesheet" type="text/css" href="" />
+
+</HEAD>
+
+<BODY>
+
+<button id="style_button" onclick="swapStyle()"></button>
+
+<DIV class="navbar">
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</DIV>
+
+<H1>Python0: Introduction to Python Programming</H1>
+
+<DIV>
+<H2>Contents</H2>
+<UL>
+ <LI><A href="#1">1. Introduction</A></LI>
+ <LI><A href="#2">2. Syllabus</A></LI>
+ <LI><A href="#3">3. Expectations</A></LI>
+ <LI><A href="#4">4. The Learning Journey</A></LI>
+ <LI><A href="#5">5. Platform/Software</A></LI>
+</UL>
+</DIV>
+
+<div>
+<DIV>
+<H2 id="1">1. Introduction</H2>
+<P>This website is an open educational resource geared towards
+helping researchers at the University of Leeds start learning
+to program using the
+<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> programming language.</P>
+<P>The website is maintained by the <a href="https://arc.leeds.ac.uk/about/team/">Research Computing Team</a> at the <a href="https://www.leeds.ac.uk/">University of Leeds</a>.</P>
+<P>Please <a href="http://www.github.com/agdturner/agdturner.github.io">raise issues and submit pull requests on GitHub</a>.</P>
+<P>Each web page has a button at the top to change between a
+lighter and darker page style, then a navigation section that
+links to the other pages. The pages are sequential and at the end of each webpage, there is a link to
+the next webpage.
+</P>
+<P>The <a id="index" class="link" href="../index/index.html">Index</a> webpage is a glossary of terms that links back to webpage
+sections where terms are used.
+</P>
+<P>The <a id="references" class="link" href="../references/index.html">References</a> webpage is a useful list of references and links to other
+resources.
+</P>
+<P>Webpages with multiple sections have a contents towards the top
+that links to those sections.
+</P>
+<P>Essentially, taking the course involves working your way through
+these webpages and undertaking practical exercises as directed.
+</P>
+</div>
+<div>
+<DIV>
+<H2 id="2">2. Syllabus</H2>
+<P>General computer programming language concepts, including:</P>
+<UL>
+<LI><a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">Variables</a></LI>
+<LI><a href="https://en.wikipedia.org/wiki/Control_flow">Control Flow</a> (<a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming)">conditionals</a>/<a href="https://en.wikipedia.org/wiki/For_loop">for loops</a>/<a href="https://en.wikipedia.org/wiki/While_loop">while loops</a>)</LI>
+<LI><a href="https://en.wikipedia.org/wiki/Function_(computer_programming)">Functions</a></LI>
+<LI>Data encoding and <a href="https://en.wikipedia.org/wiki/File_format">file formats</a></LI>
+<LI>Documentation</LI>
+<LI>Testing</LI>
+<LI><a href="https://en.wikipedia.org/wiki/Class_(computer_programming)">Classes</a> and <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object Oriented Programming</a></LI>
+</UL>
+<P><a href="https://en.wikipedia.org/wiki/Version_control">Version Control</a>.</P>
+<P><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> language development and limitations.</P>
+<P>The <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">Read Evaluate Print Loop</a> (REPL) environment.</P>
+<P>Running <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> programs via the command line.</P>
+<P>Using <a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html">Jupyter Notebook</a>.</P>
+<P>Using <a href="https://docs.python.org/3/library/idle.html">IDLE</a> and <a href="https://www.spyder-ide.org/">Spyder</a>.</P>
+<P><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> containers including; <a href="https://docs.python.org/3/library/stdtypes.html#lists">lists</a>, <a href="https://docs.python.org/3/library/stdtypes.html#tuples">tuples</a> and <a href="https://docs.python.org/3/library/stdtypes.html#dict">dictionaries</a>.</P>
+<P><a href="https://peps.python.org/pep-0257/#what-is-a-docstring">Python docstring</a> syntax.</P>
+<P><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> program input and output.</P>
+<P>Structuring and organising <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> code into <a href="https://docs.python.org/3/tutorial/classes.html">Classes</a>, <a href="https://docs.python.org/3/tutorial/modules.html">Modules</a>, and <a href="https://docs.python.org/3/tutorial/modules.html#packages">Packages</a>.</P>
+<P><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> environment management using <a href="https://docs.conda.io/">Conda</a> and <a href="https://docs.python.org/3/library/venv.html">venv</a>.</P>
+<P>Using the <a href="https://docs.python.org/3/library/">Python 3 Library</a>.</P>
+<P>Using third party packages available via the <a href="https://pypi.org/">Python Package Index</a>.</P>
+</div>
+<div>
+<DIV>
+<H2 id="3">3. Expectations</H2>
+<P>You will learn about:</P>
+<UL>
+<li><a href="https://github.com/">GitHub</a> as a source code repository and for website hosting</li><LI>Visualisation using <a href="https://matplotlib.org/">Matplotlib</a></LI>
+<LI>Processing raster data stored as lists of lists</LI>
+<LI>Developing a <a href="https://en.wikipedia.org/wiki/Graphical_user_interface">Graphical User Interface</a> (GUI)</LI>
+<LI>Developing and visualising a basic spatial <a href="https://en.wikipedia.org/wiki/Agent-based_model">Agent Based Model</a> (ABM)</LI>
+</UL>
+<P>Computer programming mostly involves computational thinking,
+planning, problem solving and testing. It is often helpful to
+break a task into smaller subtasks, and gradually develop an
+implementation. Often good solutions to coding tasks involve
+doing things repeatedly for a given sequence of things.
+</P>
+<P>If you are new to computer programming, there is quite a lot of
+terminology to get used to, some is generic to programming, some
+is specific to
+<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>.</P>
+<P>There are some key concepts which may take a few attempts to get
+used to and comprehensively understand.
+</P>
+</div>
+<div>
+<DIV>
+<H2 id="4">4. The Learning Journey</H2>
+<P>Develop your understanding through practise and by reading.</P>
+<P>Be experimental - test your understanding by testing things do
+what you expect. If things do not do what you expect, try to
+understand why. An exception error fault or failure is also a
+learning opportunity!
+</P>
+<P>A key to coding is learning to be able to interpret error
+messages and understand why they occur. If a program
+unexpectedly raises an exception, then try to diagnose why this
+occurred. Ignoring error messages is nearly always a mistake!
+</P>
+<P>Be cautious and only run code you trust.</P>
+<P>The webpages with names starting 'ABM' are a sequence of
+practicals that progress the development of a basic spatial
+<a href="https://en.wikipedia.org/wiki/Agent-based_model">Agent Based Model</a>. The ABM is a simple digital simulation model of
+semi-autonomous spatial entities that move in an environment,
+ interacting with the environment and each other.
+</P>
+<P>Developing the ABM by following instructions puts into practise
+some of the theory encountered. By the end of the practicals,
+you should have ABM model code that has a basic
+<a href="https://en.wikipedia.org/wiki/Graphical_user_interface">GUI</a>, reads in data from local files and from the Web, and produces
+an animation, data files and user friendly messages.
+</P>
+<P>The aim is that after completing the last ABM practical, you
+will have sufficient knowledge and skill to develop the model in
+interesting ways without being given detailed instructions.
+</P>
+<P>Do not expect to master <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">python</a>by the end of this course. Usually this takes many thousands of
+hours of practice over several years.
+</P>
+<P>Try to enjoy the learning journey, the challenges and the
+rewards. Learning to program and learning
+<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> is empowering!</P>
+</div>
+<DIV>
+<H2 id="5">5. Platform/Software</H2>
+<P>All the software used in this course is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source Software</a> (FOSS) - available to download and install on <a href="https://en.wikipedia.org/wiki/Linux">Linux</a>, <a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a>, and <a href="https://en.wikipedia.org/wiki/macOS">MacOS</a>.</P>
+</div>
+
+<DIV>
+
+<div>
+<p><a id="next" class="nav" href="../programming/index.html">Next: Programming</a></p>
+</div>
+<P>Date last modified: 2023-09-12</P>
+
+<P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
+
+</DIV>
+
+</BODY>
+
+</HTML>
+

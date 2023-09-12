@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<HTML lang=en-GB>
+
+<HEAD>
+
+<TITLE>Loops Page</TITLE>
+<!-- Styling -->
+<!-- href to be populated by the script (once the DOM is fully loaded) -->
+<link id="css" rel="stylesheet" type="text/css" href="" />
+<script src="/scripts/style.js"></script>
+<!-- For styling code -->
+<script src="/tools/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- href to be populated by the script (once the DOM is fully loaded) -->
+<link id="code_theme" rel="stylesheet" type="text/css" href="" />
+
+</HEAD>
+
+<BODY>
+
+<button id="style_button" onclick="swapStyle()"></button>
+
+<DIV class="navbar">
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+</DIV>
+
+<H1>Loops</H1>
+
+<DIV>
+<H2>Contents</H2>
+<UL>
+ <LI><A href="#1">1. Introduction</A></LI>
+ <LI><A href="#2">2. While</A></LI>
+ <LI><A href="#3">3. For</A></LI>
+ <LI><A href="#4">4. Nesting loops</A></LI>
+ <LI><A href="#5">5. Moving Window Algorithms</A></LI>
+ <LI><A href="#6">6. Next</A></LI>
+</UL>
+</DIV>
+
+<DIV>
+<H2 id="1">1. Introduction</H2>
+<P>Python has syntax for '<a href="https://en.wikipedia.org/wiki/While_loop">while loops</a>' and '<a href="https://en.wikipedia.org/wiki/For_loop">for loops</a>'. While loops are typically used to repeat something until a
+condition is reached. For loops are typically used to repeat
+something a set number of times (or for each thing in a
+ sequence).
+</P>
+</DIV>
+
+<DIV>
+<H2 id="2">2. While</H2>
+<P>The following provides an example of a <a href="https://docs.python.org/3/reference/compound_stmts.html#while">while</a> statement:</P>
+<pre><code class="language-python">
+x = 1
+while (x < 10):
+    print(x)
+    x += 1
+</code></pre><P>If a while loops condition never evaluates as 'False' then the
+loop will continue indefinitely. This is sometimes a reason why
+a program fails to terminate when you were expecting it to.
+</P>
+<P>A <a href="https://docs.python.org/3/reference/simple_stmts.html#break">break</a> statement breaks out of a loop which is commonly done when some
+other condition is reached. For example, consider the following
+code:
+</P>
+<pre><code class="language-python">
+# Print the largest number less than 1 million that is divisible by 17
+x = 1000000
+while (x != 0):
+    if (x % 17 == 0):
+        break
+    x -= 1
+print(x)
+</code></pre><P>The output of which is:</P>
+<PRE>999991</PRE>
+<P>The <a href="https://docs.python.org/3/reference/simple_stmts.html#continue">continue</a> statement gets the program to return to the start of a loop
+when a condition is reached:
+</P>
+<pre><code class="language-python">
+# Print odd numbers from 1 to 10
+x = 0
+while x < 10:
+    x += 1
+    if (x % 2) == 0:
+        continue
+    print(x, end =" ")
+</code></pre><P>The output of which is:</P>
+<PRE>1 3 5 7 9</PRE>
+<P>An 'else' clause can be used with a while loop and this code
+within it is executed when the while condition evaluates as
+'False'.
+</P>
+<P>Note that in the above code snippet a 'keyword argument
+(kwarg)' called 'end' is used in the print command to substitute
+the normal end of print statement - a newline - with a space.
+</P>
+</DIV>
+
+<DIV>
+<H2 id="3">3. For</H2>
+<P><a href="https://en.wikipedia.org/wiki/For_loop">For loops</a> in Python (<a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loop</a>) are used with sequences that are 'iterable'. Iterable means
+can be gone through one at a time. In the following example, the
+first time around the loop, the variable 'x' is assigned the
+value '0', the second time around the loop x is assigned the
+value '1' and so on:
+</P>
+<pre><code class="language-python">
+for x in (0,1,2,3,4,5,6,7,8,9):
+    print(x)
+</code></pre><P>For sequences of numbers, it is much more common to use a <a href="https://docs.python.org/3/library/stdtypes.html#ranges">range</a>, for example, the following does the same as the previous
+example:
+</P>
+<pre><code class="language-python">
+for x in range(10):
+    print(x)
+</code></pre><P>It is also common to use a slice, for example:</P>
+<pre><code class="language-python">
+names = ("Dale", "Albert", "Gordon", "Tamara", "Philip", "Chester", "Windom")
+for name in names[1:5:2]:
+    print(name) # <-- Prints "Albert", "Tamara"
+</code></pre><P>Sometimes it is helpful to know the index in the sequence when
+iterating, so alternatively we can do the following:
+</P>
+<pre><code class="language-python">
+names = ("Dale", "Albert", "Gordon", "Tamara", "Philip", "Chester", "Windom")
+for i in range(len(names)):
+    print(i, names[i])
+</code></pre><P>Note, that 'i' cannot be changes within the loop to skip
+objects. As assignment for 'i' would creates a new variable. So
+the following code:
+</P>
+<pre><code class="language-python">
+names = ("Dale", "Albert", "Gordon", "Tamara", "Philip", "Chester", "Windom")
+for i in range(len(names)):
+    print(i, names[i])
+    i += 2
+    print(i)
+</code></pre><P>Produces:</P>
+<PRE>0 Dale
+2
+1 Albert
+3
+2 Gordon
+4
+3 Tamara
+5
+4 Philip
+6
+5 Chester
+7
+6 Windom
+8
+</PRE>
+<P>Slices copy containers, while ranges are iterators that
+actually generate the values one at a time. So, it is more
+efficient to do the following:
+</P>
+<pre><code class="language-python">
+names = ("Dale", "Albert", "Gordon", "Tamara", "Philip", "Chester", "Windom")
+for i in range(2,len(names),2):
+    print(names[i])
+</code></pre><P>Instead of:</P>
+<pre><code class="language-python">
+for name in names[2::2]:
+    print(name)
+</code></pre><P>A disadvantage of not having an index counter and using a
+sequence is that it makes it harder to remove items from the
+sequence which is often useful. For example, the following code
+does not empty the list names because as we remove the first
+thing in the list, everything else moves to a new position and
+the iterator skips over a value each time:
+</P>
+<pre><code class="language-python">
+names = ["Dale","Albert","Gordon","Tamara","Philip", "Chester","Windom"]
+for name in names:
+    names.remove(name)
+print(names)
+</code></pre><P>A solution to this is to create a slice containing everything
+and then remove from the original list:
+</P>
+<pre><code class="language-python">
+names = ["Dale","Albert","Gordon","Tamara","Philip", "Chester","Windom"]
+for name in names[:]:
+    names.remove(name)
+print(names)
+</code></pre><P>It would though probably be better to simply reinitialise
+'names' as an empty list.
+</P>
+<P>As with a while loop, an 'else' clause can be added to for loop
+and is executed once the loop completes, or not at all if there
+is a
+<a href="https://docs.python.org/3/reference/simple_stmts.html#break">break</a> statement that terminates the loop before the last iteration
+completes.
+</P>
+<P>Also, a <a href="https://docs.python.org/3/reference/simple_stmts.html#continue">continue</a> statement can be used to skip to the start of the next loop
+iteration in the same way as in a while loop.
+</P>
+</DIV>
+
+<DIV>
+<H2 id="4">4. Nesting loops</H2>
+<P>In spatial analysis it is common to want to go through two
+dimensional (2D) raster data or tables of values. One way to do
+this is to nest for loops. Consider the following code which
+goes through all the rows in 'data' and for each 'row', goes
+through the values (one for each 'column'):
+</P>
+<pre><code class="language-python">
+data = [
+[0,1,2],
+[3,4,5]
+]
+for row in data:
+    for value in row:
+        print(value, end=" ")
+    print()
+</code></pre><P>The output of this program is:</P>
+<PRE>0 1 2
+3 4 5
+</PRE>
+<P>It is often necessary to know and use the row and column
+indexes. Another way to do this is as follows:
+</P>
+<pre><code class="language-python">
+data = [
+[0,1,2],
+[3,4,5]
+]
+for row in range(len(data)):
+    for col in range(len(data[row])):
+        print(data[row][col], end=" ")
+    print()
+</code></pre><P>Recall that the <a href="https://docs.python.org/3/library/functions.html#len">len</a> function, when passed a sequence as a parameter, returns the
+length of the sequence, and the
+<a href="https://docs.python.org/3/library/stdtypes.html#ranges">range</a> function turns an Integer argument into a sequence starting
+from '0' and ending with one less than that argument stepping by
+1.
+</P>
+<P>When processing raster data like this, care is needed not to
+get rows and columns mixed up. This is easier to do if the data
+have the same number of rows and columns!<
+</P>
+</DIV>
+
+<DIV>
+<H2 id="5">5. Moving Window Algorithms</H2>
+<P>These are commonly used in image processing and for surface
+analysis. One of the difficulties in applying these concerns
+what to do at the boundaries. The main options are: to deal with
+the special edge and corner cases; to process only those parts
+for which there are data for all parts of the 'window'. Using
+the latter of these solutions we could calculate the maximum
+value in a 3x3 neighbourhood as follows:
+</P>
+<pre><code class="language-python">
+data = [
+[0,1,2,3,4,5],
+[6,7,8,9,10,11],
+[12,13,14,15,16,17],
+[18,19,20,21,22,23],
+[24,25,26,27,28,29],
+[30,31,32,33,34,35]
+]
+result = []
+for row in range(1, len(data) - 1):
+    row_result = []
+    for col in range(1, len(data[row]) - 1):
+        value = data[row][col]
+        for i in range(-1, 2):
+            for j in range(-1, 2):
+                value = max(value, data[row + i][col + j])
+        row_result.append(value)
+        print(value, end=" ")
+    result.append(row_result)
+    print()
+#print(result)
+</code></pre><P>The output of which is:<</P>
+<PRE>14 15 16 17
+20 21 22 23
+26 27 28 29
+32 33 34 35
+</PRE>
+</DIV>
+
+<DIV>
+<H2 id="6">6. Next</H2>
+<P>Use containers, branches and loops to simplify and extend the
+Agent Based Model code.
+</P>
+</DIV>
+
+<DIV>
+
+<div>
+<p><a id="next" class="nav" href="../abm2/index.html">Next: ABM2</a></p>
+</div>
+<P>Date last modified: 2023-09-12</P>
+
+<P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
+
+</DIV>
+
+</BODY>
+
+</HTML>
+
