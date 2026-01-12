@@ -44,9 +44,9 @@
 
 <DIV>
 <H2 id="1">1. Introduction</H2>
-<P>The <a href="../index.html#Internet">Internet</a> is an international network of addressable machines that
+<P>The <a href="../index/index.html#Internet">Internet</a> is an international network of addressable machines that
 communicate using the
-<a href="../index.html#TCP/IP">Internet protocol suite</a> commonly known as 'TCP/IP'. The <a href="../index.html#World Wide Web">World Wide Web</a> (Web) is a set of interlinked data or documents within the
+<a href="../index/index.html#TCP/IP">Internet protocol suite</a> commonly known as 'TCP/IP'. The <a href="../index/index.html#World Wide Web">World Wide Web</a> (Web) is a set of interlinked data or documents within the
 Internet. Connections are made between data and documents
 via connections between different machines on the internet
 that host and serve the documents and data.
@@ -79,7 +79,7 @@ socket_1.connect(("localhost", 5555)) # Address tuple
 socket_1.send(bytes("hello world", encoding="UTF-8"))
 </CODE></PRE><P>In this code: the connection is to 'localhost' - the local
 machine; the '
-<a href="../index.html#Port">port number</a>' for the connection is 5555; and, the bytes representing
+<a href="../index/index.html#Port">port number</a>' for the connection is 5555; and, the bytes representing
 "hello world" in a unicode String are sent.
 </P>
 <P>The following code sets up a server socket to listen on the same
@@ -106,7 +106,7 @@ print(str(b))
 data transfers are normally initiated following a communication
 protocol.
 </P>
-<P>Most computers use <a href="../index.html#TCP/IP">TCP/IP</a>when communicating on the Internet. The Internet Protocol (IP)
+<P>Most computers use <a href="../index/index.html#TCP/IP">TCP/IP</a>when communicating on the Internet. The Internet Protocol (IP)
 is used to split data into small chunks called "packets" and
 address them to a specific destination computer. The Transport
 Control Protocol (TCP) routes packets, and ensures they reach
@@ -132,10 +132,10 @@ suspicious behaviour.
 <H2 id="3">3. The World Wide Web</H2>
 <P>The World Wide Web (Web) is a client-server system using port 80
 and the hyper-text communication protocols:
-<a href="../index.html#HTTP">HTTP</a> and <a href="../index.html#HTTPS">HTTPS</a>. When a server gets a request it is usually to send out a Web
+<a href="../index/index.html#HTTP">HTTP</a> and <a href="../index/index.html#HTTPS">HTTPS</a>. When a server gets a request it is usually to send out a Web
 page - a file stored in a directory on the server and referred
 to via a
-<a href="../index.html#URL">URL</a>. The URL comprises: a protocol identifier e.g. "HTTP", "HTTPS",
+<a href="../index/index.html#URL">URL</a>. The URL comprises: a protocol identifier e.g. "HTTP", "HTTPS",
 "FTP"; a case sensitive host name, e.g. "www.w3.org"; a case
 sensitive path to the file on that server, e.g.
 "/People/Berners-Lee/Overview.html"; and, sometimes a port
@@ -153,7 +153,7 @@ not. The tags are formatting details and references to other
 files like images or scripts that can provide style information,
 record user interaction and/or make the page dynamic and
 interactive. The tags are referred to as
-<a href="../index.html#HTML">HTML</a>. HTML files are text files typically saved with the filename
+<a href="../index/index.html#HTML">HTML</a>. HTML files are text files typically saved with the filename
 suffix ".html" (and sometimes ".htm"). (If the filename is
 missing from the URL, by default, many servers will send a file
 named "index.html" if it exists.
@@ -198,7 +198,7 @@ in the start tag for the element, for example:
 page from information about how to style it. This is typically
 done by storing the style information in a separate file called
 a
-<a href="../index.html#CSS">Cascading Style Sheet</a> (CSS). These are linked to the HTML in the 'HEAD' section with
+<a href="../index/index.html#CSS">Cascading Style Sheet</a> (CSS). These are linked to the HTML in the 'HEAD' section with
 the following tag:
 </P>
 <PRE><code>&lt;link rel="stylesheet" href="url_to_css_file"></code>
@@ -214,10 +214,10 @@ should be a major design driver.
 <H3 id="3.3">3.3. Processing Web Pages</H3>
 <P>Web pages can be retrieved by issuing HTTP requests. In Python
 a good option for this is the
-<a href="../index.html#Python Requests">Requests library</a> that comes with Anaconda.</P>
+<a href="../index/index.html#Python Requests">Requests library</a> that comes with Anaconda.</P>
 <P>Once the content of a Web page has been retrieved a helpful
 library for parsing the HTML is the
-<a href="../index.html#Beautiful Soup">Beautiful Soup library</a></P>
+<a href="../index/index.html#Beautiful Soup">Beautiful Soup library</a></P>
 </DIV>
 
 

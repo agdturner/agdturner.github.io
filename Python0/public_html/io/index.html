@@ -49,7 +49,7 @@
 
 <DIV>
 <H2 id="1">1. Introduction</H2>
-<P>The Python standard library <a href="../index.html#Python io">io module</a> provides the main facilities for dealing with input and output
+<P>The Python standard library <a href="../index/index.html#Python io">io module</a> provides the main facilities for dealing with input and output
 (IO). Numerous other standard library modules have functionality
 for dealing with specific aspects and types of IO, including:
 </P>
@@ -72,7 +72,7 @@ and processing data on the Web.
 
 <DIV>
 <H2 id="2">2. Standard Input</H2>
-<P>The builtins module <a href="../index.html#Python input">input</a> function reads input from the standard input 'stdin' which is
+<P>The builtins module <a href="../index/index.html#Python input">input</a> function reads input from the standard input 'stdin' which is
 usually the keyboard. This continues until the &lt;ENTER&gt;
 (or &lt;RETURN&gt;) key is pressed. The function returns a
 string (without a newline character). A string provided as a
@@ -87,7 +87,7 @@ print("The input detected is:", n_agents)
 
 <DIV>
 <H2 id="3">3. Streams</H2>
-<P>The builtins module <a href="../index.html#Python print">print</a> function writes to the standard output 'stdout' which is usually
+<P>The builtins module <a href="../index/index.html#Python print">print</a> function writes to the standard output 'stdout' which is usually
 the terminal/console/screen.
 </P>
 <P>Stdin and stdout are streams - flows of data. Standard error
@@ -110,7 +110,7 @@ could be used:
 <PRE>python a.py &lt; stdin.txt &gt; stdout.txt</PRE><P>The stdout of one program can be piped to the stdin of another
 program using the pipe symbol '|'.
 </P>
-<P>The <a href="../index.html#Python print">print</a><P> function also includes an option to direct stout to a file.
+<P>The <a href="../index/index.html#Python print">print</a><P> function also includes an option to direct stout to a file.
 That file has to be open in order for the writing to be
 successful and the open file should be closed to ensure all the
 data gets written. Typically reading and writing files uses
@@ -124,7 +124,7 @@ sometimes be useful...<
 
 <DIV>
 <H2 id="4">4. Reading and Writing Files Part 1</H2>
-<P>The following code uses the builtins module <a href="../index.html#Python open">open</a> function to open a file in the current directory called 'a.in'
+<P>The following code uses the builtins module <a href="../index/index.html#Python open">open</a> function to open a file in the current directory called 'a.in'
 and read the file one line at a time streaming the output to the
 screen before then closing the file:
 </P>
@@ -138,7 +138,7 @@ for line in f:
 f.close()
 </CODE></PRE><P>The <a href="https://docs.python.org/3/c-api/file.html">
 File Object</a> returned from the above
-<a href="../index.html#Python open">open</a><P> function call 'f' is best closed once it is read by calling it's
+<a href="../index/index.html#Python open">open</a><P> function call 'f' is best closed once it is read by calling it's
 'close' method as done on line 4 of the code snippet. After this
 line is executed, 'f' becomes" unusuable. Closing releases
 system resources and is recommended as good practice altough
@@ -168,7 +168,7 @@ readlines method</p> can read some or all lines of a file into a
 list of strings (each item being a line of the file. Whilst this
 can be convenient, if a file is large and not everything is
 wanted, then this can use a lot of memory and risks a
-<a href="../index.html#Python MemoryError">MemoryError</a> being raised. So, often it is better to parse a file in
+<a href="../index/index.html#Python MemoryError">MemoryError</a> being raised. So, often it is better to parse a file in
 portions, such as line by line. Parsing might involve processing
 or simply storing parts or all of the line in one or more
 variables.
@@ -203,7 +203,7 @@ Function which prepares the file a.out to be written to. Writing
 to a file requires different preparation to reading from a file.
 </P>
 <P>There are other optional arguments that can be used with the
-<a href="../index.html#Python open">open</a> function, follow the link for details...</P>
+<a href="../index/index.html#Python open">open</a> function, follow the link for details...</P>
 <P>An alternative using the keyword 'with' that does not
 require closing the file is:
 </P>
@@ -243,7 +243,7 @@ described (CSV, JSON and Markup).
 </P>
 <DIV>
 <H3 id="5.1">5.1. CSV</H3>
-<P><a href="../index.html#CSV">CSV format</a> files are text files of comma separated values. The values are
+<P><a href="../index/index.html#CSV">CSV format</a> files are text files of comma separated values. The values are
 text, but this text might represent numbers. If a value contains
 a comma then the value is usually enclosed in quotation marks.
 If the value also contains quotation marks or newline then there
@@ -251,12 +251,12 @@ can be difficulty parsing the file.
 </P>
 <DIV>
 <H3 id="5.2">5.2. JSON</H3>
-<P><a href="../index.html#JSON">JavaScript Object Notation</a> (JSON) is an open standard file format and data interchange
+<P><a href="../index/index.html#JSON">JavaScript Object Notation</a> (JSON) is an open standard file format and data interchange
 format that uses human-readable text to store and transmit data
 objects consisting of attribute–value pairs and arrays (or other
 serializable values.
 </P>
-<P>Here is an example of some <a href="../index.html#GeoJSON">GeoJSON</a> data:</P>
+<P>Here is an example of some <a href="../index/index.html#GeoJSON">GeoJSON</a> data:</P>
 <PRE>GeoJSON example
 {
     "type": "FeatureCollection",
@@ -276,12 +276,12 @@ serializable values.
 <P>Markup is essentially tags and content. Tags often note the
 ontological context of the content helping define it's meaning.
 Tags can be nested. Examples formats include:
-<a href="../index.html#HTML">HTML</a>; and, <a href="../index.html#XML">XML</a>. Style information can be embedded about how to portray the
+<a href="../index/index.html#HTML">HTML</a>; and, <a href="../index/index.html#XML">XML</a>. Style information can be embedded about how to portray the
 data, but this is better kept separate. XML is extensible in
 that new tags can be added to extend the langauge in what are
 known as profiles. There are lots of standard profiles of XML
 for different kinds of information including
-<a href="../index.html#GML">GML</a> the XML grammar defined by the Open Geospatial Consortium (OGC)
+<a href="../index/index.html#GML">GML</a> the XML grammar defined by the Open Geospatial Consortium (OGC)
 to express geographical features.
 </P>
 </DIV>
@@ -313,7 +313,7 @@ for line in f:
 print(data)
 </CODE></PRE><P>It is easier to read and write CSV format files using functions
 from the Python standard library
-<a href="../index.html#Python csv">csv module</a> written specifically to do this. The following is an example of
+<a href="../index/index.html#Python csv">csv module</a> written specifically to do this. The following is an example of
 reading some numeric data:
 </P>
 <PRE><CODE class="language-python">import csv
@@ -353,7 +353,7 @@ f.close()
 space ' ' instead of the default comma ',', so this would
 actually not generate CSV format data!
 </P>
-<P>The following code uses the standard library <a href="../index.html#Python json">json module</a> to read a JSON file:</P>
+<P>The following code uses the standard library <a href="../index/index.html#Python json">json module</a> to read a JSON file:</P>
 <PRE><CODE class="language-python">import json
 f = open('data.json')
 data = json.load(f)
@@ -408,7 +408,7 @@ object
 os.environ</a>'
 allows for accessing environment information from a Python
 program. For example, the following will print the
-<a href="../index.html#PATH">PATH</a>:</P>
+<a href="../index/index.html#PATH">PATH</a>:</P>
 <PRE><CODE class="language-python">import os
 print(os.environ["PATH"])
 import os

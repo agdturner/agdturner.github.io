@@ -233,7 +233,7 @@ returned.
 simplify it by removing one of these ways. Consider simplifying
 your code in other ways too...
 </P>
-<P><p>Change the comment that describes the function into a <a href="../index.html#Python docstring">docstring</a> clarifying what the function inputs and outputs are.</P>
+<P><p>Change the comment that describes the function into a <a href="../index/index.html#Python docstring">docstring</a> clarifying what the function inputs and outputs are.</P>
 <DIV>
 <H3 id="2.2">2.2. Calculate the maximum distance</H3>
 <P>Imagine a two dimensional matrix with the agents aligned in the
@@ -245,7 +245,7 @@ about a diagonal where all the distances are zero.
 distance in this matrix, indeed it is the maximum distance in
 one half of the values not on the zero diagonal. Anyway, a pair
 of nested
-<a href="../index.html#Python for">for loops</a> can be used to calculate it: An outer loop that iterates over
+<a href="../index/index.html#Python for">for loops</a> can be used to calculate it: An outer loop that iterates over
 all agents; and an inner loop that iterates over all agents.
 Within the inner loop the get_distance function can be used to
 calculate the distance between a pair of agents (one from the
@@ -278,7 +278,7 @@ the imaginary matrix.
 <P>Recall that there are two main ways to iterate over the items in
 a list. As above, and alternatively using list indexes. The
 following code does the same calculation, and uses the
-<a href="../index.html#Python range">range function</a> to get a sequence of indexes:</P>
+<a href="../index/index.html#Python range">range function</a> to get a sequence of indexes:</P>
 <PRE><CODE class="language-python">max_distance = 0
 for i in range(len(agents)):
     a = agents[i]
@@ -299,7 +299,7 @@ for i in range(len(agents)):
         print("max_distance", max_distance)
 </CODE></PRE><P>Note that this code uses variables 'i' and 'j' for the indexes,
 and the
-<a href="../index.html#Python len">len function</a>to get the length of the agents list. (Here, 'len(agents)' is
+<a href="../index/index.html#Python len">len function</a>to get the length of the agents list. (Here, 'len(agents)' is
 the same as 'n_agents', which could be used instead (and would
 be more efficient). Change this if you want, but consider what
 would happen if the length of the agents list gets changed in
@@ -365,7 +365,7 @@ def get_distance(x0, y0, x1, y1):
 distance between all the agents just after they have been
 initialised.
 </P>
-<P>If a <a href="../index.html#Python NameError">NameError</a>is raised indicating that 'get_max_distance' is not defined,
+<P>If a <a href="../index/index.html#Python NameError">NameError</a>is raised indicating that 'get_max_distance' is not defined,
 then recall that the Python interpreter needs to have read a
 function definition before it can be called. So, rearrange your
 code so that the function is defined before it is called.
@@ -374,7 +374,7 @@ code so that the function is defined before it is called.
 
 <DIV>
 <H2 id="3">3. Timing</H2>
-<P>This section is about using the <a href="../index.html#Python time">time module</a> to report timings and explore code efficiency.</P>
+<P>This section is about using the <a href="../index/index.html#Python time">time module</a> to report timings and explore code efficiency.</P>
 <P>Save your source code file with a new name, for example
 "timing.py".
 </P>
@@ -482,7 +482,7 @@ i 2 j 1
 i 2 j 2
 </PRE><P>Change what is in the inner loop of the 'get_max_distance'
 function to be within an
-<a href="../index.html#Python if">if statement</a>that is only run when 'i' does not equal 'j' using the operator
+<a href="../index/index.html#Python if">if statement</a>that is only run when 'i' does not equal 'j' using the operator
 '!='. The 'if statement' will look like:
 </P>
 <PRE><CODE class="language-python">if i != j:
@@ -554,7 +554,7 @@ any two different agents. The upper bound of the distance
 between two agents in Euclidean space is theoretically
 infinite.
 </P>
-<P>From the <a href="../index.html#Python math">math module</a> the following can be used for positive infinity:</P>
+<P>From the <a href="../index/index.html#Python math">math module</a> the following can be used for positive infinity:</P>
 <PRE><CODE class="language-python">math.inf
 math.inf
 </CODE></PRE><P>Write a function that calculates the minumum distance between
@@ -615,7 +615,7 @@ changed to move them a number of times. After initialising
 'n_agents', initialise a variable called 'n_iterations' and set
 it equal to 1000.
 </P>
-<P>Create a new outer <a href="../index.html#Python for">for loop</a>to loop through moving agents n_iteration times. An outer loop
+<P>Create a new outer <a href="../index/index.html#Python for">for loop</a>to loop through moving agents n_iteration times. An outer loop
 is wanted rather than an inner loop as in each iteration agents
 are to move in turn rather than each agent taking all their
 turns before any others. This outer loop is the 'main simulation

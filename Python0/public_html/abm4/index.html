@@ -106,7 +106,7 @@ class Agent:
     def __init__(self):
         self.x = random.randint(0, 99)
         self.y = random.randint(0, 99)
-</CODE></PRE><P>Note that the <a href="../index.html#Python random">random module</a> is imported as this is used in the Agent constructor '__init__'
+</CODE></PRE><P>Note that the <a href="../index/index.html#Python random">random module</a> is imported as this is used in the Agent constructor '__init__'
 method.
 </P>
 <P>In 'model.py', add a statement to print the agent that was
@@ -134,7 +134,7 @@ def __str__(self):
 </CODE></PRE><P>Note that this returns a string which includes the name of the
 class and details of the 'x' and 'y' variable attributes which
 are transformed by the builtins module
-<a href="../index.html#Python str">str function</a> to be strings.</P>
+<a href="../index/index.html#Python str">str function</a> to be strings.</P>
 <P>Run 'model.py' again and the print statement should result in
 the following:
 </P>
@@ -183,7 +183,7 @@ TypeError: 'Agent' object is not subscriptable
 not use the '__str__' method to get string representations when
 printing the list.
 </P>
-<P>The <a href="../index.html#Python TypeError">TypeError</a> is a consequence of the 'agents' list no longer containing
+<P>The <a href="../index/index.html#Python TypeError">TypeError</a> is a consequence of the 'agents' list no longer containing
 lists, but instantiated Agent objects, and some parts of the
 code are still written as though each agent is a list and not an
 instance of the Agent class.
@@ -198,7 +198,7 @@ def __repr__(self):
     return str(self)
 </CODE></PRE><P>Like the '__str__' method, the '__repr__' method overrides from
 the 'type' metaclass, (for details see:
-<a href="../index.html#Python repr">repr</a>.</P>
+<a href="../index/index.html#Python repr">repr</a>.</P>
 <P>To avoid raising the TypeError exception, it is necessary to
 refer to the class attributes and not list items (as agents are
 no longer lists, but are instances of the class Agent). So,
@@ -302,7 +302,7 @@ a reasonable separation of concerns.
 <P>It is possible that two agents will be located at the same
 coordinates, and it would be helpful to distinguish them.
 </P>
-<P>Add a <a href="../index.html#Python docstring">docstring</a>and a parameter to the '__init__' constructor method of Agent
+<P>Add a <a href="../index/index.html#Python docstring">docstring</a>and a parameter to the '__init__' constructor method of Agent
 so that the method is as follows:
 </P>
 <PRE><CODE class="language-python">def __init__(self, i):
