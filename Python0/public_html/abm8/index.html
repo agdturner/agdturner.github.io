@@ -53,7 +53,9 @@ tkinter, it is necessary to change the matplotlib backend by
 adding the following at the top of 'model.py' before any other
 matplotlib imports:
 </P>
-<PRE><CODE class="language-python">matplotlib.use('TkAgg')matplotlib.use('TkAgg')</CODE></PRE><P>In Spyder, go to:</P>
+<PRE><CODE class="language-python">matplotlib.use('TkAgg')</CODE></PRE>
+
+<P>In Spyder, go to:</P>
 <PRE>Tools > Preferences > IPython console > Graphics tab</PRE><P>Select 'Tkinter' from the 'Backend' drop down list. Click 'ok'.
 Then select:
 </P>
@@ -67,17 +69,18 @@ Then select:
     animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
     animation.new_frame_seq()
     canvas.draw()
-def run(canvas):
-    animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
-    animation.new_frame_seq()
-    canvas.draw()
-</CODE></PRE><P>Add the following import statement to 'model.py':</P>
-<PRE><CODE class="language-python">import tkinter as tkimport tkinter as tk</CODE></PRE><P>In 'model.py' replace the following line (not the line in the
+</CODE></PRE>
+
+<P>Add the following import statement to 'model.py':</P>
+<PRE><CODE class="language-python">import tkinter as tk</CODE></PRE>
+
+<P>In 'model.py' replace the following line (not the line in the
 new run function):
 </P>
 <PRE><CODE class="language-python">animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
-animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
-</CODE></PRE><P>With:</P>
+</CODE></PRE>
+
+<P>With:</P>
 <PRE><CODE class="language-python"># GUI
 root = tk.Tk()
 root.wm_title("Agent Based Model")
@@ -94,23 +97,9 @@ menu_0.entryconfig("Write data", state="disabled")
 # Exit if the window is closed.
 root.protocol('WM_DELETE_WINDOW', exiting)
 tk.mainloop()
-# GUI
-root = tk.Tk()
-root.wm_title("Agent Based Model")
-canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, master=root)
-canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-menu_bar = tk.Menu(root)
-root.config(menu=menu_bar)
-menu_0 = tk.Menu(menu_bar)
-menu_bar.add_cascade(label="Model", menu=menu_0)
-menu_0.add_command(label="Run model", command=lambda: run(canvas))
-menu_0.add_command(label="Write data", command=lambda: output())
-menu_0.add_command(label="Exit", command=lambda: exiting())
-menu_0.entryconfig("Write data", state="disabled")
-# Exit if the window is closed.
-root.protocol('WM_DELETE_WINDOW', exiting)
-tk.mainloop()
-</CODE></PRE><P>Add the following functions to 'model.py':</P>
+</CODE></PRE>
+
+<P>Add the following functions to 'model.py':</P>
 <PRE><CODE class="language-python">def output():
     # Write data
     print("write data")
@@ -124,20 +113,9 @@ def exiting():
     root.quit()
     root.destroy()
     #sys.exit(0)
-def output():
-    # Write data
-    print("write data")
-    io.write_data('../../data/output/out.txt', environment)
-    imageio.mimsave('../../data/output/out.gif', images, fps=3)
+</CODE></PRE>
 
-def exiting():
-    """
-    Exit the program.
-    """
-    root.quit()
-    root.destroy()
-    #sys.exit(0)
-</CODE></PRE><P>Change the 'gen_function' from:</P>
+<P>Change the 'gen_function' from:</P>
 <PRE><CODE class="language-python">def gen_function():
     global ite
     global carry_on
@@ -151,20 +129,9 @@ def exiting():
         io.write_data('../../data/output/out.txt', environment)
         imageio.mimsave('../../data/output/out.gif', images, fps=3)
         data_written = True
-def gen_function():
-    global ite
-    global carry_on
-    while (ite <= n_iterations) & (carry_on) :
-        yield ite # Returns control and waits next call.
-        ite = ite + 1
-    global data_written
-    if data_written == False:
-        # Write data
-        print("write data")
-        io.write_data('../../data/output/out.txt', environment)
-        imageio.mimsave('../../data/output/out.gif', images, fps=3)
-        data_written = True
-</CODE></PRE><P>To:</P>
+</CODE></PRE>
+
+<P>To:</P>
 <PRE><CODE class="language-python">def gen_function():
     global ite
     global carry_on
@@ -176,18 +143,9 @@ def gen_function():
         # Set the Write data menu to normal.
         menu_0.entryconfig("Write data", state="normal")
         data_written = True
-def gen_function():
-    global ite
-    global carry_on
-    while (ite <= n_iterations) & (carry_on) :
-        yield ite # Returns control and waits next call.
-        ite = ite + 1
-    global data_written
-    if data_written == False:
-        # Set the Write data menu to normal.
-        menu_0.entryconfig("Write data", state="normal")
-        data_written = True
-</CODE></PRE><P>Now if the window in which the animation runs is closed, the
+</CODE></PRE>
+
+<P>Now if the window in which the animation runs is closed, the
 program should exit and exiting the program is also added as a
 menu option in the GUI.
 </P>

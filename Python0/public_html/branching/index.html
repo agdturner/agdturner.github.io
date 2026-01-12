@@ -56,13 +56,9 @@ day = "Weekday"
 if day_of_week >= 6:
     day = "Weekend"
 print(day)
-day_of_week = 5
-day = "Weekday"
-# A simple If Statement
-if day_of_week >= 6:
-    day = "Weekend"
-print(day)
-</CODE></PRE><P>The if statement condition evaluates as False, so the result is:
+</CODE></PRE>
+
+<P>The if statement condition evaluates as False, so the result is:
 </P>
 <PRE>Weekday</PRE><P>Changing the code slightly to:</P>
 <PRE><CODE class="language-python">day_of_week = 6
@@ -71,13 +67,9 @@ day = "Weekday"
 if day_of_week >= 6:
     day = "Weekend"
 print(day)
-day_of_week = 6
-# A simple If Statement
-day = "Weekday"
-if day_of_week >= 6:
-    day = "Weekend"
-print(day)
-</CODE></PRE><P>Results in:</P>
+</CODE></PRE>
+
+<P>Results in:</P>
 <PRE>Weekend</PRE><P>An 'else' clause branches into two distinct paths which become
 one again at the end of the compound if statement as in the
 following example.
@@ -89,14 +81,9 @@ if day_of_week < 6:
 else:
     day = "Weekend"
 print(day) # <-- Prints Weekday
-day_of_week = 5
-# An If-else  Statement
-if day_of_week < 6:
-    day = "Weekday"
-else:
-    day = "Weekend"
-print(day) # <-- Prints Weekday
-</CODE></PRE><P>One or many 'elif' clauses can also be inserted between if and
+</CODE></PRE>
+
+<P>One or many 'elif' clauses can also be inserted between if and
 else clauses. Elif is short for 'else if'. Consider the
 following example:
 </P>
@@ -115,22 +102,9 @@ elif day_of_week == 5:
 else:
     day = "Weekend"
 print(day) # <-- Prints Friday
-day_of_week = 5
-# An If-elif-else Statement
-if day_of_week == 1:
-    day = "Monday"
-elif day_of_week == 2:
-    day = "Tuesday"
-elif day_of_week == 3:
-    day = "Wednesday"
-elif day_of_week == 4:
-    day = "Thursday"
-elif day_of_week == 5:
-    day = "Friday"
-else:
-    day = "Weekend"
-print(day) # <-- Prints Friday
-</CODE></PRE><P>It can be argued that it is better to store a dictionary to
+</CODE></PRE>
+
+<P>It can be argued that it is better to store a dictionary to
 look up the day from the day_of_week, but a simple look up does
 not branch, and more code can be inserted in any of the clauses,
 so this can do more than just look up a value from a key.
@@ -158,22 +132,9 @@ match day_of_week:
     case _:
         day = "Weekend"
 print(day) # <-- Prints Friday
-day_of_week = 5
-match day_of_week:
-    case 1:
-        day = "Monday"
-    case 2:
-        day = "Tuesday"
-    case 3:
-        day = "Wednesday"
-    case 4:
-        day = "Thursday"
-    case 5:
-        day = "Friday"
-    case _:
-        day = "Weekend"
-print(day) # <-- Prints Friday
-</CODE></PRE><P>The final case is a catch all case using the anonymous variable
+</CODE></PRE>
+
+<P>The final case is a catch all case using the anonymous variable
 '_' which matches anything.
 </P>
 <P>The match-case statement offers more than a syntactic variation,

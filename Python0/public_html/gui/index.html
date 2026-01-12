@@ -112,39 +112,9 @@ exit_button.pack()
 
 # Start the GUI
 root.mainloop()
-import tkinter as tk
+</CODE></PRE>
 
-def increment():
-    global i
-    i = i + 1
-    label.config(text=str(i))
-
-def exiting():
-    """
-    Exit the program.
-    """
-    root.quit()
-    root.destroy()
-    #sys.exit(0)
-
-# Create the tkinter window
-root = tk.Tk()
-i = 0
-# Create a Label widget
-label = tk.Label(root, text=str(i))
-# Create a Button widget and link this with the increment function
-increment_button = tk.Button(root, text="Increment", command=increment)
-# Create a Button widget and link this with the exiting function
-exit_button = tk.Button(root, text="Exit", command=exiting)
-
-# Pack widgets so they are visible.
-label.pack()
-increment_button.pack()
-exit_button.pack()
-
-# Start the GUI
-root.mainloop()
-</CODE></PRE><DIV>
+<DIV>
 <H3 id="2.1">2.1. TTK</H3>
 <P>A slightly different look is provided by a more recent "themed"
 toolkit. The following does the same, but uses 'ttk' for the
@@ -184,40 +154,9 @@ exit_button.pack()
 
 # Start the GUI
 root.mainloop()
-import tkinter as tk
-import tkinter.ttk as ttk
+</CODE></PRE>
 
-def increment():
-    global i
-    i = i + 1
-    label.config(text=str(i))
-
-def exiting():
-    """
-    Exit the program.
-    """
-    root.quit()
-    root.destroy()
-    #sys.exit(0)
-
-# Create the tkinter window
-root = tk.Tk()
-i = 0
-# Create a Label widget
-label = ttk.Label(root, text=str(i))
-# Create a Button widget and link this with the increment function
-increment_button = ttk.Button(root, text="Increment", command=increment)
-# Create a Button widget and link this with the exiting function
-exit_button = ttk.Button(root, text="Exit", command=exiting)
-
-# Pack widgets so they are visible.
-label.pack()
-increment_button.pack()
-exit_button.pack()
-
-# Start the GUI
-root.mainloop()
-</CODE></PRE><DIV>
+<DIV>
 <H3 id="2.2">2.2. Menus</H3>
 <P>The following builds on the example setting up a menu and also
 configuring so that if the window is closed, then the program
@@ -271,54 +210,9 @@ root.protocol('WM_DELETE_WINDOW', exiting)
 
 # Start the GUI
 root.mainloop()
-import tkinter as tk
-import tkinter.ttk as ttk
+</CODE></PRE>
 
-def increment():
-    global i
-    i = i + 1
-    label.config(text=str(i))
-
-def exiting():
-    """
-    Exit the program.
-    """
-    root.quit()
-    root.destroy()
-    #sys.exit(0)
-
-# Create the tkinter window
-root = tk.Tk()
-
-# Create a menu bar
-menu_bar = tk.Menu(root)
-root.config(menu=menu_bar)
-increment_menu = tk.Menu(menu_bar)
-menu_bar.add_cascade(label="Options", menu=increment_menu)
-increment_menu.add_command(label="Increment", command=increment)
-exit_menu = tk.Menu(menu_bar)
-menu_bar.add_cascade(label="Exit", menu=exit_menu)
-exit_menu.add_command(label="Exit", command=exiting)
-
-i = 0
-# Create a Label widget
-label = ttk.Label(root, text=str(i))
-# Create a Button widget and link this with the increment function
-increment_button = ttk.Button(root, text="Increment", command=increment)
-# Create a Button widget and link this with the exiting function
-exit_button = ttk.Button(root, text="Exit", command=exiting)
-
-# Pack widgets so they are visible.
-label.pack()
-increment_button.pack()
-exit_button.pack()
-
-# Exit if the window is closed.
-root.protocol('WM_DELETE_WINDOW', exiting)
-
-# Start the GUI
-root.mainloop()
-</CODE></PRE></DIV>
+</DIV>
 
 <DIV>
 <H2 id="3">3. Example scale or slider widget</H2>
@@ -466,145 +360,9 @@ root.protocol('WM_DELETE_WINDOW', exiting)
 
 # Start the GUI
 root.mainloop()
-import tkinter as tk
-import tkinter.ttk as ttk
-import csv
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
+</CODE></PRE>
 
-def read_data(path):
-    """
-    Read data.
-
-    Parameters
-    ----------
-    path : String
-        Path of the file to be read. The file is expected to be a rectangular
-        2D CSV format data with numerical values.
-
-    Returns
-    -------
-    data : List of lists
-        The data in row major order.
-
-    """
-    f = open(path)
-    data = []
-    for line in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):
-        row = []
-        for value in line:
-            row.append(value)
-        data.append(row)
-    f.close()
-    #print(data)
-    return data
-
-def plot(p):
-    """
-    Redraws the canvas if there is a new power.
-
-    Parameters
-    ----------
-    p : int
-        The power to raise values to.
-
-    Returns
-    -------
-    None.
-
-    """
-    global p0
-    if p0 != p:
-        figure.clear()
-        #print(p)
-        data_p = []
-        #data.reverse()
-        for row in data:
-            row_p = []
-            for val in row:
-               row_p.append(val ** p)
-            data_p.append(row_p)
-        plt.imshow(data_p)
-        plt.show()
-        p0 = p
-        canvas.draw()
-
-def exiting():
-    """
-    Exit the program.
-    """
-    root.quit()
-    root.destroy()
-    """
-    Exit the program.
-    """
-    root.quit()
-    try:
-        root.destroy()
-    except Exception:
-        # Prevents reporting of a harmless Tcl error message:
-        # "TclError: can't invoke "destroy" command: application has been destroyed"
-        pass
-
-def update(x):
-    """
-    Updates scale_label and canvas.
-
-    Parameters
-    ----------
-    x : str.
-        Number.
-
-    Returns
-    -------
-    None.
-
-    """
-    #print(x)
-    #print(type(x))
-    #print(scale.get())
-    #print(int(float(scale.get())))
-    # Integerise p
-    p = int(float(scale.get()))
-    scale_label.config(text='power=' + str(p))
-    plot(p)
-
-# Initialise figure
-figure = matplotlib.pyplot.figure(figsize=(7, 7))
-#ax = figure.add_axes([0, 0, 1, 1])
-
-# Initialise data
-data = read_data('../../data/input/in.txt')
-
-# Initialise p0
-p0 = None
-
-# Create the tkinter window
-root = tk.Tk()
-
-# Create a canvas to display the figure
-canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(figure, master=root)
-canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-
-# Create a scale
-scale = ttk.Scale(root, from_=1, to=10, command=update)
-scale.pack()
-
-# Create a Label widget to display scale value
-scale_label = ttk.Label(root, text='Move the scale slider to choose a power and see an image.')
-scale_label.pack()
-
-# Create a Button widget and link this with the exiting function
-exit_button = ttk.Button(root, text="Exit", command=exiting)
-exit_button.pack()
-
-# Exit if the window is closed.
-root.protocol('WM_DELETE_WINDOW', exiting)
-
-# Start the GUI
-root.mainloop()
-</CODE></PRE></DIV>
+</DIV>
 
 <DIV>
 <H2 id="4">4. GUI Design and Development</H2>

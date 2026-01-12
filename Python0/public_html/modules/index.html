@@ -69,9 +69,9 @@ the 'agentframework' module:
 </P>
 <PRE><CODE class="language-python">import agentframework
 a = agentframework.Agent()
-import agentframework
-a = agentframework.Agent()
-</CODE></PRE><P>This is a very explicit style. There is little ambiguity about
+</CODE></PRE>
+
+<P>This is a very explicit style. There is little ambiguity about
 which 'Agent' class is used - it is the one from the
 'agentframework' module.
 </P>
@@ -80,9 +80,9 @@ follows:
 </P>
 <PRE><CODE class="language-python">from agentframework import Agent
 a = Agent()
-from agentframework import Agent
-a = Agent()
-</CODE></PRE><P>The advantage of this is that it is less verbose when it comes
+</CODE></PRE>
+
+<P>The advantage of this is that it is less verbose when it comes
 to lines of code that instantiate instances of the Agent class.
 Also this is more memory efficent as it only makes available
 that specific class from the 'agentframework' module rather than
@@ -91,7 +91,9 @@ keeping the entire module available.
 <P>You may see imports of everything in a module using the star
 operator '*', for example:
 </P>
-<PRE><CODE class="language-python">from agentframework import *from agentframework import *</CODE></PRE><P>This saves having to import multiple classes, but it can be
+<PRE><CODE class="language-python">from agentframework import *</CODE></PRE>
+
+<P>This saves having to import multiple classes, but it can be
 problematic as what gets imported can replace things imported
 before that have the same name. It is good practise to be
 explicit and import individually only those things that are
@@ -105,13 +107,13 @@ class instances:
 </P>
 <PRE><CODE class="language-python">import agentframework as af
 a = af.Agent()
-import agentframework as af
-a = af.Agent()
-</CODE></PRE><PRE><CODE class="language-python">from agentframework import Agent as A
+</CODE></PRE>
+
+<PRE><CODE class="language-python">from agentframework import Agent as A
 a = A()
-from agentframework import Agent as A
-a = A()
-</CODE></PRE><P>The Python interpreter parses modules on import initialising
+</CODE></PRE>
+
+<P>The Python interpreter parses modules on import initialising
 variables and making functions and classes available for use.
 Within the module, any code not in a function or a class is run
 when the module is imported as is any code within a class that
@@ -128,10 +130,9 @@ the global '__name__' variable equals "__main__":
 <PRE><CODE class="language-python">if __name__ == "__main__":
     # All code in this is only run when the module is run as a script.
     # It is not run if the module is imported.
-if __name__ == "__main__":
-    # All code in this is only run when the module is run as a script.
-    # It is not run if the module is imported.
-</CODE></PRE></DIV>
+</CODE></PRE>
+
+</DIV>
 
 <DIV>
 <H2 id="3">3. Packages</H2>
@@ -145,20 +146,15 @@ if __name__ == "__main__":
     /my_modules
         __init__.py
         agentframework.py
-/abm
-    __init__.py
-    __main__.py
-    /models
-        __init__.py
-        model.py
-    /my_modules
-        __init__.py
-        agentframework.py
-</CODE></PRE><P>The '__init__.py' files can be empty, but they must exist so
+</CODE></PRE>
+
+<P>The '__init__.py' files can be empty, but they must exist so
 the Python interpreter recognises these subdirectories as
 subpackages and allows import statements to work as follows:
 </P>
-<PRE><CODE class="language-python">import abm.my_modules.agentframework.Agentimport abm.my_modules.agentframework.Agent</CODE></PRE><P>This import statement will work so long as there is an 'Agent'
+<PRE><CODE class="language-python">import abm.my_modules.agentframework.Agent</CODE></PRE>
+
+<P>This import statement will work so long as there is an 'Agent'
 class within the 'agentframework' module
 </P>
 <P>The base '__init__.py' file in the 'abm' directory can also
@@ -171,7 +167,9 @@ used. For example, if the following were the contents of
 </PRE><P>Then, the following import statement would import both the
 'models' and 'my_modules' subpackages:
 </P>
-<PRE><CODE class="language-python">from abm import *from abm import *</CODE></PRE><P>Packages are set to run as applications by placing startup
+<PRE><CODE class="language-python">from abm import *</CODE></PRE>
+
+<P>Packages are set to run as applications by placing startup
 code in a file called '__main__.py'. The following command would
 then run the application when issued at the prompt:
 </P>

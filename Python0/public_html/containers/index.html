@@ -121,28 +121,17 @@ s8 = str(s0[8:]) # A string constructed from a slice of another string
 print(s8) # <-- Prints a string
 s9 = "strings " + "can be " + "concatenated using '+'"
 print(s9) # <-- Prints strings can be concatenated using '+'
-s0 = "this is a string"
-s2 = 'this is also a string'
-s3 = "string encapsulated with double quotes and containing single 'quotes'"
-s4 = 'string encapsulated with single quotes and containing double "quotes"'
-s5 = "string encapsulated with double quotes and containing double "quotes""
-s6 = 'string encapsulated with single quotes and containing single 'quotes''
-s7 = str(s0) # A string constructed from another string
-print(s7) # < prints this is a string
-s8 = str(s0[8:]) # A string constructed from a slice of another string
-print(s8) # <-- Prints a string
-s9 = "strings " + "can be " + "concatenated using '+'"
-print(s9) # <-- Prints strings can be concatenated using '+'
-</CODE></PRE><P>A backslash can also ensure the continuation of a line. For
+</CODE></PRE>
+
+<P>A backslash can also ensure the continuation of a line. For
 example:
 </P>
 <PRE><CODE class="language-python">print('''This is \
 all one line.
 This is a second.''')
-print('''This is \
-all one line.
-This is a second.''')
-</CODE></PRE><P>Produces:</P>
+</CODE></PRE>
+
+<P>Produces:</P>
 <PRE>This is all one line.
 This is a second.
 </PRE><P>The symbol '#' can be included in a string. Source code
@@ -151,9 +140,9 @@ So, running the following:
 </P>
 <PRE><CODE class="language-python">print('''This is \ # Not a comment
 all one line.''')
-print('''This is \ # Not a comment
-all one line.''')
-</CODE></PRE><P>Results in:</P>
+</CODE></PRE>
+
+<P>Results in:</P>
 <PRE>This is \ # Not a comment
 all one line.
 </PRE><P>It is sometimes easier to use concatenation in order to add
@@ -162,10 +151,9 @@ source code comments:
 <PRE><CODE class="language-python">print("This is " + # A comment
 "all one line.")
 print("This is a second")
-print("This is " + # A comment
-"all one line.")
-print("This is a second")
-</CODE></PRE><P>Results in:</P>
+</CODE></PRE>
+
+<P>Results in:</P>
 <PRE>This is all one line.
 This is a second.
 </PRE><P>The string class contains many useful
@@ -183,15 +171,9 @@ print(split0)
 # Split by accessing the function from the string instance.
 split1 = s.split(delimiter)
 print(split1)
-s = "A simple string to split."
-delimiter = " " # What is used to split the String into parts
-# Split by accessing the function and passing the string to be split as a parameter.
-split0 = str.split(s, delimiter)
-print(split0)
-# Split by accessing the function from the string instance.
-split1 = s.split(delimiter)
-print(split1)
-</CODE></PRE><P>The two ways produce the same result. The delimeter is optional,
+</CODE></PRE>
+
+<P>The two ways produce the same result. The delimeter is optional,
 by default it is any blank space (a continuous sequence of
 spaces, tabs and/or newlines).
 </P>
@@ -218,16 +200,9 @@ print(c) # <-- Prints 1
 print(d) # <-- Prints 'two'
 singleton = 'hello', # <-- Note the trailing comma.
 print(len(singleton)) # Prints 1
-a = () # A new empty tuple
-print(len(a)) # <-- Prints 0
-b = (1, "two", 4) # Pack 3 things into b
-print(len(b)) # Prints 3
-c, d, e = b # unpack b into three things (c will refer to 1, d to "two" and e to 4)
-print(c) # <-- Prints 1
-print(d) # <-- Prints 'two'
-singleton = 'hello', # <-- Note the trailing comma.
-print(len(singleton)) # Prints 1
-</CODE></PRE><P>Try the code yourself, then consider the following code snippet
+</CODE></PRE>
+
+<P>Try the code yourself, then consider the following code snippet
 which generates part of a
 <a href="https://en.wikipedia.org/wiki/Fibonacci_number">
 Fibonacci series</a> of integer numbers:
@@ -239,14 +214,9 @@ while b < 10:
     print(b)
     a, b = b, a+b
 print(b)
-# Fibonacci series - the sum of the last two numbers in a sequence defines the next
-a, b = 0, 1
-print(a)
-while b < 10:
-    print(b)
-    a, b = b, a+b
-print(b)
-</CODE></PRE><P>The </P>
+</CODE></PRE>
+
+<P>The </P>
 <a href="../index/index.html#Python while">while statement</a><P>is a loop with an expression that is evaluated each time around
 the loop. While this expression 'b < 10' evaluates as 'True' the
 loop continues to run, when it evaluates as 'False', the program
@@ -259,33 +229,34 @@ Such packing/unpacking is not common in other languages
 <H3 id="2.4">2.4. Ranges</H3>
 <P><a href="../index/index.html#Python range">Ranges</a> are a special type of immutable sequence created as follows:</P>
 <PRE><CODE class="language-python">range(start, stop, step) # start and step are optional and default to 0 and 1 repectively
-range(start, stop, step) # start and step are optional and default to 0 and 1 repectively
-</CODE></PRE><P>The parameters: start, stop and step should be integers. The
+</CODE></PRE>
+
+<P>The parameters: start, stop and step should be integers. The
 range function generates numbers up to but not including stop,
 for example:
 </P>
 <PRE><CODE class="language-python">for x in range(4):
     print(x)
-for x in range(4):
-    print(x)
-</CODE></PRE><P>Results in:</P>
+</CODE></PRE>
+
+<P>Results in:</P>
 <PRE>0
 1
 2
 3
 </PRE><PRE><CODE class="language-python">for x in range(2,8,2):
     print(x)
-for x in range(2,8,2):
-    print(x)
-</CODE></PRE><P>Results in:</P>
+</CODE></PRE>
+
+<P>Results in:</P>
 <PRE>2
 4
 6
 </PRE><PRE><CODE class="language-python">for x in range(0,-5,-1)
     print(x)
-for x in range(0,-5,-1)
-    print(x)
-</CODE></PRE><P>Results in:</P>
+</CODE></PRE>
+
+<P>Results in:</P>
 <PRE>0
 -1
 -2
@@ -307,12 +278,9 @@ type(r) # <-- Prints <class 'range'>
 print(r) # <-- Prints range(0, 5)
 t = tuple(r)
 print(t) # <-- Prints (0, 1, 2, 3, 4)
-r = range(5)
-type(r) # <-- Prints <class 'range'>
-print(r) # <-- Prints range(0, 5)
-t = tuple(r)
-print(t) # <-- Prints (0, 1, 2, 3, 4)
-</CODE></PRE><P>There are various null that process sequences, for example
+</CODE></PRE>
+
+<P>There are various null that process sequences, for example
 <a href="https://docs.python.org/3/library/functions.html#min">
 min</a>
 will return the minimum value,
@@ -340,15 +308,9 @@ print(a.index(6,0,4)) # Print the first index of item equal to 6 at or after ind
 print(a.count(6)) # Print the count of items equal to 6 in a.
 b = (True, False)
 print(any(b)) # Print if any of the items in b are True.
-a = (1, 6, 9, 0, 6)
-print(min(a))
-print(max(a))
-print(sum(a))
-print(a.index(6,0,4)) # Print the first index of item equal to 6 at or after index 0 and before index 4
-print(a.count(6)) # Print the count of items equal to 6 in a.
-b = (True, False)
-print(any(b)) # Print if any of the items in b are True.
-</CODE></PRE><DIV>
+</CODE></PRE>
+
+<DIV>
 <H3 id="2.5">2.5. Lists</H3>
 <P><a href="../index/index.html#Python list">Lists</a> are the mutable form of tuples. Lists have an order, different
 types of thing can be stored in them, things can be appended,
@@ -370,18 +332,9 @@ a.remove('apple') # Remove the first occurance of 'apple' in the list
 b = list((1, 2, 4, 8))
 print(type(b))
 print(b)
-a = [] # Create an empty list called a.
-a.append("apple") # Append the String "apple" to the list a
-print(len(a)) # Print the length of a
-print(a[0]) # Print the first element of a
-a.insert(0, 2) # Insert the Integer 2 into a at index 0
-a.reverse() # Reverse the order of elements in a
-del a[1] # Remove the element of a at index 1
-a.remove('apple') # Remove the first occurance of 'apple' in the list
-b = list((1, 2, 4, 8))
-print(type(b))
-print(b)
-</CODE></PRE><P>Run this code and check if the output is what you expect and
+</CODE></PRE>
+
+<P>Run this code and check if the output is what you expect and
 then have a play around trying some different things.
 </P>
 <P>A 'slice' of a sequence contains all those items at the indexes
@@ -398,18 +351,9 @@ c = a[i:j:k] # a between and including a[i] and a[j - 1], but stepping k indexes
 print("c", c)
 d = a[:] # A complete slice i.e. all items of a
 print("d", d)
-a = [0, 1, 2, 3, 4]
-print("a", a)
-i = 1
-j = 3
-b = a[i:j] # a between and including a[i] and a[j - 1]
-print("b", b)
-k = 2
-c = a[i:j:k] # a between and including a[i] and a[j - 1], but stepping k indexes each time.
-print("c", c)
-d = a[:] # A complete slice i.e. all items of a
-print("d", d)
-</CODE></PRE><P>In slicing a list a using a[i:j:k]:</P>
+</CODE></PRE>
+
+<P>In slicing a list a using a[i:j:k]:</P>
 <UL>
 <LI>If j > len(a), the last position is used.</LI>
 <LI>If i is None or omitted, zero is used.</LI>
@@ -428,11 +372,9 @@ from one list with the values from another:
 b = [10,20,30]
 a[1:3] = b
 print(a) # <-- Prints [0,10,20,30,3,4]
-a = [0,1,2,3,4]
-b = [10,20,30]
-a[1:3] = b
-print(a) # <-- Prints [0,10,20,30,3,4]
-</CODE></PRE><P>Notice that the values '1' and '2' originally in index
+</CODE></PRE>
+
+<P>Notice that the values '1' and '2' originally in index
 positions 1 and 2 of 'a' are replaced by the three values in 'b'.
 It is perhaps easier to thing of replacements as deletions and
 insertions.
@@ -442,11 +384,9 @@ insertions.
 b = [10,20]
 a[1:5] = b
 print(a) # <-- Prints [0,10,20]
-a = [0,1,2,3,4]
-b = [10,20]
-a[1:5] = b
-print(a) # <-- Prints [0,10,20]
-</CODE></PRE><P><p>The <a href="../index/index.html#Python builtins">builtin module</a> function <a href="../index/index.html#Python zip">zip</a> can be used to combine lists into a sequence of tuples as
+</CODE></PRE>
+
+<P><p>The <a href="../index/index.html#Python builtins">builtin module</a> function <a href="../index/index.html#Python zip">zip</a> can be used to combine lists into a sequence of tuples as
 follows:
 </P>
 <PRE><CODE class="language-python">a = [1,2,3,4,5]
@@ -454,12 +394,9 @@ b = [10,20,30,40,50]
 c = zip(a,b)
 d = list(c)
 print(d) # <-- Prints [(1,10),(2,20),(3,30),(4,40),(5,50)]
-a = [1,2,3,4,5]
-b = [10,20,30,40,50]
-c = zip(a,b)
-d = list(c)
-print(d) # <-- Prints [(1,10),(2,20),(3,30),(4,40),(5,50)]
-</CODE></PRE><P>The zip function pairs up the values by index. If the sequences
+</CODE></PRE>
+
+<P>The zip function pairs up the values by index. If the sequences
 have different lengths then the paired up list is the length of
 the shorter sequence and does not contain the end of the longer
 sequence.
@@ -499,13 +436,9 @@ print(a)
 a.insert(2, 4)
 print(a)
 a.insert(2, 2.5)
-import array
-a = array.array('i', [1, 2, 3, 4])
-print(a)
-a.insert(2, 4)
-print(a)
-a.insert(2, 2.5)
-</CODE></PRE></DIV>
+</CODE></PRE>
+
+</DIV>
 
 <DIV>
 <H2 id="3">3. Sets</H2>
@@ -520,12 +453,9 @@ a.add("apple")    # Add "apple" to a
 a.add("orange") # Add "orange" to a
 if "orange" in a:
     print('"or    ange" is in a')
-a = set() # Empty set
-a.add("apple")    # Add "apple" to a
-a.add("orange") # Add "orange" to a
-if "orange" in a:
-    print('"or    ange" is in a')
-</CODE></PRE>Traditional mathemetical set functions like union() and
+</CODE></PRE>
+
+Traditional mathemetical set functions like union() and
 intersection() are available for sets which can also be
 compared. Two sets are equal if they contain all of the same
 elements.
@@ -544,9 +474,9 @@ value for a particular key and prints it:
 </P>
 <PRE><CODE class="language-python">alias = dict([("rm", "remove"), ("cd", "change directory"), ("ls", "list")])
 print(alias.get("rm")) # <-- This should print 'remove'.
-alias = dict([("rm", "remove"), ("cd", "change directory"), ("ls", "list")])
-print(alias.get("rm")) # <-- This should print 'remove'.
-</CODE></PRE><P>There are functions that help with modifying and processing
+</CODE></PRE>
+
+<P>There are functions that help with modifying and processing
 dictionaries.
 </P>
 <DIV>

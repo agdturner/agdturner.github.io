@@ -83,20 +83,9 @@ for line in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):
     data.append(row)
 f.close()
 print(data)
-import csv
+</CODE></PRE>
 
-# Read input data
-f = open('../../data/input/in.txt', newline='')
-data = []
-for line in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):
-    row = []
-    for value in line:
-        row.append(value)
-        #print(value)
-    data.append(row)
-f.close()
-print(data)
-</CODE></PRE><P>Run this new file. The output should correspond to the input
+<P>Run this new file. The output should correspond to the input
 data file only the values are presented with '.0' appended (as
 they have been loaded as Float and not Integer numbers).
 </P>
@@ -108,10 +97,14 @@ the columns for each row.
 returns the data variable. Write code to call this function from
 'model.py' by adding the following import statement:
 </P>
-<PRE><CODE class="language-python">import ioimport io</CODE></PRE><P>After the import statements try to call the 'read_data' function
+<PRE><CODE class="language-python">import io</CODE></PRE>
+
+<P>After the import statements try to call the 'read_data' function
 using:
 </P>
-<PRE><CODE class="language-python">environment = io.read_data()environment = io.read_data()</CODE></PRE><P>You should encounter an AttributeError along the lines of the
+<PRE><CODE class="language-python">environment = io.read_data()</CODE></PRE>
+
+<P>You should encounter an AttributeError along the lines of the
 following:
 </P>
 <PRE>Traceback (most recent call last):
@@ -136,9 +129,9 @@ statements in 'model.py' to be:
 </P>
 <PRE><CODE class="language-python">import my_modules.agentframework as af
 import my_modules.io as io
-import my_modules.agentframework as af
-import my_modules.io as io
-</CODE></PRE><P>Run 'model.py' and it should now run without the error. (If you
+</CODE></PRE>
+
+<P>Run 'model.py' and it should now run without the error. (If you
 still get an error then restart Spyder.)
 </P>
 <P>Change the 'read_data' function so it checks that each row of
@@ -160,18 +153,18 @@ and each column of 'environment' aligns with an x-coordinate.
 <P>To plot 'agents' on the 'environment' add the following at the
 start of the plotting section:
 </P>
-<PRE><CODE class="language-python">plt.imshow(environment)plt.imshow(environment)</CODE></PRE><P>Change the initialisation of 'x_max' and 'y_max' to be as
+<PRE><CODE class="language-python">plt.imshow(environment)</CODE></PRE>
+
+<P>Change the initialisation of 'x_max' and 'y_max' to be as
 follows:
 </P>
 <PRE><CODE class="language-python"># The maximum an agents x coordinate is allowed to be.
 x_max = n_cols - 1
 # The maximum an agents y coordinate is allowed to be.
 y_max = n_rows - 1
-# The maximum an agents x coordinate is allowed to be.
-x_max = n_cols - 1
-# The maximum an agents y coordinate is allowed to be.
-y_max = n_rows - 1
-</CODE></PRE><P>A plot should be produced that looks like:</P>
+</CODE></PRE>
+
+<P>A plot should be produced that looks like:</P>
 <P><img src="../../resources/abm5/Figure_1.png"
 alt="A plot of agents on the environment." />
 </P>
@@ -183,9 +176,9 @@ the following code before the plot.show() function is called:
 </P>
 <PRE><CODE class="language-python">plt.ylim(y_min, y_max)
 plt.xlim(x_min, x_max)
-plt.ylim(y_min, y_max)
-plt.xlim(x_min, x_max)
-</CODE></PRE><P>Run again and the output plot should look like:
+</CODE></PRE>
+
+<P>Run again and the output plot should look like:
 <img src="../../resources/abm5/Figure_2.png"
 alt="A plot of agents on a limited part of the environment." />
 </P>
@@ -217,28 +210,9 @@ follows:
     self.x = random.randint(tnc - 1, (2 * tnc) - 1)
     tnr = int(n_rows / 3)
     self.y = random.randint(tnr - 1, (2 * tnr) - 1)
-def __init__(self, i, n_rows, n_cols):
-    """
-    The constructor method.
+</CODE></PRE>
 
-    Parameters
-    ----------
-    i : Integer
-        To be unique to each instance.
-    n_rows : Integer
-        The number of rows in environment.
-    n_cols : Integer
-        The number of columns in environment.
-    Returns
-    -------
-    None.
-    """
-    self.i = i
-    tnc = int(n_cols / 3)
-    self.x = random.randint(tnc - 1, (2 * tnc) - 1)
-    tnr = int(n_rows / 3)
-    self.y = random.randint(tnr - 1, (2 * tnr) - 1)
-</CODE></PRE><P>Change the code that calls the constuctor method so it passes
+<P>Change the code that calls the constuctor method so it passes
 in the variables 'n_rows' and 'ncols' approprately. Run
 'model.py'. The output plot should look like the following:
 <img src="../../resources/abm5/Figure_3.png"
@@ -257,11 +231,9 @@ environment irrespective of the number of rows and columns:
 self.x = random.randint(0, tnc - 1) + tnc
 tnr = int(n_rows / 3)
 self.y = random.randint(0, tnr - 1) + tnr
-tnc = int(n_cols / 3)
-self.x = random.randint(0, tnc - 1) + tnc
-tnr = int(n_rows / 3)
-self.y = random.randint(0, tnr - 1) + tnr
-</CODE></PRE></DIV>
+</CODE></PRE>
+
+</DIV>
 
 <DIV>
 <H2 id="4">4. Agent-Environment Interaction</H2>
@@ -300,34 +272,9 @@ self.x = random.randint(tnc - 1, (2 * tnc) - 1)
 tnr = int(n_rows / 3)
 self.y = random.randint(tnr - 1, (2 * tnr) - 1)
 self.store = 0
-def __init__(self, i, environment, n_rows, n_cols):
-"""
-The constructor method.
+</CODE></PRE>
 
-Parameters
-----------
-i : Integer
-    To be unique to each instance.
-environment : List
-    A reference to a shared environment
-n_rows : Integer
-    The number of rows in environment.
-n_cols : Integer
-    The number of columns in environment.
-
-Returns
--------
-None.
-
-"""
-self.i = i
-self.environment = environment
-tnc = int(n_cols / 3)
-self.x = random.randint(tnc - 1, (2 * tnc) - 1)
-tnr = int(n_rows / 3)
-self.y = random.randint(tnr - 1, (2 * tnr) - 1)
-self.store = 0
-</CODE></PRE><P>Change model.py so that environment is passed in correctly as
+<P>Change model.py so that environment is passed in correctly as
 agents are initialised.
 </P>
 <P>In the Agent class define the following method:</P>
@@ -335,11 +282,9 @@ agents are initialised.
     if self.environment[self.y][self.x] &gt;= 10:
         self.environment[self.y][self.x] -= 10
         self.store += 10
-def eat(self):
-    if self.environment[self.y][self.x] &gt;= 10:
-        self.environment[self.y][self.x] -= 10
-        self.store += 10
-</CODE></PRE><P>This method checks the value of the 'environment' where the
+</CODE></PRE>
+
+<P>This method checks the value of the 'environment' where the
 agent is located and if this is greater than or equal to 10,
 the value of 'environment' where the agent is located is reduced
 by 10, and 10 is added to the 'store' attribute of the agent.
@@ -355,9 +300,9 @@ environment as follows:
 </P>
 <PRE><CODE class="language-python">plt.ylim(y_max / 3, y_max * 2 / 3)
 plt.xlim(x_max / 3, x_max * 2 / 3)
-plt.ylim(y_max / 3, y_max * 2 / 3)
-plt.xlim(x_max / 3, x_max * 2 / 3)
-</CODE></PRE><P>Run the program again and you should get the following image:
+</CODE></PRE>
+
+<P>Run the program again and you should get the following image:
 <img src="../../resources/abm5/Figure_4.png"
 alt="A plot of agents on a limited part of the environment with
 part of it eaten away and the agents centralised." />

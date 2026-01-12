@@ -59,11 +59,11 @@ in a text editor or viewing the source in your Web browser.
 <P>Add the following import statements to 'model.py':</P>
 <PRE><CODE class="language-python">import requests
 import bs4
-import requests
-import bs4
-</CODE></PRE><P>Change the agent initialisation code block as follows:</P>
+</CODE></PRE>
+
+<P>Change the agent initialisation code block as follows:</P>
 <PRE><CODE class="language-python"># Initialise agents
-# Initialise agents
+
 url = 'https://agdturner.github.io/resources/abm9/data.html'r = requests.get(url, verify=False)");
 content = r.text
 soup = bs4.BeautifulSoup(content, 'html.parser')
@@ -78,7 +78,8 @@ for i in range(n_agents):
     x = int(td_xs[i].text) + 99
     agents.append(af.Agent(agents, i, environment, n_rows, n_cols, x, y))
     print(agents[i].agents[i])
-</CODE></PRE><P>Change the '__init__' function in 'agentframework.py' to:</P>
+</CODE></PRE>
+<P>Change the '__init__' function in 'agentframework.py' to:</P>
 <PRE><CODE class="language-python">def __init__(self, agents, i, environment, n_rows, n_cols, x = None, y = None):
 """
 The constructor method.
@@ -118,46 +119,9 @@ else:
     self.y = y
 self.store = random.randint(0, 99)
 self.store_shares = 0
-def __init__(self, agents, i, environment, n_rows, n_cols, x = None, y = None):
-"""
-The constructor method.
+</CODE></PRE>
 
-Parameters
-----------
-i : Integer
-    To be unique to each instance.
-environment : List
-    A reference to a shared environment.
-n_rows : Integer
-    The number of rows in environment.
-n_cols : Integer
-    The number of columns in environment.
-x : Integer
-    For initialising the x coordinate of the agent.
-y : Integer
-    For initialising the y coordinate of the agent.
-
-Returns
--------
-None.
-
-"""
-self.agents = agents
-self.i = i
-self.environment = environment
-if x == None:
-    tnc = int(n_cols / 3)
-    self.x = random.randint(tnc - 1, (2 * tnc) - 1)
-else:
-    self.x = x
-if y == None:
-    tnr = int(n_rows / 3)
-    self.y = random.randint(tnr - 1, (2 * tnr) - 1)
-else:
-    self.y = y
-self.store = random.randint(0, 99)
-self.store_shares = 0
-</CODE></PRE></DIV>
+</DIV>
 
 <DIV>
 

@@ -70,17 +70,9 @@ try:
 except:
     a = 0
 print("Done")
-# Catch an exception
-import random
-try:
-    a = 1/random.random()
-    # Random generates number in
-    # range [0,1) so
-    # ZeroDivisionError possible
-except:
-    a = 0
-print("Done")
-</CODE></PRE><P>To reiterate, this will run the 'try' clause of the compound
+</CODE></PRE>
+
+<P>To reiterate, this will run the 'try' clause of the compound
 statement, and if an exception is raised in running that, then
 (and only then) will the 'except' clause run.
 </P>
@@ -99,17 +91,8 @@ try:
 except ZeroDivisionError:
     a = 0
 print("Done")
-# Catch a specific exception:
-import random
-try:
-    a = 1/random.random()
-    # Random generates number in
-    # range 0,1 so
-    # ZeroDivisionError possible
-except ZeroDivisionError:
-    a = 0
-print("Done")
-</CODE></PRE><P>There is a
+</CODE></PRE>
+<P>There is a
 <a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">
 heirarchy of exception types</a>.
 </P>
@@ -130,13 +113,9 @@ try:
 except (ZeroDivisionError, SystemError):
     a = 0
 print("Done")
-import random
-try:
-    a = 1/random.random()
-except (ZeroDivisionError, SystemError):
-    a = 0
-print("Done")
-</CODE></PRE></LI>
+</CODE></PRE>
+
+</LI>
 <LI>Using multiple except clauses, for example:<PRE><CODE class="language-python">import random
 try:
     a = 1/random.random()
@@ -146,16 +125,9 @@ except SystemError:
     print("Warning: SystemError")
     a = 0
 print("Done")
-import random
-try:
-    a = 1/random.random()
-except ZeroDivisionError:
-    a = 0
-except SystemError:
-    print("Warning: SystemError")
-    a = 0
-print("Done")
-</CODE></PRE></LI>
+</CODE></PRE>
+
+</LI>
 </OL>
 </DIV>
 
@@ -167,7 +139,9 @@ not handled in an 'except' clause.
 <P>The keyword 'raise' can be used to raise an exception by simply
 giving the exception type. The following raises a
 null.</P>
-<PRE><CODE class="language-python">raise SystemErrorraise SystemError</CODE></PRE><P>New types of exception can be defined by subclassing an
+<PRE><CODE class="language-python">raise SystemError</CODE></PRE>
+
+<P>New types of exception can be defined by subclassing an
 exception from the builtins module.
 </P>
 </DIV>
@@ -186,16 +160,9 @@ else:
     print(a)
     # Exceptions here are raised.
 print("Done")
-import random
-try:
-    a = 1/random.random()
-except:
-    a = 0
-else:
-    print(a)
-    # Exceptions here are raised.
-print("Done")
-</CODE></PRE><P>To run code whether an exception is raised or not, then add a
+</CODE></PRE>
+
+<P>To run code whether an exception is raised or not, then add a
 'finally' clause, for example:
 </P>
 <PRE><CODE class="language-python">import random
@@ -207,16 +174,9 @@ finally:
     if a == None:
         a = -1
 print("Done")
-import random
-try:
-    a = 1/random.random()
-except:
-    a = 0
-finally:
-    if a == None:
-        a = -1
-print("Done")
-</CODE></PRE><!--<P>In executing the finally clause, any exceptions encountered are
+</CODE></PRE>
+
+<!--<P>In executing the finally clause, any exceptions encountered are
 raised after the finally has run.
 </P>
 <P>Finally clauses are always executed, even if there is a Return
@@ -244,10 +204,12 @@ from the
 <a href="../index/index.html#Python sys">sys module</a>. For example:</P>
 <PRE><CODE class="language-python">import sys
 sys.exit()
-import sys
-sys.exit()
-</CODE></PRE><P>This has an arg option:</P>
-<PRE><CODE class="language-python">sys.exit(arg)sys.exit(arg)</CODE></PRE><P>Where arg is a number that the system will report. Zero is
+</CODE></PRE>
+
+<P>This has an arg option:</P>
+<PRE><CODE class="language-python">sys.exit(arg)</CODE></PRE>
+
+<P>Where arg is a number that the system will report. Zero is
 usually regarded as exiting with no issues.
 </P>
 <P>For details on error codes, see:

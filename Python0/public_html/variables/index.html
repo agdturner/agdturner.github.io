@@ -98,38 +98,9 @@ min3 = min2 + min
 if min3 > min2:
     print("min3 > min2")
 print("min2", min2)
-import sys
+</CODE></PRE>
 
-# Exploring Float max and min values.
-max = sys.float_info.max
-min = sys.float_info.min
-print("max", max)
-print("min", min)
-
-# Are there any changes?
-print("max + min", max + min)
-print("max - min", max - min)
-print("min + min", min + min)
-
-# What number do we need to add to max to get inf?
-max2 = max
-d = 2
-while max2 == max:
-    max2 = max2 + d
-    d *= 2
-d = d / 2
-print("d", d)
-print("max + d/2", max + d/2)
-print("max + d", max + d)
-
-# Find a number bigger than min which is the same when min is
-# added to it.
-min2 = min * 10**16
-min3 = min2 + min
-if min3 > min2:
-    print("min3 > min2")
-print("min2", min2)
-</CODE></PRE><P>This code generates the following output:</P>
+<P>This code generates the following output:</P>
 <PRE>max 1.7976931348623157e+308
 min 2.2250738585072014e-308
 max + min 1.7976931348623157e+308
@@ -161,16 +132,9 @@ print(s == s3) # Prints False
 print(s > s2)  # Prints False
 print(s < s2)  # Prints True
 print(str(3))  # Prints 3
-s = "A"
-s2 = "a"
-s3 = "B"
-print(s == s)  # Prints True
-print(s == s2) # Prints False (case sensitive)
-print(s == s3) # Prints False
-print(s > s2)  # Prints False
-print(s < s2)  # Prints True
-print(str(3))  # Prints 3
-</CODE></PRE><P>Booleans are 'True' or 'False' and also equate to '0' or '1'.</P>
+</CODE></PRE>
+
+<P>Booleans are 'True' or 'False' and also equate to '0' or '1'.</P>
 <P>Consider and run the following code:</P>
 <PRE><CODE class="language-python">t = True
 f = False
@@ -185,20 +149,9 @@ print("t and f", t and f)           # Prints False
 print("t and not f", t and not f)   # Prints True
 print("t or f", t or f)             # Prints True
 print("not (t or f)", not (t or f)) # Prints False
-t = True
-f = False
-print("t == t", t == t)             # Prints True
-print("f == f", f == f)             # Prints True
-print("t == 1", t == 1)             # Prints True
-print("f == 0", f == 0)             # Prints True
-print("t != f", t != f)             # Prints True
-print("not t", not t)               # Prints False
-print("not f", not f)               # Prints True
-print("t and f", t and f)           # Prints False
-print("t and not f", t and not f)   # Prints True
-print("t or f", t or f)             # Prints True
-print("not (t or f)", not (t or f)) # Prints False
-</CODE></PRE><P>More complex objects have state given by multiple primitives
+</CODE></PRE>
+
+<P>More complex objects have state given by multiple primitives
 variables. Objects can also be comprised of multiple other
 objects as defined by a class.
 </P>
@@ -213,12 +166,9 @@ x = 1
 print(type(x)) # Prints &lt;class 'int'&gt;
 x = "1"
 print(type(x)) # Prints &lt;class 'str'&gt;
-# Set x = 1 and print the type of x")
-x = 1
-print(type(x)) # Prints &lt;class 'int'&gt;
-x = "1"
-print(type(x)) # Prints &lt;class 'str'&gt;
-</CODE></PRE><P>The output from running this code is:</P>
+</CODE></PRE>
+
+<P>The output from running this code is:</P>
 <PRE>&lt;class 'int'&gt;
 &lt;class 'str'&gt;
 </PRE></DIV>
@@ -239,11 +189,9 @@ which is technically known as '
 if x == 1:
     y = 2
 print(y) # Prints 2
-x = 1
-if x == 1:
-    y = 2
-print(y) # Prints 2
-</CODE></PRE><P>The code in the <a href="../index/index.html#Python if">if statement</a> is executed as the condition 'x == 1' evaluates as 'True'. If
+</CODE></PRE>
+
+<P>The code in the <a href="../index/index.html#Python if">if statement</a> is executed as the condition 'x == 1' evaluates as 'True'. If
 the condition were to evaluate as 'False', then the interpreter
 would skip to the end of the if statement, as happens running
 the following code:
@@ -252,11 +200,9 @@ the following code:
 if x == 0:
     y = 2
 print(y)
-x = 1
-if x == 0:
-    y = 2
-print(y)
-</CODE></PRE><P>Which results in:</P>
+</CODE></PRE>
+
+<P>Which results in:</P>
 <PRE>NameError: name 'y' is not defined</PRE><P>This is because 'y' does not get initialised and so cannot be
 passed into the print function.
 </P>
@@ -268,14 +214,9 @@ def my_function():
 print("a", x)
 my_function()
 print("c", x)
-x = 1
-def my_function():
-    x = 2
-    print("b", x)
-print("a", x)
-my_function()
-print("c", x)
-</CODE></PRE><P>That outputs:</P>
+</CODE></PRE>
+
+<P>That outputs:</P>
 <PRE>a 1
 b 2
 c 1
@@ -301,15 +242,9 @@ def my_function():
 print("a", x)
 my_function()
 print("c", x)
-x = 1
-def my_function():
-    global x
-    x = 2
-    print("b", x)
-print("a", x)
-my_function()
-print("c", x)
-</CODE></PRE><P>The output should be:</P>
+</CODE></PRE>
+
+<P>The output should be:</P>
 <PRE>a 1
 b 2
 c 2
@@ -330,13 +265,9 @@ del a # <-- deletes a
 b = 2
 c = 3
 del(b, c) # <-- Deletes b and site.
-a = 1
-del a # <-- deletes a
-#print(a) # <-- Would result in: NameError: name 'a' is not defined.
-b = 2
-c = 3
-del(b, c) # <-- Deletes b and site.
 </CODE></PRE>
+
+
 <DIV>
 
 <div>

@@ -75,7 +75,9 @@ for capitalised first letters for each word).
 <P>A class is defined using the keyword 'class' followed by the
 name of the class, parentheses, and a colon, for example:
 </P>
-<PRE><CODE class="language-python">class Agent():class Agent():</CODE></PRE>Class names separated by commas can be added in the parentheses
+<PRE><CODE class="language-python">class Agent():</CODE></PRE>
+
+Class names separated by commas can be added in the parentheses
 to declare parent classes that the class inherits from. Class
 inheritence is detailed further in <a href="#3">Section 3</a>.
 <P>As mentioned, in Python, functions inside classes are called
@@ -94,20 +96,18 @@ zero:
     def __init__(self):
         self.x = 0
         self.y = 0
-class Agent():
-    def __init__(self):
-        self.x = 0
-        self.y = 0
-</CODE></PRE><P>Suppose this class was in a file named 'agentframework.py' -
+</CODE></PRE>
+
+<P>Suppose this class was in a file named 'agentframework.py' -
 and so in a module named 'agentframework', it could be
 instantiated from a script in the same directory as
 'agentframework.py' as follows:
 </P>
 <PRE><CODE class="language-python">import agentframework
 a = agentframework.Agent()
-import agentframework
-a = agentframework.Agent()
-</CODE></PRE><P>And the 'x' and 'y' aatribute variables of 'a' - the instance
+</CODE></PRE>
+
+<P>And the 'x' and 'y' aatribute variables of 'a' - the instance
 of the class could then be accessed using the dot operator '.'
 as follows:
 </P>
@@ -115,11 +115,9 @@ as follows:
 print(a.y) # <-- Prints the value of a.y
 a.x = 3 # <-- Sets the values of a.x to be 3
 a.y = a.y + 1 # <-- Increases the value of a.y by 1
-print(a.x) # <-- Prints the value of a.x
-print(a.y) # <-- Prints the value of a.y
-a.x = 3 # <-- Sets the values of a.x to be 3
-a.y = a.y + 1 # <-- Increases the value of a.y by 1
-</CODE></PRE><P>A class constructor method may accept multiple arguments. For
+</CODE></PRE>
+
+<P>A class constructor method may accept multiple arguments. For
 example, the initial values for 'x' and 'y' could be passed in
 as follows:
 </P>
@@ -127,11 +125,9 @@ as follows:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-class Agent():
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-</CODE></PRE><P>When instantiating an instance of this Agent class, it is
+</CODE></PRE>
+
+<P>When instantiating an instance of this Agent class, it is
 necessary to pass in two argument as the constructor method does
 not set defaults of these values. The following code will
 instantiate an Agent object using the latest class definition
@@ -139,9 +135,9 @@ above:
 </P>
 <PRE><CODE class="language-python">import agents
 a = agents.Agent(0, 0)
-import agents
-a = agents.Agent(0, 0)
-</CODE></PRE><P>The parameters 'x' and 'y' do not have to have names
+</CODE></PRE>
+
+<P>The parameters 'x' and 'y' do not have to have names
 corresponding to the attributes, and they can be given default
 values making it optional as to whether these are supplied, by
 changing the constructor method as follows:
@@ -150,11 +146,9 @@ changing the constructor method as follows:
     def __init__(self, x = 0, y = 0):
         self.x = x
         self.y = y
-class Agent():
-    def __init__(self, x = 0, y = 0):
-        self.x = x
-        self.y = y
-</CODE></PRE></DIV>
+</CODE></PRE>
+
+</DIV>
 
 <DIV>
 <H2 id="3">3. Inheritance</H2>
@@ -200,21 +194,9 @@ class Wolf(Agent):
     def __init__(self, x, y, pack):
         super().__init__(x, y)
         self.pack = pack
-class Agent():
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+</CODE></PRE>
 
-class Goat(Agent):
-    def __init__(self, x, y):
-        super().__init__(x, y)
-        self.hungry = True
-
-class Wolf(Agent):
-    def __init__(self, x, y, pack):
-        super().__init__(x, y)
-        self.pack = pack
-</CODE></PRE><P>The constructor methods of the Goat and Wolf classes call the
+<P>The constructor methods of the Goat and Wolf classes call the
 superclass constructor method. Each instance of Goat would be
 instantiated with the attribute 'self.hungry' equal to 'True'.
 Each instance of Wolf is given a parameter called 'pack' when
@@ -265,31 +247,16 @@ attribute _x:
         del self._x
 
     x = property(getx, setx, delx, "I'm the 'x' property.")
-class Agent():
-    def __init__(self, ax, ay):
-        self._x = ax
-        self._y = ay
+</CODE></PRE>
 
-    def getx(self):
-        return self._x
-
-    def setx(self, value):
-        self._x = value
-
-    def delx(self):
-        del self._x
-
-    x = property(getx, setx, delx, "I'm the 'x' property.")
-</CODE></PRE><P>This could be used from another module as follows:</P>
+<P>This could be used from another module as follows:</P>
 <PRE><CODE class="language-python">import agents:
 a = agent.Agent(0, 0):
 a.x = 3
 print(a.x) # <-- Prints 3
-import agents:
-a = agent.Agent(0, 0):
-a.x = 3
-print(a.x) # <-- Prints 3
-</CODE></PRE><P>So, rather than access the attribute _x directly, this is done
+</CODE></PRE>
+
+<P>So, rather than access the attribute _x directly, this is done
 via a function which is aliased as x.
 </P>
 <P>Decorators can alternatively be used to achieve the same thing
@@ -312,24 +279,9 @@ as follows:
     @x.deleter
     def x(self):
         del self._x
-class Agent():
-    def __init__(self, ax, ay):
-        self._x = ax
-        self._y = ay
+</CODE></PRE>
 
-    @property
-    def x(self):
-        """I'm the 'x' property."""
-        return self._x
-
-    @x.setter
-    def x(self, value):
-        self._x = value
-
-    @x.deleter
-    def x(self):
-        del self._x
-</CODE></PRE>Details of this are provided in:
+Details of this are provided in:
 <a href="https://docs.python.org/3/library/functions.html#property">
 The Python Library Documentation Chapter on Functions Section on Property</a>.
 </DIV>
@@ -356,22 +308,9 @@ class Goat(Agent):
 
     def __str__(self):
         return super().__str__() + ", hungry=" + self.str(hungry)
-class Agent():
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+</CODE></PRE>
 
-    def __str__(self):
-        return "x=" + self.str(x) + ", y=" + self.str(y)
-
-class Goat(Agent):
-    def __init__(self, x, y):
-        super().__init__(x, y)
-        self.hungry = True
-
-    def __str__(self):
-        return super().__str__() + ", hungry=" + self.str(hungry)
-</CODE></PRE><P>More details on customisation can be found in
+<P>More details on customisation can be found in
 <a href="https://docs.python.org/3/reference/datamodel.html#basic-customization">
 The Python 3 Language Reference Data Model Chapter Section on Basic Customization</a>.
 </P>

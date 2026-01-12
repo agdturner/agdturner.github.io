@@ -81,9 +81,9 @@ at the Python prompt and enter some keyboard input:
 </P>
 <PRE><CODE class="language-python">n_agents = input("Enter n_agents (a number between 10 and 100) and press the &lt;ENTER&gt; or &lt;RETURN&gt; key:")
 print("The input detected is:", n_agents)
-n_agents = input("Enter n_agents (a number between 10 and 100) and press the &lt;ENTER&gt; or &lt;RETURN&gt; key:")
-print("The input detected is:", n_agents)
-</CODE></PRE></DIV>
+</CODE></PRE>
+
+</DIV>
 
 <DIV>
 <H2 id="3">3. Streams</H2>
@@ -132,11 +132,9 @@ screen before then closing the file:
 for line in f:
     print(line)
 f.close()
-f = open("a.in")
-for line in f:
-    print(line)
-f.close()
-</CODE></PRE><P>The <a href="https://docs.python.org/3/c-api/file.html">
+</CODE></PRE>
+
+<P>The <a href="https://docs.python.org/3/c-api/file.html">
 File Object</a> returned from the above
 <a href="../index/index.html#Python open">open</a><P> function call 'f' is best closed once it is read by calling it's
 'close' method as done on line 4 of the code snippet. After this
@@ -151,10 +149,9 @@ the previous snippet:
 <PRE><CODE class="language-python">with open("a.in") as f:
     for line in f:
         print(line)
-with open("a.in") as f:
-    for line in f:
-        print(line)
-</CODE></PRE><P>This saves having to close the file, but it is awkward this
+</CODE></PRE>
+
+<P>This saves having to close the file, but it is awkward this
 way to read several files simultaneously.
 </P>
 <P>The standard library
@@ -187,18 +184,9 @@ for line in a:
     f.write(line)
 # Close the file
 f.close()
-# Create something to write
-a = []
-for i in range(10):
-    a.append("Coding is fun!");
-# Open a file for writing
-f = open("a.out", 'w')
-# Write a to the file
-for line in a:
-    f.write(line)
-# Close the file
-f.close()
-</CODE></PRE><P>Note the additional 'w' parameter passed into the Open
+</CODE></PRE>
+
+<P>Note the additional 'w' parameter passed into the Open
 Function which prepares the file a.out to be written to. Writing
 to a file requires different preparation to reading from a file.
 </P>
@@ -216,16 +204,9 @@ with open("a.out", 'w') as f:
     # Write a to the file
     for line in a:
         f.write(line)
-# Create something to write
-a = []
-for i in range(10):
-    a.append("Coding is fun!");
-# Write a to file
-with open("a.out", 'w') as f:
-    # Write a to the file
-    for line in a:
-        f.write(line)
-</CODE></PRE></DIV>
+</CODE></PRE>
+
+</DIV>
 
 <DIV>
 <H2 id="5">5. File formats</H2>
@@ -302,16 +283,9 @@ for line in f:
         data_line.append(float(word))
     data.append(data_line)
 print(data)
-with open("data.txt") as f:
-data = []
-for line in f:
-    parsed_line = str.split(line,",")
-    data_line = []
-    for word in parsed_line:
-        data_line.append(float(word))
-    data.append(data_line)
-print(data)
-</CODE></PRE><P>It is easier to read and write CSV format files using functions
+</CODE></PRE>
+
+<P>It is easier to read and write CSV format files using functions
 from the Python standard library
 <a href="../index/index.html#Python csv">csv module</a> written specifically to do this. The following is an example of
 reading some numeric data:
@@ -323,14 +297,9 @@ for row in reader: # A list of rows
     for value in row: # A list of value
         print(value) # Floats
 f.close()
-import csv
-f = open('data.csv', newline='')
-reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
-for row in reader: # A list of rows
-    for value in row: # A list of value
-        print(value) # Floats
-f.close()
-</CODE></PRE><P>The keyword argument 'quoting=csv.QUOTE_NONNUMERIC' not only
+</CODE></PRE>
+
+<P>The keyword argument 'quoting=csv.QUOTE_NONNUMERIC' not only
 puts quotation marks around non numeric data, but also converts
 some number formats into Floats.
 </P>
@@ -343,13 +312,9 @@ writer = csv.writer(f, delimiter=' ')
 for row in data:
     writer.writerow(row) # List of values.
 f.close()
-import csv
-f = open('data.csv', 'w', newline='')
-writer = csv.writer(f, delimiter=' ')
-for row in data:
-    writer.writerow(row) # List of values.
-f.close()
-</CODE></PRE><P>The optional delimiter kwarg specified here delimits using a
+</CODE></PRE>
+
+<P>The optional delimiter kwarg specified here delimits using a
 space ' ' instead of the default comma ',', so this would
 actually not generate CSV format data!
 </P>
@@ -359,21 +324,16 @@ f = open('data.json')
 data = json.load(f)
 f.close()
 print(data)
-import json
-f = open('data.json')
-data = json.load(f)
-f.close()
-print(data)
-</CODE></PRE><P>The following code can be used to write a JSON file:</P>
+</CODE></PRE>
+
+<P>The following code can be used to write a JSON file:</P>
 <PRE><CODE class="language-python">import json
 f = open('data.json', 'w')
 json.dump(data, f)
 f.close()
-import json
-f = open('data.json', 'w')
-json.dump(data, f)
-f.close()
-</CODE></PRE><P>The standard library for processing HTML and XML is:
+</CODE></PRE>
+
+<P>The standard library for processing HTML and XML is:
 <a href="https://docs.python.org/3/library/markup.html">
 markup</a>, but the third party
 <a href="https://beautiful-soup-4.readthedocs.io/en/latest/">
@@ -411,12 +371,14 @@ program. For example, the following will print the
 <a href="../index/index.html#PATH">PATH</a>:</P>
 <PRE><CODE class="language-python">import os
 print(os.environ["PATH"])
-import os
-print(os.environ["PATH"])
-</CODE></PRE><P>And the following will print a list of every file and directory
+</CODE></PRE>
+
+<P>And the following will print a list of every file and directory
 in the current working directory:
 </P>
-<PRE><CODE class="language-python">print os.listdir(path='.')print os.listdir(path='.')</CODE></PRE><P>The standard library
+<PRE><CODE class="language-python">print os.listdir(path='.')</CODE></PRE>
+
+<P>The standard library
 <a href="https://docs.python.org/3/library/pathlib.html">
 pathlib module</a>
 helps with handling file paths and managing file systems

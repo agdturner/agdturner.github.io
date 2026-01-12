@@ -71,13 +71,9 @@ socket_1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socket_1.connect(("localhost", 5555)) # Address tuple
 
 socket_1.send(bytes("hello world", encoding="UTF-8"))
-import socket
+</CODE></PRE>
 
-socket_1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-socket_1.connect(("localhost", 5555)) # Address tuple
-
-socket_1.send(bytes("hello world", encoding="UTF-8"))
-</CODE></PRE><P>In this code: the connection is to 'localhost' - the local
+<P>In this code: the connection is to 'localhost' - the local
 machine; the '
 <a href="../index/index.html#Port">port number</a>' for the connection is 5555; and, the bytes representing
 "hello world" in a unicode String are sent.
@@ -94,15 +90,9 @@ serversocket.listen()
 (socket_2, address) = serversocket.accept()
 b = socket_2.recv(30)
 print(str(b))
-import socket
+</CODE></PRE>
 
-serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serversocket.bind(('localhost', 5555))
-serversocket.listen()
-(socket_2, address) = serversocket.accept()
-b = socket_2.recv(30)
-print(str(b))
-</CODE></PRE><P>Web applications typically open multiple network sockets and
+<P>Web applications typically open multiple network sockets and
 data transfers are normally initiated following a communication
 protocol.
 </P>

@@ -100,38 +100,9 @@ storing the shares 'store_shares' so it is as follows:
     self.y = random.randint(tnr - 1, (2 * tnr) - 1)
     self.store = 0
     self.store_shares = 0
-def __init__(self, agents, i, environment, n_rows, n_cols):
-    """
-    The constructor method.
+</CODE></PRE>
 
-    Parameters
-    ----------
-    agents : List
-        A list of Agent instances.
-    i : Integer
-        To be unique to each instance.
-    environment : List
-        A reference to a shared environment.
-    n_rows : Integer
-        The number of rows in environment.
-    n_cols : Integer
-        The number of columns in environment.
-
-    Returns
-    -------
-    None.
-
-    """
-    self.agents = agents
-    self.i = i
-    self.environment = environment
-    tnc = int(n_cols / 3)
-    self.x = random.randint(tnc - 1, (2 * tnc) - 1)
-    tnr = int(n_rows / 3)
-    self.y = random.randint(tnr - 1, (2 * tnr) - 1)
-    self.store = 0
-    self.store_shares = 0
-</CODE></PRE><P>Change 'model.py' so that 'agents' is passed as a parameter in
+<P>Change 'model.py' so that 'agents' is passed as a parameter in
 the code that constructs each inidivual Agent class instance.
 </P>
 <P>Test your code works and that from one agent you can access
@@ -139,7 +110,9 @@ another agent by printing out one agent from another agent. For
 example after all the agents are initialised try printing the
 agent with i equal to 1 from the agent with i equal to 0:
 </P>
-<PRE><CODE class="language-python">print(agents[0].agents[1])print(agents[0].agents[1])</CODE></PRE><P>A way to use the 'get_distance' function in 'agentframework.py'
+<PRE><CODE class="language-python">print(agents[0].agents[1])</CODE></PRE>
+
+<P>A way to use the 'get_distance' function in 'agentframework.py'
 and avoid cyclic imports is to move the 'get_distance' function
 to a new module. Create a new file called 'geometry.py' in the
 'my_modules' directory, and move the 'get_distance' method from
@@ -168,23 +141,9 @@ following method:
     # Add shares to store_shares
     for i in neighbours:
         self.agents[i].store_shares += shares
-def share(self, neighbourhood):
-    # Create a list of agents in neighbourhood
-    neighbours = []
-    #print(self.agents[self.i])
-    for a in self.agents:
-        distance = geometry.get_distance(a.x, a.y, self.x, self.y)
-        if distance < neighbourhood:
-            neighbours.append(a.i)
-    # Calculate amount to share
-    n_neighbours = len(neighbours)
-    #print("n_neighbours", n_neighbours)
-    shares = self.store / n_neighbours
-    #print("shares", shares)
-    # Add shares to store_shares
-    for i in neighbours:
-        self.agents[i].store_shares += shares
-</CODE></PRE><P>This code is using the fact that 'self.i' will be the same as
+</CODE></PRE>
+
+<P>This code is using the fact that 'self.i' will be the same as
 the index of an agent in the 'agents' list. In the first for
 loop of the 'share' function the distance between 'self' and
 each agent in the agents list is calculated and if this is less
@@ -222,34 +181,9 @@ for ite in range(1, n_iterations + 1):
     sum_e = sum_environment()
     print("sum_environment", sum_e)
     print("total resource", (sum_as + sum_e))
-# Main simulation loop
-for ite in range(1, n_iterations + 1):
-    print("Iteration", ite)
-    # Move agents
-    print("Move")
-    for i in range(n_agents):
-          agents[i].move(x_min, y_min, x_max, y_max)
-          agents[i].eat()
-          #print(agents[i])
-    # Share store
-    # Distribute shares
-    for i in range(n_agents):
-        agents[i].share(neighbourhood)
-    # Add store_shares to store and set store_shares back to zero
-    for i in range(n_agents):
-        print(agents[i])
-        agents[i].store = agents[i].store_shares
-        agents[i].store_shares = 0
-    print(agents)
-    # Print the maximum distance between all the agents
-    print("Maximum distance between all the agents", get_max_distance())
-    # Print the total amount of resource
-    sum_as = sum_agent_stores()
-    print("sum_agent_stores", sum_as)
-    sum_e = sum_environment()
-    print("sum_environment", sum_e)
-    print("total resource", (sum_as + sum_e))
-</CODE></PRE><P>Run 'model.py' and interpret the output. Add more print
+</CODE></PRE>
+
+<P>Run 'model.py' and interpret the output. Add more print
 statements to gain a clear understanding of how the code works.
 </P>
 </DIV>
@@ -260,7 +194,9 @@ statements to gain a clear understanding of how the code works.
 functions to be within if statement like the following at the
 end of the file:
 </P>
-<PRE><CODE class="language-python">if __name__ == '__main__':if __name__ == '__main__':</CODE></PRE><P>Recall that this isolates this code so it is only run if that
+<PRE><CODE class="language-python">if __name__ == '__main__':</CODE></PRE>
+
+<P>Recall that this isolates this code so it is only run if that
 file is the one run and not when the module is imported.
 </P>
 <P>Make sure to test that your code still produces the same
@@ -276,9 +212,9 @@ statements in the code:
 </P>
 <PRE><CODE class="language-python">import imageio
 import os
-import imageio
-import os
-</CODE></PRE><P>Before the main simulation loop add the following code:</P>
+</CODE></PRE>
+
+<P>Before the main simulation loop add the following code:</P>
 <PRE><CODE class="language-python"># Create directory to write images to.
 try:
     os.makedirs('../../data/output/images/')
@@ -289,40 +225,32 @@ except FileExistsError:
 global ite
 ite = 1
 images = []
-# Create directory to write images to.
-try:
-    os.makedirs('../../data/output/images/')
-except FileExistsError:
-    print("path exists")
+</CODE></PRE>
 
-# For storing images
-global ite
-ite = 1
-images = []
-</CODE></PRE><P>Indent the plotting so that this occurs within the main
+<P>Indent the plotting so that this occurs within the main
 simulation loop and replace the following line:
 </P>
-<PRE><CODE class="language-python">plot.show()plot.show()</CODE></PRE><P>With:</P>
+<PRE><CODE class="language-python">plot.show()</CODE></PRE>
+
+<P>With:</P>
 <PRE><CODE class="language-python">filename = '../../data/output/images/image' + str(ite) + '.png'
 #filename = '../../data/output/images/image' + str(ite) + '.gif'
 plt.savefig(filename)
 plt.show()
 plt.close()
 images.append(imageio.imread(filename))
-filename = '../../data/output/images/image' + str(ite) + '.png'
-#filename = '../../data/output/images/image' + str(ite) + '.gif'
-plt.savefig(filename)
-plt.show()
-plt.close()
-images.append(imageio.imread(filename))
-</CODE></PRE><P>This code should: create plots; save these as images in PNG
+</CODE></PRE>
+
+<P>This code should: create plots; save these as images in PNG
 format files; show and close them rapidly; then reload the PNG
 format file and append the image to the images list.
 </P>
 <P>After the end of the main simulation loop the images can be
 turned into an animated GIF format file using:
 </P>
-<PRE><CODE class="language-python">imageio.mimsave('../../data/output/out.gif', images, fps=3)imageio.mimsave('../../data/output/out.gif', images, fps=3)</CODE></PRE><P>The parameter 'fps' is the number of frames that are shown per
+<PRE><CODE class="language-python">imageio.mimsave('../../data/output/out.gif', images, fps=3)</CODE></PRE>
+
+<P>The parameter 'fps' is the number of frames that are shown per
  second.
 </P>
 <P>Add and commit to your local git repository and assuming you are

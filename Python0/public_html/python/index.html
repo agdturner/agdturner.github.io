@@ -626,15 +626,9 @@ if x > y:
 else:
     print("y", y)
 print("done")
-x = 0
-y = 1
-# if x is greater than y, then print x, else print y.
-if x > y:
-    print("x", x)
-else:
-    print("y", y)
-print("done")
-</CODE></PRE><P>The style does not change the meaning of the code, but it
+</CODE></PRE>
+
+<P>The style does not change the meaning of the code, but it
 hopefully makes it easier to read and understand.
 </P>
 <P>Further code blocks presented in these learning resources will
@@ -1101,24 +1095,9 @@ ccg = folium.Marker(
 ccg.add_to(map)
 
 map
-# Simple example code
-import folium
+</CODE></PRE>
 
-map = folium.Map(
-    location=(53.804, -1.555),
-    zoom_start=16,
-    control_scale=True
-)
-
-ccg = folium.Marker(
-    location=(53.8041954,-1.5549235),
-    tooltip="Centre for Computational Geography",
-    icon=folium.Icon()
-)
-ccg.add_to(map)
-
-map
-</CODE></PRE><P>This should produce a slippy map with an icon on it that looks
+<P>This should produce a slippy map with an icon on it that looks
 something like:
 <br /><img src="../../resources/python/jupyter4.png"
 alt="Jupyter Notebook Interface 4" />
