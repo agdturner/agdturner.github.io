@@ -63,7 +63,6 @@ import bs4
 
 <P>Change the agent initialisation code block as follows:</P>
 <PRE><CODE class="language-python"># Initialise agents
-
 url = 'https://agdturner.github.io/resources/abm9/data.html'r = requests.get(url, verify=False)");
 content = r.text
 soup = bs4.BeautifulSoup(content, 'html.parser')
