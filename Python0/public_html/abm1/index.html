@@ -40,7 +40,7 @@
 
 <DIV>
 <H2 id="1">1. Introduction</H2>
-<P>Part 1 in a series of 9 practicals with instructions to develop a simple spatial <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Agent Based Model">Agent Based Model</a> (ABM) - a model for simulating the actions and interactions of entities (agents) located within a spatial environment which may change and be changed by the agents.</P>
+<P>Part 1 in a series of 9 practicals with instructions to develop a simple spatial <a href="../index.html#Agent Based Model">Agent Based Model</a> (ABM) - a model for simulating the actions and interactions of entities (agents) located within a spatial environment which may change and be changed by the agents.</P>
 <P>Agents will be located at coordinates in the environment and move around randomly interacting with the environment and each other. How the agents interact will be based on their characteristics, the characteristics of their environment, and the characteristics of other agents in their environment.</P>
 <P>The model will iterate with a regular time step in that all agents will have a turn at interacting in each iteration.</P>
 <P>You will learn about:</P>
@@ -89,15 +89,15 @@ x0 = 0
 print("x0", x0)
 </CODE></PRE><P>Save and run the program. The output from running the program should be:
 </P>
-<PRE>x0 0</PRE><P>Note that two parameters are passed into the <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python print">print</a>function. These are printed out sequentially with a space delimiter by default.</P>
+<PRE>x0 0</PRE><P>Note that two parameters are passed into the <a href="../index.html#Python print">print</a>function. These are printed out sequentially with a space delimiter by default.</P>
 <P>Do similarly to initialise the variable 'y0'.</P>
 </DIV>
 
 <DIV>
 <H2 id="3">3. Randomly changing values</H2>
-<P>The Python standard library <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python random">random module</a> implements pseudo-random number generators for various distributions and provides a way to change variable values randomly. To use the module it has to be imported. Towards the top of 'model.py' add the following import statement:</P>
+<P>The Python standard library <a href="../index.html#Python random">random module</a> implements pseudo-random number generators for various distributions and provides a way to change variable values randomly. To use the module it has to be imported. Towards the top of 'model.py' add the following import statement:</P>
 <PRE><CODE class="language-python">import randomimport random</CODE></PRE><P>It is good practice to organise import statements at the top of files as this makes them easy to find and makes it less likely that modules are imported multiple times. Whilst importing modules multiple time is not likely to result in errors, it is usually not necessary and generally inefficent.</P>
-<P>Use an <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python if">if statement</a> to determine whether to increase or decrease 'x0' based on the value obtained from a call to the functionnull: First obtain and print a pseudo-random number in the range [0, 1) as follows:</P>
+<P>Use an <a href="../index.html#Python if">if statement</a> to determine whether to increase or decrease 'x0' based on the value obtained from a call to the functionnull: First obtain and print a pseudo-random number in the range [0, 1) as follows:</P>
 <PRE><CODE class="language-python">rn = random.random()
 print(rn)
 rn = random.random()
@@ -145,11 +145,11 @@ x0 - 1
 <H2 id="5">5. Review, commit and look ahead</H2>
 <P>Hopefully, you managed to develop code that produces the correct answer. If not, do not worry, the important thing is to have tried and not spent too long trying.</P>
 <P>There is a lot of repetition in the code.</P>
-<P>An alternative, to using '**0.5' to calculate a square root is to import the standard library <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python math">math module</a> and use the <a href="https://docs.python.org/3/library/math.html#math.sqrt"> sqrt</a> function.</P>
+<P>An alternative, to using '**0.5' to calculate a square root is to import the standard library <a href="../index.html#Python math">math module</a> and use the <a href="https://docs.python.org/3/library/math.html#math.sqrt"> sqrt</a> function.</P>
 <P>Add and commit to your local git repository and assuming you are
 using GitHub - push your changes to GitHub.
 </P>
-<P>In the next ABM practical: The code will be modified so the coordinates for each agent are stored together in a container; <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python for">for loops</a>will be used to create and move more agents, and the model will be visualised.</P>
+<P>In the next ABM practical: The code will be modified so the coordinates for each agent are stored together in a container; <a href="../index.html#Python for">for loops</a>will be used to create and move more agents, and the model will be visualised.</P>
 </DIV>
 
 
@@ -158,7 +158,7 @@ using GitHub - push your changes to GitHub.
 <div>
 <p><a id="next" class="nav" href="../containers/index.html">Next: Containers</a></p>
 </div>
-<P>Date last modified: 2026-01-11</P>
+<P>Date last modified: 2026-01-12</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 

@@ -72,19 +72,19 @@ lists.
 </P>
 <DIV>
 <H3 id="2.1">2.1. Bytes and Bytearray</H3>
-<P>A <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python byte">bytes</a> container stores an immutable sequence of integers in the
+<P>A <a href="../index.html#Python byte">bytes</a> container stores an immutable sequence of integers in the
 range [0, 255]. Since many major binary protocols are based on
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#ASCII">ASCII</a> text encoding, bytes objects offer several methods that are only
+<a href="../index.html#ASCII">ASCII</a> text encoding, bytes objects offer several methods that are only
 valid when working with ASCII compatible data and are closely
 related to
 null in other ways.</P>
-<P>A <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python bytearray">bytearray</a> is a mutable sequence of integers in the range [0, 255].</P>
+<P>A <a href="../index.html#Python bytearray">bytearray</a> is a mutable sequence of integers in the range [0, 255].</P>
 <P>These are worth knowing about, but are not directly in this
 course, so details are omitted.
 </P>
 <DIV>
 <H3 id="2.2">2.2. Strings</H3>
-<P>null are immutable sequences of <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Unicode">Unicode</a> points. Unlike some other high level languages, Python does not
+<P>null are immutable sequences of <a href="../index.html#Unicode">Unicode</a> points. Unlike some other high level languages, Python does not
 have a primitive type for individual characters. As strings are
 immutable: parts of a string cannot be replaced with parts of
 another string. Instead of changing a string, a new one has to
@@ -92,7 +92,7 @@ be created. This is a somewhat subtle difference, but it does
 mean that processing with strings can be inefficient. Strings
 can be created by encapsulating text in single or double
 quotation marks, or using the function
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python str">str</a> which allows strings to be constructed from other types of
+<a href="../index.html#Python str">str</a> which allows strings to be constructed from other types of
 object. Multiline strings are either encapsulated by triple
 single quotes or triple double quotes.
 </P>
@@ -200,7 +200,7 @@ out if a string starts or ends with a particular string.
 </P>
 <DIV>
 <H3 id="2.3">2.3. Tuples</H3>
-<P>A <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python tuple">tuple</a> is an immutable sequence that can be added to and nested. Like
+<P>A <a href="../index.html#Python tuple">tuple</a> is an immutable sequence that can be added to and nested. Like
 strings, once created the items cannot be substituted and their
 order cannot be changed - although they may themselves contain
 items that can be modified. Tuples are commonly used to return a
@@ -247,7 +247,7 @@ while b < 10:
     a, b = b, a+b
 print(b)
 </CODE></PRE><P>The </P>
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python while">while statement</a><P>is a loop with an expression that is evaluated each time around
+<a href="../index.html#Python while">while statement</a><P>is a loop with an expression that is evaluated each time around
 the loop. While this expression 'b < 10' evaluates as 'True' the
 loop continues to run, when it evaluates as 'False', the program
 continues by executing the next line after the loop. Notice in
@@ -257,7 +257,7 @@ Such packing/unpacking is not common in other languages
 </P>
 <DIV>
 <H3 id="2.4">2.4. Ranges</H3>
-<P><a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python range">Ranges</a> are a special type of immutable sequence created as follows:</P>
+<P><a href="../index.html#Python range">Ranges</a> are a special type of immutable sequence created as follows:</P>
 <PRE><CODE class="language-python">range(start, stop, step) # start and step are optional and default to 0 and 1 repectively
 range(start, stop, step) # start and step are optional and default to 0 and 1 repectively
 </CODE></PRE><P>The parameters: start, stop and step should be integers. The
@@ -350,7 +350,7 @@ b = (True, False)
 print(any(b)) # Print if any of the items in b are True.
 </CODE></PRE><DIV>
 <H3 id="2.5">2.5. Lists</H3>
-<P><a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python list">Lists</a> are the mutable form of tuples. Lists have an order, different
+<P><a href="../index.html#Python list">Lists</a> are the mutable form of tuples. Lists have an order, different
 types of thing can be stored in them, things can be appended,
 inserted and removed from them. The elements within a list can
 be reordered and there are various methods that help with this.
@@ -446,7 +446,7 @@ a = [0,1,2,3,4]
 b = [10,20]
 a[1:5] = b
 print(a) # <-- Prints [0,10,20]
-</CODE></PRE><P><p>The <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python builtins">builtin module</a> function <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python zip">zip</a> can be used to combine lists into a sequence of tuples as
+</CODE></PRE><P><p>The <a href="../index.html#Python builtins">builtin module</a> function <a href="../index.html#Python zip">zip</a> can be used to combine lists into a sequence of tuples as
 follows:
 </P>
 <PRE><CODE class="language-python">a = [1,2,3,4,5]
@@ -484,7 +484,7 @@ sys.argv[1] is "arg1", sys.argv[2] is "arg2" and sys.argv[3] is
 </P>
 <DIV>
 <H3 id="2.6">2.6. Arrays</H3>
-<P><a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python array">Arrays</a><P> are for storing and processing large collections of things of
+<P><a href="../index.html#Python array">Arrays</a><P> are for storing and processing large collections of things of
 the same type. Typically those things are numbers. An array is
 like a list but it cannot be used to store anything, it can only
 store things of a specific type.
@@ -492,7 +492,7 @@ store things of a specific type.
 <P>The following creates an array containing signed Integers and
 inserts a new Integer value into the array. The attempts to
 insert a Float into the array which results in a
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python array">TypeError</a>:</P>
+<a href="../index.html#Python array">TypeError</a>:</P>
 <PRE><CODE class="language-python">import array
 a = array.array('i', [1, 2, 3, 4])
 print(a)
@@ -509,7 +509,7 @@ a.insert(2, 2.5)
 
 <DIV>
 <H2 id="3">3. Sets</H2>
-<P><a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python set">Sets</a> are unordered collections. Adding something into a set which
+<P><a href="../index.html#Python set">Sets</a> are unordered collections. Adding something into a set which
 already contains that thing will not change the set. It is easy
 to test whether or not something is in a set. The following code
 creates an empty set, adds some things into it and then tests if
@@ -534,7 +534,7 @@ elements.
 
 <DIV>
 <H2 id="4">4. Dictionaries</H2>
-<P><a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python dict">Dictionaries</a> hold key-value pairs. The keys are unique, the values can be
+<P><a href="../index.html#Python dict">Dictionaries</a> hold key-value pairs. The keys are unique, the values can be
 anything. Dictionaries can be created using curly braces and
 colons to separate the keys, which are given first, and the
 values, which are given second. Different pairs are separated
@@ -561,7 +561,7 @@ Python documentation tutorial about data structures</a>.
 <div>
 <p><a id="next" class="nav" href="../branching/index.html">Next: Branching</a></p>
 </div>
-<P>Date last modified: 2026-01-11</P>
+<P>Date last modified: 2026-01-12</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 

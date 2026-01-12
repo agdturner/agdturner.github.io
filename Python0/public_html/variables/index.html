@@ -39,7 +39,7 @@
 
 <DIV>
 <H2 id="1">1. Introduction</H2>
-<P><a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Variable">Variables</a> are a combination of an identifier (a name) and a value</P>
+<P><a href="../index.html#Variable">Variables</a> are a combination of an identifier (a name) and a value</P>
 </DIV>
 
 <DIV>
@@ -50,7 +50,7 @@ needs to be).
 </P>
 <P>In Python, identifiers such as variable names can be reassigned.
 A benefit of this is that
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Application Programming Interface">APIs</a>can be more stable (as there is no need to specify exactly what
+<a href="../index.html#Application Programming Interface">APIs</a>can be more stable (as there is no need to specify exactly what
 types of things are input and output from functions). A downside
 is that, it is easier to make mistakes and accidentally re-use
 an identifier with unintended consequences.
@@ -60,11 +60,11 @@ Floats, Strings, and Booleans:
 </P>
 <P>Integers are whole numbers and are unbounded in Python. The
 largest Integer is constrained by
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Memory">memory</a> availability.</P>
+<a href="../index.html#Memory">memory</a> availability.</P>
 <P>Floats are standard null numbers - a special subset of fractions. These have a 'Maximum
 Value' and a 'Minimum Normal Value' (smallest number &gt; 0)
 which can be ascertained from the
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python sys">sys</a> module. There are Float values for positive and negative
+<a href="../index.html#Python sys">sys</a> module. There are Float values for positive and negative
 infinity. Consider and run the following code:
 </P>
 <PRE><CODE class="language-python">import sys
@@ -141,14 +141,14 @@ max + d inf
 min2 2.2250754194454158e-293
 </PRE><P>Float is very useful for approximate numerical calculations. Do
 keep in mind that
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Floating point arithmetic">Floating Point Arithmetic</a> is approximate - so calculations that use it are not
+<a href="../index.html#Floating point arithmetic">Floating Point Arithmetic</a> is approximate - so calculations that use it are not
 necessarily accurate.
 </P>
-<P>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> has two modules that support more arithmetic accuracy: <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python decimal">decimal</a>; and, <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python fractions">fractions</a>.</P>
+<P>The <a href="https://docs.python.org/3/library/">Python Standard Library</a> has two modules that support more arithmetic accuracy: <a href="../index.html#Python decimal">decimal</a>; and, <a href="../index.html#Python fractions">fractions</a>.</P>
 <P>Strings are essentially blocks of text (which are sequences of
 single character length Strings). Strings can be assigned using;
 double or single quotes, or the constructor function
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python str">str</a> (which can for example create a String from an Integer).
+<a href="../index.html#Python str">str</a> (which can for example create a String from an Integer).
 Strings can be compared and checked for equality using the
 operator '=='. Consider and run the following code:
 </P>
@@ -202,7 +202,7 @@ print("not (t or f)", not (t or f)) # Prints False
 variables. Objects can also be comprised of multiple other
 objects as defined by a class.
 </P>
-<P>The type of any object can be got using the function <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python type">type</a> from the <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python builtins">builtins</a> module. Consider and run the following code that initialises a
+<P>The type of any object can be got using the function <a href="../index.html#Python type">type</a> from the <a href="../index.html#Python builtins">builtins</a> module. Consider and run the following code that initialises a
 variable named 'x' with the Integer value '1', then prints out
 the type of the variable 'x', then reassigns 'x' to have a
 String value, then again prints out the type of the variable
@@ -227,13 +227,13 @@ print(type(x)) # Prints &lt;class 'str'&gt;
 <H2 id="3">3. Functions, Variable Scope and the Global Keyword</H2>
 <P>When passed as parameters into functions, variables are shared
 this is technically known as '
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Call By Sharing">Call By Sharing</a>'. If a variable is a primitive object then effectively a new
+<a href="../index.html#Call By Sharing">Call By Sharing</a>'. If a variable is a primitive object then effectively a new
 variable is created within the function which is distinct from
 the variable outwith the function but that has the same value
 which is technically known as '
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Call By Value">Call By Value</a>'.</P>
-<P>The <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Scope">scope</a> of a variable is from where in the code it can be accessed. The
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python keyword">keyword</a> 'global' can modify the scope.</P>
+<a href="../index.html#Call By Value">Call By Value</a>'.</P>
+<P>The <a href="../index.html#Scope">scope</a> of a variable is from where in the code it can be accessed. The
+<a href="../index.html#Python keyword">keyword</a> 'global' can modify the scope.</P>
 <P>Consider the following:</P>
 <PRE><CODE class="language-python">x = 1
 if x == 1:
@@ -243,7 +243,7 @@ x = 1
 if x == 1:
     y = 2
 print(y) # Prints 2
-</CODE></PRE><P>The code in the <a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python if">if statement</a> is executed as the condition 'x == 1' evaluates as 'True'. If
+</CODE></PRE><P>The code in the <a href="../index.html#Python if">if statement</a> is executed as the condition 'x == 1' evaluates as 'True'. If
 the condition were to evaluate as 'False', then the interpreter
 would skip to the end of the if statement, as happens running
 the following code:
@@ -319,7 +319,7 @@ c 2
 <H2 id="4">4. Deleting variables</H2>
 <P>Variables can be deleted using the keyword 'del' followed by
 the name of the variable or a
-<a href="C:\Users\geoagdt\src\agdt\agdturner.github.io\Python0\public_html\index/index.html#Python tuple">tuple</a> of variables to delete.</P>
+<a href="../index.html#Python tuple">tuple</a> of variables to delete.</P>
 <P>Deleting variables can free up memory for other things. The
 following code snippets shows how to initialise and delete
 variables:
@@ -342,7 +342,7 @@ del(b, c) # <-- Deletes b and site.
 <div>
 <p><a id="next" class="nav" href="../github/index.html">Next: GitHub</a></p>
 </div>
-<P>Date last modified: 2026-01-11</P>
+<P>Date last modified: 2026-01-12</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 
