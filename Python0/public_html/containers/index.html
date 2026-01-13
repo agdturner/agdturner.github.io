@@ -22,7 +22,7 @@
 <button id="style_button" onclick="swapStyle()"></button>
 
 <DIV class="navbar">
-<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="conclusion" class="nav" href="../conclusion/index.html">Conclusion</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
 </DIV>
 
 <H1>Containers</H1>
@@ -110,17 +110,17 @@ indexes and it can also be 'sliced' (as explained in detail in
 using the '+' symbol. Consider and try the following code:
 </P>
 <PRE><CODE class="language-python">s0 = "this is a string"
-s2 = 'this is also a string'
-s3 = "string encapsulated with double quotes and containing single 'quotes'"
-s4 = 'string encapsulated with single quotes and containing double "quotes"'
-s5 = "string encapsulated with double quotes and containing double "quotes""
-s6 = 'string encapsulated with single quotes and containing single 'quotes''
-s7 = str(s0) # A string constructed from another string
-print(s7) # < prints this is a string
-s8 = str(s0[8:]) # A string constructed from a slice of another string
-print(s8) # <-- Prints a string
-s9 = "strings " + "can be " + "concatenated using '+'"
-print(s9) # <-- Prints strings can be concatenated using '+'
+s1 = 'this is also a string'
+s2 = "string encapsulated with double quotes and containing single 'quotes'"
+s3 = 'string encapsulated with single quotes and containing double "quotes"'
+s4 = "string encapsulated with double quotes and containing double "quotes""
+s5 = 'string encapsulated with single quotes and containing single 'quotes''
+s6 = str(s0) # A string constructed from another string
+print(s6) # < prints "this is a string"
+s7 = str(s0[8:]) # A string constructed from a slice of another string
+print(s7) # <-- Prints "a string"
+s8 = "strings " + "can be " + "concatenated using '+'"
+print(s8) # <-- Prints "strings can be concatenated using '+'"
 </CODE></PRE>
 
 <P>A backslash can also ensure the continuation of a line. For
@@ -491,7 +491,7 @@ Python documentation tutorial about data structures</a>.
 <div>
 <p><a id="next" class="nav" href="../branching/index.html">Next: Branching</a></p>
 </div>
-<P>Date last modified: 2026-01-12</P>
+<P>Date last modified: 2026-01-13</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 
