@@ -900,31 +900,29 @@ support Python --></P>
 
 <DIV>
 <H2 id="8">8. QGIS Desktop Python Console</H2>
-<P><a href="../index/index.html#Geographical Information System">Geographical Information System</a>(GIS) software are used to create, manage, process, model,
+<P><a href="../index/index.html#Geographical Information System">Geographical Information System</a> (GIS) software are used to create, manage, process, model,
 visualise and distribute geographical data and information.
-<a href="https://qgis.org/">QGIS</a> is <a href="../index/index.html#Free and Open Source Software">free and open source</a> GIS software. It has a thriving developer and user community and
-a Python
-<a href="../index/index.html#Application Programming Interface">API</a>. QGIS is mostly written in mixture of <a href="../index/index.html#C++ Programming Language">C++</a> and Python and there is are distinct client and server software.
-The operation of both these can be automated using Python.
+<a href="https://qgis.org/">QGIS</a> is <a href="../index/index.html#Free and Open Source Software">free and open source</a> GIS software. It has a thriving developer and user community
+and a Python
+<a href="../index/index.html#Application Programming Interface">API</a>. QGIS is mostly written in mixture of <a href="../index/index.html#C++ Programming Language">C++</a> and Python. QGIS operations can be automated using Python.
 </P>
-<P>QGIS Server is geared for serving out data. QGIS Desktop is both
-client and server software. The client software can consume data
-that is served out and is a general desktop application for
-processing geographical data. QGIS Desktop is often controlled
-by users via a
+<P>QGIS has both a Server and Desktop interface. QGIS Desktop is
+typically controlled by users via a
 <a href="../index/index.html#Graphical User Interface">GUI</a> with a menu, panels and toolbars.</P>
-<P>Load QGIS Desktop via AppsAnywhere or download, install and run
-it on your own device.
+<P>If you want to try QGIS Desktop, please download and install it
+on your device.
 </P>
 <P>As QGIS Desktop software loads, a splash screen should appear.
-When fully loaded the GUI should appear.
+When fully loaded the GUI should appear. The GUI may have
+changed since these learning resources were written/used, so
+things may now be different!
 </P>
 <P>From the GUI Menu select:</P>
 <PRE>Plugins > Python Console</PRE><P>You should see something like:
 <br /><img src="../../resources/python/qgis1.png"
 alt="QGIS Desktop Python Console basic interface" />
 </P>
-<P>There are 5 buttons, a display area and a Python prompt:</P>
+<P>Perhaps some buttons, a display area and a Python prompt:</P>
 <PRE>>>></PRE><P>At the Python prompt enter:</P>
 <PRE>dir()</PRE><P>A considerable amount of functionality should be listed in the
 display area of the Python Console.
@@ -968,14 +966,11 @@ something like:
 <br /><img src="../../resources/python/qgis2.png"
 alt="QGIS Python Console after having run QGISExample.py" />
 </P>
-<P>QGIS Desktop Plugins can be written in both C++ and Python.
-This course does not explore this further. For details see the
+<P>QGIS Desktop Plugins can be written in both
+<a href="../index/index.html#C++ Programming Language">C++</a> and Python. For further information about this please see the
 following:
 </P>
 <UL>
-<LI><a href="https://www.qgis.org/en/site/getinvolved/development/development.html">
-QGIS Development Web Page</a>
-</LI>
 <LI><a href="https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/plugins/index.html#developing-python-plugins">
 PyQGIS Development Cookbook: Plugins Web Page: Section on Developing Python Plugins</a>
 </LI>

@@ -45,48 +45,161 @@
 
 <DIV>
 <H2 id="1">1. Introduction</H2>
-<P><a href="../index/index.html#Computer programming">Computer programming</a> is the process of developing and running <a href="../index/index.html#Computer program">computer programs</a>, and is often simply called 'programming' and sometimes 'coding' (although coding has several other meanings too). Computer progams are often called simply 'programs' or are sometimes called '<a href="../index/index.html#Executable">executables</a>' or '<a href="../index/index.html#Software">software</a>'. Programs run in an <a href="../index/index.html#Operating System">operating system</a> environment on computational <a href="../index/index.html#Computer hardware">hardware</a>.</P>
-<P>A contemporary general-purpose computer is sometimes called a workstation and may be a desktop or more compact and portable laptop. These typically have a <a href="../index/index.html#Keyboard">keyboard</a> and <a href="../index/index.html#Mouse">mouse</a> for user input, a visual display screen (<a href="../index/index.html#Monitor">monitor</a>), smaller amounts of faster more volatile data storage (<a href="../index/index.html#Memory">memory</a>), and larger amounts of more persistent data storage (<a href="../index/index.html#Disk">disk</a>) that is organised using a <a href="../index/index.html#File System">file system</a>. Such computers may have other inbuilt or perpherally connected devices such as <a href="../index/index.html#Microphone">microphones</a>, <a href="../index/index.html#Speakers">speakers</a>, <a href="../index/index.html#Camera">cameras</a>, and additional <a href="../index/index.html#Computer data storage">data storage</a>. The monitor may also be a <a href="../index/index.html#Touchscreen">touchscreen</a> user interface.</P>
-<P>The basic functioning of a <a href="../index/index.html#Computer">computer</a> is handled by the <a href="../index/index.html#Operating System">operating system</a> upon which additional <a href="../index/index.html#Software">software</a> can be installed for programming, including  <a href="../index/index.html#Compiler">compilers</a> and <a href="../index/index.html#Interpreter">interpreters</a> that convert more readable <a href="../index/index.html#Source code">source code</a> into <a href="../index/index.html#Machine code">machine code</a> <a href="../index/index.html#Instruction">instructions</a> executed by <a href="../index/index.html#Processor">processors</a>. Contemporary general-purpose workstations are typically multi-core - in that they contain multiple processors.
+<P><a href="../index/index.html#Computer programming">Computer programming</a> is the process of developing and running <a href="../index/index.html#Computer program">computer programs</a>, and is often abbreviated to 'programming' and sometimes
+referred to as 'coding' (although coding is perhaps a more
+general term). Computer progams are often referred to as
+'programs' or '<a href="../index/index.html#Executable">executables</a>' or '<a href="../index/index.html#Software">software</a>'. Programs run in an <a href="../index/index.html#Operating System">operating system</a> environment on computational <a href="../index/index.html#Computer hardware">hardware</a>.</P>
+<P>A contemporary general-purpose computer is sometimes called a
+workstation, desktop or laptop. These typically have a
+<a href="../index/index.html#Keyboard">keyboard</a> and <a href="../index/index.html#Mouse">mouse</a> for user input, a visual display screen (<a href="../index/index.html#Monitor">monitor</a>), smaller amounts of faster more volatile data storage (<a href="../index/index.html#Memory">memory</a>), and larger amounts of more persistent data storage (<a href="../index/index.html#Disk">disk</a>) that is organised using a <a href="../index/index.html#File System">file system</a>. Such computers may have other inbuilt or perpherally
+connected devices such as
+<a href="../index/index.html#Microphone">microphones</a>, <a href="../index/index.html#Speakers">speakers</a>, <a href="../index/index.html#Camera">cameras</a>, and additional <a href="../index/index.html#Computer data storage">data storage</a>. The monitor may also be a <a href="../index/index.html#Touchscreen">touchscreen</a> user interface.</P>
+<P>The basic functioning of a <a href="../index/index.html#Computer">computer</a> is handled by the <a href="../index/index.html#Operating System">operating system</a> upon which additional <a href="../index/index.html#Software">software</a> can be installed for programming, including  <a href="../index/index.html#Compiler">compilers</a> and <a href="../index/index.html#Interpreter">interpreters</a> that convert more readable <a href="../index/index.html#Source code">source code</a> into <a href="../index/index.html#Machine code">machine code</a> <a href="../index/index.html#Instruction">instructions</a> executed by <a href="../index/index.html#Processor">processors</a>. Contemporary general-purpose workstations are typically
+multi-core - in that they contain multiple processors.
 </P>
-<P>Networked computers typically communicate using standard <a href="../index/index.html#Internet">Internet</a> protocols and can be organised to work together. Whilst networked general purpose computers collectively have a lot of power. It is not easy to utilise this power efficiently, so research facilities often make available <a href="../index/index.html#Supercomputer">Supercomputers</a> for <a href="../index/index.html#High Performance Computing">High Performance Computing</a>.</P>
+<P>Networked computers typically communicate using standard
+<a href="../index/index.html#Internet">Internet</a> protocols and can be organised to work together. Whilst
+networked general purpose computers collectively have a lot of
+power. It is not easy to utilise this power efficiently, so
+research facilities often make available
+<a href="../index/index.html#Supercomputer">Supercomputers</a> for <a href="../index/index.html#High Performance Computing">High Performance Computing</a>.</P>
 <DIV>
 <H2 id="2">2. Data</H2>
 <DIV>
 <H3 id="2.1">2.1. Bits and Bytes</H3>
-<P>In most modern computers, data is encoded in binary: the smallest unit is a <a href="../index/index.html#Bit">bit</a> which encodes two possible states, denoted <CODE>0</CODE> and <CODE>1</CODE>.</P>
-<P>Typically computers work with fixed size collections of bits called <a href="../index/index.html#Byte">bytes</a>.</P>
-<P>The more bits there are in a byte, the more different unique combinations or arrangements of bits there can be. With each added bit, there are double the number of combinations. So, with 2 bits there are 4 possible combinations - <CODE>[00, 01, 10, 11]</CODE>; with 3 bits there are 8 possible combinations - <CODE>[000, 001, 010, 100, 011, 101, 110, 111] </CODE>, and so on. With each added bit in a byte there are twice as many combinations, soon provides many combinations...</P>
-<P>7 bits in a byte allows for (128 combinations) which is sufficient to represent all the letters in the English alphabet in both lower and upper case, the ten numeric digits 0 to 9, and 64 other symbols.</P>
-<P>Commonly, there are multiples of 8 bits in a byte, but there can be any number.</P>
+<P>In most modern computers, data is encoded in binary: the
+smallest unit is a
+<a href="../index/index.html#Bit">bit</a> which encodes two possible states, denoted
+<CODE>0</CODE> and <CODE>1</CODE>.</P>
+<P>Typically computers work with fixed size collections of bits
+called
+<a href="../index/index.html#Byte">bytes</a>.</P>
+<P>The more bits there are in a byte, the more different unique
+combinations or arrangements of bits there can be. With each
+added bit, there are double the number of combinations. So,
+with 2 bits there are 4 possible combinations -
+<CODE>[00, 01, 10, 11]</CODE>; with 3 bits there are 8 possible combinations - <CODE>[000, 001, 010, 100, 011, 101, 110, 111] </CODE>, and so on. With each added bit in a byte there are twice as
+many combinations, soon provides many combinations...
+</P>
+<P>7 bits in a byte allows for (128 combinations) which is
+sufficient to represent all the letters in the English
+alphabet in both lower and upper case, the ten numeric digits
+0 to 9, and 64 other symbols.</P>
+<P>Commonly, there are multiples of 8 bits in a byte, but there
+can be any number.
+</P>
 <DIV>
 <H3 id="2.2">2.2. File Formats</H3>
-<P>Data stored in the <a href="../index/index.html#File System">file system</a> is often encoded using a standard <a href="../index/index.html#File format">file format</a> - a specification which details the encodings used and how data are arranged.</P>
-<P>Text is commonly encoded as <a href="../index/index.html#ASCII">ASCII</a> or <a href="../index/index.html#Unicode">Unicode</a>. (ASCII encoding uses 7 bit bytes. Unicode uses between 1 and 4 bytes of length 8 for encoding. As of Unicode verson 15.0, there are 149,186 characters that are uniquely encoded, including various alphabets, mathematical symbols and emojis.)</P>
-<P>Some file formats use different encodings in different parts, a complication that can make the data more usable and more compact.</P>
-<P>Often the suffix of a filename indicates the file format, for example the file format of a file with a name ending ".html" is expected to be in <a href="../index/index.html#HTML">HTML</a>format. Some file formats contain an identifying code (known as a <a href="../index/index.html#Magic Number">magic number</a> (typically at the start of the file) which specifies the format. The file format can also be detailed in external <a href="../index/index.html#Metadata">metadata</a>.</P>
-<P>File formats are revisited in <a href="../io/index.html#5">IO Section 5.</a>
+<P>Data stored in the <a href="../index/index.html#File System">file system</a> is often encoded using a standard <a href="../index/index.html#File format">file format</a> - a specification which details the encodings used and how
+data are arranged.
+</P>
+<P>Text is commonly encoded as <a href="../index/index.html#ASCII">ASCII</a> or <a href="../index/index.html#Unicode">Unicode</a>. (ASCII encoding uses 7 bit bytes. Unicode uses between
+1 and 4 bytes of length 8 for encoding. As of Unicode verson
+15.0, there are 149,186 characters that are uniquely encoded,
+including various alphabets, mathematical symbols and emojis.)</P>
+<P>Some file formats use different encodings in different parts,
+a complication that can make the data more usable and more
+compact.
+</P>
+<P>Often the suffix of a filename indicates the file format, for
+example the file format of a file with a name ending ".html"
+is expected to be in
+<a href="../index/index.html#HTML">HTML</a>format. Some file formats contain an identifying code (known as a <a href="../index/index.html#Magic Number">magic number</a> (typically at the start of the file) which specifies the
+format. The file format can also be detailed in external
+<a href="../index/index.html#Metadata">metadata</a>.</P>
+<P>File formats are revisited in
+<a href="../io/index.html#5">IO Section 5.</a>
 </P>
 <DIV>
 <H3 id="2.3">2.3. Integers and Floating Point</H3>
-<P>All the <a href="../index/index.html#Integer">integer</a> numbers in a specific range are often represented individually using <a href="../index/index.html#Byte">bytes</a> of a length sufficient for that range. An encoding will detail how this is done. Often, zero is either in the middle or at the start of the range. If the byte size is minimal, to represent integer numbers in a wider range, either the byte size must increase, or multiple bytes must be used in a more complicated encoding.</P>
-<P>Floating point numbers are a subset of null often encoded using bytes of length 32 or 64. <a href="../index/index.html#Single-precision floating-point">Single-precision floating-point</a> is a standard encoding that uses 32 bit bytes. null is a standard encoding that uses 64 bit bytes. The density of fractions within any part of the range varies. In general, the density is greater towards the centre of the range, which with standard floating point numbers is zero.</P>
-<P><a href="../index/index.html#Floating point arithmetic">Floating point arithmetic</a> is standardised. The result of a calculation gets rounded to the nearest value that can be represented in the encoding. Most of the time, the standardisation results in the same calculations on different computers, but there can be variation. For some calculations the result is completely accurate and precise, for others the result is effectively rounded either up or down. It is important to be aware that there can be significant error in this standardised arithmetic.</P>
+<P>All the <a href="../index/index.html#Integer">integer</a> numbers in a specific range are often represented
+individually using
+<a href="../index/index.html#Byte">bytes</a> of a length sufficient for that range. An encoding will
+detail how this is done. Often, zero is either in the middle
+or at the start of the range. If the byte size is minimal, to
+represent integer numbers in a wider range, either the byte
+size must increase, or multiple bytes must be used in a more
+complicated encoding.
+</P>
+<P>Floating point numbers are a subset of <a href="../index/index.html#Rational number">rational numbers</a> often encoded using bytes of length 32 or 64. <a href="../index/index.html#Single-precision floating-point">Single precision</a> is a standard encoding that uses 32 bit bytes. <a href="../index/index.html#Double-precision floating-point">Double precision</a> is a standard encoding that uses 64 bit bytes. The number of
+rational numbers within any part of the range varies.
+</P>
+<P><a href="../index/index.html#Floating point arithmetic">Floating point arithmetic</a> is standardised. The result of a calculation gets rounded to
+the nearest value that can be represented in the encoding.
+Most of the time, the standardisation results in the same
+calculations on different computers, but there can be rounding
+variations. Anyway, for some arithmetic calculations the result
+is completely accurate and precise, for others the result cannot
+be stored exactly in the encoding and is effectively rounded
+either up or down.
+</P>
 <DIV>
 <H2 id="3">3. Learning to Program</H2>
-<P>Learning to program takes time and energy. It is highly recommended that you organise to learn new programming concepts when you are well rested and have good concentration. Mistakes and misunderstandings are more likely if you are tired or distracted.</P>
-<P>Take breaks as you learn. They do more than help avoid fatigue - they can save a lot more time than they take, and make the learning experience healthier and more enjoyable.</P>
-<P>Save your work often and use <a href="../index/index.html#Version control">version control</a> as this avoids losing work and provides a track of progress that you and others might find useful.</P>
-<P>Once you have a good grip of programming basics, (which you should have after this course), good ways to improve your skills are by getting involved in null development projects, reviewing code, writing code, reading documentation and doing other programming courses.</P>
-<P>Being familiar with one programming language helps in learning another. Many concepts are shared and the language syntax and workflows are often similar.</P>
-<P>Some programming languages are particularly well geared for particular types of application. This may be because of the language fundamentals, but often it is because something similar has already been done with that language.</P>
-<P>When given a choice, experienced programmers will often choose a language for an implementation because they either know that language well - and can envisage what to do, or because they know that a particular language is well suited to the task, or because they want to learn/try something new/different.</P>
-<P>Programming and programming language development are typically community activities. It is normal to ask others for help and to provide others with help and work collaboratively to develop software. There are various online systems that help with this including online forums.</P>
-<P>Asking for help with programming is a skill in itself. Whilst it may be easiest for you to show someone what is happening and talk about it. It is often not so easy to arrange an interactive help session. Often the best way to get help is to document the issue - describe and explain with text and pictures what you are trying to do, what happens, and why this is confusing or not what you expect/want to happen. Often documenting the issue can help you better understand and come up with ideas of different things to try, which may ultimately resolve the issue before you ask for help. Don't see this as wasted effort, the more you practise preparing to ask for help, the better you should be at it when you do!</P>
-<P>Often detailing an issue involves consulting documentation and providing information about your environment. Sometimes the issue is not that you have done something wrong, but that some other code or software is not working as it should, or that the way that things are set up to work is somehow causing the issue.</P>
-<P>Sometimes the issue is a result of a '<a href="../index/index.html#Software bug">software bug</a>' - an error, flaw or fault in the design, development, or operation that causes incorrect or unexpected things to happen. Sometimes issues happen in the same way each time something is attempted, other times the fault only sometimes happens. A fault that only sometimes happens is known as a '<a href="../index/index.html#Glitch">glitch</a>' and these can be difficult to troubleshoot.</P>
-<P>Often it is worth restarting software or rebooting the computer <a href="../index/index.html#Operating System">operating system</a> to attempt to stop unexpected behaviour happening. Having to do this frequently becomes annoying, and it can be worth spending time trying to get a better workaround in place, or to report and help fix the bug.</P>
-<P>Reporting a bug is an important activity in software and language development. Many bug reports are made openly available. A 'known bug' is one that has been reported already. This may already be being worked on or be 'resolved' or 'fixed' or there may be 'workarounds' - ways of coping.
+<P>Learning to program takes time and energy. It is highly
+recommended that you organise to learn programming concepts
+when you are well rested, have good concentration and can work
+without distraction.
+</P>
+<P>Take breaks as you learn. They help you learn, avoid fatigue, be
+efficient, and should make the learning experience healthier and
+more enjoyable.
+</P>
+<P>Save your work often and use <a href="../index/index.html#Version control">version control</a> as approriate to avoid losing work and to help you and other
+track progress.
+</P>
+<P>Good ways to improve your skills are by getting involved in
+null development projects, reviewing code, writing code, reading
+documentation and doing other programming courses.
+</P>
+<P>Being familiar with one programming language helps in learning
+another. Many concepts are shared and language syntax and
+programming workflows are often similar.
+</P>
+<P>Programming and programming language development are typically
+community activities. It is normal to ask others for help and
+to provide others with help and work collaboratively to
+develop software. There are various online systems that help
+with this including online forums.
+</P>
+<P>Asking for help with programming is a skill in itself. Whilst it
+may seem easiest for you to show someone what is happening and
+talk to someone else about it. It is often not so easy to
+arrange an interactive help session. Often the best way to get
+help is to document the issue - describe and explain with text
+and pictures what you are trying to do, what happens, and why
+this is confusing or not what you expect/want to happen. Often
+documenting the issue can help you better understand and come
+up with ideas of different things to try, which may ultimately
+resolve the issue before you ask for help. Don't see this as
+wasted effort, the more you practise preparing to ask for
+help, the better you should be at it when you do! Such prompting
+is also the basis of
+<a href="../index/index.html#Vibe Programming">Vibe Programming</a>
+</P>
+<P>Often detailing an issue involves consulting documentation
+and providing information about your environment. Sometimes
+the issue is not that you have done something wrong, but that
+some other code or software is not working as it should, or
+that the way that things are set up to work is somehow causing
+the issue.
+</P>
+<P>Sometimes the issue is a result of a '<a href="../index/index.html#Software bug">software bug</a>' - an error, flaw or fault in the design, development, or
+operation that causes incorrect or unexpected things to
+happen. Sometimes issues happen in the same way each time
+something is attempted, other times the fault only sometimes
+happens. A fault that only sometimes happens is known as a '<a href="../index/index.html#Glitch">glitch</a>' and these can be difficult to troubleshoot.</P>
+<P>Often it is worth restarting software or rebooting the
+computer
+<a href="../index/index.html#Operating System">operating system</a> to attempt to stop unexpected behaviour happening. Having to
+do this frequently becomes annoying, and it can be worth
+spending time trying to get a better workaround in place, or
+to report and help fix the bug.
+</P>
+<P>Reporting a bug is an important activity in software and
+language development. Many bug reports are made openly
+available. A 'known bug' is one that has been reported
+already. This may already be being worked on or be 'resolved'
+or 'fixed' or there may be 'workarounds' - ways of coping.
 </P>
 <P>A new version of software is typically released with one or
 more bug fixes. Sometimes you have to decide when it is worth
