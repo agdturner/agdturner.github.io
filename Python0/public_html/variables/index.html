@@ -42,7 +42,6 @@
 <P><a href="../index/index.html#Variable">Variables</a> are a combination of an identifier (a name) and a value</P>
 </DIV>
 
-
 <DIV>
 <H2 id="2">2. Python Variables</H2>
 <P>In Python, the 'type' of a variable does not have to be declared
@@ -133,7 +132,7 @@ print(s == s)  # Prints True
 print(s == s2) # Prints False (case sensitive)
 print(s == s3) # Prints False
 print(s > s2)  # Prints False
-print(s < s2)  # Prints True
+print(s &lt; s2)  # Prints True
 print(str(3))  # Prints 3
 </CODE></PRE>
 
@@ -179,7 +178,6 @@ print(type(x)) # Prints &lt;class 'str'&gt;
 &lt;class 'str'&gt;
 </PRE>
 </DIV>
-
 
 <DIV>
 <H2 id="3">3. Functions, Variable Scope and the Global Keyword</H2>
@@ -265,7 +263,6 @@ c 2
 </PRE>
 </DIV>
 
-
 <DIV>
 <H2 id="4">4. Deleting variables</H2>
 <P>Variables can be deleted using the keyword 'del' followed by
@@ -276,11 +273,11 @@ following code snippets shows how to initialise and delete
 variables:
 </P>
 <PRE><CODE class="language-python">a = 1
-del a # <-- deletes a
-#print(a) # <-- Would result in: NameError: name 'a' is not defined.
+del a # &lt;-- deletes a
+#print(a) # &lt;-- Would result in: NameError: name 'a' is not defined.
 b = 2
 c = 3
-del(b, c) # <-- Deletes b and site.
+del(b, c) # &lt;-- Deletes b and site.
 </CODE></PRE>
 
 

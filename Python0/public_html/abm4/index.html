@@ -58,7 +58,6 @@ your 'model.py' file from abm3 into the abm4 directory.
 </P>
 </DIV>
 
-
 <DIV>
 <H2 id="2">2. Define an Agent class</H2>
 <P>Create a new file in the abm4 directory named
@@ -93,7 +92,7 @@ print("type(a)", type(a))
 <P>Run 'model.py' and examine the output. It should contain the
 following line:
 </P>
-<PRE>type(a) <class 'agentframework.Agent'></PRE>
+<PRE>type(a) &lt;class 'agentframework.Agent'></PRE>
 <P>This indicates that an instance of the class Agent as defined
 in the agentframework module was successfully created.
 </P>
@@ -212,7 +211,7 @@ function:
 <PRE><CODE class="language-python">distance = get_distance(a[0], a[1], b[0], b[1])</CODE></PRE>
 
 
-<P><p>To be:</p></P>
+<P>To be:</P>
 <PRE><CODE class="language-python">distance = get_distance(a.x, a.y, b.x, by)</CODE></PRE>
 
 
@@ -279,7 +278,6 @@ using GitHub - push your changes to GitHub.
 </P>
 </DIV>
 
-
 <DIV>
 <H2 id="3">3. Separation of Concerns</H2>
 <P>Define a method called 'move' in the Agent class as follows:</P>
@@ -307,7 +305,6 @@ how an agent moves, and 'model.py' actions when they do. This is
 a reasonable separation of concerns.
 </P>
 </DIV>
-
 
 <DIV>
 <H2 id="4">4. Give each agent a unique name</H2>

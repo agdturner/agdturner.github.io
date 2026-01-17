@@ -69,14 +69,14 @@ for i in range(n_agents):
     # x-coordinate
     rn = random.random()
     #print("rn", rn)
-    if rn < 0.5:
+    if rn &lt; 0.5:
         agents[i][0] = agents[i][0] + 1
     else:
         agents[i][0] = agents[i][0] - 1
     # y-coordinate
     rn = random.random()
     #print("rn", rn)
-    if rn < 0.5:
+    if rn &lt; 0.5:
         agents[i][1] = agents[i][1] + 1
     else:
         agents[i][1] = agents[i][1] - 1
@@ -147,7 +147,6 @@ your "model.py" file into the abm3 directory.
 </P>
 </DIV>
 
-
 <DIV>
 <H2 id="2">2. Distance Calculations</H2>
 
@@ -168,7 +167,7 @@ returned.
 simplify it by removing one of these ways. Consider simplifying
 your code in other ways too...
 </P>
-<P><p>Change the comment that describes the function into a <a href="../index/index.html#Python_docstring">docstring</a> clarifying what the function inputs and outputs are.</P>
+<P>Change the comment that describes the function into a <a href="../index/index.html#Python_docstring">docstring</a> clarifying what the function inputs and outputs are.</P>
 
 <DIV>
 <H3 id="2.2">2.2. Calculate the maximum distance</H3>
@@ -274,7 +273,6 @@ function definition before it can be called. So, rearrange your
 code so that the function is defined before it is called.
 </P>
 </DIV>
-
 
 <DIV>
 <H2 id="3">3. Timing</H2>
@@ -430,7 +428,7 @@ zero diagonal of the imaginary distance matrix.
 statement that was commented out is no longer commented out;
 and, so that the operator in the 'if statement' is a '&lt;'):
 </P>
-<PRE><CODE class="language-python">if i < j:</CODE></PRE>
+<PRE><CODE class="language-python">if i &lt; j:</CODE></PRE>
 
 
 <P>Run the program again and you should get the following output:
@@ -463,7 +461,6 @@ results was obtained:
 alt="Another graph of time (y axis) and n_agents (x axis)" />
 </P>
 </DIV>
-
 
 <DIV>
 <H2 id="4">4. Other distance statistics</H2>
@@ -531,7 +528,6 @@ using GitHub - push your changes to GitHub.
 </P>
 </DIV>
 
-
 <DIV>
 <H2 id="5">5. Movement</H2>
 <P>Currently, in 'model.py' agents move once. The code will now be
@@ -568,9 +564,9 @@ y_max = 99
 
 
 <PRE><CODE class="language-python"># Apply movement constraints.
-if agents[i][0] < x_min:
+if agents[i][0] &lt; x_min:
     agents[i][0] = x_min
-if agents[i][1] < y_min:
+if agents[i][1] &lt; y_min:
     agents[i][1] = y_min
 if agents[i][0] > x_max:
     agents[i][0] = x_max
@@ -591,7 +587,7 @@ agent.
 <P>Add and commit to your local git repository and assuming you are
 using GitHub - push your changes to GitHub.
 </P>
-</div>
+</DIV>
 
 <DIV>
 

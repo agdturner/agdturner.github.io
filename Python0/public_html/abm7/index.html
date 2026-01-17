@@ -48,7 +48,6 @@ stopping conditions will be added to halt the model and exit.
 </P>
 </DIV>
 
-
 <DIV>
 <H2 id="2">2. Animation</H2>
 <P>Open the new 'model.py' file from the 'abm7' directory in
@@ -138,7 +137,7 @@ variable and add a random stopping condition as follows:
     # Stopping condition
     global carry_on
     # Random
-    if random.random() < 0.1:
+    if random.random() &lt; 0.1:
         #if sum_as / n_agents > 80:
         carry_on = False
         print("stopping condition")
@@ -152,7 +151,7 @@ variable and add a random stopping condition as follows:
 <PRE><CODE class="language-python">def gen_function():
     global ite
     global carry_on
-    while (ite <= n_iterations) & (carry_on) :
+    while (ite &lt;= n_iterations) & (carry_on) :
         yield ite # Returns control and waits next call.
         ite = ite + 1
     global data_written
@@ -184,7 +183,6 @@ to the plots pane (where") animation does not work), it is
 using GitHub - push your changes to GitHub.
 </P>
 </DIV>
-
 
 <DIV>
 <H2 id="3">3. Code and Model Review</H2>

@@ -53,7 +53,6 @@ called 'my_modules' in 'abm6' and use 'save as' to save your
 </P>
 </DIV>
 
-
 <DIV>
 <H2 id="2">2. Sharing</H2>
 <P>Each agent is going to share their store equally amongst all
@@ -135,7 +134,7 @@ following method:
     #print(self.agents[self.i])
     for a in self.agents:
         distance = geometry.get_distance(a.x, a.y, self.x, self.y)
-        if distance < neighbourhood:
+        if distance &lt; neighbourhood:
             neighbours.append(a.i)
     # Calculate amount to share
     n_neighbours = len(neighbours)
@@ -194,7 +193,6 @@ statements to gain a clear understanding of how the code works.
 </P>
 </DIV>
 
-
 <DIV>
 <H2 id="3">3. Organise module code</H2>
 <P>Move all code in each 'my_modules' module that is not in
@@ -211,7 +209,6 @@ file is the one run and not when the module is imported.
 results.
 </P>
 </DIV>
-
 
 <DIV>
 <H2 id="4">4. Output images and generate an animated Gif</H2>
@@ -271,7 +268,6 @@ turned into an animated GIF format file using:
 using GitHub - push your changes to GitHub.
 </P>
 </DIV>
-
 
 <DIV>
 <H2 id="5">5. Further Coding Tasks</H2>
