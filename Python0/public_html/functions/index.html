@@ -57,6 +57,7 @@
 </UL>
 </DIV>
 
+
 <DIV>
 <H2 id="1">1. Introduction</H2>
 <P>Functions are a key part of many programming languages. These
@@ -94,6 +95,7 @@ understand, maintain and use.
 </P>
 </DIV>
 
+
 <DIV>
 <H2 id="2">2. Parameters</H2>
 <P>Parameters or 'arguments' add flexibility and utility to
@@ -105,6 +107,7 @@ function to be used within the function.
 <P>As with variable declarations, in Python there is no need to
 declare the type of a parameter passed to a function.
 </P>
+
 <DIV>
 <H3 id="2.1">2.1. Positional Parameters</H3>
 <P>Positional parameters or positional arguments are given in
@@ -138,6 +141,7 @@ print(add(3))
 <PRE>SyntaxError: non-default argument follows default argument</PRE><P>Because of this, arguments with defaults are declared after
 any undefaulted arguments in the function declaration.
 </P>
+
 <DIV>
 <H3 id="2.2">2.2. Keyword Arguments (kwargs)</H3>
 <P>Arguments can also be named, these are called keyword arguments
@@ -160,6 +164,7 @@ print(add(num2 = 30, num1 = 50))
 kwargs are declared after (i.e. to the right of) positional
 arguments in the function declaration.
 </P>
+
 <DIV>
 <H3 id="2.3">2.3. Flexibility using Tuples and Dictionaries</H3>
 <P>More positional arguments can be allowed using '*tuple_name',
@@ -264,6 +269,7 @@ Python documentation: Outline of how to get output from a function documentation
 </P>
 </DIV>
 
+
 <DIV>
 <H2 id="3">3. Scope</H2>
 <P>The scope of a variable is from where in the code it can be
@@ -320,6 +326,7 @@ print(a) # Prints 1.
 
 </DIV>
 
+
 <DIV>
 <H2 id="4">4. Function Complexity</H2>
 <P>As shown above, functions can be nested. In the example above,
@@ -348,6 +355,7 @@ defining and using functions that simply have variables as
 parameter arguments and return variables, perhaps packed in a
 tuple.
 </P>
+
 <DIV>
 <H3 id="4.1">4.1. Decorators</H3>
 <P>Decorators are functions that aare applied to the outputs of
@@ -411,6 +419,7 @@ run_time, agents = create_agents(n_agents)
 print(run_time, "seconds to create", n_agents, "agents.")
 </CODE></PRE>
 
+
 <DIV>
 <H3 id="4.2">4.2. Lambdas</H3>
 <P></P>
@@ -429,6 +438,7 @@ keyword, the parameters are separated with commas, and a colon
 is used to separate the parameters from the expression - the
 result of which is passed back.
 </P>
+
 <DIV>
 <H3 id="4.3">4.3. Callbacks</H3>
 <P>A Python callback is a subroutine function which is passed as
@@ -529,6 +539,7 @@ for mark in marks:
 <P>Often a callback is used in event based processing. It allows
 other tasks to be done whilst waiting for an event to happen.
 </P>
+
 <DIV>
 <H3 id="4.4">4.4. Partial</H3>
 <P>Functools <a href="https://docs.python.org/3/library/functools.html?highlight=partial#functools.partial">
@@ -548,8 +559,10 @@ print(pf(3)) # Prints 6
 
 </DIV>
 
+
 <DIV>
 <H2 id="5">5. Style and Documenting Functions</H2>
+
 <DIV>
 <H3 id="5.1">5.1. Style</H3>
 <P>Good Python style is set out in
@@ -573,6 +586,7 @@ first letters of name parts (camel case) as shown.
 <LI>Add spaces after commas</LI>
 <LI>Indent comments to the level of the code referred to.</LI>
 </UL>
+
 <DIV>
 <H3 id="5.2">5.2. Documenting Functions</H3>
 <P><a href="../index/index.html#Python docstring">Docstrings</a> are automatically extracted to describe code. They are added in
@@ -607,6 +621,7 @@ function or module the following will display the docstring:
 <PRE>help(x)</PRE><P>The docstring can also be printed using:</P>
 <PRE>print(x.__doc__)</PRE></DIV>
 
+
 <DIV>
 <H2 id="6">6. Next</H2>
 <P>Refactoring the Agent Based Model code to use functions...
@@ -615,10 +630,9 @@ function or module the following will display the docstring:
 
 <DIV>
 
-<div>
-<p><a id="next" class="nav" href="../abm3/index.html">Next: ABM3</a></p>
-</div>
-<P>Date last modified: 2026-01-14</P>
+<P><a id="next" class="nav" href="../abm3/index.html">Next: ABM3</a></P>
+
+<P>Date last modified: 2026-01-17</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 
