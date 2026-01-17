@@ -21,8 +21,7 @@
 
 <button id="style_button" onclick="swapStyle()"></button>
 
-<DIV class="navbar">
-<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="conclusion" class="nav" href="../conclusion/index.html">Conclusion</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+<DIV id="navigation" class="navbar"><a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="conclusion" class="nav" href="../conclusion/index.html">Conclusion</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
 </DIV>
 
 <H1>Agent Based Model Practical 3</H1>
@@ -167,7 +166,7 @@ returned.
 simplify it by removing one of these ways. Consider simplifying
 your code in other ways too...
 </P>
-<P><p>Change the comment that describes the function into a <a href="../index/index.html#Python docstring">docstring</a> clarifying what the function inputs and outputs are.</P>
+<P><p>Change the comment that describes the function into a <a href="../index/index.html#Python_docstring">docstring</a> clarifying what the function inputs and outputs are.</P>
 
 <DIV>
 <H3 id="2.2">2.2. Calculate the maximum distance</H3>
@@ -180,7 +179,7 @@ about a diagonal where all the distances are zero.
 distance in this matrix, indeed it is the maximum distance in
 one half of the values not on the zero diagonal. Anyway, a pair
 of nested
-<a href="../index/index.html#Python for">for loops</a> can be used to calculate it: An outer loop that iterates over
+<a href="../index/index.html#Python_for">for loops</a> can be used to calculate it: An outer loop that iterates over
 all agents; and an inner loop that iterates over all agents.
 Within the inner loop the get_distance function can be used to
 calculate the distance between a pair of agents (one from the
@@ -208,7 +207,7 @@ the imaginary matrix.
 <P>Recall that there are two main ways to iterate over the items in
 a list. As above, and alternatively using list indexes. The
 following code does the same calculation, and uses the
-<a href="../index/index.html#Python range">range function</a> to get a sequence of indexes:</P>
+<a href="../index/index.html#Python_range">range function</a> to get a sequence of indexes:</P>
 <PRE><CODE class="language-python">max_distance = 0
 for i in range(len(agents)):
     a = agents[i]
@@ -222,7 +221,7 @@ for i in range(len(agents)):
 
 <P>Note that this code uses variables 'i' and 'j' for the indexes,
 and the
-<a href="../index/index.html#Python len">len function</a>to get the length of the agents list. (Here, 'len(agents)' is
+<a href="../index/index.html#Python_len">len function</a>to get the length of the agents list. (Here, 'len(agents)' is
 the same as 'n_agents', which could be used instead (and would
 be more efficient). Change this if you want, but consider what
 would happen if the length of the agents list gets changed in
@@ -264,7 +263,7 @@ maximum distance between all the agents.
 distance between all the agents just after they have been
 initialised.
 </P>
-<P>If a <a href="../index/index.html#Python NameError">NameError</a>is raised indicating that 'get_max_distance' is not defined,
+<P>If a <a href="../index/index.html#Python_NameError">NameError</a>is raised indicating that 'get_max_distance' is not defined,
 then recall that the Python interpreter needs to have read a
 function definition before it can be called. So, rearrange your
 code so that the function is defined before it is called.
@@ -274,7 +273,7 @@ code so that the function is defined before it is called.
 
 <DIV>
 <H2 id="3">3. Timing</H2>
-<P>This section is about using the <a href="../index/index.html#Python time">time module</a> to report timings and explore code efficiency.</P>
+<P>This section is about using the <a href="../index/index.html#Python_time">time module</a> to report timings and explore code efficiency.</P>
 <P>Save your source code file with a new name, for example
 "timing.py".
 </P>
@@ -385,7 +384,7 @@ i 2 j 1
 i 2 j 2
 </PRE><P>Change what is in the inner loop of the 'get_max_distance'
 function to be within an
-<a href="../index/index.html#Python if">if statement</a>that is only run when 'i' does not equal 'j' using the operator
+<a href="../index/index.html#Python_if">if statement</a>that is only run when 'i' does not equal 'j' using the operator
 '!='. The 'if statement' will look like:
 </P>
 <PRE><CODE class="language-python">if i != j:
@@ -461,7 +460,7 @@ any two different agents. The upper bound of the distance
 between two agents in Euclidean space is theoretically
 infinite.
 </P>
-<P>From the <a href="../index/index.html#Python math">math module</a> the following can be used for positive infinity:</P>
+<P>From the <a href="../index/index.html#Python_math">math module</a> the following can be used for positive infinity:</P>
 <PRE><CODE class="language-python">math.inf
 </CODE></PRE>
 
@@ -524,7 +523,7 @@ changed to move them a number of times. After initialising
 'n_agents', initialise a variable called 'n_iterations' and set
 it equal to 1000.
 </P>
-<P>Create a new outer <a href="../index/index.html#Python for">for loop</a>to loop through moving agents n_iteration times. An outer loop
+<P>Create a new outer <a href="../index/index.html#Python_for">for loop</a>to loop through moving agents n_iteration times. An outer loop
 is wanted rather than an inner loop as in each iteration agents
 are to move in turn rather than each agent taking all their
 turns before any others. This outer loop is the 'main simulation

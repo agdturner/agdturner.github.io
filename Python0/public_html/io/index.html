@@ -21,8 +21,7 @@
 
 <button id="style_button" onclick="swapStyle()"></button>
 
-<DIV class="navbar">
-<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="conclusion" class="nav" href="../conclusion/index.html">Conclusion</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+<DIV id="navigation" class="navbar"><a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="conclusion" class="nav" href="../conclusion/index.html">Conclusion</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
 </DIV>
 
 <H1>Input and Output</H1>
@@ -50,7 +49,7 @@
 
 <DIV>
 <H2 id="1">1. Introduction</H2>
-<P>The Python standard library <a href="../index/index.html#Python io">io module</a> provides the main facilities for dealing with input and output
+<P>The Python standard library <a href="../index/index.html#Python_io">io module</a> provides the main facilities for dealing with input and output
 (IO). Numerous other standard library modules have functionality
 for dealing with specific aspects and types of IO, including:
 </P>
@@ -74,7 +73,7 @@ and processing data on the Web.
 
 <DIV>
 <H2 id="2">2. Standard Input</H2>
-<P>The builtins module <a href="../index/index.html#Python input">input</a> function reads input from the standard input 'stdin' which is
+<P>The builtins module <a href="../index/index.html#Python_input">input</a> function reads input from the standard input 'stdin' which is
 usually the keyboard. This continues until the &lt;ENTER&gt;
 (or &lt;RETURN&gt;) key is pressed. The function returns a
 string (without a newline character). A string provided as a
@@ -90,7 +89,7 @@ print("The input detected is:", n_agents)
 
 <DIV>
 <H2 id="3">3. Streams</H2>
-<P>The builtins module <a href="../index/index.html#Python print">print</a> function writes to the standard output 'stdout' which is usually
+<P>The builtins module <a href="../index/index.html#Python_print">print</a> function writes to the standard output 'stdout' which is usually
 the terminal/console/screen.
 </P>
 <P>Stdin and stdout are streams - flows of data. Standard error
@@ -113,7 +112,7 @@ could be used:
 <PRE>python a.py &lt; stdin.txt &gt; stdout.txt</PRE><P>The stdout of one program can be piped to the stdin of another
 program using the pipe symbol '|'.
 </P>
-<P>The <a href="../index/index.html#Python print">print</a><P> function also includes an option to direct stout to a file.
+<P>The <a href="../index/index.html#Python_print">print</a><P> function also includes an option to direct stout to a file.
 That file has to be open in order for the writing to be
 successful and the open file should be closed to ensure all the
 data gets written. Typically reading and writing files uses
@@ -128,7 +127,7 @@ sometimes be useful...<
 
 <DIV>
 <H2 id="4">4. Reading and Writing Files Part 1</H2>
-<P>The following code uses the builtins module <a href="../index/index.html#Python open">open</a> function to open a file in the current directory called 'a.in'
+<P>The following code uses the builtins module <a href="../index/index.html#Python_open">open</a> function to open a file in the current directory called 'a.in'
 and read the file one line at a time streaming the output to the
 screen before then closing the file:
 </P>
@@ -140,7 +139,7 @@ f.close()
 
 <P>The <a href="https://docs.python.org/3/c-api/file.html">
 File Object</a> returned from the above
-<a href="../index/index.html#Python open">open</a><P> function call 'f' is best closed once it is read by calling it's
+<a href="../index/index.html#Python_open">open</a><P> function call 'f' is best closed once it is read by calling it's
 'close' method as done on line 4 of the code snippet. After this
 line is executed, 'f' becomes" unusuable. Closing releases
 system resources and is recommended as good practice altough
@@ -169,7 +168,7 @@ readlines method</p> can read some or all lines of a file into a
 list of strings (each item being a line of the file. Whilst this
 can be convenient, if a file is large and not everything is
 wanted, then this can use a lot of memory and risks a
-<a href="../index/index.html#Python MemoryError">MemoryError</a> being raised. So, often it is better to parse a file in
+<a href="../index/index.html#Python_MemoryError">MemoryError</a> being raised. So, often it is better to parse a file in
 portions, such as line by line. Parsing might involve processing
 or simply storing parts or all of the line in one or more
 variables.
@@ -195,7 +194,7 @@ Function which prepares the file a.out to be written to. Writing
 to a file requires different preparation to reading from a file.
 </P>
 <P>There are other optional arguments that can be used with the
-<a href="../index/index.html#Python open">open</a> function, follow the link for details...</P>
+<a href="../index/index.html#Python_open">open</a> function, follow the link for details...</P>
 <P>An alternative using the keyword 'with' that does not
 require closing the file is:
 </P>
@@ -296,7 +295,7 @@ print(data)
 
 <P>It is easier to read and write CSV format files using functions
 from the Python standard library
-<a href="../index/index.html#Python csv">csv module</a> written specifically to do this. The following is an example of
+<a href="../index/index.html#Python_csv">csv module</a> written specifically to do this. The following is an example of
 reading some numeric data:
 </P>
 <PRE><CODE class="language-python">import csv
@@ -327,7 +326,7 @@ f.close()
 space ' ' instead of the default comma ',', so this would
 actually not generate CSV format data!
 </P>
-<P>The following code uses the standard library <a href="../index/index.html#Python json">json module</a> to read a JSON file:</P>
+<P>The following code uses the standard library <a href="../index/index.html#Python_json">json module</a> to read a JSON file:</P>
 <PRE><CODE class="language-python">import json
 f = open('data.json')
 data = json.load(f)

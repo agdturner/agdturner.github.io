@@ -21,8 +21,7 @@
 
 <button id="style_button" onclick="swapStyle()"></button>
 
-<DIV class="navbar">
-<a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="conclusion" class="nav" href="../conclusion/index.html">Conclusion</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
+<DIV id="navigation" class="navbar"><a id="home" class="nav" href="../home/index.html">Home</a> <a id="programming" class="nav" href="../programming/index.html">Programming</a> <a id="python" class="nav" href="../python/index.html">Python</a> <a id="variables" class="nav" href="../variables/index.html">Variables</a> <a id="github" class="nav" href="../github/index.html">GitHub</a> <a id="abm1" class="nav" href="../abm1/index.html">ABM1</a> <a id="containers" class="nav" href="../containers/index.html">Containers</a> <a id="branching" class="nav" href="../branching/index.html">Branching</a> <a id="loops" class="nav" href="../loops/index.html">Loops</a> <a id="abm2" class="nav" href="../abm2/index.html">ABM2</a> <a id="functions" class="nav" href="../functions/index.html">Functions</a> <a id="abm3" class="nav" href="../abm3/index.html">ABM3</a> <a id="classes" class="nav" href="../classes/index.html">Classes</a> <a id="abm4" class="nav" href="../abm4/index.html">ABM4</a> <a id="io" class="nav" href="../io/index.html">IO</a> <a id="abm5" class="nav" href="../abm5/index.html">ABM5</a> <a id="modules" class="nav" href="../modules/index.html">Modules</a> <a id="abm6" class="nav" href="../abm6/index.html">ABM6</a> <a id="exceptions" class="nav" href="../exceptions/index.html">Exceptions</a> <a id="abm7" class="nav" href="../abm7/index.html">ABM7</a> <a id="gui" class="nav" href="../gui/index.html">GUI</a> <a id="abm8" class="nav" href="../abm8/index.html">ABM8</a> <a id="web" class="nav" href="../web/index.html">Web</a> <a id="abm9" class="nav" href="../abm9/index.html">ABM9</a> <a id="testing" class="nav" href="../testing/index.html">Testing</a> <a id="conclusion" class="nav" href="../conclusion/index.html">Conclusion</a> <a id="index" class="nav" href="../index/index.html">Index</a> <a id="references" class="nav" href="../references/index.html">References</a>
 </DIV>
 
 <H1>Agent Based Model Practical 2</H1>
@@ -142,13 +141,13 @@ the 'abm2' directory.
 <H2 id="2">2. Using Lists</H2>
 <P>Rather than handle coordinates for each agent individually, the
 coordinates for each agent will be stored in
-<a href="../index/index.html#Python list">lists</a> of length 2, with the first item being an 'x' coordinate, and
+<a href="../index/index.html#Python_list">lists</a> of length 2, with the first item being an 'x' coordinate, and
 the second item being a 'y' coordinate. All agents are also
 going to be stored in a list.
 </P>
 <P>The code is also going to be reorganised so that the agents are
 created in a
-<a href="../index/index.html#Python for">for loop</a>, and there will be a second for loop to adjust the coordinates
+<a href="../index/index.html#Python_for">for loop</a>, and there will be a second for loop to adjust the coordinates
 (move the agents).
 </P>
 <P>Towards the top of the file (below the import statements and
@@ -247,7 +246,7 @@ coordinates of the second agent. After the line of code that
 initialises the agent list, add a variable called 'n_agents' and
 set this equal to '10'. Then create a
 </P>
-<a href="../index/index.html#Python for">for loop</a><P> that uses n_agents to create 10 agents as follows:</P>
+<a href="../index/index.html#Python_for">for loop</a><P> that uses n_agents to create 10 agents as follows:</P>
 <PRE><CODE class="language-python">n_agents = 10
 for i in range(n_agents):
     agents.append([random.randint(0, 99), random.randint(0, 99)])
