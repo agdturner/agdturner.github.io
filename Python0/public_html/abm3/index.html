@@ -5,8 +5,7 @@
 
 <TITLE>Agent Based Model Practical 3 Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -120,13 +119,15 @@ plt.scatter(sy[0], sy[1], color='green')
 plt.show()
 </CODE></PRE>
 
+
 <P>When run, this should produce the following text output:</P>
 <PRE>[[49, 97], [53, 5], [33, 65], [62, 51], [38, 61], [45, 74], [27, 64], [17, 36], [17, 96], [12, 79]]
 [[48, 96], [52, 4], [32, 66], [63, 52], [37, 62], [44, 75], [28, 63], [18, 35], [18, 95], [13, 78]]
 ssd 25
 distance 5.0
 distance 5.0
-</PRE><P>And this plot:</P>
+</PRE>
+<P>And this plot:</P>
 <P><img src="../../resources/abm2/Figure_1.png" alt="ABM2 Output Plot" />
 </P>
 <P>Some of the print statements in the code presented above have
@@ -198,6 +199,7 @@ for a in agents:
         print("max_distance", max_distance)
 </CODE></PRE>
 
+
 <P>Add the code to the end of your program, run it and examine the
 output. In calculating the maximum distance, you should see
 that some zero distances are calculated. These will either be
@@ -219,6 +221,7 @@ for i in range(len(agents)):
         max_distance = max(max_distance, distance)
         print("max_distance", max_distance)
 </CODE></PRE>
+
 
 <P>Note that this code uses variables 'i' and 'j' for the indexes,
 and the
@@ -260,6 +263,7 @@ maximum distance between all the agents.
     return ((dx * dx) + (dy * dy)) ** 0.5
 </CODE></PRE>
 
+
 <P>Use your 'get_max_distance' function to calculate the maximum
 distance between all the agents just after they have been
 initialised.
@@ -283,10 +287,12 @@ towards the top of the source code:
 </P>
 <PRE><CODE class="language-python">import time</CODE></PRE>
 
+
 <P>Before calculating the maximum distance between the initialised
 agents add the following line:
 </P>
 <PRE><CODE class="language-python">start = time.perf_counter()</CODE></PRE>
+
 
 <P>This sets the variable 'start' to a time variable which is the
 number of second since the computer was last rebooted. After
@@ -297,6 +303,7 @@ calculate and report a time interval:
 print("Time taken to calculate maximum distance", end - start,
 "seconds")
 </CODE></PRE>
+
 
 <P>Run your program and check the time taken to calculate maximum
 distance. (It could report '0.0' seconds for 10 agents. This
@@ -362,7 +369,8 @@ Maximum distance between all the agents 139.30183056945089
 Time taken to calculate maximum distance 8.90659329999471
 Maximum distance between all the agents 140.0071426749364
 Time taken to calculate maximum distance 11.068045900014113
-</PRE><P><img src="../../resources/abm3/Figure_1.png"
+</PRE>
+<P><img src="../../resources/abm3/Figure_1.png"
 alt="A graph of time (y axis) and n_agents (x axis)" />
 </P>
 <P>Attempt to optimise the calculation of the maximum distance
@@ -371,7 +379,8 @@ between all the agents as follows: Modify your code so that
 inner loop of the 'get_max_distance' function:
 </P>
 <PRE>print("i", i, "j", j)
-</PRE><P>Run the code and you should see the following printed in the
+</PRE>
+<P>Run the code and you should see the following printed in the
 text output:
 </P>
 <PRE>i 0 j 0
@@ -383,13 +392,15 @@ i 1 j 2
 i 2 j 0
 i 2 j 1
 i 2 j 2
-</PRE><P>Change what is in the inner loop of the 'get_max_distance'
+</PRE>
+<P>Change what is in the inner loop of the 'get_max_distance'
 function to be within an
 <a href="../index/index.html#Python_if">if statement</a>that is only run when 'i' does not equal 'j' using the operator
 '!='. The 'if statement' will look like:
 </P>
 <PRE><CODE class="language-python">if i != j:
 </CODE></PRE>
+
 
 <P>Run the program again and you should see the following in the
 console output:
@@ -400,7 +411,8 @@ i 1 j 0
 i 1 j 2
 i 2 j 0
 i 2 j 1
-</PRE><P>Compare this output with the previous run output: There is less
+</PRE>
+<P>Compare this output with the previous run output: There is less
 output, as when the indexes are the same, the calculations are
 skipped.
 </P>
@@ -420,12 +432,14 @@ and, so that the operator in the 'if statement' is a '&lt;'):
 </P>
 <PRE><CODE class="language-python">if i < j:</CODE></PRE>
 
+
 <P>Run the program again and you should get the following output:
 </P>
 <PRE>i 0 j 1
 i 0 j 2
 i 1 j 2
-</PRE><P>Understand that the maximum distance can be calculated by
+</PRE>
+<P>Understand that the maximum distance can be calculated by
 finding the maximum distance between the coordinates as indexed.
 It may help you appreciate this if you run for 'n_agents = 5' or
 'n_agents = 10' and analyse the output.
@@ -464,6 +478,7 @@ infinite.
 <P>From the <a href="../index/index.html#Python_math">math module</a> the following can be used for positive infinity:</P>
 <PRE><CODE class="language-python">math.inf
 </CODE></PRE>
+
 
 <P>Write a function that calculates the minumum distance between
 all the agents and record timings of how long it takes to
@@ -551,6 +566,7 @@ x_max = 99
 y_max = 99
 </CODE></PRE>
 
+
 <PRE><CODE class="language-python"># Apply movement constraints.
 if agents[i][0] < x_min:
     agents[i][0] = x_min
@@ -561,6 +577,7 @@ if agents[i][0] > x_max:
 if agents[i][1] > y_max:
     agents[i][1] = y_max
 </CODE></PRE>
+
 
 <P>Insert the first code block at the top of 'model.py' with
 the other initialised variables. Insert the other code block as

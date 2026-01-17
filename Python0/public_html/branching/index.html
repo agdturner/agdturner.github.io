@@ -5,8 +5,7 @@
 
 <TITLE>Branching Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -60,9 +59,11 @@ if day_of_week >= 6:
 print(day)
 </CODE></PRE>
 
+
 <P>The if statement condition evaluates as False, so the result is:
 </P>
-<PRE>Weekday</PRE><P>Changing the code slightly to:</P>
+<PRE>Weekday</PRE>
+<P>Changing the code slightly to:</P>
 <PRE><CODE class="language-python">day_of_week = 6
 # A simple If Statement
 day = "Weekday"
@@ -71,8 +72,10 @@ if day_of_week >= 6:
 print(day)
 </CODE></PRE>
 
+
 <P>Results in:</P>
-<PRE>Weekend</PRE><P>An 'else' clause branches into two distinct paths which become
+<PRE>Weekend</PRE>
+<P>An 'else' clause branches into two distinct paths which become
 one again at the end of the compound if statement as in the
 following example.
 </P>
@@ -84,6 +87,7 @@ else:
     day = "Weekend"
 print(day) # <-- Prints Weekday
 </CODE></PRE>
+
 
 <P>One or many 'elif' clauses can also be inserted between if and
 else clauses. Elif is short for 'else if'. Consider the
@@ -105,6 +109,7 @@ else:
     day = "Weekend"
 print(day) # <-- Prints Friday
 </CODE></PRE>
+
 
 <P>It can be argued that it is better to store a dictionary to
 look up the day from the day_of_week, but a simple look up does
@@ -136,6 +141,7 @@ match day_of_week:
         day = "Weekend"
 print(day) # <-- Prints Friday
 </CODE></PRE>
+
 
 <P>The final case is a catch all case using the anonymous variable
 '_' which matches anything.

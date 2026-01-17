@@ -5,8 +5,7 @@
 
 <TITLE>Input and Output Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -85,6 +84,7 @@ at the Python prompt and enter some keyboard input:
 print("The input detected is:", n_agents)
 </CODE></PRE>
 
+
 </DIV>
 
 
@@ -102,15 +102,19 @@ file (in the case of stdin), or go to a file (in the case of
 stdout). From the Anaconda Prompt the following will stream data
 from 'stdin.txt' into 'a.py' as it runs:
 </P>
-<PRE>python a.py &lt; stdin.txt</PRE><P>The following will send output from running 'a.py' into
+<PRE>python a.py &lt; stdin.txt</PRE>
+<P>The following will send output from running 'a.py' into
 'stdout.txt':
 </P>
-<PRE>python a.py &gt; stdout.txt</PRE><P>This would overwrite 'stdout.txt' if it already existed. To
+<PRE>python a.py &gt; stdout.txt</PRE>
+<P>This would overwrite 'stdout.txt' if it already existed. To
 append to the end of any existing 'stdout.txt', the following
 could be used:
 </P>
-<PRE>python a.py &gt;&gt; stdout.txt</PRE><P>To stream data in and out, the following can be used:</P>
-<PRE>python a.py &lt; stdin.txt &gt; stdout.txt</PRE><P>The stdout of one program can be piped to the stdin of another
+<PRE>python a.py &gt;&gt; stdout.txt</PRE>
+<P>To stream data in and out, the following can be used:</P>
+<PRE>python a.py &lt; stdin.txt &gt; stdout.txt</PRE>
+<P>The stdout of one program can be piped to the stdin of another
 program using the pipe symbol '|'.
 </P>
 <P>The <a href="../index/index.html#Python_print">print</a><P> function also includes an option to direct stout to a file.
@@ -138,6 +142,7 @@ for line in f:
 f.close()
 </CODE></PRE>
 
+
 <P>The <a href="https://docs.python.org/3/c-api/file.html">
 File Object</a> returned from the above
 <a href="../index/index.html#Python_open">open</a><P> function call 'f' is best closed once it is read by calling it's
@@ -154,6 +159,7 @@ the previous snippet:
     for line in f:
         print(line)
 </CODE></PRE>
+
 
 <P>This saves having to close the file, but it is awkward this
 way to read several files simultaneously.
@@ -190,6 +196,7 @@ for line in a:
 f.close()
 </CODE></PRE>
 
+
 <P>Note the additional 'w' parameter passed into the Open
 Function which prepares the file a.out to be written to. Writing
 to a file requires different preparation to reading from a file.
@@ -209,6 +216,7 @@ with open("a.out", 'w') as f:
     for line in a:
         f.write(line)
 </CODE></PRE>
+
 
 </DIV>
 
@@ -260,6 +268,7 @@ serializable values.
     }]
 }
 </PRE>
+
 <DIV>
 <H3 id="5.3">5.3. Markup</H3>
 <P>Markup is essentially tags and content. Tags often note the
@@ -294,6 +303,7 @@ for line in f:
 print(data)
 </CODE></PRE>
 
+
 <P>It is easier to read and write CSV format files using functions
 from the Python standard library
 <a href="../index/index.html#Python_csv">csv module</a> written specifically to do this. The following is an example of
@@ -307,6 +317,7 @@ for row in reader: # A list of rows
         print(value) # Floats
 f.close()
 </CODE></PRE>
+
 
 <P>The keyword argument 'quoting=csv.QUOTE_NONNUMERIC' not only
 puts quotation marks around non numeric data, but also converts
@@ -323,6 +334,7 @@ for row in data:
 f.close()
 </CODE></PRE>
 
+
 <P>The optional delimiter kwarg specified here delimits using a
 space ' ' instead of the default comma ',', so this would
 actually not generate CSV format data!
@@ -335,12 +347,14 @@ f.close()
 print(data)
 </CODE></PRE>
 
+
 <P>The following code can be used to write a JSON file:</P>
 <PRE><CODE class="language-python">import json
 f = open('data.json', 'w')
 json.dump(data, f)
 f.close()
 </CODE></PRE>
+
 
 <P>The standard library for processing HTML and XML is:
 <a href="https://docs.python.org/3/library/markup.html">
@@ -384,10 +398,12 @@ program. For example, the following will print the
 print(os.environ["PATH"])
 </CODE></PRE>
 
+
 <P>And the following will print a list of every file and directory
 in the current working directory:
 </P>
 <PRE><CODE class="language-python">print os.listdir(path='.')</CODE></PRE>
+
 
 <P>The standard library
 <a href="https://docs.python.org/3/library/pathlib.html">

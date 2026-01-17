@@ -5,8 +5,7 @@
 
 <TITLE>Agent Based Model Practical 9 Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -63,6 +62,7 @@ in a text editor or viewing the source in your Web browser.
 import bs4
 </CODE></PRE>
 
+
 <P>Change the agent initialisation code block as follows:</P>
 <PRE><CODE class="language-python"># Initialise agents
 url = 'https://agdturner.github.io/resources/abm9/data.html'r = requests.get(url, verify=False)");
@@ -80,6 +80,7 @@ for i in range(n_agents):
     agents.append(af.Agent(agents, i, environment, n_rows, n_cols, x, y))
     print(agents[i].agents[i])
 </CODE></PRE>
+
 <P>Change the '__init__' function in 'agentframework.py' to:</P>
 <PRE><CODE class="language-python">def __init__(self, agents, i, environment, n_rows, n_cols, x = None, y = None):
 """
@@ -121,6 +122,7 @@ else:
 self.store = random.randint(0, 99)
 self.store_shares = 0
 </CODE></PRE>
+
 
 </DIV>
 

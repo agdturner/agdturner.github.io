@@ -5,8 +5,7 @@
 
 <TITLE>Containers Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -127,6 +126,7 @@ s8 = "strings " + "can be " + "concatenated using '+'"
 print(s8) # <-- Prints "strings can be concatenated using '+'"
 </CODE></PRE>
 
+
 <P>A backslash can also ensure the continuation of a line. For
 example:
 </P>
@@ -135,10 +135,12 @@ all one line.
 This is a second.''')
 </CODE></PRE>
 
+
 <P>Produces:</P>
 <PRE>This is all one line.
 This is a second.
-</PRE><P>The symbol '#' can be included in a string. Source code
+</PRE>
+<P>The symbol '#' can be included in a string. Source code
 comments are only comments provided they are not in the string.
 So, running the following:
 </P>
@@ -146,10 +148,12 @@ So, running the following:
 all one line.''')
 </CODE></PRE>
 
+
 <P>Results in:</P>
 <PRE>This is \ # Not a comment
 all one line.
-</PRE><P>It is sometimes easier to use concatenation in order to add
+</PRE>
+<P>It is sometimes easier to use concatenation in order to add
 source code comments:
 </P>
 <PRE><CODE class="language-python">print("This is " + # A comment
@@ -157,10 +161,12 @@ source code comments:
 print("This is a second")
 </CODE></PRE>
 
+
 <P>Results in:</P>
 <PRE>This is all one line.
 This is a second.
-</PRE><P>The string class contains many useful
+</PRE>
+<P>The string class contains many useful
 <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">
 methods</a> for processing strings. (Methods being functions
 belonging to the class.) For example, strings can be split into
@@ -176,6 +182,7 @@ print(split0)
 split1 = s.split(delimiter)
 print(split1)
 </CODE></PRE>
+
 
 <P>The two ways produce the same result. The delimeter is optional,
 by default it is any blank space (a continuous sequence of
@@ -207,6 +214,7 @@ singleton = 'hello', # <-- Note the trailing comma.
 print(len(singleton)) # Prints 1
 </CODE></PRE>
 
+
 <P>Try the code yourself, then consider the following code snippet
 which generates part of a
 <a href="https://en.wikipedia.org/wiki/Fibonacci_number">
@@ -220,6 +228,7 @@ while b < 10:
     a, b = b, a+b
 print(b)
 </CODE></PRE>
+
 
 <P>The </P>
 <a href="../index/index.html#Python_while">while statement</a><P>is a loop with an expression that is evaluated each time around
@@ -237,6 +246,7 @@ Such packing/unpacking is not common in other languages
 <PRE><CODE class="language-python">range(start, stop, step) # start and step are optional and default to 0 and 1 repectively
 </CODE></PRE>
 
+
 <P>The parameters: start, stop and step should be integers. The
 range function generates numbers up to but not including stop,
 for example:
@@ -245,22 +255,27 @@ for example:
     print(x)
 </CODE></PRE>
 
+
 <P>Results in:</P>
 <PRE>0
 1
 2
 3
-</PRE><PRE><CODE class="language-python">for x in range(2,8,2):
+</PRE>
+<PRE><CODE class="language-python">for x in range(2,8,2):
     print(x)
 </CODE></PRE>
+
 
 <P>Results in:</P>
 <PRE>2
 4
 6
-</PRE><PRE><CODE class="language-python">for x in range(0,-5,-1)
+</PRE>
+<PRE><CODE class="language-python">for x in range(0,-5,-1)
     print(x)
 </CODE></PRE>
+
 
 <P>Results in:</P>
 <PRE>0
@@ -268,7 +283,8 @@ for example:
 -2
 -3
 -4
-</PRE><P>Try the code for yourself and then try to generate the following
+</PRE>
+<P>Try the code for yourself and then try to generate the following
 using range and a for loop:
 </P>
 <PRE>-10
@@ -276,7 +292,8 @@ using range and a for loop:
 0
 5
 10
-</PRE><P>A tuple can be constructed from a range or another sequence
+</PRE>
+<P>A tuple can be constructed from a range or another sequence
 producer:
 </P>
 <PRE><CODE class="language-python">r = range(5)
@@ -285,6 +302,7 @@ print(r) # <-- Prints range(0, 5)
 t = tuple(r)
 print(t) # <-- Prints (0, 1, 2, 3, 4)
 </CODE></PRE>
+
 
 <P>There are various <a href="../index/index.html#Python_built-in_function">built-in functions</a> that process sequences, for example
 <a href="https://docs.python.org/3/library/functions.html#min">
@@ -317,6 +335,7 @@ print(any(b)) # Print if any of the items in b are True.
 </CODE></PRE>
 
 
+
 <DIV>
 <H3 id="2.5">2.5. Lists</H3>
 <P><a href="../index/index.html#Python_list">Lists</a> are the mutable form of tuples. Lists have an order, different
@@ -341,6 +360,7 @@ print(type(b))
 print(b)
 </CODE></PRE>
 
+
 <P>Run this code and check if the output is what you expect and
 then have a play around trying some different things.
 </P>
@@ -359,6 +379,7 @@ print("c", c)
 d = a[:] # A complete slice i.e. all items of a
 print("d", d)
 </CODE></PRE>
+
 
 <P>In slicing a list a using a[i:j:k]:</P>
 <UL>
@@ -381,6 +402,7 @@ a[1:3] = b
 print(a) # <-- Prints [0,10,20,30,3,4]
 </CODE></PRE>
 
+
 <P>Notice that the values '1' and '2' originally in index
 positions 1 and 2 of 'a' are replaced by the three values in 'b'.
 It is perhaps easier to thing of replacements as deletions and
@@ -393,6 +415,7 @@ a[1:5] = b
 print(a) # <-- Prints [0,10,20]
 </CODE></PRE>
 
+
 <P><p>The <a href="../index/index.html#Python_builtins">builtin module</a> function <a href="../index/index.html#Python_zip">zip</a> can be used to combine lists into a sequence of tuples as
 follows:
 </P>
@@ -402,6 +425,7 @@ c = zip(a,b)
 d = list(c)
 print(d) # <-- Prints [(1,10),(2,20),(3,30),(4,40),(5,50)]
 </CODE></PRE>
+
 
 <P>The zip function pairs up the values by index. If the sequences
 have different lengths then the paired up list is the length of
@@ -413,7 +437,8 @@ following command passes the filename 'HelloWorld.py' to the
 Python interpreter which then loads the file of commands to
 execute:
 </P>
-<PRE>python HelloWorld.py</PRE><P>More command line arguments can be passed, each one separated
+<PRE>python HelloWorld.py</PRE>
+<P>More command line arguments can be passed, each one separated
 by a space.
 </P>
 <P>The Python program receives the command line arguments as a
@@ -421,7 +446,8 @@ list. The first item in the list is the program filename. For
 example, the following Python run command passes in four
 arguments:
 </P>
-<PRE>python model.py arg1 arg2 arg3</PRE><P>Inside the program, these are made available in a list called
+<PRE>python model.py arg1 arg2 arg3</PRE>
+<P>Inside the program, these are made available in a list called
 'sys.argv'. In the last example, sys.argv[0] is "model.py",
 sys.argv[1] is "arg1", sys.argv[2] is "arg2" and sys.argv[3] is
 "arg3".
@@ -446,6 +472,7 @@ print(a)
 a.insert(2, 2.5)
 </CODE></PRE>
 
+
 </DIV>
 
 
@@ -463,6 +490,7 @@ a.add("orange") # Add "orange" to a
 if "orange" in a:
     print('"or    ange" is in a')
 </CODE></PRE>
+
 
 Traditional mathemetical set functions like union() and
 intersection() are available for sets which can also be
@@ -485,6 +513,7 @@ value for a particular key and prints it:
 <PRE><CODE class="language-python">alias = dict([("rm", "remove"), ("cd", "change directory"), ("ls", "list")])
 print(alias.get("rm")) # <-- This should print 'remove'.
 </CODE></PRE>
+
 
 <P>There are functions that help with modifying and processing
 dictionaries.

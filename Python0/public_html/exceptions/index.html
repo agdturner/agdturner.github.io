@@ -5,8 +5,7 @@
 
 <TITLE>Exceptions Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -74,6 +73,7 @@ except:
 print("Done")
 </CODE></PRE>
 
+
 <P>To reiterate, this will run the 'try' clause of the compound
 statement, and if an exception is raised in running that, then
 (and only then) will the 'except' clause run.
@@ -94,6 +94,7 @@ except ZeroDivisionError:
     a = 0
 print("Done")
 </CODE></PRE>
+
 <P>There is a
 <a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">
 heirarchy of exception types</a>.
@@ -117,6 +118,7 @@ except (ZeroDivisionError, SystemError):
 print("Done")
 </CODE></PRE>
 
+
 </LI>
 <LI>Using multiple except clauses, for example:<PRE><CODE class="language-python">import random
 try:
@@ -128,6 +130,7 @@ except SystemError:
     a = 0
 print("Done")
 </CODE></PRE>
+
 
 </LI>
 </OL>
@@ -143,6 +146,7 @@ not handled in an 'except' clause.
 giving the exception type. The following raises a
 <a href="../index/index.html#Python_SystemError">Python SystemError</a>.</P>
 <PRE><CODE class="language-python">raise SystemError</CODE></PRE>
+
 
 <P>New types of exception can be defined by subclassing an
 exception from the builtins module.
@@ -166,6 +170,7 @@ else:
 print("Done")
 </CODE></PRE>
 
+
 <P>To run code whether an exception is raised or not, then add a
 'finally' clause, for example:
 </P>
@@ -179,6 +184,7 @@ finally:
         a = -1
 print("Done")
 </CODE></PRE>
+
 
 <!--<P>In executing the finally clause, any exceptions encountered are
 raised after the finally has run.
@@ -211,8 +217,10 @@ from the
 sys.exit()
 </CODE></PRE>
 
+
 <P>This has an arg option:</P>
 <PRE><CODE class="language-python">sys.exit(arg)</CODE></PRE>
+
 
 <P>Where arg is a number that the system will report. Zero is
 usually regarded as exiting with no issues.

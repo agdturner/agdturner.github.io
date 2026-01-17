@@ -5,8 +5,7 @@
 
 <TITLE>Variables Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -102,6 +101,7 @@ if min3 > min2:
 print("min2", min2)
 </CODE></PRE>
 
+
 <P>This code generates the following output:</P>
 <PRE>max 1.7976931348623157e+308
 min 2.2250738585072014e-308
@@ -112,7 +112,8 @@ d 9.9792015476736e+291
 max + d/2 1.7976931348623157e+308
 max + d inf
 min2 2.2250754194454158e-293
-</PRE><P>Float is very useful for approximate numerical calculations.
+</PRE>
+<P>Float is very useful for approximate numerical calculations.
 Keep in mind that
 <a href="../index/index.html#Floating_point_arithmetic">Floating Point Arithmetic</a> is approximate - so calculations that use it are not
 necessarily accurate.
@@ -136,6 +137,7 @@ print(s < s2)  # Prints True
 print(str(3))  # Prints 3
 </CODE></PRE>
 
+
 <P>Booleans are 'True' or 'False' and also equate to '0' or '1'.</P>
 <P>Consider and run the following code:</P>
 <PRE><CODE class="language-python">t = True
@@ -152,6 +154,7 @@ print("t and not f", t and not f)   # Prints True
 print("t or f", t or f)             # Prints True
 print("not (t or f)", not (t or f)) # Prints False
 </CODE></PRE>
+
 
 <P>More complex objects have state given by multiple primitives
 variables. Objects can also be comprised of multiple other
@@ -170,10 +173,12 @@ x = "1"
 print(type(x)) # Prints &lt;class 'str'&gt;
 </CODE></PRE>
 
+
 <P>The output from running this code is:</P>
 <PRE>&lt;class 'int'&gt;
 &lt;class 'str'&gt;
-</PRE></DIV>
+</PRE>
+</DIV>
 
 
 <DIV>
@@ -194,6 +199,7 @@ if x == 1:
 print(y) # Prints 2
 </CODE></PRE>
 
+
 <P>The code in the <a href="../index/index.html#Python_if">if statement</a> is executed as the condition 'x == 1' evaluates as 'True'. If
 the condition were to evaluate as 'False', then the interpreter
 would skip to the end of the if statement, as happens running
@@ -205,8 +211,10 @@ if x == 0:
 print(y)
 </CODE></PRE>
 
+
 <P>Which results in:</P>
-<PRE>NameError: name 'y' is not defined</PRE><P>This is because 'y' does not get initialised and so cannot be
+<PRE>NameError: name 'y' is not defined</PRE>
+<P>This is because 'y' does not get initialised and so cannot be
 passed into the print function.
 </P>
 <P>Consider the following code:</P>
@@ -219,11 +227,13 @@ my_function()
 print("c", x)
 </CODE></PRE>
 
+
 <P>That outputs:</P>
 <PRE>a 1
 b 2
 c 1
-</PRE><P>At line 2, the interpreter reads a function definition for a
+</PRE>
+<P>At line 2, the interpreter reads a function definition for a
 function called my_function(), then skips to the end of the
 function and executes line 5. Then at line 6 my_function() is
 called. The interpreter then effectively goes back to line 2 and
@@ -247,11 +257,13 @@ my_function()
 print("c", x)
 </CODE></PRE>
 
+
 <P>The output should be:</P>
 <PRE>a 1
 b 2
 c 2
-</PRE></DIV>
+</PRE>
+</DIV>
 
 
 <DIV>
@@ -270,6 +282,7 @@ b = 2
 c = 3
 del(b, c) # <-- Deletes b and site.
 </CODE></PRE>
+
 
 
 <DIV>

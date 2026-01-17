@@ -5,8 +5,7 @@
 
 <TITLE>Agent Based Model Practical 4 Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -70,6 +69,7 @@ class in it as follows:
     pass
 </CODE></PRE>
 
+
 <P>The keyword 'pass' ensures the code is syntactically correct
 and will run.
 </P>
@@ -77,6 +77,7 @@ and will run.
 import statement:
 </P>
 <PRE><CODE class="language-python">import agentframework as af</CODE></PRE>
+
 
 <P>Note that this imports the agentframework module as loaded from
 'agentframework.py' which is to be referred to by 'af'.
@@ -88,10 +89,12 @@ following:
 print("type(a)", type(a))
 </CODE></PRE>
 
+
 <P>Run 'model.py' and examine the output. It should contain the
 following line:
 </P>
-<PRE>type(a) <class 'agentframework.Agent'></PRE><P>This indicates that an instance of the class Agent as defined
+<PRE>type(a) <class 'agentframework.Agent'></PRE>
+<P>This indicates that an instance of the class Agent as defined
 in the agentframework module was successfully created.
 </P>
 <P>Add a constructor method to the Agent class that initialises 'x'
@@ -106,6 +109,7 @@ class Agent:
         self.y = random.randint(0, 99)
 </CODE></PRE>
 
+
 <P>Note that the <a href="../index/index.html#Python_random">random module</a> is imported as this is used in the Agent constructor '__init__'
 method.
 </P>
@@ -113,7 +117,8 @@ method.
 instantiated, and run the program again. Text along the lines
 of the following should be in the output:
 </P>
-<PRE>&lt;agentframework.Agent object at 0x00000249AEA21D88&gt;</PRE><P>The last part of this will almost certainly be different to
+<PRE>&lt;agentframework.Agent object at 0x00000249AEA21D88&gt;</PRE>
+<P>The last part of this will almost certainly be different to
 '0x00000249AEA21D88' and if you run your program again, it will
 likely be different again. Recall that this string is a memory
 address identifying where the object is stored in the memory of
@@ -130,6 +135,7 @@ method in the Agent class as follows:
       + ", y=" + str(self.y) + ")"
 </CODE></PRE>
 
+
 <P>Note that this returns a string which includes the name of the
 class and details of the 'x' and 'y' variable attributes which
 are transformed by the builtins module
@@ -137,7 +143,8 @@ are transformed by the builtins module
 <P>Run 'model.py' again and the print statement should result in
 the following:
 </P>
-<PRE>Agent(x=49, y=97)</PRE><P>Change the '# Initialise agents' code block in 'model.py' to:
+<PRE>Agent(x=49, y=97)</PRE>
+<P>Change the '# Initialise agents' code block in 'model.py' to:
 </P>
 <PRE><CODE class="language-python"># Initialise agents
 agents = []
@@ -147,6 +154,7 @@ for i in range(n_agents):
     print(agents[i])
 print(agents)
 </CODE></PRE>
+
 
 <P>Run 'model.py' and you should get similar output to the
 following (in the error report, the file paths will probably be
@@ -173,7 +181,8 @@ Traceback (most recent call last):
     distance = get_distance(a[0], a[1], b[0], b[1])
 
 TypeError: 'Agent' object is not subscriptable
-</PRE><P>The list 'agents' is initialised, but the print function does
+</PRE>
+<P>The list 'agents' is initialised, but the print function does
 not use the '__str__' method to get string representations when
 printing the list.
 </P>
@@ -190,6 +199,7 @@ agents list:
     return str(self)
 </CODE></PRE>
 
+
 <P>Like the '__str__' method, the '__repr__' method overrides from
 the 'type' metaclass, (for details see:
 <a href="../index/index.html#Python_repr">repr</a>.</P>
@@ -201,8 +211,10 @@ function:
 </P>
 <PRE><CODE class="language-python">distance = get_distance(a[0], a[1], b[0], b[1])</CODE></PRE>
 
+
 <P><p>To be:</p></P>
 <PRE><CODE class="language-python">distance = get_distance(a.x, a.y, b.x, by)</CODE></PRE>
+
 
 <P>Appreciate that this is easier to read and understand.</P>
 <P>Everywhere else in the 'model.py' that was referring to a
@@ -212,14 +224,18 @@ coordinate from the agents list is to be changed similarly. Run
 <P>In the code change:</P>
 <PRE><CODE class="language-python">agents[i][0]</CODE></PRE>
 
+
 <P>To:</P>
 <PRE><CODE class="language-python">agents[i].x</CODE></PRE>
+
 
 <P>And change:</P>
 <PRE><CODE class="language-python">agents[i][1]</CODE></PRE>
 
+
 <P>To:</P>
 <PRE><CODE class="language-python">agents[i].y</CODE></PRE>
+
 
 <P>Make a further change in the code block that plots agents,
 changing:
@@ -238,6 +254,7 @@ sy = min(agents, key=operator.itemgetter(1))
 plt.scatter(sy[0], sy[1], color='green')
 </CODE></PRE>
 
+
 <P>To:</P>
 <PRE><CODE class="language-python"># Plot the coordinate with the largest x red
 lx = max(agents, key=operator.attrgetter('x'))
@@ -253,6 +270,7 @@ sy = min(agents, key=operator.attrgetter('y'))
 plt.scatter(sy.x, sy.y, color='green')
 </CODE></PRE>
 
+
 <P>Study these changes. Your program should run without raising
 exceptions and produces the same output as previously.
 </P>
@@ -267,12 +285,14 @@ using GitHub - push your changes to GitHub.
 <P>Define a method called 'move' in the Agent class as follows:</P>
 <PRE><CODE class="language-python">def move(self, x_min, y_min, x_max, y_max):</CODE></PRE>
 
+
 <P>Cut the code that moves an individual agent from 'model.py' and
 paste it into the body of the new 'move' method. Replace:
 "agents[i]" with "self" in the method. Where the code was cut
 from, add the following to call the move method:
 </P>
 <PRE><CODE class="language-python">agents[i].move(x_min, y_min, x_max, y_max)</CODE></PRE>
+
 
 <P>Note that in the Agent class, the 'move' method has a parameter
 called 'self', but this is not a parameter that is passed in.
@@ -317,6 +337,7 @@ self.y = random.randint(0, 99)
 pass
 </CODE></PRE>
 
+
 <P>Run 'model.py' and you should get the following error:</P>
 <PRE>Traceback (most recent call last):
 
@@ -325,7 +346,8 @@ File "\abm4\model.py", line 91, in &amp;module>
 
 TypeError: __init__() missing 1 required positional argument:
 'i'
-</PRE><P>The TypeError is indicating that an expected argument is
+</PRE>
+<P>The TypeError is indicating that an expected argument is
 missing in the call that creates the Agent instance. Change
 'model.py' to pass in the missing argument 'i'. Make sure the
 positional arguments are in a correspodiong order in the method

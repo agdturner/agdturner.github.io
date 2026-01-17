@@ -5,8 +5,7 @@
 
 <TITLE>Agent Based Model Practical 1 Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -96,7 +95,8 @@ as follows:
 # Initialise variable y1
 # Change x1 and y1 randomly
 # Calculate the Euclidean distance between (x0, y0) and (x1, y1)
-</PRE><P>In your local code repository create a new directory 'src' and
+</PRE>
+<P>In your local code repository create a new directory 'src' and
 within this create a new directory 'abm1'.
 </P>
 <P>Create a file 'model.py' in the 'abm1' directory.</P>
@@ -108,10 +108,12 @@ print 'x0':</P>
 print("x0", x0)
 </CODE></PRE>
 
+
 <P>Save and run the program. The output from running the program
 should be:
 </P>
-<PRE>x0 0</PRE><P>Note that two parameters are passed into the <a href="../index/index.html#Python_print">print</a>function. These are printed out sequentially with a space
+<PRE>x0 0</PRE>
+<P>Note that two parameters are passed into the <a href="../index/index.html#Python_print">print</a>function. These are printed out sequentially with a space
 delimiter by default.</P>
 <P>Do similarly to initialise the variable 'y0'.</P>
 </DIV>
@@ -125,6 +127,7 @@ randomly. To use the module it has to be imported. Towards
 the top of 'model.py' add the following import statement:
 </P>
 <PRE><CODE class="language-python">import random</CODE></PRE>
+
 
 <P>It is good practice to organise import statements at the top
 of files as this makes them easy to find and makes it less
@@ -141,6 +144,7 @@ in
 <PRE><CODE class="language-python">rn = random.random()
 print(rn)
 </CODE></PRE>
+
 
 <P>Run your program a few times to observe that the value of 'rn'
 varies somewhat randomly.</P>
@@ -163,6 +167,7 @@ else:
 print("x0", x0)
 </CODE></PRE>
 
+
 <P>Run your program a few times to observe that sometimes the
 value of 'x0' increases and sometimes it decreases and this
 corresponds to the value of 'rn'.</P>
@@ -175,13 +180,15 @@ following:</P>
 random.seed(0)
 </CODE></PRE>
 
+
 <P>When run, the program should generate the following output:</P>
 <PRE>x0 0
 y0 0
 rn 0.8444218515250481
 b False
 x0 - 1
-</PRE><P>To generate different results you pass in a different
+</PRE>
+<P>To generate different results you pass in a different
 parameter value into the 'seed' function.</P>
 <P>Similarly modify the value of 'y0'. Then similarly initialise
 the variables 'x1' and 'y1' and then similarly modify these
@@ -201,7 +208,8 @@ coordinates (x0, y0) and (x1, y1). The algorithm is:</P>
 # Calculate the difference in the y coordinates.
 # Square the differences and add the squares
 # Calculate the square root
-</PRE><P>At the end of your source code set: 'x0' and 'y0' to equal
+</PRE>
+<P>At the end of your source code set: 'x0' and 'y0' to equal
 '0'; 'x1' to equal '3', and 'y1' to equal '4'. Then copy and
 paste the Pythogorean theorem algorithm into your source code.
 Try to implement the algorithm, but spend no more than 5

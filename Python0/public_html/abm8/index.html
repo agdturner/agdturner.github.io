@@ -5,8 +5,7 @@
 
 <TITLE>Agent Based Model Practical 8 Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -57,11 +56,14 @@ matplotlib imports:
 </P>
 <PRE><CODE class="language-python">matplotlib.use('TkAgg')</CODE></PRE>
 
+
 <P>In Spyder, go to:</P>
-<PRE>Tools > Preferences > IPython console > Graphics tab</PRE><P>Select 'Tkinter' from the 'Backend' drop down list. Click 'ok'.
+<PRE>Tools > Preferences > IPython console > Graphics tab</PRE>
+<P>Select 'Tkinter' from the 'Backend' drop down list. Click 'ok'.
 Then select:
 </P>
-<PRE>File > Restart</PRE><P>Save your files if prompted.</P>
+<PRE>File > Restart</PRE>
+<P>Save your files if prompted.</P>
 </DIV>
 
 
@@ -74,14 +76,17 @@ Then select:
     canvas.draw()
 </CODE></PRE>
 
+
 <P>Add the following import statement to 'model.py':</P>
 <PRE><CODE class="language-python">import tkinter as tk</CODE></PRE>
+
 
 <P>In 'model.py' replace the following line (not the line in the
 new run function):
 </P>
 <PRE><CODE class="language-python">animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
 </CODE></PRE>
+
 
 <P>With:</P>
 <PRE><CODE class="language-python"># GUI
@@ -102,6 +107,7 @@ root.protocol('WM_DELETE_WINDOW', exiting)
 tk.mainloop()
 </CODE></PRE>
 
+
 <P>Add the following functions to 'model.py':</P>
 <PRE><CODE class="language-python">def output():
     # Write data
@@ -117,6 +123,7 @@ def exiting():
     root.destroy()
     #sys.exit(0)
 </CODE></PRE>
+
 
 <P>Change the 'gen_function' from:</P>
 <PRE><CODE class="language-python">def gen_function():
@@ -134,6 +141,7 @@ def exiting():
         data_written = True
 </CODE></PRE>
 
+
 <P>To:</P>
 <PRE><CODE class="language-python">def gen_function():
     global ite
@@ -147,6 +155,7 @@ def exiting():
         menu_0.entryconfig("Write data", state="normal")
         data_written = True
 </CODE></PRE>
+
 
 <P>Now if the window in which the animation runs is closed, the
 program should exit and exiting the program is also added as a

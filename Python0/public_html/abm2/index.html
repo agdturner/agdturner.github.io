@@ -5,8 +5,7 @@
 
 <TITLE>Agent Based Model Practical 2 Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -115,6 +114,7 @@ distance = math.sqrt(ssd)
 print("distance", distance)
 </CODE></PRE>
 
+
 <P>Running the code should produce the following text output:</P>
 <PRE>x0 49
 y0 97
@@ -131,7 +131,8 @@ y1 61
 ssd 25
 distance 5.0
 distance 5.0
-</PRE><P>In your local code repository src directory create a new
+</PRE>
+<P>In your local code repository src directory create a new
 directory called 'abm2'. Open Spyder and save 'model.py' into
 the 'abm2' directory.
 </P>
@@ -159,10 +160,12 @@ empty list called 'agents':
 agents = []
 </CODE></PRE>
 
+
 <P>Next, add coordinates to this list: First add one pair after
 initialising 'y0' and 'x0', by adding the following:
 </P>
 <PRE><CODE class="language-python">agents.append([x0,y0]) # Append to the list agents</CODE></PRE>
+
 
 <P>Note that '[x0,y0]' creates a list containing 'x0' and 'y0', and
 the 'append' function adds this list to the agents list. After
@@ -187,6 +190,7 @@ print("y0", y0)
 agents.append([x0, y0])
 </CODE></PRE>
 
+
 <P>Note that the variables 'x0' and 'y0' are only created for this
 initialisation. Can you think of a way to reduce this code and
 do the initialition more succinctly?
@@ -201,6 +205,7 @@ do the initialition more succinctly?
 import operator
 </CODE></PRE>
 
+
 <P>And adding the following code to the end of 'model.py':</P>
 <PRE><CODE class="language-python"># Plot the agents
 plt.scatter(agents[0][0], agents[0][1], color='black')
@@ -209,6 +214,7 @@ plt.show()
 # Get the coordinates with the largest x-coordinate
 print(max(agents, key=operator.itemgetter(0)))
 </CODE></PRE>
+
 
 <P>Run 'model.py' and you should see an image output in the
 'Plots' pane of Spyder. The image should contain two points.
@@ -252,6 +258,7 @@ set this equal to '10'. Then create a
 for i in range(n_agents):
     agents.append([random.randint(0, 99), random.randint(0, 99)])
 </CODE></PRE>
+
 
 <P>Check your program still runs.</P>
 <P>Delete or comment out any other code that initialises agents.

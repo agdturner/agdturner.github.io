@@ -5,8 +5,7 @@
 
 <TITLE>Agent Based Model Practical 7 Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -58,6 +57,7 @@ Spyder.
 <P>Add the following import statement:</P>
 <PRE><CODE class="language-python">import matplotlib.animation as anim</CODE></PRE>
 
+
 <P>After initialising agents add the following code block:</P>
 <PRE><CODE class="language-python"># Animate
 # Initialise fig and carry_on
@@ -67,6 +67,7 @@ carry_on = True
 data_written = False
 animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
 </CODE></PRE>
+
 
 <P>Define a new function called 'plot' to contain the
 'Plot agents' code. Add a line to clear fig at the start of
@@ -97,6 +98,7 @@ plt.savefig(filename)
 images.append(imageio.imread(filename))
 plt.show()
 </CODE></PRE>
+
 
 <P>Change the 'main simulation loop' code block into a function
 called 'update' that has a parameter called 'frames'. At the end
@@ -145,6 +147,7 @@ variable and add a random stopping condition as follows:
     plot()
 </CODE></PRE>
 
+
 <P>Define a function called 'gen_function' as follows:</P>
 <PRE><CODE class="language-python">def gen_function():
     global ite
@@ -161,15 +164,18 @@ variable and add a random stopping condition as follows:
         data_written = True
 </CODE></PRE>
 
+
 <P>Before running the code, issue the following magic command in
 the Spyder console so that rather than the plot being directed
 to the plots pane (where") animation does not work), it is
  directed to a pop-up window:
 </P>
-<PRE>%matplotlib qt</PRE><P>If you want to revert this change so that plots are added to the
+<PRE>%matplotlib qt</PRE>
+<P>If you want to revert this change so that plots are added to the
  plot plane again issue the following magic command:
 </P>
-<PRE>%matplotlib inline</PRE><P>The keyword '<a href="../index/index.html#Python_yield">yield</a>' is used to pass the value of the variable 'ite' back from
+<PRE>%matplotlib inline</PRE>
+<P>The keyword '<a href="../index/index.html#Python_yield">yield</a>' is used to pass the value of the variable 'ite' back from
 'gen_function' whilst continuing to run the while loop. The
 '# Write data' code block is included in 'gen_function' and runs
  only once after the model has stopped.

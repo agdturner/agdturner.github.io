@@ -5,8 +5,7 @@
 
 <TITLE>Agent Based Model Practical 5 Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -87,6 +86,7 @@ f.close()
 print(data)
 </CODE></PRE>
 
+
 <P>Run this new file. The output should correspond to the input
 data file only the values are presented with '.0' appended (as
 they have been loaded as Float and not Integer numbers).
@@ -101,10 +101,12 @@ returns the data variable. Write code to call this function from
 </P>
 <PRE><CODE class="language-python">import io</CODE></PRE>
 
+
 <P>After the import statements try to call the 'read_data' function
 using:
 </P>
 <PRE><CODE class="language-python">environment = io.read_data()</CODE></PRE>
+
 
 <P>You should encounter an AttributeError along the lines of the
 following:
@@ -115,7 +117,8 @@ File "\src\abm5\model.py", line 19, in <module>
   environment = io.read_data('../../data/input/in.txt')
 
 AttributeError: module 'io' has no attribute 'read_data'
-</PRE><P>This is somewhat confusing as the new 'io' module has a
+</PRE>
+<P>This is somewhat confusing as the new 'io' module has a
 function called 'read_data'! The exception is raised because
 there is a name collision. There is an 'io' standard library
 module which does not have an attribute named 'read_data'. It is
@@ -132,6 +135,7 @@ statements in 'model.py' to be:
 <PRE><CODE class="language-python">import my_modules.agentframework as af
 import my_modules.io as io
 </CODE></PRE>
+
 
 <P>Run 'model.py' and it should now run without the error. (If you
 still get an error then restart Spyder.)
@@ -158,6 +162,7 @@ start of the plotting section:
 </P>
 <PRE><CODE class="language-python">plt.imshow(environment)</CODE></PRE>
 
+
 <P>Change the initialisation of 'x_max' and 'y_max' to be as
 follows:
 </P>
@@ -166,6 +171,7 @@ x_max = n_cols - 1
 # The maximum an agents y coordinate is allowed to be.
 y_max = n_rows - 1
 </CODE></PRE>
+
 
 <P>A plot should be produced that looks like:</P>
 <P><img src="../../resources/abm5/Figure_1.png"
@@ -180,6 +186,7 @@ the following code before the plot.show() function is called:
 <PRE><CODE class="language-python">plt.ylim(y_min, y_max)
 plt.xlim(x_min, x_max)
 </CODE></PRE>
+
 
 <P>Run again and the output plot should look like:</P>
 <P><img src="../../resources/abm5/Figure_2.png"
@@ -215,6 +222,7 @@ follows:
     self.y = random.randint(tnr - 1, (2 * tnr) - 1)
 </CODE></PRE>
 
+
 <P>Change the code that calls the constuctor method so it passes
 in the variables 'n_rows' and 'ncols' approprately. Run
 'model.py'. The output plot should look like the following:
@@ -236,6 +244,7 @@ self.x = random.randint(0, tnc - 1) + tnc
 tnr = int(n_rows / 3)
 self.y = random.randint(0, tnr - 1) + tnr
 </CODE></PRE>
+
 
 </DIV>
 
@@ -279,6 +288,7 @@ self.y = random.randint(tnr - 1, (2 * tnr) - 1)
 self.store = 0
 </CODE></PRE>
 
+
 <P>Change model.py so that environment is passed in correctly as
 agents are initialised.
 </P>
@@ -288,6 +298,7 @@ agents are initialised.
         self.environment[self.y][self.x] -= 10
         self.store += 10
 </CODE></PRE>
+
 
 <P>This method checks the value of the 'environment' where the
 agent is located and if this is greater than or equal to 10,
@@ -306,6 +317,7 @@ environment as follows:
 <PRE><CODE class="language-python">plt.ylim(y_max / 3, y_max * 2 / 3)
 plt.xlim(x_max / 3, x_max * 2 / 3)
 </CODE></PRE>
+
 
 <P>Run the program again and you should get the following image:
 </P>

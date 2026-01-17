@@ -5,8 +5,7 @@
 
 <TITLE>Web Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -75,6 +74,7 @@ socket_1.connect(("localhost", 5555)) # Address tuple
 socket_1.send(bytes("hello world", encoding="UTF-8"))
 </CODE></PRE>
 
+
 <P>In this code: the connection is to 'localhost' - the local
 machine; the '
 <a href="../index/index.html#Port">port number</a>' for the connection is 5555; and, the bytes representing
@@ -93,6 +93,7 @@ serversocket.listen()
 b = socket_2.recv(30)
 print(str(b))
 </CODE></PRE>
+
 
 <P>Web applications typically open multiple network sockets and
 data transfers are normally initiated following a communication
@@ -162,7 +163,8 @@ named "index.html" if it exists.
 &lt;!-- Page content goes here; this is a comment -->
 &lt;/BODY>
 &lt;/HTML></code>
-</PRE><P>All the elements are marked up using tags. Each tag starts with
+</PRE>
+<P>All the elements are marked up using tags. Each tag starts with
 the symbol "&lt;" and ends with the symbol ">". Most tags have a
 paired start and end tag, with the end tag name being the same,
 but preceded by the symbol "/". What is between the start and
@@ -187,6 +189,7 @@ in the start tag for the element, for example:
 </P>
 <PRE><code>&lt;TABLE class="data" id="table_1"></code>
 </PRE>
+
 <DIV>
 <H3 id="3.2">3.2. Web Page Design</H3>
 <P>In general it is good practice to separate the content of a Web
@@ -197,7 +200,8 @@ a
 the following tag:
 </P>
 <PRE><code>&lt;link rel="stylesheet" href="url_to_css_file"></code>
-</PRE><P>The CSS file can be located relative to the page in the
+</PRE>
+<P>The CSS file can be located relative to the page in the
 directory structure by replacing the URL with the relative file
 path.
 </P>

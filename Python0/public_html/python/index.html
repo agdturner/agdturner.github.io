@@ -5,8 +5,7 @@
 
 <TITLE>Python Page</TITLE>
 <!-- Styling -->
-<!-- Some href attributes are to be set by scripts -->
-<!--<link id="css" rel="stylesheet" type="text/css" href="">-->
+<!-- Some href attributes are changed by scripts -->
 <link id="css" rel="stylesheet" type="text/css" href="/tools/highlight/styles/default.min.css">
 <script src="/scripts/style.js"></script>
 <!-- For styling code -->
@@ -134,7 +133,6 @@ available via PyPI.
 </P>
 </DIV>
 
-
 <DIV>
 <H2 id="3">3. Running Python</H2>
 <P>Python instructions also known as 'commands' or 'statements',
@@ -143,7 +141,8 @@ can be entered one at a time at a
 <P> Check if there is a version of Python already on your <a href="../index/index.html#PATH">PATH</a> by running a 'Terminal' or 'Command Window' and entering the
 following at the prompt:
 </P>
-<PRE>python --version</PRE><P>If 'python' cannot be found, then it is most likely that
+<PRE>python --version</PRE>
+<P>If 'python' cannot be found, then it is most likely that
 Python is not installed. If a version of Python is available,
 then the version of it should be reported.</P>
 <P><a href="../index/index.html#Anaconda">Anaconda</a> is a data science platform. It contains: <a href="../index/index.html#Conda">Conda</a> - an environment manager; a Python interpreter; some commonly
@@ -163,28 +162,36 @@ home directory.</P>
 <P>Open an 'Anaconda prompt'. On Windows the prompt should look
 something like:
 </P>
-<PRE>(base) C:\></PRE><P>Here, 'base' is the activated Python environment and 'C:\' is
+<PRE>(base) C:\></PRE>
+<P>Here, 'base' is the activated Python environment and 'C:\' is
 the current drive and working directory. Enter:</P>
-<PRE>python --version</PRE><P>This should inform you about the version of Python that came
+<PRE>python --version</PRE>
+<P>This should inform you about the version of Python that came
 with Anaconda. Enter:</P>
-<PRE>python</PRE><P>You should arrive at the 'Python prompt' that looks something
+<PRE>python</PRE>
+<P>You should arrive at the 'Python prompt' that looks something
 like:</P>
-<PRE>>>></PRE><P>This is a Python <a href="../index/index.html#Read_Evaluate_Print_Loop">REPL</a> environment. Enter:</P>
+<PRE>>>></PRE>
+<P>This is a Python <a href="../index/index.html#Read_Evaluate_Print_Loop">REPL</a> environment. Enter:</P>
 <PRE>print("Hello World")
-</PRE><P>You should see the following output:</P>
+</PRE>
+<P>You should see the following output:</P>
 <PRE>Hello World</PRE>
+
 <DIV>
 <H4 id="3.1.3">3.1.3. Numerical calculations</H4>
 <P>The Python prompt can be used for some basic calculations.
 Enter:
 </P>
-<PRE>2 + 3</PRE><P>You should see the result of adding the number 2 to the number
+<PRE>2 + 3</PRE>
+<P>You should see the result of adding the number 2 to the number
 3:
 </P>
-<PRE>5</PRE><P>The plus symbol '+' in this instance acts as an addition
+<PRE>5</PRE>
+<P>The plus symbol '+' in this instance acts as an addition
 operator. This is a
 <a href="../index/index.html#Python_built-in_type">Built-in Type</a> operator that works with specific types of variables.
-Multiplication can be done similarly using an asterix '*'
+Multiplication can be done similarly using an asterisk '*'
 symbol; and division can be done using the forward slash
 '/' symbol.</P>
 <P>Dividing '3' by '2' in this way results not in an integer, but
@@ -194,28 +201,34 @@ an old version of Python!</P>
 <P>Trying to evaluate a division by zero results in a <a href="../index/index.html#Python_ZeroDivisionError">ZeroDivisionError</a>.</P>
 <P>Try multiplying and dividing some numbers. Try dividing one by
 zero:</P>
-<PRE>1 / 0</PRE><P>Which should result in:</P>
+<PRE>1 / 0</PRE>
+<P>Which should result in:</P>
 <PRE>Traceback (most recent call last):
-    File "&lt;stdin>", line 1, in <module>
+    File "&lt;stdin>", line 1, in &lt;module>
   ZeroDivisionError: division by zero
-</PRE><P>A <a href="../index/index.html#Python_ZeroDivisionError">ZeroDivisionError</a> is a <a href="../index/index.html#Python_built-in_exception">exception</a> that is 'raised' in such circumstances. It is good to get
+</PRE>
+<P>A <a href="../index/index.html#Python_ZeroDivisionError">ZeroDivisionError</a> is a <a href="../index/index.html#Python_built-in_exception">exception</a> that is 'raised' in such circumstances. It is good to get
 familiar with error messages which are typically printed to
 the console. A key part of learning to program is about
 interpreting error messages and thinking about what to do to
 avoid and handle errors/exceptions.</P>
 <P>Try some more calculations. Calculate '2' to the power of '64':
 </P>
-<PRE>2 ** 64</PRE><P>The result is an integer with twenty digits. Try:</P>
-<PRE>2 ** 1000000</PRE><P>The result is an integer with '301030' digits. It may take
+<PRE>2 ** 64</PRE>
+<P>The result is an integer with twenty digits. Try:</P>
+<PRE>2 ** 1000000</PRE>
+<P>The result is an integer with '301030' digits. It may take
 noticeably longer to compute and display this number...</P>
 <P>One way to calculate how many digits there are is to pass the
 result into the
 <a href="../index/index.html#Python_str">str</a> function and to pass the result of this into the <a href="../index/index.html#Python_len">len</a> function as follows:</P>
-<PRE>len(str(2 ** 1000000))</PRE><P>Note how things are passed into the two functions.</P>
+<PRE>len(str(2 ** 1000000))</PRE>
+<P>Note how things are passed into the two functions.</P>
 <P>Increasing the exponent power by a further multiple of ten
 should give ten times more digits and take significantly
 longer to compute and display. try it:</P>
-<PRE>len(str(2 ** 10000000))</PRE><P>While waiting for an answer, open another Anaconda prompt to
+<PRE>len(str(2 ** 10000000))</PRE>
+<P>While waiting for an answer, open another Anaconda prompt to
 look at some small numbers close to zero. Enter:
 </P>
 <PRE>1 / 10
@@ -223,14 +236,19 @@ look at some small numbers close to zero. Enter:
 1 / 1000
 1 / 10000
 1 / 100000
-</PRE><P>Notice how the format of the number printed out changes with
+</PRE>
+<P>Notice how the format of the number printed out changes with
 the last command. '1e-05 ' is '0.00001' in scientific notation
 where the letter 'e' stands for 'multiply by 10 raised to
 the power of'. Try:</P>
-<PRE>1/(2**1074)</PRE><P>This will probably result in:</P>
-<PRE>5e-324</PRE><P>Try:</P>
-<PRE>1/(2**1075)</PRE><P>Which will probably result in:</P>
-<PRE>0.0</PRE><P>The result is rounded down to 0.0 as this is the nearest
+<PRE>1/(2**1074)</PRE>
+<P>This will probably result in:</P>
+<PRE>5e-324</PRE>
+<P>Try:</P>
+<PRE>1/(2**1075)</PRE>
+<P>Which will probably result in:</P>
+<PRE>0.0</PRE>
+<P>The result is rounded down to 0.0 as this is the nearest
 'Float' type number value to the true value!</P>
 
 <DIV>
@@ -240,21 +258,25 @@ can be found in the , but they are  '+' and '*' are shorthand
 for functions that reside in the
 <a href="../index/index.html#Python_operator">operator</a> module.</P>
 <P>Enter:</P>
-<PRE>operator.add(2, 3)</PRE><P>This should raise a <a href="../index/index.html#Python_NameError">NameError</a>:</P>
+<PRE>operator.add(2, 3)</PRE>
+<P>This should raise a <a href="../index/index.html#Python_NameError">NameError</a>:</P>
 <PRE>Traceback (most recent call last):
     File "&lt;stdin>", line 1, in &lt;module>
   NameError: name 'operator' is not defined
-</PRE><P>The NameError is raised as the operator module has not been
+</PRE>
+<P>The NameError is raised as the operator module has not been
 imported.
 </P>
 <P>Enter:</P>
-<PRE>dir()</PRE><P>This runs (or calls) the function '<a href="../index/index.html#Python_dir">dir</a>'. Function calls are easy to spot as after the function name
+<PRE>dir()</PRE>
+<P>This runs (or calls) the function '<a href="../index/index.html#Python_dir">dir</a>'. Function calls are easy to spot as after the function name
 there are start and end parentheses. In this function call the
 function is passed no arguments - as there is nothing between
 the start and end parentheses. The output is a list of names
 in the current local scope:</P>
 <PRE>['__annotations__', '__builtins__', '__doc__', '__loader__',
-'__name__', '__package__', '__spec__']</PRE><P>The list is alphabetically ordered. You can tell it is a list
+'__name__', '__package__', '__spec__']</PRE>
+<P>The list is alphabetically ordered. You can tell it is a list
 as it starts with an open square bracket '[' and ends with
 a closing square bracket ']', and each item is separated with
 a comma ','.</P>
@@ -262,9 +284,11 @@ a comma ','.</P>
 loaded, enter:</P>
 <PRE>import operator
 dir()
-</PRE><P>The operator module should now be in the list.</P>
+</PRE>
+<P>The operator module should now be in the list.</P>
 <P>Enter:</P>
-<PRE>operator.add(2, 3)</PRE><P>Now, you should not get the NameError encountered before the
+<PRE>operator.add(2, 3)</PRE>
+<P>Now, you should not get the NameError encountered before the
 operator module was imported, but a result.</P>
 <P>The dot '.' in this command effectively instructs the Python
 interpreter to look in the thing on the left (of the dot) to
@@ -274,12 +298,14 @@ passes into it the two parameters in the given order. The
 function returns the result of summing these two parameters as
 they are numbers, and the result is displayed.</P>
 <P>To list the identifiers in the operator module, enter:</P>
-<PRE>dir(operator)</PRE><P>It is quite a long list!</P>
+<PRE>dir(operator)</PRE>
+<P>It is quite a long list!</P>
 <P>There are numerous functions that have a name starting and
 ending with a double underscore '__'. These are not normally
 called directly, but they can be.</P>
 <P>Enter:</P>
-<PRE>operator.__add__(2, 3)</PRE><P>Python does not exert access control on variables and
+<PRE>operator.__add__(2, 3)</PRE>
+<P>Python does not exert access control on variables and
 functions. A naming convention is used to indicate to users
 whether a variable or function is meant to be accessed from
 outside the module. Underscores '_' and double underscores
@@ -293,13 +319,16 @@ module.
 <DIV>
 <H3 id="3.3">3.3. The Help System</H3>
 <a href="../index/index.html#Python_help"></a><P>At the Python prompt, enter:</P>
-<PRE>help(operator.add)</PRE><P>This prints out some information about how to use the
+<PRE>help(operator.add)</PRE>
+<P>This prints out some information about how to use the
 <a href="https://docs.python.org/3/library/operator.html#operator.add">
 operator module function add</a>.
 </P>
 <P>Enter the following to enter the help system:</P>
-<PRE>help()</PRE><P>The prompt should change to look like:</P>
-<PRE>help> </PRE><P>Read what is printed:</P>
+<PRE>help()</PRE>
+<P>The prompt should change to look like:</P>
+<PRE>help> </PRE>
+<P>Read what is printed:</P>
 <PRE>Welcome to Python 3.9's help utility!
 
 If this is your first time using Python, you should definitely check out
@@ -313,8 +342,10 @@ To get a list of available modules, keywords, symbols, or topics, type
 "modules", "keywords", "symbols", or "topics".  Each module also comes
 with a one-line summary of what it does; to list the modules whose name
 or summary contain a given string such as "spam", type "modules spam".
-</PRE><P>Enter:</P>
-<PRE>modules</PRE><P>It may take a few minutes to report a set of warnings and a
+</PRE>
+<P>Enter:</P>
+<PRE>modules</PRE>
+<P>It may take a few minutes to report a set of warnings and a
 list of available modules:
 </P>
 <PRE>Cython              comtypes            mock                socks
@@ -501,10 +532,12 @@ compileall          mmsystem            socketserver
 
 Enter any module name to get more help.  Or, type "modules spam" to search
 for modules whose name or summary contain the string "spam".
-</PRE><P>Exactly how this list presents itself will depend on the system
+</PRE>
+<P>Exactly how this list presents itself will depend on the system
 your are using. Enter:
 </P>
-<PRE>operator</PRE><P>This should display the start of the help documentation for the
+<PRE>operator</PRE>
+<P>This should display the start of the help documentation for the
 operator module:
 </P>
 <PRE>Help on module operator:
@@ -541,7 +574,8 @@ CLASSES
      |  After f = attrgetter('name'), the call f(r) returns r.name.
      |  After g = attrgetter('name', 'date'), the call g(r) returns (r.name, r.date).
 -- More  --
-</PRE><P>Press the &lt;enter&gt; key to see the next line of the
+</PRE>
+<P>Press the &lt;enter&gt; key to see the next line of the
 documentation. Press and hold the &lt;enter&gt; key and the
 documentation should stream to the screen. The &lt;space&gt;
 bar key streams the documentation a page at a time. The
@@ -551,13 +585,14 @@ bar key streams the documentation a page at a time. The
 <P>To exit the help system and return you to the Python prompt,
 enter:
 </P>
-<PRE>q</PRE><P>To read the help for the <a href="../index/index.html#Python_builtins">builtins</a> module <a href="../index/index.html#Python_print">print</a> function, enter:</P>
-<PRE>help(print)</PRE><P>Before learning how to run a file of Python commands, let us
+<PRE>q</PRE>
+<P>To read the help for the <a href="../index/index.html#Python_builtins">builtins</a> module <a href="../index/index.html#Python_print">print</a> function, enter:</P>
+<PRE>help(print)</PRE>
+<P>Before learning how to run a file of Python commands, let us
 consider some more basic Python syntax - rules about how it must
 be written.
 </P>
 </DIV>
-
 
 <DIV>
 <H2 id="4">4. Basic Python Syntax</H2>
@@ -568,12 +603,14 @@ be written.
 Python interpreter attempts to interpret it, a
 <a href="../index/index.html#Python_SyntaxError">SyntaxError</a> is raised.</P>
 <P>At the Python prompt enter:</P>
-<PRE>x=</PRE><P>You should get the following:</P>
+<PRE>x=</PRE>
+<P>You should get the following:</P>
 <PRE>File "&lt;stdin>", line 1
     x =
        ^
 SyntaxError: invalid syntax
-</PRE><P>Essentially, the problem with this code is that the expression
+</PRE>
+<P>Essentially, the problem with this code is that the expression
 is incomplete: There should be something on the right of the
 equals sign '='.
 </P>
@@ -583,14 +620,17 @@ equals sign '='.
 <P>In Python, multiple statements on a single line are separated
 with semicolons ';'. At the Python prompt enter:
 </P>
-<PRE>y=1;x=y;print(x)</PRE><P>The output should be:</P>
-<PRE>1</PRE><P>The code could be spaced out more and each statement could
+<PRE>y=1;x=y;print(x)</PRE>
+<P>The output should be:</P>
+<PRE>1</PRE>
+<P>The code could be spaced out more and each statement could
 be on a separate line without the need for any semicolons:
 </P>
 <PRE>y = 1
 x = y
 print(x)
-</PRE><P>Individual Python statements might include multiple expressions
+</PRE>
+<P>Individual Python statements might include multiple expressions
 and can be formulated over several lines. We will consider some
 examples of these compound statements shortly...
 </P>
@@ -608,7 +648,8 @@ x = 0 # This part of the line is a comment
 print(x) # Print out the value of x
 # Comments should be informative.
 # x = 1 # Commented code is not run.
-</PRE><P>Between pairs of matching triple quotes everything is a comment.
+</PRE>
+<P>Between pairs of matching triple quotes everything is a comment.
 There are two types of triple quote, those using single
 quotation marks, and those using double quotation marks.
 </P>
@@ -631,7 +672,8 @@ This is between triple double quotes and is a comment.
 This is both between triple single and double quotes and is a comment.
 """
 '''
-</PRE><P>Comments can be used to help make code easier to understand and
+</PRE>
+<P>Comments can be used to help make code easier to understand and
 outline thinking behind some implementation or future
 improvements that might be made. It can be helpful to refer to
 other information sources in comments. It is sensible to add a
@@ -652,7 +694,8 @@ print(y)
 
 # Calculate and print x to the power of y
 x ** y
-</PRE><P>Indentation is syntax in Python. Indentation refers to the space
+</PRE>
+<P>Indentation is syntax in Python. Indentation refers to the space
 that precedes expressions on a line and is sometimes called
 'blank space' or 'white space'. Care is needed with indentation
 in Python. In particular 'spaces' and 'tabs' can make
@@ -664,7 +707,8 @@ to use tabs for indentation and to use multiple spaces instead.
 if x > y: # This line has the same indent as the comment above.
     print(x) # This line is indented one standard step further.
 print("done") # This line is indented to the previous level.
-</PRE><P>In the code above, if the variable 'x' is greater than the
+</PRE>
+<P>In the code above, if the variable 'x' is greater than the
 variable 'y', then the value of 'x' is printed. If either of the
 variables 'x' or 'y' has not been initialised, then a
 <a href="../index/index.html#Python_NameError">NameError</a> will be raised.</P>
@@ -678,7 +722,8 @@ following are
 .       ;       @       =       ->      +=     -=
 *=      /=      //=     %=      @=      &=     |=
 ^=      >>=     <<=     **=
-</PRE><P>The various types of bracket are paired - each open bracket
+</PRE>
+<P>The various types of bracket are paired - each open bracket
 must be paired with a closing bracket: parentheses '()'; square
 brackets '[]'; and, curly brackets '{}' also known as braces.
 </P>
@@ -704,12 +749,14 @@ identifier.
 <P>Attempting to <a href="../index/index.html#Name_binding">use</a> a keyword as an identifier such as a variable name typically
 results in a
 <a href="../index/index.html#Python_SyntaxError">SyntaxError</a>. Enter the following at the Python prompt:</P>
-<PRE>if = 2</PRE><P>This should result in:</P>
+<PRE>if = 2</PRE>
+<P>This should result in:</P>
 <PRE>File "@lt;stdin>", line 1
     if = 2
        ^
 SyntaxError: invalid syntax
-</PRE><P>The Python interpreter is expecting a conditional expression
+</PRE>
+<P>The Python interpreter is expecting a conditional expression
 after the keyword 'if'. Recall that
 <a href="../index/index.html#Python_keyword">keywords</a> cannot be used as identifiers.</P>
 <P>For details, see the <a href="https://docs.python.org/3/reference/lexical_analysis.html">Python Lexical Analysis Documentation</a>.</P>
@@ -727,7 +774,8 @@ if x > y:
     print("x", x)
 else:
     print("y", y)
-</PRE><P>The function print is called with two arguments, and the code
+</PRE>
+<P>The function print is called with two arguments, and the code
 contains variables, comments, indentation, operators and
 keywords. Styling can be used added to make it easier to
 identify different parts, read and understand code. The
@@ -744,6 +792,7 @@ else:
 print("done")
 </CODE></PRE>
 
+
 <P>The style does not change the meaning of the code, but it
 hopefully makes it easier to read and understand.
 </P>
@@ -752,25 +801,30 @@ be colourfully styled as above.
 </P>
 </DIV>
 
-
 <DIV>
 <H2 id="5">5. Running a file of Python commands</H2>
 <P>Create a new ASCII text file, add to it the following line:</P>
 <PRE>print("Hello World")
-</PRE><P>Save the file with the name "HelloWorld.py". Open an Anaconda
+</PRE>
+<P>Save the file with the name "HelloWorld.py". Open an Anaconda
 prompt. Change to the directory where you saved the file
 (path_to_directory) using:
 </P>
-<PRE>cd path_to_directory</PRE><P>Run the file using:</P>
-<PRE>python HelloWorld.py</PRE><P>You should see the following printed to the console:</P>
-<PRE>Hello World</PRE><P>If your file is on a different drive in Windows, then you
+<PRE>cd path_to_directory</PRE>
+<P>Run the file using:</P>
+<PRE>python HelloWorld.py</PRE>
+<P>You should see the following printed to the console:</P>
+<PRE>Hello World</PRE>
+<P>If your file is on a different drive in Windows, then you
 may have to switch to the drive before changing to the directory
 within the drive. To change from drive 'C:' to drive 'M:' in
 Windows, enter the following at the prompt:
 </P>
-<PRE>M:</PRE><P>To change back again to 'C:', enter the following at the prompt:
+<PRE>M:</PRE>
+<P>To change back again to 'C:', enter the following at the prompt:
 </P>
-<PRE>C:</PRE><P>For code in files, the statements are executed from top to
+<PRE>C:</PRE>
+<P>For code in files, the statements are executed from top to
 bottom, but the flow may call functions which may themselves
 call other functions. The interpreter returns to the line of
 code after a function call once the function has been executed.
@@ -782,7 +836,6 @@ the base of the file system) or relative (from the current
 directory.
 </P>
 </DIV>
-
 
 <DIV>
 <H2 id="6">6. Jupyter Notebook</H2>
@@ -798,14 +851,16 @@ downloaded separately from:
 <P>At the Anaconda prompt change to a directory where you can write
 new files and enter:
 </P>
-<PRE>jupyter notebook</PRE><P>Some messages should appear in the console and a Web browser
+<PRE>jupyter notebook</PRE>
+<P>Some messages should appear in the console and a Web browser
 tab should in the default Web browser and display the Jupyter
 Notebook Interface.
 </P>
 <P>From the New Button drop down list of the Jupyter Notebook
 Interface, select:
 </P>
-<PRE>Python 3 (ipykernel)</PRE><P>The New Button is highlighted with a red oval in the following
+<PRE>Python 3 (ipykernel)</PRE>
+<P>The New Button is highlighted with a red oval in the following
 image of the interface:
 <br /><img src="../../resources/python/jupyter1.png"
 alt="Jupyter Notebook Interface 1" />
@@ -817,7 +872,8 @@ alt="Jupyter Notebook Interface 2" />
 </P>
 <P>Enter the following in a cell and action run:</P>
 <PRE>print("Hello World")
-</PRE><P>You should see something like:
+</PRE>
+<P>You should see something like:
 <br /><img src="../../resources/python/jupyter3.png"
 alt="Jupyter Notebook Interface 3" />
 </P>
@@ -835,11 +891,9 @@ some other ways...
 </P>
 </DIV>
 
-
 <DIV>
 <H2 id="7">7. Integrated Development Environments</H2>
-</P>
-<a href="../index/index.html#Integrated_Development_Environment">Integrated Development Environments</a> (IDEs) are software tools used to make writing code and
+<P><a href="../index/index.html#Integrated_Development_Environment">Integrated Development Environments</a> (IDEs) are software tools used to make writing code and
 developing software easier. This section introduces
 <a href="https://docs.python.org/3/library/idle.html">IDLE</a> and <a href="https://www.spyder-ide.org/">Spyder</a> - IDEs that come with <a href="https://www.anaconda.com/">Anaconda</a>.</P>
 
@@ -850,13 +904,15 @@ The IDLE application has an 'editor window' for editing files of
 Python commands, and a 'console window' for entering REPL
 commands and displaying output. At the Anaconda prompt enter:
 </P>
-<PRE>idle</PRE><P>This should open up the IDLE console window that should look
+<PRE>idle</PRE>
+<P>This should open up the IDLE console window that should look
 something like the image below:
 <br /><img src="../../resources/python/idle1.png"
 alt="The IDLE interface" />
 </P>
 <P>As well as the Python console prompt, there is a <a href="../index/index.html#Graphical_User_Interface">GUI</a> menu. Choose:</P>
-<PRE>File -> Open...</PRE><P>Open your HelloWorld.py file. IDLE should open the file in the
+<PRE>File -> Open...</PRE>
+<P>Open your HelloWorld.py file. IDLE should open the file in the
 editor window that looks something like:
 <br /><img src="../../resources/python/idle2.png"
 alt="The IDLE file editor window interface" />
@@ -865,7 +921,8 @@ alt="The IDLE file editor window interface" />
 the IDLE editor window is styled.
 </P>
 <P>The editor window has other menu options. Select:</P>
-<PRE>Run -> Run Module</PRE><P>This should run the HelloWorld.py file, and output to the
+<PRE>Run -> Run Module</PRE>
+<P>This should run the HelloWorld.py file, and output to the
 console in the other window which should appear something like:
 <br /><img src="../../resources/python/idle3.png"
 alt="The IDLE interface having run the Hello World program" />
@@ -878,7 +935,8 @@ alt="The IDLE interface having run the Hello World program" />
 comes with Anaconda.
 </P>
 <P>From the Anaconda prompt enter:</P>
-<PRE>spyder</PRE><P>It may take a couple of minutes to load, when you should see
+<PRE>spyder</PRE>
+<P>It may take a couple of minutes to load, when you should see
 something like this:
 <br /><img src="../../resources/python/spyder1.png"
 alt="The Spyder interface" />
@@ -888,10 +946,12 @@ right is the 'inspector pane'. The pane to the bottom right is
 the 'console pane'.
 </P>
 <P>From the menu, choose:</P>
-<PRE>File -> Open...</PRE><P>Open your 'HelloWorld.py' file which should appear in the editor
+<PRE>File -> Open...</PRE>
+<P>Open your 'HelloWorld.py' file which should appear in the editor
 pane. From the menu, choose:
 </P>
-<PRE>Run -> Run</PRE><P>If a popup box appears choose the default and this should run
+<PRE>Run -> Run</PRE>
+<P>If a popup box appears choose the default and this should run
 your program and output should appear in the console like in the
 following image:
 <br /><img src="../../resources/python/spyder2.png"
@@ -899,7 +959,8 @@ alt="The Spyder interface showing the Hello World program
 successfully ran" />
 </P>
 <P>Use the editor and add the following in line 2:</P>
-<PRE>x = y</PRE><P>Try to run the file again. It should raise a <a href="../index/index.html#Python_NameError">NameError</a> and there should be marks against the code on line 2 on the left
+<PRE>x = y</PRE>
+<P>Try to run the file again. It should raise a <a href="../index/index.html#Python_NameError">NameError</a> and there should be marks against the code on line 2 on the left
 and right of the editor pane. Hover your mouse cursor over the
 mark on the left. You should see something similar to the image
 below:
@@ -919,7 +980,6 @@ that might be useful to you in future include:
 <!-- Eclipse, Netbeans and VS Code are other IDEs that may
 support Python --></P>
 </DIV>
-
 
 <DIV>
 <H2 id="8">8. QGIS Desktop Python Console</H2>
@@ -941,18 +1001,22 @@ changed since version 3.22 which was the version used when this
 was last checked.
 </P>
 <P>From the GUI Menu select:</P>
-<PRE>Plugins > Python Console</PRE><P>You should see something like:
+<PRE>Plugins > Python Console</PRE>
+<P>You should see something like:
 <br /><img src="../../resources/python/qgis1.png"
 alt="QGIS Desktop Python Console basic interface" />
 </P>
 <P>Perhaps some buttons, a display area and a Python prompt:</P>
-<PRE>>>></PRE><P>At the Python prompt enter:</P>
-<PRE>dir()</PRE><P>A considerable amount of functionality should be listed in the
+<PRE>>>></PRE>
+<P>At the Python prompt enter:</P>
+<PRE>dir()</PRE>
+<P>A considerable amount of functionality should be listed in the
 display area of the Python Console.
 </P>
 <P>To list the functionality of the QGIS Desktop interface, enter:
 </P>
-<PRE>dir(iface)</PRE><P><a href="../index/index.html#PyQGIS">PyQGIS</a> provides programatic access to functionality that can also be
+<PRE>dir(iface)</PRE>
+<P><a href="../index/index.html#PyQGIS">PyQGIS</a> provides programatic access to functionality that can also be
 accessed via the QGIS Desktop GUI. It gives greater control in
 data loading and processing and can be used to extend the
 available functionality.
@@ -999,7 +1063,6 @@ PyQGIS Development Cookbook: Plugins Web Page: Section on Developing Python Plug
 </LI>
 </UL>
 </DIV>
-
 
 <DIV>
 <H2 id="9">9. Python Packages and Environment Management</H2>
@@ -1079,20 +1142,23 @@ operating systems.
 write files and enter the following command to create a list of
 Python packages available in the Python environment:
 </P>
-<PRE>pip list > piplist.txt</PRE><P>It may take a minute or so to run. It should output an
+<PRE>pip list > piplist.txt</PRE>
+<P>It may take a minute or so to run. It should output an
 ASCII text file containing a list of names with version numbers
 similar to:
 <a href="../../resources/python/piplist.txt">piplist.txt</a>.
 </P>
 <P>Enter the following command to create a similar list:</P>
-<PRE>conda list > condalist.txt</PRE><P>Again, it may take a minute or so to run. It should output an
+<PRE>conda list > condalist.txt</PRE>
+<P>Again, it may take a minute or so to run. It should output an
 ASCII text file like similar to:
 <a href="../../resources/python/condalist.txt">condalist.txt</a>.
 </P>
 <P>Enter the following command to create an explicit list of all
 the conda packages saved in a file named 'spec-file.txt':
 </P>
-<PRE>conda list --explicit > spec-file.txt</PRE><P>This file can be used to attempt to replicate the Python
+<PRE>conda list --explicit > spec-file.txt</PRE>
+<P>This file can be used to attempt to replicate the Python
 environment on another resource. For details of how
 to do that see:
 <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment">
@@ -1100,11 +1166,13 @@ The Conda User Guide Page on Managing Environments Section on
 Sharing an Environment</a>
 </P>
 <P>Get a list of available Conda environments. Enter:</P>
-<PRE>conda env list</PRE><P>The list is displayed and should look something like:</P>
+<PRE>conda env list</PRE>
+<P>The list is displayed and should look something like:</P>
 <PRE># conda environments:
 #
 base                  *  C:\ProgramData\Anaconda3
-</PRE><P>Often users create a Python environment for a specific purpose
+</PRE>
+<P>Often users create a Python environment for a specific purpose
 and only specific packages are installed for that. The
 following set of instructions install the default Python
 environment that comes with Anaconda, then install in this all
@@ -1133,7 +1201,8 @@ M:\python\envs</P>
 directory path as follows:
 </P>
 <PRE>conda create -p " + envPath
-</PRE><P>The -p option is the option to use a path to get conda to
+</PRE>
+<P>The -p option is the option to use a path to get conda to
 install the environment in a particular location. The path
 example given here is for Windows if using Linux or MacOS, then
 the path will be different. By default conda creates
@@ -1144,11 +1213,13 @@ pressing the &lt;y> key when prompted. Creating the environment
 should just take a few seconds. Once created, check it is
 listed:
 </P>
-<PRE>conda env list</PRE><P>You should see something like what is shown below:</P>
+<PRE>conda env list</PRE>
+<P>You should see something like what is shown below:</P>
 <PRE># conda environments:
 #
 base             *  C:\ProgramData\Anaconda3"
-myenv               M:\python\envs\myenv</PRE><P>Details may vary depending on where you created the environment
+myenv               M:\python\envs\myenv</PRE>
+<P>Details may vary depending on where you created the environment
 and what you called it.
 </P>
 <P>Conda environments are registered/listed in the '.conda'
@@ -1158,7 +1229,8 @@ directory in the user home directory in a file with the name
 <P>Assuming you named your environment 'myenv', activate it by
 entering:
 </P>
-<PRE>conda activate M:\python\envs\myenv</PRE><P>The prompt should change to have "(myenv)" prepended instead of
+<PRE>conda activate M:\python\envs\myenv</PRE>
+<P>The prompt should change to have "(myenv)" prepended instead of
 (base)
 </P>
 <P>Next install the following Python packages:</P>
@@ -1182,25 +1254,30 @@ Contextily</a>
 </LI>
 </UL>
 <P>Enter:</P>
-<PRE>conda install -c conda-forge contextily fiona folium geopandas pip pysal ipykernel spyder spyder-kernels=2.2</PRE><P>The installation may take some time... Once it is complete,
+<PRE>conda install -c conda-forge contextily fiona folium geopandas pip pysal ipykernel spyder spyder-kernels=2.2</PRE>
+<P>The installation may take some time... Once it is complete,
 install pyqt5 using pip by entering:
 </P>
-<PRE>pip install pyqt5</PRE><P>Next, install 'myenv' into the 'ipykernel' so it will be
+<PRE>pip install pyqt5</PRE>
+<P>Next, install 'myenv' into the 'ipykernel' so it will be
 available via the Jupyter Notebook interface:
 </P>
-<PRE>python -m ipykernel install --user --name=myenv</PRE><P>Download;
+<PRE>python -m ipykernel install --user --name=myenv</PRE>
+<P>Download;
 <a href="../../resources/python/Jupyter1.ipynb">
 Jupyter1.ipynb</a>, save it to a directory and start
 Jupyter Notebook so it can load the file.
 </P>
 <P>Enter the following to run Jupyter Notebook:</P>
-<PRE>jupyter notebook --NotebookApp.max_buffer_size=1073741824</PRE><P>This gives Jupyter Notebook twice as much memory as the current
+<PRE>jupyter notebook --NotebookApp.max_buffer_size=1073741824</PRE>
+<P>This gives Jupyter Notebook twice as much memory as the current
 default (which helps prevent memory errors being encountered).
 </P>
 <P>Wait for a Web browser tab to appear with the Jupyter Notebook
 interface. When it appears select:
 </P>
-<PRE>New > myenv</PRE><P>Open 'Jupyter1.ipynb' read and run it cell by cell.</P>
+<PRE>New > myenv</PRE>
+<P>Open 'Jupyter1.ipynb' read and run it cell by cell.</P>
 <P>If for some reason that does not work, then try something
 simpler and copy the code below into a cell and run it.
 </P>
@@ -1223,19 +1300,21 @@ ccg.add_to(map)
 map
 </CODE></PRE>
 
+
 <P>This should produce a slippy map with an icon on it that looks
 something like:
 <br /><img src="../../resources/python/jupyter4.png"
 alt="Jupyter Notebook Interface 4" />
 </P>
 <P>From the Jupyter Notebook interface choose:</P>
-<PRE>new > Python 3 (ipykernel)</PRE><P>Try running the same code. Most likely, the folium package is
+<PRE>new > Python 3 (ipykernel)</PRE>
+<P>Try running the same code. Most likely, the folium package is
 not installed in your base environment and the following error
 is thrown:
 </P>
 <PRE>---------------------------------------------------------------------------
 ModuleNotFoundError                       Traceback (most recent call last)
-Input In [1], in <cell line: 1>()
+Input In [1], in &lt;cell line: 1>()
 ----> 1 import folium
       3 map = folium.Map(
       4     location=(53.804, -1.555),
@@ -1249,9 +1328,12 @@ Input In [1], in <cell line: 1>()
      13 )
 
 ModuleNotFoundError: No module named 'folium'
-</PRE><P>Exit Jupyter Notebook and deactivate myenv by entering:</P>
-<PRE>deactivate myenv</PRE><P>To remove the conda environment myenv use:</P>
-<PRE>conda remove --name myenv --all</PRE><P>This ends the section on environment management and installing
+</PRE>
+<P>Exit Jupyter Notebook and deactivate myenv by entering:</P>
+<PRE>deactivate myenv</PRE>
+<P>To remove the conda environment myenv use:</P>
+<PRE>conda remove --name myenv --all</PRE>
+<P>This ends the section on environment management and installing
 packages.
 </P>
 <P>Below are key references for installing packages using pip and
@@ -1267,7 +1349,6 @@ https://docs.anaconda.com/anaconda/user-guide/tasks/install-packages/</a>
 </LI>
 </UL>
 </DIV>
-
 
 <DIV>
 <H2 id="10">10. Recap and Expectations</H2>
@@ -1299,7 +1380,6 @@ with developing Python code and as you think about undertaking
 projects.
 </P>
 </DIV>
-
 
 <DIV>
 
