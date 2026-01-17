@@ -40,16 +40,17 @@
  </LI>
  <LI><A href="#3">3. Learning to Program</A></LI>
  <LI><A href="#4">4. Language Evolution, Deprecation and Versions</A></LI>
+ <LI><A href="#5">5. Considerata</A></LI>
 </UL>
 </DIV>
 
 
 <DIV>
 <H2 id="1">1. Introduction</H2>
-<P><a href="../index/index.html#Computer_programming">Computer programming</a> is the process of developing and running <a href="../index/index.html#Computer_program">computer programs</a>, and is often abbreviated to 'programming' and sometimes
+<P><a href="../index/index.html#Computer_programming">Computer programming</a> is the process of developing and running <a href="../index/index.html#Computer_program">computer programs</a>, and is often abbreviated to 'programming' anprogad sometimes
 referred to as 'coding' (although coding is perhaps a more
-general term). Computer progams are often referred to as
-'programs' or '<a href="../index/index.html#Executable">executables</a>' or '<a href="../index/index.html#Software">software</a>'. Programs run in an <a href="../index/index.html#Operating_System">operating system</a> environment on computational <a href="../index/index.html#Computer_hardware">hardware</a>.</P>
+general term). Computer programs are often referred to as
+'programs', '<a href="../index/index.html#Executable">executables</a>' or '<a href="../index/index.html#Software">software</a>'. Programs run in an <a href="../index/index.html#Operating_System">operating system</a> environment on computational <a href="../index/index.html#Computer_hardware">hardware</a>.</P>
 <P>A contemporary general-purpose computer is sometimes called a
 workstation, desktop or laptop. These typically have a
 <a href="../index/index.html#Keyboard">keyboard</a> and <a href="../index/index.html#Mouse">mouse</a> for user input, a visual display screen (<a href="../index/index.html#Monitor">monitor</a>), smaller amounts of faster more volatile data storage (<a href="../index/index.html#Memory">memory</a>), and larger amounts of more persistent data storage (<a href="../index/index.html#Disk_storage">disk</a>) that is organised using a <a href="../index/index.html#File_System">file system</a>. Such computers may have other inbuilt or perpherally
@@ -64,6 +65,7 @@ networked general purpose computers collectively have a lot of
 power. It is not easy to utilise this power efficiently, so
 research facilities often make available
 <a href="../index/index.html#Supercomputer">Supercomputers</a> for <a href="../index/index.html#High_Performance_Computing">High Performance Computing</a>.</P>
+</DIV>
 
 <DIV>
 <H2 id="2">2. Data</H2>
@@ -91,6 +93,7 @@ alphabet in both lower and upper case, the ten numeric digits
 <P>Commonly, there are multiples of 8 bits in a byte, but there
 can be any number.
 </P>
+</DIV>
 
 <DIV>
 <H3 id="2.2">2.2. File Formats</H3>
@@ -114,6 +117,7 @@ format. The file format can also be detailed in external
 <P>File formats are revisited in
 <a href="../io/index.html#5">IO Section 5.</a>
 </P>
+</DIV>
 
 <DIV>
 <H3 id="2.3">2.3. Integers and Floating Point</H3>
@@ -138,6 +142,8 @@ is completely accurate and precise, for others the result cannot
 be stored exactly in the encoding and is effectively rounded
 either up or down.
 </P>
+</DIV>
+</DIV>
 
 <DIV>
 <H2 id="3">3. Learning to Program</H2>
@@ -223,15 +229,22 @@ seem strange. Usually, there is a good reason why something
 works and is written the way it is, but no language is perfect
 and there may well be a better way...
 </P>
+</DIV>
 
 <DIV>
 <H2 id="4">4. Language Evolution, Deprecation and Versions</H2>
-<P>High level computer programming languages like <a href="../index/index.html#Java">Java</a> and <a href="../index/index.html#Python">Python</a> can evolve rapidly. Occasionally new languages are developed.
-Some programming languages are retired or become obsolete, and
-some older versions of languages become unsupported over time.
-The release cadence is how often releases are made. Sometimes
-releases are of different kinds which are supported for
-different periods.
+<P>High level computer programming languages like <a href="../index/index.html#Python">Python</a>, <a href="../index/index.html#Java">Java</a> and <a href="../index/index.html#C++_Programming_Language">C++</a> tend to evolve more rapidly than lower level languages like <a href="../index/index.html#C_Programming_Language">C</a>. New languages get developed and released which is exciting,
+but keep up with all developments is challenging! Why develop
+new languages rather than modify existing ones? Well, it depends
+on what the goals are and to some extent who is in control. Some
+programming languages get retired or become obsolete. Most old
+versions of languages become unsupported in time. How often a
+new version of a language or some software is release is
+referred to as the "release cadence". The more rapid the release
+cadence, the faster a language is evolving. Some changes though
+are breaking changes and whilst multiple releases might be
+supported for a time, old versions typically become obsolete
+after a few years.
 </P>
 <P>Supporting <a href="../index/index.html#Backward_compatibility">backward compatibility</a> - interoperability with older versions - has both costs and
 benefits. These costs and benefits are weighed up by those
@@ -239,10 +252,9 @@ developing languages that tyically have a process of deciding
 how things change.
 </P>
 <P>Changes that are not backward compatible can create a lot of
-work! It is also discouraging if old code does not work with
-newer language interpreters as this results in reliance on old
-versions which can be problematic and have cyber security
-implications.
+work! Also, old code that does not work with newer language
+interpreters can result in reliance on old versions which is
+problematic and can have cyber security implications.
 </P>
 <P>Languages compete for users and developers. Often new features
 in one language are implemented in other languages soon after.
@@ -253,7 +265,8 @@ taken by the developer community.
 <P>As new syntax, new functionality and more efficient ways of
 doing things evolve in a language, some code either becomes
 obsolete, or is best changed to use the new ways. This can
-require considerable effort to retire or update (refactor) code.
+require considerable effort although there are often tools that
+help.
 </P>
 <P>Fundamental changes in language syntax are associated with
 major new versions of a language. Minor versions may add new
@@ -265,6 +278,41 @@ software. It is part of a process of phasing things out. Things
 are first marked as deprecated in a version, then in subsequent
 versions the things are removed.
 </P>
+</DIV>
+
+<DIV>
+<H2 id="5">5. Considerata</H2>
+<P>For many reasons, a key one in science and for evidence
+based policy being '
+<a href="../index/index.html#Reproducibility">reproducibility</a>', it is important to know what version of a language and any
+third party components a program has been tested with, and
+results have been produced with.
+</P>
+<P>With any language, there are often several ways to achieve the
+same or a similar thing. Some ways may work faster, can handle
+larger volumes of data, or might be more concise in terms of the
+amount of source code. There might be no obvious right way to do
+something - so sometimes, independent programming efforts
+produce significantly different code that essentially does the
+same thing. In other instances, and especially where
+there are style and naming guidelines, source code produced
+independently may be almost identical.
+</P>
+<P>In learning to program, and in programming generally, code
+review is an important way to transfer skills and knowledge,
+develop good practise and improve code and software.
+</P>
+<P>Scientific research software source code should be easy to
+understand, easy to maintain, efficient, reliable, well tested,
+well documented and open source. Not all scientific research
+software in use today is like this!
+</P>
+<P>Remember to take care and think about the trustworthiness of
+any code you run.
+</P>
+<P>Please adhere to the terms and conditions of software licenses.
+</P>
+</DIV>
 
 <DIV>
 
