@@ -57,7 +57,6 @@ while (x &lt; 10):
     x += 1
 </CODE></PRE>
 
-
 <P>If a while loops condition never evaluates as 'False' then the
 loop will continue indefinitely. This is sometimes a reason why
 a program fails to terminate when you were expecting it to.
@@ -75,7 +74,6 @@ while (x != 0):
 print(x)
 </CODE></PRE>
 
-
 <P>The output of which is:</P>
 <PRE>999991</PRE>
 <P>The <a href="../index/index.html#Python_continue">continue</a> statement gets the program to return to the start of a loop
@@ -89,7 +87,6 @@ while x &lt; 10:
         continue
     print(x, end =" ")
 </CODE></PRE>
-
 
 <P>The output of which is:</P>
 <PRE>1 3 5 7 9</PRE>
@@ -115,7 +112,6 @@ value '1' and so on:
     print(x)
 </CODE></PRE>
 
-
 <P>For sequences of numbers, it is much more common to use a <a href="../index/index.html#Python_range">range</a>, for example, the following does the same as the previous
 example:
 </P>
@@ -123,13 +119,11 @@ example:
     print(x)
 </CODE></PRE>
 
-
 <P>It is also common to use a slice, for example:</P>
 <PRE><CODE class="language-python">names = ("Dale", "Albert", "Gordon", "Tamara", "Philip", "Chester", "Windom")
 for name in names[1:5:2]:
     print(name) # &lt;-- Prints "Albert", "Tamara"
 </CODE></PRE>
-
 
 <P>Sometimes it is helpful to know the index in the sequence when
 iterating, so alternatively we can do the following:
@@ -138,7 +132,6 @@ iterating, so alternatively we can do the following:
 for i in range(len(names)):
     print(i, names[i])
 </CODE></PRE>
-
 
 <P>Note, that 'i' cannot be changes within the loop to skip
 objects. As assignment for 'i' would creates a new variable. So
@@ -150,7 +143,6 @@ for i in range(len(names)):
     i += 2
     print(i)
 </CODE></PRE>
-
 
 <P>Produces:</P>
 <PRE>0 Dale
@@ -177,12 +169,10 @@ for i in range(2,len(names),2):
     print(names[i])
 </CODE></PRE>
 
-
 <P>Instead of:</P>
 <PRE><CODE class="language-python">for name in names[2::2]:
     print(name)
 </CODE></PRE>
-
 
 <P>A disadvantage of not having an index counter and using a
 sequence is that it makes it harder to remove items from the
@@ -197,7 +187,6 @@ for name in names:
 print(names)
 </CODE></PRE>
 
-
 <P>A solution to this is to create a slice containing everything
 and then remove from the original list:
 </P>
@@ -206,7 +195,6 @@ for name in names[:]:
     names.remove(name)
 print(names)
 </CODE></PRE>
-
 
 <P>It would though probably be better to simply reinitialise
 'names' as an empty list.
@@ -240,7 +228,6 @@ for row in data:
     print()
 </CODE></PRE>
 
-
 <P>The output of this program is:</P>
 <PRE>0 1 2
 3 4 5
@@ -257,7 +244,6 @@ for row in range(len(data)):
         print(data[row][col], end=" ")
     print()
 </CODE></PRE>
-
 
 <P>Recall that the <a href="../index/index.html#Python_len">len</a> function, when passed a sequence as a parameter, returns the
 length of the sequence, and the
@@ -304,7 +290,6 @@ for row in range(1, len(data) - 1):
 #print(result)
 </CODE></PRE>
 
-
 <P>The output of which is:</P>
 <PRE>14 15 16 17
 20 21 22 23
@@ -324,7 +309,7 @@ Agent Based Model code.
 
 <P><a id="next" class="nav" href="../abm2/index.html">Next: ABM2</a></P>
 
-<P>Date last modified: 2026-01-17</P>
+<P>Date last modified: 2026-01-18</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 

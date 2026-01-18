@@ -79,7 +79,6 @@ the general form:
     # Function statements
 </CODE></PRE>
 
-
 <P>A function may return one thing which can be a tuple of things.
 This is done with a return statement which starts with the
 keyword 'return' followed by the name of the thing returned. By
@@ -118,13 +117,11 @@ order from left to right, so in the following 'add' function
 print(add(20,30)) # Prints 50
 </CODE></PRE>
 
-
 <P>Default values can be specified as follows:</P>
 <PRE><CODE class="language-python">def add(num1 = 0, num2 = 0):
     return num1 + num2
 print(add(3)) # Prints 3
 </CODE></PRE>
-
 
 <P>As arguments are ordered left to right, in the example, 'num1'
 gets '3', and 'num2' gets nothing and so is set to the default
@@ -137,7 +134,6 @@ For example the following code:
     return num1 + num2
 print(add(3))
 </CODE></PRE>
-
 
 <P>Results in:</P>
 <PRE>SyntaxError: non-default argument follows default argument</PRE>
@@ -160,7 +156,6 @@ assign the parameter values:
 print(add(num2 = 30, num1 = 50))
 </CODE></PRE>
 
-
 <P>Note that the order of the positional arguments is ignored:
 'num2' gets '30'; and, 'num1' gets '50'.
 </P>
@@ -182,7 +177,6 @@ as in the following example:
 print(add(1,2,3,4,5,6,7)) # &lt;-- Prints 28
 </CODE></PRE>
 
-
 <P>The '*' used this way is known as the iterable (un)packing
 operator. If nothing is allocated, the tuple is empty.
 </P>
@@ -198,7 +192,6 @@ print(add(*a)) # &lt;-- Prints 10
 print(add(1,*a, 2)) # &lt;-- Prints 13
 </CODE></PRE>
 
-
 <P>The same can be done with dictionaries using '**dict_name'
 (where '**' is the dictionary (un)packing operator) - which will
 make a dictionary from unallocated kwargs. The following code:
@@ -209,7 +202,6 @@ make a dictionary from unallocated kwargs. The following code:
 
 f1(1, b=2, c=3)
 </CODE></PRE>
-
 
 <P>Produces:</P>
 <PRE>1
@@ -226,7 +218,6 @@ The following code:
 d = {'b':2, 'c':3}
 f1(1,**d)
 </CODE></PRE>
-
 
 <P>Produces:</P>
 <PRE>1
@@ -251,7 +242,6 @@ d = {'c': 100, 'd': 200}
 f1(1, 3, *l, **d)
 </CODE></PRE>
 
-
 <P>Produces:</P>
 <PRE>1 3
 (10, 20, 30)
@@ -270,7 +260,6 @@ d = {'c': 100, 'd': 200, 'b':300}
 
 f1(1, 3, *l, **d)
 </CODE></PRE>
-
 
 <P>Results in:</P>
 <PRE>TypeError: f1() got multiple values for argument 'b'</PRE>
@@ -299,7 +288,6 @@ f1()
 print(a) # Prints 10.
 </CODE></PRE>
 
-
 <P>The variable 'a' is declared and initialised prior to any call
 to f1() and the variable can be accessed from within the
 function f1(). However, assigning a local variable within a
@@ -317,7 +305,6 @@ print(a) # Prints 10.
 f1()
 print(a) # Prints 20 as the function changes the global a.
 </CODE></PRE>
-
 
 <P>With nested functions there are situations where non local and
 non global variables are wanted in the inner function such that
@@ -338,7 +325,6 @@ def f1():
 f1()
 print(a) # Prints 1.
 </CODE></PRE>
-
 
 </DIV>
 
@@ -435,7 +421,6 @@ print(run_time, "seconds to create", n_agents, "agents.")
 </CODE></PRE>
 
 
-
 <DIV>
 <H3 id="4.2">4.2. Lambdas</H3>
 <P></P>
@@ -448,7 +433,6 @@ x = lambda a, b : a / b
 
 print(x(1, 2)) # &lt;-- Prints 0.5.
 </CODE></PRE>
-
 
 <P>Note that: the lambda function is defined with the 'lambda'
 keyword, the parameters are separated with commas, and a colon
@@ -526,7 +510,6 @@ print(caller(add, (1, 2, 3))) # Prints 6
 print(caller(multiply, (1, 2, 3, 4, 5, 6))) # Prints 21
 </CODE></PRE>
 
-
 <P>The following is another example which uses a callback to sort
 items in a list:
 </P>
@@ -554,7 +537,6 @@ for mark in marks:
     print(mark)
 </CODE></PRE>
 
-
 <P>Often a callback is used in event based processing. It allows
 other tasks to be done whilst waiting for an event to happen.
 </P>
@@ -575,7 +557,6 @@ pf = partial(f, 1, 2)
 
 print(pf(3)) # Prints 6
 </CODE></PRE>
-
 
 </DIV>
 
@@ -631,7 +612,6 @@ example:
     return num1 + num2
 </CODE></PRE>
 
-
 <P>For details on docstrings see
 <a href="https://www.python.org/dev/peps/pep-0257/">PEP-0257</a>
 </P>
@@ -653,7 +633,7 @@ function or module the following will display the docstring:
 
 <P><a id="next" class="nav" href="../abm3/index.html">Next: ABM3</a></P>
 
-<P>Date last modified: 2026-01-17</P>
+<P>Date last modified: 2026-01-18</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 

@@ -103,7 +103,6 @@ storing the shares 'store_shares' so it is as follows:
     self.store_shares = 0
 </CODE></PRE>
 
-
 <P>Change 'model.py' so that 'agents' is passed as a parameter in
 the code that constructs each inidivual Agent class instance.
 </P>
@@ -113,7 +112,6 @@ For example after all the agents are initialised try printing
 the agent with i equal to 1 from the agent with i equal to 0:
 </P>
 <PRE><CODE class="language-python">print(agents[0].agents[1])</CODE></PRE>
-
 
 <P>A way to use the 'get_distance' function in
 'agentframework.py' and avoid cyclic imports is to move the
@@ -145,7 +143,6 @@ following method:
     for i in neighbours:
         self.agents[i].store_shares += shares
 </CODE></PRE>
-
 
 <P>This code is using the fact that 'self.i' will be the same as
 the index of an agent in the 'agents' list. In the first for
@@ -187,7 +184,6 @@ for ite in range(1, n_iterations + 1):
     print("total resource", (sum_as + sum_e))
 </CODE></PRE>
 
-
 <P>Run 'model.py' and interpret the output. Add more print
 statements to gain a clear understanding of how the code works.
 </P>
@@ -200,7 +196,6 @@ functions to be within if statement like the following at the
 end of the file:
 </P>
 <PRE><CODE class="language-python">if __name__ == '__main__':</CODE></PRE>
-
 
 <P>Recall that this isolates this code so it is only run if that
 file is the one run and not when the module is imported.
@@ -220,7 +215,6 @@ statements in the code:
 import os
 </CODE></PRE>
 
-
 <P>Before the main simulation loop add the following code:</P>
 <PRE><CODE class="language-python"># Create directory to write images to.
 try:
@@ -234,12 +228,10 @@ ite = 1
 images = []
 </CODE></PRE>
 
-
 <P>Indent the plotting so that this occurs within the main
 simulation loop and replace the following line:
 </P>
 <PRE><CODE class="language-python">plot.show()</CODE></PRE>
-
 
 <P>With:</P>
 <PRE><CODE class="language-python">filename = '../../data/output/images/image' + str(ite) + '.png'
@@ -250,7 +242,6 @@ plt.close()
 images.append(imageio.imread(filename))
 </CODE></PRE>
 
-
 <P>This code should: create plots; save these as images in PNG
 format files; show and close them rapidly; then reload the PNG
 format file and append the image to the images list.
@@ -259,7 +250,6 @@ format file and append the image to the images list.
 turned into an animated GIF format file using:
 </P>
 <PRE><CODE class="language-python">imageio.mimsave('../../data/output/out.gif', images, fps=3)</CODE></PRE>
-
 
 <P>The parameter 'fps' is the number of frames that are shown per
  second.
@@ -288,7 +278,7 @@ using GitHub - push your changes to GitHub.
 
 <P><a id="next" class="nav" href="../exceptions/index.html">Next: Exceptions</a></P>
 
-<P>Date last modified: 2026-01-17</P>
+<P>Date last modified: 2026-01-18</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 

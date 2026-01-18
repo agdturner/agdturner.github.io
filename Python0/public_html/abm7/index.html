@@ -56,7 +56,6 @@ Spyder.
 <P>Add the following import statement:</P>
 <PRE><CODE class="language-python">import matplotlib.animation as anim</CODE></PRE>
 
-
 <P>After initialising agents add the following code block:</P>
 <PRE><CODE class="language-python"># Animate
 # Initialise fig and carry_on
@@ -66,7 +65,6 @@ carry_on = True
 data_written = False
 animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
 </CODE></PRE>
-
 
 <P>Define a new function called 'plot' to contain the
 'Plot agents' code. Add a line to clear fig at the start of
@@ -97,7 +95,6 @@ plt.savefig(filename)
 images.append(imageio.imread(filename))
 plt.show()
 </CODE></PRE>
-
 
 <P>Change the 'main simulation loop' code block into a function
 called 'update' that has a parameter called 'frames'. At the end
@@ -146,7 +143,6 @@ variable and add a random stopping condition as follows:
     plot()
 </CODE></PRE>
 
-
 <P>Define a function called 'gen_function' as follows:</P>
 <PRE><CODE class="language-python">def gen_function():
     global ite
@@ -162,7 +158,6 @@ variable and add a random stopping condition as follows:
         imageio.mimsave('../../data/output/out.gif', images, fps=3)
         data_written = True
 </CODE></PRE>
-
 
 <P>Before running the code, issue the following magic command in
 the Spyder console so that rather than the plot being directed
@@ -233,7 +228,7 @@ duplicate and those unsuccessful die.
 
 <P><a id="next" class="nav" href="../gui/index.html">Next: GUI</a></P>
 
-<P>Date last modified: 2026-01-17</P>
+<P>Date last modified: 2026-01-18</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 

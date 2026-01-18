@@ -68,7 +68,6 @@ class in it as follows:
     pass
 </CODE></PRE>
 
-
 <P>The keyword 'pass' ensures the code is syntactically correct
 and will run.
 </P>
@@ -76,7 +75,6 @@ and will run.
 import statement:
 </P>
 <PRE><CODE class="language-python">import agentframework as af</CODE></PRE>
-
 
 <P>Note that this imports the agentframework module as loaded from
 'agentframework.py' which is to be referred to by 'af'.
@@ -87,7 +85,6 @@ following:
 <PRE><CODE class="language-python">a = af.Agent()
 print("type(a)", type(a))
 </CODE></PRE>
-
 
 <P>Run 'model.py' and examine the output. It should contain the
 following line:
@@ -107,7 +104,6 @@ class Agent:
         self.x = random.randint(0, 99)
         self.y = random.randint(0, 99)
 </CODE></PRE>
-
 
 <P>Note that the <a href="../index/index.html#Python_random">random module</a> is imported as this is used in the Agent constructor '__init__'
 method.
@@ -134,7 +130,6 @@ method in the Agent class as follows:
       + ", y=" + str(self.y) + ")"
 </CODE></PRE>
 
-
 <P>Note that this returns a string which includes the name of the
 class and details of the 'x' and 'y' variable attributes which
 are transformed by the builtins module
@@ -153,7 +148,6 @@ for i in range(n_agents):
     print(agents[i])
 print(agents)
 </CODE></PRE>
-
 
 <P>Run 'model.py' and you should get similar output to the
 following (in the error report, the file paths will probably be
@@ -198,7 +192,6 @@ agents list:
     return str(self)
 </CODE></PRE>
 
-
 <P>Like the '__str__' method, the '__repr__' method overrides from
 the 'type' metaclass, (for details see:
 <a href="../index/index.html#Python_repr">repr</a>.</P>
@@ -210,10 +203,8 @@ function:
 </P>
 <PRE><CODE class="language-python">distance = get_distance(a[0], a[1], b[0], b[1])</CODE></PRE>
 
-
 <P>To be:</P>
 <PRE><CODE class="language-python">distance = get_distance(a.x, a.y, b.x, by)</CODE></PRE>
-
 
 <P>Appreciate that this is easier to read and understand.</P>
 <P>Everywhere else in the 'model.py' that was referring to a
@@ -223,18 +214,14 @@ coordinate from the agents list is to be changed similarly. Run
 <P>In the code change:</P>
 <PRE><CODE class="language-python">agents[i][0]</CODE></PRE>
 
-
 <P>To:</P>
 <PRE><CODE class="language-python">agents[i].x</CODE></PRE>
-
 
 <P>And change:</P>
 <PRE><CODE class="language-python">agents[i][1]</CODE></PRE>
 
-
 <P>To:</P>
 <PRE><CODE class="language-python">agents[i].y</CODE></PRE>
-
 
 <P>Make a further change in the code block that plots agents,
 changing:
@@ -253,7 +240,6 @@ sy = min(agents, key=operator.itemgetter(1))
 plt.scatter(sy[0], sy[1], color='green')
 </CODE></PRE>
 
-
 <P>To:</P>
 <PRE><CODE class="language-python"># Plot the coordinate with the largest x red
 lx = max(agents, key=operator.attrgetter('x'))
@@ -269,7 +255,6 @@ sy = min(agents, key=operator.attrgetter('y'))
 plt.scatter(sy.x, sy.y, color='green')
 </CODE></PRE>
 
-
 <P>Study these changes. Your program should run without raising
 exceptions and produces the same output as previously.
 </P>
@@ -283,14 +268,12 @@ using GitHub - push your changes to GitHub.
 <P>Define a method called 'move' in the Agent class as follows:</P>
 <PRE><CODE class="language-python">def move(self, x_min, y_min, x_max, y_max):</CODE></PRE>
 
-
 <P>Cut the code that moves an individual agent from 'model.py' and
 paste it into the body of the new 'move' method. Replace:
 "agents[i]" with "self" in the method. Where the code was cut
 from, add the following to call the move method:
 </P>
 <PRE><CODE class="language-python">agents[i].move(x_min, y_min, x_max, y_max)</CODE></PRE>
-
 
 <P>Note that in the Agent class, the 'move' method has a parameter
 called 'self', but this is not a parameter that is passed in.
@@ -334,7 +317,6 @@ self.y = random.randint(0, 99)
 pass
 </CODE></PRE>
 
-
 <P>Run 'model.py' and you should get the following error:</P>
 <PRE>Traceback (most recent call last):
 
@@ -363,7 +345,7 @@ using GitHub - push your changes to GitHub.
 
 <P><a id="next" class="nav" href="../io/index.html">Next: IO</a></P>
 
-<P>Date last modified: 2026-01-17</P>
+<P>Date last modified: 2026-01-18</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 

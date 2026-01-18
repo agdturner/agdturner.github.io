@@ -125,7 +125,6 @@ s8 = "strings " + "can be " + "concatenated using '+'"
 print(s8) # &lt;-- Prints "strings can be concatenated using '+'"
 </CODE></PRE>
 
-
 <P>A backslash can also ensure the continuation of a line. For
 example:
 </P>
@@ -133,7 +132,6 @@ example:
 all one line.
 This is a second.''')
 </CODE></PRE>
-
 
 <P>Produces:</P>
 <PRE>This is all one line.
@@ -147,7 +145,6 @@ So, running the following:
 all one line.''')
 </CODE></PRE>
 
-
 <P>Results in:</P>
 <PRE>This is \ # Not a comment
 all one line.
@@ -159,7 +156,6 @@ source code comments:
 "all one line.")
 print("This is a second")
 </CODE></PRE>
-
 
 <P>Results in:</P>
 <PRE>This is all one line.
@@ -181,7 +177,6 @@ print(split0)
 split1 = s.split(delimiter)
 print(split1)
 </CODE></PRE>
-
 
 <P>The two ways produce the same result. The delimeter is optional,
 by default it is any blank space (a continuous sequence of
@@ -213,7 +208,6 @@ singleton = 'hello', # &lt;-- Note the trailing comma.
 print(len(singleton)) # Prints 1
 </CODE></PRE>
 
-
 <P>Try the code yourself, then consider the following code snippet
 which generates part of a
 <a href="https://en.wikipedia.org/wiki/Fibonacci_number">
@@ -227,7 +221,6 @@ while b &lt; 10:
     a, b = b, a+b
 print(b)
 </CODE></PRE>
-
 
 <P>The </P>
 <a href="../index/index.html#Python_while">while statement</a><P>is a loop with an expression that is evaluated each time around
@@ -245,7 +238,6 @@ Such packing/unpacking is not common in other languages
 <PRE><CODE class="language-python">range(start, stop, step) # start and step are optional and default to 0 and 1 repectively
 </CODE></PRE>
 
-
 <P>The parameters: start, stop and step should be integers. The
 range function generates numbers up to but not including stop,
 for example:
@@ -253,7 +245,6 @@ for example:
 <PRE><CODE class="language-python">for x in range(4):
     print(x)
 </CODE></PRE>
-
 
 <P>Results in:</P>
 <PRE>0
@@ -265,7 +256,6 @@ for example:
     print(x)
 </CODE></PRE>
 
-
 <P>Results in:</P>
 <PRE>2
 4
@@ -274,7 +264,6 @@ for example:
 <PRE><CODE class="language-python">for x in range(0,-5,-1)
     print(x)
 </CODE></PRE>
-
 
 <P>Results in:</P>
 <PRE>0
@@ -301,7 +290,6 @@ print(r) # &lt;-- Prints range(0, 5)
 t = tuple(r)
 print(t) # &lt;-- Prints (0, 1, 2, 3, 4)
 </CODE></PRE>
-
 
 <P>There are various <a href="../index/index.html#Python_built-in_function">built-in functions</a> that process sequences, for example
 <a href="https://docs.python.org/3/library/functions.html#min">
@@ -334,7 +322,6 @@ print(any(b)) # Print if any of the items in b are True.
 </CODE></PRE>
 
 
-
 <DIV>
 <H3 id="2.5">2.5. Lists</H3>
 <P><a href="../index/index.html#Python_list">Lists</a> are the mutable form of tuples. Lists have an order, different
@@ -359,7 +346,6 @@ print(type(b))
 print(b)
 </CODE></PRE>
 
-
 <P>Run this code and check if the output is what you expect and
 then have a play around trying some different things.
 </P>
@@ -378,7 +364,6 @@ print("c", c)
 d = a[:] # A complete slice i.e. all items of a
 print("d", d)
 </CODE></PRE>
-
 
 <P>In slicing a list a using a[i:j:k]:</P>
 <UL>
@@ -401,7 +386,6 @@ a[1:3] = b
 print(a) # &lt;-- Prints [0,10,20,30,3,4]
 </CODE></PRE>
 
-
 <P>Notice that the values '1' and '2' originally in index
 positions 1 and 2 of 'a' are replaced by the three values in 'b'.
 It is perhaps easier to thing of replacements as deletions and
@@ -414,7 +398,6 @@ a[1:5] = b
 print(a) # &lt;-- Prints [0,10,20]
 </CODE></PRE>
 
-
 <P>The <a href="../index/index.html#Python_builtins">builtin module</a> function <a href="../index/index.html#Python_zip">zip</a> can be used to combine lists into a sequence of tuples as
 follows:
 </P>
@@ -424,7 +407,6 @@ c = zip(a,b)
 d = list(c)
 print(d) # &lt;-- Prints [(1,10),(2,20),(3,30),(4,40),(5,50)]
 </CODE></PRE>
-
 
 <P>The zip function pairs up the values by index. If the sequences
 have different lengths then the paired up list is the length of
@@ -471,7 +453,6 @@ print(a)
 a.insert(2, 2.5)
 </CODE></PRE>
 
-
 </DIV>
 
 <DIV>
@@ -488,7 +469,6 @@ a.add("orange") # Add "orange" to a
 if "orange" in a:
     print('"or    ange" is in a')
 </CODE></PRE>
-
 
 Traditional mathemetical set functions like union() and
 intersection() are available for sets which can also be
@@ -511,7 +491,6 @@ value for a particular key and prints it:
 print(alias.get("rm")) # &lt;-- This should print 'remove'.
 </CODE></PRE>
 
-
 <P>There are functions that help with modifying and processing
 dictionaries.
 </P>
@@ -527,7 +506,7 @@ Python documentation tutorial about data structures</a>.
 
 <P><a id="next" class="nav" href="../branching/index.html">Next: Branching</a></P>
 
-<P>Date last modified: 2026-01-17</P>
+<P>Date last modified: 2026-01-18</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 

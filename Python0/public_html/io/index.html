@@ -84,7 +84,6 @@ at the Python prompt and enter some keyboard input:
 print("The input detected is:", n_agents)
 </CODE></PRE>
 
-
 </DIV>
 
 
@@ -142,7 +141,6 @@ for line in f:
 f.close()
 </CODE></PRE>
 
-
 <P>The <a href="https://docs.python.org/3/c-api/file.html">
 File Object</a> returned from the above
 <a href="../index/index.html#Python_open">open</a><P> function call 'f' is best closed once it is read by calling it's
@@ -159,7 +157,6 @@ the previous snippet:
     for line in f:
         print(line)
 </CODE></PRE>
-
 
 <P>This saves having to close the file, but it is awkward this
 way to read several files simultaneously.
@@ -196,7 +193,6 @@ for line in a:
 f.close()
 </CODE></PRE>
 
-
 <P>Note the additional 'w' parameter passed into the Open
 Function which prepares the file a.out to be written to. Writing
 to a file requires different preparation to reading from a file.
@@ -216,7 +212,6 @@ with open("a.out", 'w') as f:
     for line in a:
         f.write(line)
 </CODE></PRE>
-
 
 </DIV>
 
@@ -303,7 +298,6 @@ for line in f:
 print(data)
 </CODE></PRE>
 
-
 <P>It is easier to read and write CSV format files using functions
 from the Python standard library
 <a href="../index/index.html#Python_csv">csv module</a> written specifically to do this. The following is an example of
@@ -317,7 +311,6 @@ for row in reader: # A list of rows
         print(value) # Floats
 f.close()
 </CODE></PRE>
-
 
 <P>The keyword argument 'quoting=csv.QUOTE_NONNUMERIC' not only
 puts quotation marks around non numeric data, but also converts
@@ -334,7 +327,6 @@ for row in data:
 f.close()
 </CODE></PRE>
 
-
 <P>The optional delimiter kwarg specified here delimits using a
 space ' ' instead of the default comma ',', so this would
 actually not generate CSV format data!
@@ -347,14 +339,12 @@ f.close()
 print(data)
 </CODE></PRE>
 
-
 <P>The following code can be used to write a JSON file:</P>
 <PRE><CODE class="language-python">import json
 f = open('data.json', 'w')
 json.dump(data, f)
 f.close()
 </CODE></PRE>
-
 
 <P>The standard library for processing HTML and XML is:
 <a href="https://docs.python.org/3/library/markup.html">
@@ -398,12 +388,10 @@ program. For example, the following will print the
 print(os.environ["PATH"])
 </CODE></PRE>
 
-
 <P>And the following will print a list of every file and directory
 in the current working directory:
 </P>
 <PRE><CODE class="language-python">print os.listdir(path='.')</CODE></PRE>
-
 
 <P>The standard library
 <a href="https://docs.python.org/3/library/pathlib.html">
@@ -430,7 +418,7 @@ directories.
 
 <P><a id="next" class="nav" href="../abm5/index.html">Next: ABM5</a></P>
 
-<P>Date last modified: 2026-01-17</P>
+<P>Date last modified: 2026-01-18</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 

@@ -77,7 +77,6 @@ name of the class, parentheses, and a colon, for example:
 </P>
 <PRE><CODE class="language-python">class Agent():</CODE></PRE>
 
-
 Class names separated by commas can be added in the parentheses
 to declare parent classes that the class inherits from. Class
 inheritence is detailed further in <a href="#3">Section 3</a>.
@@ -99,7 +98,6 @@ zero:
         self.y = 0
 </CODE></PRE>
 
-
 <P>Suppose this class was in a file named 'agentframework.py' -
 and so in a module named 'agentframework', it could be
 instantiated from a script in the same directory as
@@ -108,7 +106,6 @@ instantiated from a script in the same directory as
 <PRE><CODE class="language-python">import agentframework
 a = agentframework.Agent()
 </CODE></PRE>
-
 
 <P>And the 'x' and 'y' aatribute variables of 'a' - the instance
 of the class could then be accessed using the dot operator '.'
@@ -120,7 +117,6 @@ a.x = 3 # &lt;-- Sets the values of a.x to be 3
 a.y = a.y + 1 # &lt;-- Increases the value of a.y by 1
 </CODE></PRE>
 
-
 <P>A class constructor method may accept multiple arguments. For
 example, the initial values for 'x' and 'y' could be passed in
 as follows:
@@ -130,7 +126,6 @@ as follows:
         self.x = x
         self.y = y
 </CODE></PRE>
-
 
 <P>When instantiating an instance of this Agent class, it is
 necessary to pass in two argument as the constructor method does
@@ -142,7 +137,6 @@ above:
 a = agents.Agent(0, 0)
 </CODE></PRE>
 
-
 <P>The parameters 'x' and 'y' do not have to have names
 corresponding to the attributes, and they can be given default
 values making it optional as to whether these are supplied, by
@@ -153,7 +147,6 @@ changing the constructor method as follows:
         self.x = x
         self.y = y
 </CODE></PRE>
-
 
 </DIV>
 
@@ -202,7 +195,6 @@ class Wolf(Agent):
         super().__init__(x, y)
         self.pack = pack
 </CODE></PRE>
-
 
 <P>The constructor methods of the Goat and Wolf classes call the
 superclass constructor method. Each instance of Goat would be
@@ -257,14 +249,12 @@ attribute _x:
     x = property(getx, setx, delx, "I'm the 'x' property.")
 </CODE></PRE>
 
-
 <P>This could be used from another module as follows:</P>
 <PRE><CODE class="language-python">import agents:
 a = agent.Agent(0, 0):
 a.x = 3
 print(a.x) # &lt;-- Prints 3
 </CODE></PRE>
-
 
 <P>So, rather than access the attribute _x directly, this is done
 via a function which is aliased as x.
@@ -290,7 +280,6 @@ as follows:
     def x(self):
         del self._x
 </CODE></PRE>
-
 
 Details of this are provided in:
 <a href="https://docs.python.org/3/library/functions.html#property">
@@ -321,7 +310,6 @@ class Goat(Agent):
         return super().__str__() + ", hungry=" + self.str(hungry)
 </CODE></PRE>
 
-
 <P>More details on customisation can be found in
 <a href="https://docs.python.org/3/reference/datamodel.html#basic-customization">
 The Python 3 Language Reference Data Model Chapter Section on Basic Customization</a>.
@@ -340,7 +328,7 @@ The Python Tutorial on Classes</a>.
 
 <P><a id="next" class="nav" href="../abm4/index.html">Next: ABM4</a></P>
 
-<P>Date last modified: 2026-01-17</P>
+<P>Date last modified: 2026-01-18</P>
 
 <P><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0 Licence</a></P>
 
